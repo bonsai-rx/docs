@@ -4,6 +4,8 @@ title: Closed-Loop Systems
 permalink: /articles/closed-loop/
 ---
 
+# Closed-Loop Systems
+
 In a closed-loop experiment, we want the behaviour data to generate feedback in real-time into the external world, establishing a relationship where the output of the system depends on detected sensory input. Many behavioural experiments in neuroscience require some kind of closed-loop interaction between the subject and the experimental setup. The exercises below will show you how to use the online data processing capabilities of Bonsai to create and benchmark many different kinds of closed-loop systems.
 
 ## Measuring closed-loop latency
@@ -14,7 +16,7 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 
 ### **Exercise 1:** Measuring serial port communication latency
 
-![Arduino Closed-Loop Latency]({{ site.baseurl }}/assets/images/closed-loop-latency-arduino.svg)
+![Arduino Closed-Loop Latency](~/images/closed-loop-latency-arduino.svg)
 
 - Connect the digital pin 8 on the Arduino to digital pin 13 using a jumper wire.
 - Insert a `DigitalInput` source and set its `Pin` property to 8.
@@ -30,7 +32,7 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 
 ### **Exercise 2:** Measuring video acquisition latency
 
-![Video Closed-Loop Latency]({{ site.baseurl }}/assets/images/closed-loop-latency-video.svg)
+![Video Closed-Loop Latency](~/images/closed-loop-latency-video.svg)
 
 - Connect a red LED to Arduino digital pin 13.
 - Insert a `CameraCapture` source.
@@ -63,7 +65,7 @@ _Given the measurements obtained in Exercise 2, what would you estimate is the *
 
 ### **Exercise 3:** Triggering a digital line based on region of interest activity
 
-![Triggering a digital line on ROI activity]({{ site.baseurl }}/assets/images/closed-loop-roi.svg)
+![Triggering a digital line on ROI activity](~/images/closed-loop-roi.svg)
 
 - Insert a `CameraCapture` source.
 - Insert a `Crop` transform.
@@ -82,7 +84,7 @@ _Given the measurements obtained in Exercise 2, what would you estimate is the *
 
 ### **Exercise 4:** Modulating stimulus intensity based on distance to a point
 
-![Playing a dynamic sound]({{ site.baseurl }}/assets/images/closed-loop-generator.svg)
+![Playing a dynamic sound](~/images/closed-loop-generator.svg)
 
 - Insert a `FunctionGenerator` source.
 - Set the `Amplitude` property to 500, and the `Frequency` property to `200`.
@@ -91,7 +93,7 @@ _Given the measurements obtained in Exercise 2, what would you estimate is the *
 
 If you run the workflow, you should hear a pure tone coming through the speakers. The `FunctionGenerator` periodically emits buffered waveforms with values ranging between 0 and `Amplitude`, the shape of which changes the properties of the tone. For example, by changing the value of `Amplitude` you can make the sound loud or soft. The next step is to modulate the `Amplitude` property dynamically based on the distance of the object to a target.
 
-![Modulating stimulus intensity based on distance to a point]({{ site.baseurl }}/assets/images/closed-loop-modulate.svg)
+![Modulating stimulus intensity based on distance to a point](~/images/closed-loop-modulate.svg)
 
 - Create a video tracking workflow using `ConvertColor`, `HsvThreshold`, and the `Centroid` operator to directly compute the centre of mass of a colored object.
 - Insert a `Subtract` transform and configure the `Value` property to be some target coordinate in the image.
@@ -114,7 +116,7 @@ The result of the `Subtract` operator will be a vector pointing from the target 
 
 ### **Exercise 5:** Triggering a digital line based on distance between objects
 
-![Triggering a digital line based on distance between objects]({{ site.baseurl }}/assets/images/closed-loop-trigger.svg)
+![Triggering a digital line based on distance between objects](~/images/closed-loop-trigger.svg)
 
 - Reproduce the above object tracking workflow using `FindContours` and `BinaryRegionAnalysis`.
 - Insert a `SortBinaryRegions` transform. This operator will sort the list of objects by area, in order of largest to smallest.
@@ -150,7 +152,7 @@ def process(value):
 
 ### **Exercise 6:** Centring the video on a tracked object
 
-![Shifting the video using warp affine]({{ site.baseurl }}/assets/images/closed-loop-warpaffine.svg)
+![Shifting the video using warp affine](~/images/closed-loop-warpaffine.svg)
 
 - Insert a `CameraCapture` source.
 - Insert a `WarpAffine` transform. This node applies affine transformations on the input defined by the `Transform` matrix.
@@ -158,7 +160,7 @@ def process(value):
 - Create an `AffineTransform` source and connect it to the externalized property.
 - Run the workflow and change the values of the `Translation` property while visualizing the output of `WarpAffine`. Notice that the transformation induces a translation in the input image controlled by the values in the property.
 
-![Centring the video on a tracked object]({{ site.baseurl }}/assets/images/closed-loop-stabilization.svg)
+![Centring the video on a tracked object](~/images/closed-loop-stabilization.svg)
 
 - In a new branch, create a video tracking pipeline using `ConvertColor`, `HsvThreshold`, and the `Centroid` operator to directly compute the centre of mass of a colored object.
 - Insert a `Negate` transform. This will make the X and Y coordinates of the centroid negative.
@@ -182,7 +184,7 @@ We now want to map our negative centroid to the `Translation` property of `Affin
 
 On this exercise we will use the Pan and Tilt servo motor assembly to make the camera itself always point to the tracked object. The goal will be to keep the object always in the centre of the visual field of the camera. If the object is to the left of the centre, we turn the camera left, if it is to the right, we need to turn the camera right.
 
-![Computing the deviation from the image centre]({{ site.baseurl }}/assets/images/closed-loop-pantilt-error.svg)
+![Computing the deviation from the image centre](~/images/closed-loop-pantilt-error.svg)
 
 - Insert a `CameraCapture` source.
 - Insert nodes to complete a video tracking workflow using `ConvertColor`, `HsvThreshold`, and the `Centroid` operator.
@@ -195,7 +197,7 @@ To make the Pan and Tilt servo motors correct the position of the camera, we now
 
 The output of this workflow will be a relative error signal indicating how much from the centre, and in which direction, the motor should turn. However, the commands to the servo are absolute motor positions in degrees. This means we will need to integrate the relative error signals to get the actual position where the servo should be. We also need to be aware of the servo operational range (0 to 180 degrees) in order not to damage the motors. To accomplish this, we will develop a new operator to compute the error-corrected integration before sending the final command to the servos.
 
-![Computing the servo commands]({{ site.baseurl }}/assets/images/closed-loop-pantilt-servo.svg)
+![Computing the servo commands](~/images/closed-loop-pantilt-servo.svg)
 
 - Insert a `PythonTransform` operator after `Rescale`. Change the `Script` property to the following code:
 
@@ -218,7 +220,7 @@ def process(value):
 - Configure the `PortName` to the Arduino port where the micro-controller is connected.
 - Run the workflow and validate the horizontal position of the motor is adjusted to keep the object in the middle.
 
-![Rescale Coordinates]({{ site.baseurl }}/assets/images/closed-loop-pantilt-tracking.svg)
+![Rescale Coordinates](~/images/closed-loop-pantilt-tracking.svg)
 
 - Right-click the `Centroid` and select `Output` > `Y` to create a new branch for the vertical Tilt motor.
 - Insert a `Rescale` transform and set the `Max` property to 480 (the image height), and the `RangeMin` and `RangeMax` properties to -1 and 1, respectively (note these values are swapped from before because in image coordinates zero is at the image top).
