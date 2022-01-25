@@ -4,6 +4,8 @@ title: Scripting
 permalink: /articles/scripting/
 ---
 
+# Scripting
+
 The Bonsai compiler includes advanced scripting functionality to allow developing custom operators specifically for your project. These scripts will be compiled together with your workflow. The Bonsai editor makes it easier to bootstrap the required infrastructure and the scripts themselves.
 
 This worksheet will walk you through the basics of getting C# scripting to work with Bonsai and a short exercise in building a project with custom scripts.
@@ -30,11 +32,11 @@ The following set of exercises are to be developed in a single workflow, so do n
 
 Implement the common BonVision render pipeline shown below. The `Draw` operator should be implemented as a `PublishSubject`.
 
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render.svg)
+![BonVision render loop](~/images/bonvision-render.svg)
 
 Next we will create the workflow that will initialize and update the state of the RDK across frames. To do this, we will use a custom operator implemented in C#.
 
-![Random dot kinematogram]({{ site.baseurl }}/assets/images/bonvision-rdk-script.svg)
+![Random dot kinematogram](~/images/bonvision-rdk-script.svg)
 
 - Set the `Name` property of the `BehaviorSubject` to `DotField`.
 - Double-click the `CSharpTransform` operator and follow the instructions to generate a new script file. When prompted, name the script `RandomDotKinematogram`.
@@ -89,7 +91,7 @@ This small script simply generates a field of random dots uniformly distributed 
 
 To visualize the dot field we are generating, we can use the `DrawCircleArray` operator from BonVision.
 
-![Draw kinematogram]({{ site.baseurl }}/assets/images/bonvision-rdk-draw.svg)
+![Draw kinematogram](~/images/bonvision-rdk-draw.svg)
 
 Make sure to set the `PositionData` property to match the name of the `BehaviorSubject` we defined in the previous step (i.e. `DotField`).
 
