@@ -4,13 +4,15 @@ title: Networking
 permalink: /articles/networking/
 ---
 
+# Networking
+
 Bonsai includes support for [Open Sound Control](https://opensoundcontrol.stanford.edu/spec-1_0.html) (OSC), a flexible networking protocol for low-latency communication between different processes, potentially running in different devices over the network. The next exercises will show you how to leverage these primitives for connecting two Bonsai processes exchanging a variety of data. The final optional exercise shows how to leverage the OSC protocol to interface a Python script with a Bonsai workflow.
 
 ### **Exercise 1:** Peer-to-peer UDP communication
 
 We will start by implementing a direct peer-to-peer communication link between two processes on the same machine. This will allow us to send data between two known nodes in the network, or two independent Bonsai processes.
 
-![Send message]({{ site.baseurl }}/assets/images/osc-send-message.svg)
+![Send message](~/images/osc-send-message.svg)
 
 - Setup the above workflow.
 - Set the `Name` property of the `CreateUdpClient` source to `Emitter`.
@@ -19,7 +21,7 @@ We will start by implementing a direct peer-to-peer communication link between t
 
 Open a new Bonsai window and setup the following workflow:
 
-![Receive message]({{ site.baseurl }}/assets/images/osc-receive-message.svg)
+![Receive message](~/images/osc-receive-message.svg)
 
 - Set the `Name` property of the `CreateUdpClient` source to `Receiver`.
 - Set the `Port` property to 2342.
@@ -31,7 +33,7 @@ Open a new Bonsai window and setup the following workflow:
 
 Next we will implement a responsive TCP server with support to accept multiple connections. This will allow us to share data between multiple unknown nodes in the network, where each receiver node just needs to know the IP address of the server and establish a connection to the data stream.
 
-![Send message]({{ site.baseurl }}/assets/images/osc-send-tcp.svg)
+![Send message](~/images/osc-send-tcp.svg)
 
 - Setup the above workflow (identical to the previous exercise but using `CreateTcpServer`).
 - Set the `Name` property of the `CreateTcpServer` source to `Emitter`.
@@ -40,7 +42,7 @@ Next we will implement a responsive TCP server with support to accept multiple c
 
 Open a new Bonsai window and setup the following workflow:
 
-![Receive message]({{ site.baseurl }}/assets/images/osc-receive-tcp.svg)
+![Receive message](~/images/osc-receive-tcp.svg)
 
 - Set the `Name` property of the `CreateTcpClient` source to `Receiver`.
 - Set the `Port` property to 2342.
@@ -52,7 +54,7 @@ Open a new Bonsai window and setup the following workflow:
 
 It is possible to share multiple data streams of different types simultaneously through a single OSC connection. To do this, we need to specify different OSC addresses for our messages to allow clients to subscribe to the independent streams.
 
-![Send message]({{ site.baseurl }}/assets/images/osc-send-image.svg)
+![Send message](~/images/osc-send-image.svg)
 
 - Start from the previous emitter workflow.
 - Set the `Address` property of the `SendMessage` sink to `/cursor`.
@@ -63,7 +65,7 @@ It is possible to share multiple data streams of different types simultaneously 
 
 Open a new Bonsai window and setup the following workflow:
 
-![Receive message]({{ site.baseurl }}/assets/images/osc-receive-image.svg)
+![Receive message](~/images/osc-receive-image.svg)
 
 - Start from the previous receiver workflow.
 - Set the `Address` property of the `ReceiveMessage` source to `/cursor`.
