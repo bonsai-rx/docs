@@ -4,9 +4,11 @@ title: Vision Psychophysics
 permalink: /articles/vision-psychophysics/
 ---
 
+# Vision Psychophysics
+
 ## Getting Started
 
-1. Install the **BonVision** package from the Bonsai Community feed in the package manager. ![Installing BonVision]({{ site.baseurl }}/assets/images/bonvision-install.png)
+1. Install the **BonVision** package from the Bonsai Community feed in the package manager. ![Installing BonVision](~/images/bonvision-install.png)
 2. Go through the [basic stimuli tutorial](https://bonvision.github.io/pages/03-Creating-Basic-Stimuli){:target="\_blank"} at the [BonVision](https://bonvision.github.io/){:target="\_blank"} website.
 
 **Make sure the latest version of the BonVision package is installed for this worksheet**
@@ -22,7 +24,7 @@ The following set of exercises are to be developed in a single workflow, so do n
 
 To allow sharing screen calibration for all displayed task elements, we start by defining a common BonVision render pipeline.
 
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render.svg)
+![BonVision render loop](~/images/bonvision-render.svg)
 
 - Insert a `CreateWindow` source and set the `ClearColor` property to `Gray`.
 - Insert the `BonVisionResources` and `LoadResources` operators to preload all built-in BonVision shaders.
@@ -33,7 +35,7 @@ To allow sharing screen calibration for all displayed task elements, we start by
 
 The first step in developing our task will be to display a grating in the center of the screen at a random orientation for a specified period of time, and store the value of the orientation, so we can use it later to test the participant.
 
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render-1grating.svg)
+![BonVision render loop](~/images/bonvision-render-1grating.svg)
 
 - Insert a `CreateRandom` source.
 - Insert a `CreateContinuousUniform` and set its `Lower` and `Upper` properties to -1 and 1, respectively.
@@ -51,7 +53,7 @@ For now, we start by displaying a repeating sequence of random orientation grati
 To implement the `ReferenceGrating` state, we will need to sample a random angle from the angle distribution, use it to initialize the angle property of the gratings, and present the gratings for a specified period of time. At the end, we need to send out as a result the value of the random orientation which was generated.
 
 **`ReferenceGrating`**:
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render-randomgrating.svg)
+![BonVision render loop](~/images/bonvision-render-randomgrating.svg)
 {: .notice--info}
 
 - Use the `Sample (Numerics)` operator to sample a random orientation value from the `AngleDistribution` subject and store it in a new `AsyncSubject` named `Angle`. This will allow us to reuse the sampled value when drawing the gratings later.
@@ -70,14 +72,14 @@ _Run the workflow and verify whether the behaviour of the system is correct. Are
 The second step in defining the contrast discrimination task is to display a second randomly oriented grating in each trial, with a small blank (or masking) period in between. To do this, we want to avoid repeating the entire workflow we designed for our reference grating, so we will make use of the `IncludeWorkflow` operator to reuse our stimulus presentation logic.
 
 **`ReferenceGrating`**:
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render-referencegrating.svg)
+![BonVision render loop](~/images/bonvision-render-referencegrating.svg)
 {: .notice--info}
 
 - Inside the `ReferenceGrating` state, select all nodes before `WorkflowOutput`, right-click the selection, and choose the `Save as Workflow` option. Choose `RandomOrientationGrating` as the name for the extension.
 
 After we have our new reusable operator, we can extend the workflow to include the blank period and the second grating stimulus.
 
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render-2gratings.svg)
+![BonVision render loop](~/images/bonvision-render-2gratings.svg)
 
 - Insert a `SelectMany` operator after the `ReferenceGrating` state and set its `Name` property to `Blank`.
 - Insert another `SelectMany` operator after `Blank` with the name `TestGrating`.
@@ -86,7 +88,7 @@ After we have our new reusable operator, we can extend the workflow to include t
 For the `Blank` state we will use a simple gap interval where nothing is drawn on the screen. We can do this easily by delaying the transmission of the result of the previous state, before we move on to the next state.
 
 **`Blank`**:
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render-blank.svg)
+![BonVision render loop](~/images/bonvision-render-blank.svg)
 {: .notice--info}
 
 - Insert a `Delay (Shaders)` operator between the input and the output of the state workflow.
@@ -97,7 +99,7 @@ For the `Blank` state we will use a simple gap interval where nothing is drawn o
 To implement the `TestGrating` state, we want to reuse our previous `RandomOrientationGrating` extension workflow and simply combine the random generated angle with the angle from the reference grating.
 
 **`TestGrating`**:
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-render-testgrating.svg)
+![BonVision render loop](~/images/bonvision-render-testgrating.svg)
 {: .notice--info}
 
 - Insert a new `RandomOrientationGrating` operator from the toolbox and combine it with the input by using the `Zip` combinator. This will generate a pair where the first value is the random angle from the first reference grating, and the second value is the random angle for this test grating.
@@ -108,14 +110,14 @@ _Run the workflow and validate the random angle pairs are distinct and valid fro
 
 Now that we have our two randomly generated gratings, we need to gather the response from the participant and compare it with the actual situation to determine whether the trial was successful.
 
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-orientation-discrimination.svg)
+![BonVision render loop](~/images/bonvision-orientation-discrimination.svg)
 
 - Insert a new `Response` state after the `TestGrating` state using the `SelectMany` operator.
 
 To implement the response gathering state we will use key presses from the participant. We will use the left and right arrow keys to indicate which stimulus had the most clockwise orientation and compare the response with whether or not the first stimulus was more clockwise than the second stimulus.
 
 **`Response`**:
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-response-choice.svg)
+![BonVision render loop](~/images/bonvision-response-choice.svg)
 {: .notice--info}
 
 - Connect the `Draw` subject from the toolbox to a new `DrawText` operator and set its `Text` property to a suggestive question (e.g. `A or B?`). Also edit the `Font` property and make sure the size is at least 72pt for readability.
@@ -137,14 +139,14 @@ To implement the response gathering state we will use key presses from the parti
 
 The only step left for finishing our experimental prototype is to report the feedback of each trial back to the participants. We will do this by drawing a colored square, indicating green for a correct response, and red for an incorrect response.
 
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-orientation-discrimination-feedback.svg)
+![BonVision render loop](~/images/bonvision-orientation-discrimination-feedback.svg)
 
 - Insert a new `Feedback` state after the `Response` state using the `SelectMany` operator.
 
 This final state will simply display a quad for a certain period of time, where the color will be modulated by the trial outcome value. We want to store this value until the end of the trial so we can report it for subsequent processing.
 
 **`Feedback`**:
-![BonVision render loop]({{ site.baseurl }}/assets/images/bonvision-response-feedback.svg)
+![BonVision render loop](~/images/bonvision-response-feedback.svg)
 {: .notice--info}
 
 - Insert an `AsyncSubject` operator and set its `Name` property to `Result`. This will store the trial outcome result so it can be used to compute the color value of the quad.
