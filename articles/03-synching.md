@@ -4,11 +4,13 @@ title: Data Synchronization
 permalink: /articles/synching/
 ---
 
+# Data Synchronization
+
 Synchronizing behaviour and other experimental events with stimulation or recorded neural data is a fundamental component of neuroscience data collection and analysis. The exercises below will walk you through some common synchronization problems encountered in systems neuroscience experiments, and how to handle them using Bonsai.
 
 ### **Exercise 1:** Synchronizing video from two webcams
 
-![Synching Video]({{ site.baseurl }}/assets/images/synching-webcam.svg)
+![Synching Video](~/images/synching-webcam.svg)
 
 - Insert a `CameraCapture` source and set it to index 0.
 - Insert another `CameraCapture` source and set it to index 1.
@@ -26,7 +28,7 @@ _How would you test the synchronization between the two video streams?_
 For this and subsequent worksheets, we will use a simple reaction time task as our model systems neuroscience experiment. In this task, the subject needs to press a button as fast as possible following a stimulus, as described in the following diagram:
 
 <span style="display:block;text-align:center">
-![State Machine Diagram]({{ site.baseurl }}/assets/images/reactiontime.svg)
+![State Machine Diagram](~/images/reactiontime.svg)
 </span>
 
 The task begins with an inter-trial interval (`ITI`), followed by stimulus presentation (`ON`). After stimulus onset, advancement to the next state can happen only when the subject presses the button (`success`) or a timeout elapses (`miss`). Depending on which event is triggered first, the task advances either to the `Reward` state, or `Fail` state. At the end, the task goes back to the beginning of the ITI state for the next trial.
@@ -35,17 +37,17 @@ The task begins with an inter-trial interval (`ITI`), followed by stimulus prese
 
 In this first exercise, you will assemble the basic hardware and software components required to implement the reaction time task. The wiring diagram below illustrates the hardware assembly. You can wire the LED into any digital input pin, but make sure to note the pin number for the steps below.
 
-![Reaction Time Circuit]({{ site.baseurl }}/assets/images/reaction-time-circuit.png){:height="300px"}
+![Reaction Time Circuit](~/images/reaction-time-circuit.png){:height="300px"}
 
 We will start by using a fixed-interval blinking LED as our stimulus.
 
-![Create Arduino]({{ site.baseurl }}/assets/images/create-arduino.svg)
+![Create Arduino](~/images/create-arduino.svg)
 
 - To configure the Arduino analog sampling rate, insert a `CreateArduino` source.
 - Configure the `PortName` to the Arduino port where the microcontroller is connected.
 - Configure the `SamplingInterval` property to 10 ms.
 
-![Reaction Time Stimulus]({{ site.baseurl }}/assets/images/reaction-time-stimulus.svg)
+![Reaction Time Stimulus](~/images/reaction-time-stimulus.svg)
 
 - Insert a `Timer` source and set its `DueTime` property to 1 second.
 - Insert a `Boolean` source and set its `Value` property to `True`.
@@ -58,7 +60,7 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 
 ### **Exercise 3:** Measuring reaction time
 
-![Reaction Time Measurement]({{ site.baseurl }}/assets/images/reaction-time-measurement.svg)
+![Reaction Time Measurement](~/images/reaction-time-measurement.svg)
 
 - Insert an `AnalogInput` source.
 - Set the `Pin` property to the analog pin number where the duplicate LED wire is connected.
@@ -73,7 +75,7 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 
 To analyze movement dynamics in the reaction time task, you will need to align individual frame timing to stimulus onset. To do this, you can take advantage of the fact that our simple visual stimulus can be seen in the camera image and recorded together with the behaviour.
 
-![Synching LED]({{ site.baseurl }}/assets/images/synching-led.svg)
+![Synching LED](~/images/synching-led.svg)
 
 - Starting from the workflow in the previous exercise, insert a `CameraCapture` source and position the camera such that you can see clearly both the LED and the computer keyboard.
 - Insert a `VideoWriter` sink and configure the `FileName` with a path ending in `.avi`.
@@ -89,7 +91,7 @@ To analyze movement dynamics in the reaction time task, you will need to align i
 
 To make our task more interesting, we will now trigger the stimulus manually using a button press and learn more about `SelectMany` along the way!
 
-![Triggered Stimulus Outer]({{ site.baseurl }}/assets/images/triggered-stimulus-outer.svg)
+![Triggered Stimulus Outer](~/images/triggered-stimulus-outer.svg)
 
 - Connect a new push button component into one of the Arduino digital inputs.
 - Insert a `DigitalInput` source and set its `Pin` property to the Arduino pin where the new button is connected.
@@ -97,7 +99,7 @@ To make our task more interesting, we will now trigger the stimulus manually usi
 - Insert a `Condition` operator.
 - Insert a `SelectMany` operator and move the stimulus generation logic inside the nested node:
 
-![Triggered Stimulus Inner]({{ site.baseurl }}/assets/images/triggered-stimulus-inner.svg)
+![Triggered Stimulus Inner](~/images/triggered-stimulus-inner.svg)
 
 _Why do we need to remove the `Repeat` operator?_
 
@@ -106,7 +108,7 @@ _Why do we need to remove the `Repeat` operator?_
 
 ### **Exercise 6:** Recording response-triggered videos
 
-![Triggered Video Outer]({{ site.baseurl }}/assets/images/triggered-video-outer.svg)
+![Triggered Video Outer](~/images/triggered-video-outer.svg)
 
 - Starting from the previous workflow, insert another `AnalogInput` source with the `Pin` property set to the button press pin number.
 - Insert a `GreaterThan` operator.
@@ -117,7 +119,7 @@ _Why do we need to remove the `Repeat` operator?_
 - Insert a `TriggeredWindow` operator, and set its `Count` property to 100.
 - Insert a `SelectMany` operator and inside the nested node create the below workflow:
 
-![Triggered Video Inner]({{ site.baseurl }}/assets/images/triggered-video-inner.svg)
+![Triggered Video Inner](~/images/triggered-video-inner.svg)
 
 - Run the workflow and record a few videos triggered on the button press.
 - Inspect the videos frame by frame and check whether the response LED comes ON at exactly the same frame number across different trials.
