@@ -1,6 +1,6 @@
 ## What is Bonsai?
 
-Bonsai is a visual programming environment for creating reactive systems.
+Bonsai is a visual programming environment for creating reactive systems. Open source system that can flexibly integrate across any combination of hardware as needed.
 
 ## Getting Started
 
