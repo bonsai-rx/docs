@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: State Machines
-permalink: /articles/state-machines/
 ---
 
 # State Machines

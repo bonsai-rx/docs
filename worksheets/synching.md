@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: Data Synchronization
-permalink: /articles/synching/
 ---
 
 # Data Synchronization

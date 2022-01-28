@@ -1,0 +1,16 @@
+- name: Aquisition and Tracking
+  href: acquisition.md
+- name: Closed-Loop Systems
+  href: closed-loop.md
+- name: Data Synchronization
+  href: synching.md
+- name: State Machines
+  href: state-machines.md
+- name: Vision Psychophysics
+  href: vision-psychophysics.md
+- name: Scripting
+  href: scripting.md
+- name: Networking
+  href: networking.md
+- name: Ephys Synchronization
+  href: synching-ephys.md

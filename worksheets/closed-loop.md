@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: Closed-Loop Systems
-permalink: /articles/closed-loop/
 ---
 
 # Closed-Loop Systems

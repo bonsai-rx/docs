@@ -1,8 +1,6 @@
 ---
 layout: worksheet
 title: Ephys Synchronization
-permalink: /articles/synching-ephys/
-optional: "true"
 ---
 
 Synchronizing behaviour and other experimental events with recorded neural data is a fundamental component of neuroscience data collection and analysis. The exercises below will walk you through some common cases encountered in systems neuroscience experiments, and how to deal with them using Bonsai.
