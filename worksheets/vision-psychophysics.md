@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: Vision Psychophysics
-permalink: /articles/vision-psychophysics/
 ---
 
 # Vision Psychophysics

@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: Acquisition and Tracking
-permalink: /articles/acquisition/
 ---
 
 # Acquisition and Tracking

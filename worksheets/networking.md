@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: Networking
-permalink: /articles/networking/
 ---
 
 # Networking

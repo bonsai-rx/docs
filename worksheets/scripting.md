@@ -1,7 +1,6 @@
 ---
 layout: worksheet
 title: Scripting
-permalink: /articles/scripting/
 ---
 
 # Scripting
