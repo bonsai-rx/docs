@@ -1,4 +1,6 @@
 - name: Articles
   href: articles/
+- name: Worksheets
+  href: worksheets/
 - name: API Documentation
   href: api/
