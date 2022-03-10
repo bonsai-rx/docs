@@ -202,25 +202,25 @@ USA
 ``` 
 ### FAQ
 
-**Q. What is the purpose of the BPCA?**
+**Q. What is the purpose of the BPCA?**  
 A. The BPCA exists for one main reason: to ensure that contributions to Bonsai have acceptable licensing terms. 
 
-**Q. If I agree to the BPCA, am I assigning copyright to Bonsai, Goncalo Lopes, or NeuroGEARS?**
+**Q. If I agree to the BPCA, am I assigning copyright to Bonsai, Goncalo Lopes, or NeuroGEARS?**  
 A. No. The BPCA is not a copyright assignment agreement. 
 
-**Q. Does this mean that Bonsai will always relicense my contributions from $MY_LICENSE to MIT?**
+**Q. Does this mean that Bonsai will always relicense my contributions from $MY_LICENSE to MIT?**  
 A. No. If you put a Free license on your contribution, we will use it under the terms of that license. If you put it under a non-Free license, we won't use it at all. Only unlicensed contributions where the copyright holder is the Bonsai contributor qualify for the "default licensing" clause. 
 
-**Q. Do I need to physically sign the BPCA?**
+**Q. Do I need to physically sign the BPCA?**  
 A. No. We require that all contributors agree to it digitally, through **[WE NEED TO DECIDE ON A PROCESS FOR THIS]**. If you wish to additionally sign a physical copy and send it to us, the BPCA describes how to do this, but it is **NOT** required. 
 
-**Q. Are all Bonsai users/distributors required to agree to the BPCA?**
+**Q. Are all Bonsai users/distributors required to agree to the BPCA?**  
 A. No. Only Bonsai contributors will be required to agree to the BPCA. However, if you want to agree to it, you always can :)
 
-**Q. The BPCA defines "default licenses" of MIT for code, and Creative Commons Attribution-ShareAlike 4.0 for content, why not $OTHER_LICENSE?**
+**Q. The BPCA defines "default licenses" of MIT for code, and Creative Commons Attribution-ShareAlike 4.0 for content, why not $OTHER_LICENSE?**  
 A. These licenses were chosen because of their widespread use and compatibility with most other Free licenses.
 
-**Q. I have a question/suggestion/flame about the BPCA that is not covered here, where should I send it to?**
+**Q. I have a question/suggestion/flame about the BPCA that is not covered here, where should I send it to?**  
 A. If you want to discuss it in public, please subscribe to the **[BONSAI FORUM? DISCORD?]** and post your thoughts there. If you do not wish to discuss it in public, feel free to send it via email to **legal@bonsaiproject.org [PLACEHOLDER]**.
 
 ## Step-by-step guide to getting started as a contributor
