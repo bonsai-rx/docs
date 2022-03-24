@@ -1,12 +1,12 @@
 ## Bonsai Command-Line Interface (CLI)
 
-Bonsai CLI (Command-Line Interface) allows workflows to be launched from the OS command-line tool. In addition to opening workflows with the default graphic interface, the CLI opens the possibility to use other advanced features, that will be covered ahead, such as "no-editor" mode, initialization of variable's values, and specifying layouts.
+The Bonsai CLI (Command-Line Interface) makes it possible to launch workflows from the OS command-line tool. In addition to opening workflows with the default graphic interface, the CLI enables the use of other advanced features, such as "no-editor" mode, initialization of variable's values, and specifying layouts.
 
 
 &nbsp;
 ___
 ### Installation and basic use
-Bonsai CLI can be called by targeting ```Bonsai.exe``` executable. To make sure you are able to call ```Bonsai``` from the command line:
+Bonsai CLI can be called by targeting the ```Bonsai.exe``` executable. To make sure you are able to call Bonsai from the command line:
 
 ```cmd
 > pathToBonsaiExe\Bonsai.exe
@@ -23,31 +23,24 @@ ___
 &nbsp;
 ### Opening a Workflow
 
-To open an existing workflow, ```myWorkflow.bonsai```, use the syntax:
-
-```cmd
-> Bonsai myWorkflow.bonsai
-```
+To open an existing workflow (i.e., ```myWorkflow.bonsai```), use the syntax:
 
 ##### Example:
 
 ```cmd
-> Bonsai myCameraWorkflow.bonsai
-> Bonsai "C:\Users\User\Desktop\Example\myCameraWorkflow.bonsai"
+> Bonsai myWorkflow.bonsai
+> Bonsai "C:\Users\User\Desktop\Example\myWorkflow.bonsai"
 ```
 ___
 &nbsp;
 ### Starting a Workflow
 
-Adding additional flags will change the behavior of Bonsai CLI output. For instance, to launch and start a workflow from the command line we add the ```--start``` flag to the previous command:
+Adding additional flags will change the output behavior of the Bonsai CLI. For instance, to launch and immediately start a workflow from the command line we add the ```--start``` flag to the previous command:
 
-```cmd
-> Bonsai myWorkflow.bonsai --start
-```
 
 ##### Example:
 ```cmd
-> Bonsai myCameraWorkflow.bonsai --start
+> Bonsai myWorkflow.bonsai --start
 ```
 
 ___
@@ -57,6 +50,8 @@ ___
 
 For some applications, such as batch processing, the user might not be interested in having access to the UI. This can be achieved using the ```--no-editor``` flag. Note that the ```--start``` flag behavior is implicit when running with ```--no-editor``` mode.
 
+
+##### Example:
 ```cmd
 > Bonsai myWorkflow.bonsai --no-editor
 ```
@@ -73,10 +68,6 @@ It is worth noting that only assigned visualizers will be available on this list
 (![Select visualizer](~/images/Article_CLI_Select_visualizer.png)
 
 
-##### Example:
-```cmd
-> Bonsai myCameraWorkflow.bonsai --no-editor
-```
 ___
 &nbsp;
 ### Passing parameter values to workflows
@@ -110,16 +101,16 @@ It is worth noting that the same workflow file can be called/run in parallel wit
 ##### Example:
 ```cmd
 > :: set a single property
-> bonsai myCameraWorkflow.bonsai --start -p:"myThr"="100"
+> bonsai myWorkflow.bonsai --start -p:"myProperty1"="100"
 
 > :: set two distinct properties
-> bonsai myCameraWorkflow.bonsai --start -p:"myThr"="100" -p:"myMaxVal"="200"
+> bonsai myWorkflow.bonsai --start -p:"myProperty1"="100" -p:"myProperty2"="200"
 
 > :: with "--no-editor" mode enabled
-> bonsai myCameraWorkflow.bonsai --no-editor -p:"myThr"="100" -p:"myMaxVal"="200"
+> bonsai myWorkflow.bonsai --no-editor -p:"myProperty1"="100" -p:"myProperty2"="200"
 
 > :: set a property of a nested workflow node
-> bonsai myCameraWorkflow.bonsai --no-editor -p:"myThr"="100" -p:"myMaxVal"="200" -p:"myNestedNode.FlipMode"="Horizontal"
+> bonsai myWorkflow.bonsai --no-editor -p:"myProperty1"="100" -p:"myProperty2"="200" -p:"myNestedNode.myProperty1"="Horizontal"
 ```
 ___
 &nbsp;
@@ -128,7 +119,10 @@ As of Bonsai version 2.6.1, it is possible to specify the layout file to run the
 
 The general syntax is:
 
+##### Example:
 ```cmd
+
+> :: run the workflow myWorkflow.bonsai with myLayout.bonsai.layout
 > Bonsai myWorkflow.bonsai --no-editor --visualizer-layout:myLayout.bonsai.layout
 ```
 
@@ -139,16 +133,13 @@ Currently, the easiest way to generate multiple layouts, for a given script, is 
 
 This will create a ```*.bonsai.layout``` file with the same name as the workflow which should then be renamed (as to prevent being overwritten) and used later.
 
-
+It should be noted that ```--visualizer-layout``` can be used in combination with previous flags:
 
 ##### Example:
 ```cmd
 
-> :: run the workflow myCameraWorkflow.bonsai with myCameraWorkflowLayout2.bonsai.layout
-> Bonsai myCameraWorkflow.bonsai --no-editor --visualizer-layout:myCameraWorkflowLayout2.bonsai.layout
-
 > :: run the workflow with the previous layout while setting property values
-> Bonsai myCameraWorkflow.bonsai --no-editor --visualizer-layout:myCameraWorkflowLayout2.bonsai.layout -p:"myThr"="100" -p:"myMaxVal"="200" -p:"myNestedNode.FlipMode"="Horizontal"
+> Bonsai myWorkflow.bonsai --no-editor --visualizer-layout:myLayout.bonsai.layout -p:"myProperty1"="100" -p:"myProperty2"="200" -p:"myNestedNode.myProperty1"="Horizontal"
 
 ```
 
@@ -158,7 +149,7 @@ This will create a ```*.bonsai.layout``` file with the same name as the workflow
 Additional flags are available, and can be used similarly to the ones introduced before. E.g.:
 
 ```cmd
-> Bonsai myCameraWorkflow.bonsai --FLAG
+> Bonsai myWorkflow.bonsai --FLAG
 > Bonsai --FLAG
 > Bonsai --FLAG:<"parameterValue">
 ```
