@@ -56,14 +56,14 @@ For some applications, such as batch processing, the user might not be intereste
 > Bonsai myWorkflow.bonsai --no-editor
 ```
 
-Upon successful launch of your workflow, a Bonsai icon will appear on your system tray that can be used to stop the workflow or open other visualizers.
+Upon the successful launch of your workflow, a Bonsai icon will appear on your system tray, which can be used to stop the workflow or open other visualizers.
 
 (![SystemTray Example](~/images/Article_CLI_SystemTrayBonsai.png)
 
-It is worth noting that only assigned visualizers will be available on this list. To assign a visualizer:
+It is worth noting that only assigned visualizers will be available via this list.. To assign a visualizer:
 - Open the workflow in editor mode;
-- Right click on top of the node of interest;
-- "Show Visualizer" ➡ Select a visualizer other than "None"
+- Right click the node of interest;
+- Under menu item "Show Visualizer", select any visualizer other than "None".
 
 (![Select visualizer](~/images/Article_CLI_Select_visualizer.png)
 
@@ -72,17 +72,17 @@ ___
 &nbsp;
 ### Passing parameter values to workflows
 
-One of the most useful features of the CLI is the ability to, using the same workflow, passing different values to different nodes before running it. Only "externalized properties" can be set from the command line.
+One of the most useful features of the CLI is the ability to pass different values to different nodes before running a workflow. However, only "externalized properties" can be set in this way from the command line.
 
 ##### To externalize a property:
 - Open the workflow in editor mode;
-- Right click on top of the node of interest;
-- "Externalize Property" ➡ Select the property of interest
+- Right click the node of interest;
+- "Under menu item "Externalize Property", select the property of interest "
 
 (![Externalize Property Example 1](~/images/Article_CLI_extern_prop_example.png)
 
-- A new node will appear with a dashed line connected to the node of interest.
-- No two externalized properties, in the same level, are allowed to share the same name.
+- A new node will appear with a dashed line connecting it to the original node of interest.
+- No two externalized properties, in the same group, are allowed to share the same name.
 - Additionally, you can externalize multiple properties from a single node.
 - To change the name of the externalized property (usually a good idea), simply edit the "DisplayName" field of the externalized property node.
 
@@ -115,7 +115,7 @@ It is worth noting that the same workflow file can be called/run in parallel wit
 ___
 &nbsp;
 ### Specifying layout files
-As of Bonsai version 2.6.1, it is possible to specify the layout file to run the workflow with, when using the ```--no-editor mode```. This is especially useful when the same workflow is meant to be run several times in parallel (e.g. multiple identical behavior rigs).
+As of Bonsai version 2.6.1, it is possible to specify the layout file with which to run the workflow, by using the --no-editor mode. This is especially useful when the same workflow is meant to be run several times in parallel (e.g. multiple identical behavior rigs).
 
 The general syntax is:
 
@@ -126,12 +126,12 @@ The general syntax is:
 > Bonsai myWorkflow.bonsai --no-editor --visualizer-layout:myLayout.bonsai.layout
 ```
 
-Currently, the easiest way to generate multiple layouts, for a given script, is to:
+Currently, the easiest way to generate multiple layouts for a given script is to do the following:
 - Launch a workflow with the editor;
-- Place the windows in the desired place;
+- Place the windows in the desired layout;;
 - Save the workflow.
 
-This will create a ```*.bonsai.layout``` file with the same name as the workflow which should then be renamed (as to prevent being overwritten) and used later.
+This will create a ```*.bonsai.layout``` file with the same name as the workflow. This layout file should then be renamed to prevent it from being overwritten.
 
 It should be noted that ```--visualizer-layout``` can be used in combination with previous flags:
 
@@ -146,7 +146,7 @@ It should be noted that ```--visualizer-layout``` can be used in combination wit
 &nbsp;
 
 ### Other available flags
-Additional flags are available, and can be used similarly to the ones introduced before. E.g.:
+Additional flags are available, and can be used similarly to the ones introduced above. E.g.:
 
 ```cmd
 > Bonsai myWorkflow.bonsai --FLAG
@@ -154,7 +154,7 @@ Additional flags are available, and can be used similarly to the ones introduced
 > Bonsai --FLAG:<"parameterValue">
 ```
 
-Currently available flags and a short description:
+Other currently available flags:
 
 - ```--property``` - similar to the "-p" syntax for setting parameter values
 - ```--editor-scale``` - Scales the editor UI (e.g. ```bonsai --editor-scale:1.3```)
