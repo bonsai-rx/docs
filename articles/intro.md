@@ -4,7 +4,7 @@ Bonsai is a programming language with the following major features:
 
 1. **It operates on sequences of elements that are ordered in time.** Elements within these sequences can be any kind of data (images, numbers, strings, etc), and these sequences can be either finite or infinite. Elements within sequences can occur regularly or irregularly and do not need to conform to any underlying clock -- sequences are asynchronous. Most hardware that interacts with the world is asynchronous: a human using a keyboard can produce a sequence of keystrokes, and a webcam can produce a sequence of images, but the time of each keypress and image capture is unrelated. Bonsai addresses this fact at the core of its design and is therefore particularly good at interacting with the physical world.
 
-![A simple sequence](~/images/simple-sequence.svg)
+![A simple sequence](../images/simple-sequence.svg)
 
 _Footnote: If you look at the source code of Bonsai, the technical name for the datatype of all sequences in Bonsai is "IObservable"._
 
