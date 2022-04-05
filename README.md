@@ -23,6 +23,12 @@ The "develop" branch is specifically created so that contributors can quickly co
 
 When working on an article, first check [the old documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic. 
 
+### Including figures
+
+To include a figure or image in an article: 
+ - save your figure or image as a .svg file, naming the file using the pattern [article filename]-[figure name].svg
+ - add the figure/image to the **images** folder in this repo
+
 ### Standard formatting for operators and operator properties
 
 When referring to operators (also known as nodes in Bonsai), place operator names inside a pair of backticks and double stars (``**`Operator_name`**``) so that the node names render as bold text in code snippet formatting (i.e. **`CameraCapture`**). 
