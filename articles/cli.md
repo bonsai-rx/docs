@@ -48,7 +48,7 @@ ___
 ### Starting a Workflow without the editor
 
 
-For some applications, such as batch processing, the user might not be interested in having access to the UI. This can be achieved using the ```--no-editor``` flag. Note that the ```--start``` flag behavior is implicit when running with ```--no-editor``` mode.
+For some applications, such as batch processing, you might not be interested in having access to the UI. This can be achieved using the ```--no-editor``` flag. Note that the ```--start``` flag behavior is implicit when running with ```--no-editor``` mode.
 
 
 ##### Example:
