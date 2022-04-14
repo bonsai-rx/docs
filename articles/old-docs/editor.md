@@ -1,5 +1,5 @@
 ---
-title: "Workflow Editor"
+title: "Workflow Editor" 
 permalink: /docs/editor/
 excerpt: "A quick introduction to the Bonsai workflow editor."
 last_modified_at:

@@ -1,22 +1,44 @@
-- name: Introduction
-  href: intro.md
-- name: Installing Bonsai
-  href: installation.md
-- name: Package Manager
-  href: packages.md
-- name: Workflow Editor
-  href: editor.md
-- name: Bonsai Gallery
-  href: gallery.md
-- name: Observables
-  href: observables.md
-- name: Operators
-  href: operators.md
-- name: Property Mapping
-  href: property-mapping.md
-- name: Higher Order Operators
-  href: higher-order.md
-- name: Subjects
-  href: subjects.md
-- name: Creating a Package
-  href: create-package.md
+- name: Quickstart
+  href: what-is-bonsai.md
+  items:
+    - name: Installing Bonsai
+      href: installation.md
+- name: Introduction to Bonsai UI 
+  href: intro-UI.md
+  items: 
+    - name: Toolbox
+      href: intro-toolbox.md
+    - name: Workflow
+      href: intro-workflow.md
+    - name: Status Bar
+      href: intro-status.md
+    - name: Properties
+      href: intro-properties.md
+    - name: Visualizers
+      href: intro-visualizers.md
+    - name: Shortcuts
+      href: intro-shortcuts.md
+    - name: Package Manager & Gallery
+      href: intro-package-manager-gallery.md
+- name: Core Concepts
+  href: core-concepts.md
+  items: 
+    - name: Observables
+      href: observables.md
+    - name: Operators
+      href: operators.md
+    - name: Property Mapping
+      href: property-mapping.md
+    - name: Higher Order Operators
+      href: higher-order.md
+    - name: Subjects
+      href: subjects.md
+- name: Extending Bonsai
+  href: extending-bonsai.md
+  items:
+    - name: Package Manager
+      href: packages.md
+    - name: Bonsai Gallery
+      href: gallery.md
+    - name: Creating a Package
+      href: create-package.md
