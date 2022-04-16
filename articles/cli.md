@@ -72,7 +72,7 @@ ___
 &nbsp;
 ### Passing parameter values to workflows
 
-One of the most useful features of the CLI is the ability to pass different values to different nodes before running a workflow. However, only "externalized properties" can be set in this way from the command line.
+One of the most useful features of the CLI is the ability to pass different values to different nodes before running a workflow. However, only [`Externalized Properties`](https://bonsai-rx.org/docs/property-mapping/) can be set in this way from the command line. 
 
 ##### To externalize a property:
 - Open the workflow in editor mode;
