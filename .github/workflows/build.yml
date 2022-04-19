@@ -11,12 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        name: Checkout
         with:
           submodules: recursive
-      - uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: '6.0.x'
-      - run: dotnet restore src/bonsai/Bonsai.sln
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+      
+      - name: Restore NuGet Packages
+        run: nuget restore src/bonsai/Bonsai.sln
 
       # Build static site content using DocFX
       - uses: nikeee/docfx-action@v1.0.0
