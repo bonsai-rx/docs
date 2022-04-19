@@ -5,6 +5,14 @@
         {
           "files": [
             "src/**.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "**/**.Tests/**",
+            "**/Bonsai.NuGet**/**",
+            "**/Bonsai.Configuration/**",
+            "**/Bonsai.Templates/**"
           ]
         }
       ],
