@@ -12,6 +12,7 @@
             "**/**.Tests/**",
             "**/Bonsai.NuGet**/**",
             "**/Bonsai.Configuration/**",
+            "**/Bonsai.StarterPack**/**",
             "**/Bonsai.Templates/**"
           ]
         }
