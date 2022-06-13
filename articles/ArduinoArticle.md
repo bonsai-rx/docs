@@ -77,7 +77,6 @@ It should be noted that while any of the read events do not carry any temporal i
 
 >> ADD WORKFLOW WITH ARDUINO OBJECT HERE
 
-
 ### Combining DigitalOutput and DigitalInput to measure communication latencies
 
 When using Arduino to control experimental rigs, especially those implementing closed-loop interactions, it is important to benchmark how long it takes for an instruction sent from Bonsai to produce an output in the world.
@@ -97,7 +96,21 @@ The output of [**`AnalogInput`**](xref:Bonsai.Arduino.AnalogInput) is an ```Int`
 
 Finally, the sampling rate of this node is defined by [`SamplingInterval`](xref:Bonsai.Arduino.CreateArduino.SamplingInterval). While the sampling frequency is relatively stable, a small delay (and jitter) is to be expected from the time of acquisition to receiving data in Bonsai.
 
+>> ADD WORKFLOW WITH ARDUINO OBJECT HERE
 
+### Analog Write
+
+The [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) operator implements the [`analogWrite(pin, value)`](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/) function found in Arduino sketches.
+
+In most boards, this function does not implement a "true" analog output, instead it tries to "approximate" an analog signal using [Pulse-Width Modulation (`PWM`)](https://en.wikipedia.org/wiki/Pulse-width_modulation). When using `PWM` in Arduino, a single input must be provided that determines the duty-cycle of the output square-wave.
+
+Thus, [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) receives as an input an ```Int``` in the range `0-255` `(8 bits)`. This value will linearly map to the output `PWM` duty cycle (i.e. `0%-100%`). Once a value is received, the Arduino board will continuously generate a PWM wave (by default, [in Arduino UNO, 500Hz or 1kHz](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)) with the specified duty-cycle. The wave can be stoped by simply sending a `0` value.
+
+| ![PWM_figure](https://upload.wikimedia.org/wikipedia/commons/b/b8/Duty_Cycle_Examples.png) |
+|:--:|
+| **Pulse-width modulation of a square wave. A 50%, 75%, and 25% duty-cycle would correspond to an [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) input value of 128, 191 and 64, respectively.** (Reproduced from: https://en.wikipedia.org/wiki/Pulse-width_modulation under a CC BY-SA 4.0 license)|
+
+>> ADD WORKFLOW WITH ARDUINO OBJECT HERE
 
 
 [![Example Workflow](../images/acquisition-example.svg)](../workflows/acquisition-example.bonsai)
