@@ -47,7 +47,8 @@
         "files": [
           "logo.svg",
           "favicon.ico",
-          "images/**"
+          "images/**",
+          "workflows/**"
         ]
       }
     ],
@@ -77,6 +78,11 @@
     ],
     "postProcessors": [ "ExtractSearchIndex" ],
     "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "customcontainers"
+      ]
+    },
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,
