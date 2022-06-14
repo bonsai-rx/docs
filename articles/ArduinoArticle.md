@@ -117,6 +117,18 @@ Thus, [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) receives as an inpu
 [![Example Workflow](../images/acquisition-example.svg)](../workflows/acquisition-example.bonsai)
 
 
+## Servo Output
+
+In addition to 
+
+## Coding best practices
+
+### Subjects
+
+
+## Alternatives to Firmata
+
+### An example of a simple Serial communication protocol
 
 ## References:
 
