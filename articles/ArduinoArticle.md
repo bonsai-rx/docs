@@ -6,9 +6,9 @@ While there are multiple hardware options integrated in Bonsai to achieve such a
 
 In this tutorial, we will cover the basics on how to set up the communication protocol between Bonsai and Arduino, as well some examples and best practices when writing these workflows.
 
-## What is the Firmata protocol
+## The Firmata protocol
 
-In order to leverage the hardware capabilities of the [**Arduino board**](https://www.arduino.cc/en/Guide/Introduction) we must be able to communicate from, and to Bonsai. A bidirectional communication protocol must therefor be in place between the computer and the Arduino board. Thankfully, the Arduino community has long solved this problem through the implementation of the [`Firmata protocol`](https://www.arduino.cc/en/reference/firmata).
+In order to leverage the hardware capabilities of the [**Arduino board**](https://www.arduino.cc/en/Guide/Introduction) we must be able to communicate from, and to Bonsai. A bidirectional communication protocol must therefor be in place between the computer and the Arduino board. Thankfully, the Arduino community has long solved this problem through the implementation of the [`Firmata protocol`](https://www.arduino.cc/reference/en/libraries/firmata/).
 
 The `Firmata protocol` is a generic serial communication protocol between a software application running on a host PC (in our case Bonsai), and a family of microcontrollers  (in our case an Arduino, or Arduino-compatible board).
 
@@ -73,7 +73,7 @@ It should be noted that while any of the read events do not carry any temporal i
 
 ### Digital Output
 
-[**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput), in contrast to the previous node, instructs the Arduino to change the state of a given [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin). This node accepts a single input in the form of a ```Boolean``` that is used to set the state of the output pin (True=HIGH, False=LOW). The new value will remain set until a distinct value is received.
+[**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput), in contrast to the previous node, instructs the Arduino to change the state of a given [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin). This node accepts a single input in the form of a ```Boolean``` that is used to set the state of the output pin (```True=HIGH```, ```False=LOW```). The new value will remain set until a distinct value is received.
 
 >> ADD WORKFLOW WITH ARDUINO OBJECT HERE
 
@@ -130,7 +130,9 @@ In addition to
 
 ### An example of a simple Serial communication protocol
 
-## References:
+## General references:
+
+- https://github.com/firmata/arduino
 
 - https://github.com/martin-eden/firmata_protocol/blob/main/protocol.md
 
