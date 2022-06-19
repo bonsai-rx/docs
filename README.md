@@ -26,7 +26,7 @@ When working on an article, first check [the old documentation](https://bonsai-r
 ### Including figures
 
 To include a figure or image in an article: 
- - save your figure or image as a .svg file, naming the file using the pattern [article filename]-[figure name].svg
+ - save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`
  - add the figure/image to the **images** folder in this repo
 
 ### Standard formatting for operators and operator properties
