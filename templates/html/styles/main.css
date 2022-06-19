@@ -23,8 +23,9 @@
 }
 
 .workflow > p > img {
-  margin-top: 12px;
-  margin-left: 12px;
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .codeHeader {
