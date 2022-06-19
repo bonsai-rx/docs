@@ -8,15 +8,26 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-
-      # Build static site content using DocFX
-      - uses: nikeee/docfx-action@v1.0.0
-        name: Build Documentation
+        name: Checkout
         with:
-         args: docfx.json
+          submodules: recursive
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+      
+      - name: Restore NuGet Packages
+        run: msbuild -t:restore src\bonsai\Bonsai.sln
+
+      - name: Setup DocFX
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install docfx
+
+      - name: Build Documentation
+        run: docfx docfx.json
           
       - name: Checkout gh-pages
         uses: actions/checkout@v2
@@ -24,13 +35,8 @@ jobs:
           ref: gh-pages
           path: gh-pages
       - name: Publish to github pages
-        run: |
-          cd gh-pages
-          rm -rf *
-          touch .nojekyll
-          cp -a ../_site/. .
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit --reset-author --amend -m "Deploy docs website"
-          git push --force origin gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          force_orphan: true

@@ -1,0 +1,3 @@
+[submodule "src/bonsai"]
+	path = src/bonsai
+	url = https://github.com/bonsai-rx/bonsai.git

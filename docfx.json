@@ -5,6 +5,15 @@
         {
           "files": [
             "src/**.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "**/**.Tests/**",
+            "**/Bonsai.NuGet**/**",
+            "**/Bonsai.Configuration/**",
+            "**/Bonsai.StarterPack**/**",
+            "**/Bonsai.Templates/**"
           ]
         }
       ],
@@ -38,7 +47,8 @@
         "files": [
           "logo.svg",
           "favicon.ico",
-          "images/**"
+          "images/**",
+          "workflows/**"
         ]
       }
     ],
@@ -53,6 +63,12 @@
         ]
       }
     ],
+    "globalMetadata": {
+      "_gitContribute": {
+        "repo": "https://github.com/bonsai-rx/docs-wip",
+        "branch": "main"
+      }
+    },
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
@@ -62,6 +78,11 @@
     ],
     "postProcessors": [ "ExtractSearchIndex" ],
     "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "customcontainers"
+      ]
+    },
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,
@@ -69,7 +90,8 @@
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
     "xref": [
       "https://horizongir.github.io/opencv.net/xrefmap.yml",
-      "https://horizongir.github.io/ZedGraph/xrefmap.yml"
+      "https://horizongir.github.io/ZedGraph/xrefmap.yml",
+      "https://horizongir.github.io/opentk/xrefmap.yml"
     ]
   }
 }
