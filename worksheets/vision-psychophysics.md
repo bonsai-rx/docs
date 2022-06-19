@@ -8,10 +8,10 @@ title: Vision Psychophysics
 ## Getting Started
 
 1. Install the **BonVision** package from the Bonsai Community feed in the package manager. ![Installing BonVision](~/images/bonvision-install.png)
-2. Go through the [basic stimuli tutorial](https://bonvision.github.io/pages/03-Creating-Basic-Stimuli){:target="\_blank"} at the [BonVision](https://bonvision.github.io/){:target="\_blank"} website.
+2. Go through the [basic stimuli tutorial](https://bonvision.github.io/pages/03-Creating-Basic-Stimuli){target="\_blank"} at the [BonVision](https://bonvision.github.io/){target="\_blank"} website.
 
-**Make sure the latest version of the BonVision package is installed for this worksheet**
-{: .notice--info}
+> [!Warning]
+> Make sure the latest version of the BonVision package is installed for this worksheet.
 
 ## Orientation Discrimination
 
@@ -46,14 +46,13 @@ For now, we start by displaying a repeating sequence of random orientation grati
 - Insert a `SelectMany` operator and set its name to `ReferenceGrating`.
 - Insert a `Repeat` operator.
 
-**Note**: The `Timer (Shaders)` source works exactly like the default `Timer (Reactive)` source, but it counts the time by using the screen refresh time, rather than the operating system time. This can be important for precise timing of screen stimuli, as it avoid clock drift and jitter when synchronizing multiple visual elements, and should be in general preferred when specifying the various intervals used to control elements in the BonVision or Shaders packages.
-{: .notice--info}
+> [!Note]
+> The `Timer (Shaders)` source works exactly like the default `Timer (Reactive)` source, but it counts the time by using the screen refresh time, rather than the operating system time. This can be important for precise timing of screen stimuli, as it avoid clock drift and jitter when synchronizing multiple visual elements, and should be in general preferred when specifying the various intervals used to control elements in the BonVision or Shaders packages.
 
 To implement the `ReferenceGrating` state, we will need to sample a random angle from the angle distribution, use it to initialize the angle property of the gratings, and present the gratings for a specified period of time. At the end, we need to send out as a result the value of the random orientation which was generated.
 
 **`ReferenceGrating`**:
 ![BonVision render loop](~/images/bonvision-render-randomgrating.svg)
-{: .notice--info}
 
 - Use the `Sample (Numerics)` operator to sample a random orientation value from the `AngleDistribution` subject and store it in a new `AsyncSubject` named `Angle`. This will allow us to reuse the sampled value when drawing the gratings later.
 - Subscribe to the `Draw` subject we defined previously and insert a `DrawGratings` operator.
@@ -72,7 +71,6 @@ The second step in defining the contrast discrimination task is to display a sec
 
 **`ReferenceGrating`**:
 ![BonVision render loop](~/images/bonvision-render-referencegrating.svg)
-{: .notice--info}
 
 - Inside the `ReferenceGrating` state, select all nodes before `WorkflowOutput`, right-click the selection, and choose the `Save as Workflow` option. Choose `RandomOrientationGrating` as the name for the extension.
 
@@ -88,18 +86,16 @@ For the `Blank` state we will use a simple gap interval where nothing is drawn o
 
 **`Blank`**:
 ![BonVision render loop](~/images/bonvision-render-blank.svg)
-{: .notice--info}
 
 - Insert a `Delay (Shaders)` operator between the input and the output of the state workflow.
 
-**Note**: Similar to `Timer (Shaders)`, the `Delay (Shaders)` operator works exactly like the `Delay (Reactive)` operator, but using the screen refresh clock instead of the operating system clock. This also ensures that any delayed notifications are resynchronized with the render loop, in case they were emitted from other external devices.
-{: .notice--info}
+> [!Note]
+> Similar to `Timer (Shaders)`, the `Delay (Shaders)` operator works exactly like the `Delay (Reactive)` operator, but using the screen refresh clock instead of the operating system clock. This also ensures that any delayed notifications are resynchronized with the render loop, in case they were emitted from other external devices.
 
 To implement the `TestGrating` state, we want to reuse our previous `RandomOrientationGrating` extension workflow and simply combine the random generated angle with the angle from the reference grating.
 
 **`TestGrating`**:
 ![BonVision render loop](~/images/bonvision-render-testgrating.svg)
-{: .notice--info}
 
 - Insert a new `RandomOrientationGrating` operator from the toolbox and combine it with the input by using the `Zip` combinator. This will generate a pair where the first value is the random angle from the first reference grating, and the second value is the random angle for this test grating.
 
@@ -117,13 +113,12 @@ To implement the response gathering state we will use key presses from the parti
 
 **`Response`**:
 ![BonVision render loop](~/images/bonvision-response-choice.svg)
-{: .notice--info}
 
 - Connect the `Draw` subject from the toolbox to a new `DrawText` operator and set its `Text` property to a suggestive question (e.g. `A or B?`). Also edit the `Font` property and make sure the size is at least 72pt for readability.
 - Insert a `DelaySubscription (Shaders)` operator and set its `DueTime` property to 1 second.
 
-**Note**: As before, the difference with `DelaySubscription (Reactive)` is that `DelaySubscription (Shaders)` will use the screen refresh time and make sure that all effects of subscription are synchronized with the render loop.
-{: .notice--info}
+> [!Note]
+> As before, the difference with `DelaySubscription (Reactive)` is that `DelaySubscription (Shaders)` will use the screen refresh time and make sure that all effects of subscription are synchronized with the render loop.
 
 - Insert a `LessThan` operator after the input source node. This will compare the value of the randomly sampled angles for the first and second gratings, respectively, and will return true if the first grating is more clockwise than the second grating (i.e. its angle in radians is smaller than the second grating).
 - Insert a `KeyDown (Shaders)` source and set its `Key` property to `Left`.
@@ -146,7 +141,6 @@ This final state will simply display a quad for a certain period of time, where 
 
 **`Feedback`**:
 ![BonVision render loop](~/images/bonvision-response-feedback.svg)
-{: .notice--info}
 
 - Insert an `AsyncSubject` operator and set its `Name` property to `Result`. This will store the trial outcome result so it can be used to compute the color value of the quad.
 - Subscribe to the `Draw` subject and insert a `DrawQuad` operator.

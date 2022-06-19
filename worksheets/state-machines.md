@@ -9,9 +9,9 @@ When designing operant behaviour assays in systems neuroscience, it is useful to
 
 For example, a simple reaction time task where the subject needs to press a button as fast as possible following a stimulus is described in the following diagram:
 
-<span style="display:block;text-align:center">
+:::diagram
 ![State Machine Diagram](~/images/reactiontime-task.svg)
-</span>
+:::
 
 The task begins with an inter-trial interval (`ITI`), followed by stimulus presentation (`ON`). After stimulus onset, advancement to the next state can happen only when the subject presses the button (`success`) or a timeout elapses (`miss`). Depending on which event is triggered first, the task advances either to the `Reward` state, or `Fail` state. At the end, the task goes back to the beginning of the ITI state for the next trial.
 
@@ -30,8 +30,8 @@ In this worksheet, we will be using an Arduino or a camera as an interface to de
 - Insert a `CsvWriter` sink and configure its `FileName` property with a file name ending in `.csv`.
 - Run the workflow and activate the digital sensor a couple of times. Stop the workflow and confirm that the events were successfully timestamped and logged in the `.csv` file.
 
-**Note**: In order to avoid hardware side-effects, it is highly recommended to declare all hardware connections at the top-level of the workflow, and interface all trial logic using subject variables. This will have the added benefit of allowing for very easy and centralized replacement of the rig hardware: as long as the new inputs and configurations are compatible with the logical subjects, no code inside the task logic will have to be changed at all.
-{: .notice--info}
+> [!Note]
+> In order to avoid hardware side-effects, it is highly recommended to declare all hardware connections at the top-level of the workflow, and interface all trial logic using subject variables. This will have the added benefit of allowing for very easy and centralized replacement of the rig hardware: as long as the new inputs and configurations are compatible with the logical subjects, no code inside the task logic will have to be changed at all.
 
 - Right-click the `DigitalInput` source, select `Create Source (bool)` > `BehaviorSubject`, and set its `Name` property to `Led`.
 - Insert a `DigitalOutput` sink and set it to Arduino pin 13.
@@ -46,19 +46,18 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 - Insert a `Sink` operator and set its `Name` property to `StimOn`.
 - Double-click on the `Sink` node to open up its internal specification.
 
-**Note**: The `Sink` operator allows you to specify arbitrary processing side-effects without affecting the original flow of events. It is often used to trigger and control stimulus presentation in response to events in the task. Inside the nested specification, `Source1` represents input events arriving at the sink. In the specific case of `Sink` operators, the `WorkflowOutput` node can be safely ignored.
-{: .notice--info}
+> [!Note]
+> The `Sink` operator allows you to specify arbitrary processing side-effects without affecting the original flow of events. It is often used to trigger and control stimulus presentation in response to events in the task. Inside the nested specification, `Source1` represents input events arriving at the sink. In the specific case of `Sink` operators, the `WorkflowOutput` node can be safely ignored.
 
 **`StimOn`**:
 ![Stimulus LED control](~/images/statemachine-stimulus-led.svg)
-{: .notice--info}
 
 - Insert a `Boolean` operator following `Source1` and set its `Value` property to `True`.
 - Find and right-click the `Led` subject in the toolbox and select the option `Multicast`.
 - Run the workflow a couple of times and verify that the sequence of events is progressing correctly.
 
-**Note:** Opening a new connection to the Arduino can take several seconds due to the way the Firmata protocol is implemented. This may introduce a slight delay in starting the task. This delay is only present at the start of execution and will not affect the behavior of the state machine.
-{: .notice--info}
+> [!Note]
+> Opening a new connection to the Arduino can take several seconds due to the way the Firmata protocol is implemented. This may introduce a slight delay in starting the task. This delay is only present at the start of execution and will not affect the behavior of the state machine.
 
 ![Repeat stimulus presentation](~/images/statemachine-stimulus-repeat.svg)
 
@@ -79,12 +78,11 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 - Insert a `SelectMany` operator after `StimOn`, and set its `Name` property to `Response`.
 - Double-click on the `SelectMany` node to open up its internal specification.
 
-**Note:** The `SelectMany` operator is used here to create a new state for every input event. `Source1` represents the input event that created the state, and `WorkflowOutput` will be used to report the end result from the state (e.g. whether the response was a success or failure).
-{: .notice--info}
+> [!Note]
+> The `SelectMany` operator is used here to create a new state for every input event. `Source1` represents the input event that created the state, and `WorkflowOutput` will be used to report the end result from the state (e.g. whether the response was a success or failure).
 
 **`Response`**:
 ![Stimulus response input control](~/images/statemachine-stimulus-response-input.svg)
-{: .notice--info}
 
 - Subscribe to the `Response` subject in the toolbox.
 - Insert a `Boolean` operator and set its `Value` property to `True`.
@@ -97,7 +95,6 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 
 **`Response`**:
 ![Stimulus response timeout control](~/images/statemachine-stimulus-response-timeout.svg)
-{: .notice--info}
 
 - Inside the `Response` node, insert a `Timer` source and set its `DueTime` property to be about 1 second.
 - Insert a `Boolean` operator and set its `Value` property to `False`.
@@ -115,12 +112,11 @@ _Describe in your own words what the above modified workflow is doing._
 - In a new branch from `StimOff`, insert another `Condition`, and set its `Name` property to `Miss`.
 - Double-click on the `Condition` operator to open up its internal specification.
 
-**Note**: The `Condition` operator allows you to specify arbitrary rules for accepting or rejecting inputs. Only inputs which pass the filter specified inside the `Condition` are allowed to proceed. It is often used to represent choice points in the task. Inside the nested specification, `Source1` represents input events to be tested. The `WorkflowOutput` node always needs to be specified with a `bool` input, the result of whether the input is accepted (`True`) or rejected (`False`). Usually you can use operators such as `Equal`,`NotEqual`,`GreaterThan`, etc for specifying such tests.
-{: .notice--info}
+> [!Note]
+> The `Condition` operator allows you to specify arbitrary rules for accepting or rejecting inputs. Only inputs which pass the filter specified inside the `Condition` are allowed to proceed. It is often used to represent choice points in the task. Inside the nested specification, `Source1` represents input events to be tested. The `WorkflowOutput` node always needs to be specified with a `bool` input, the result of whether the input is accepted (`True`) or rejected (`False`). Usually you can use operators such as `Equal`,`NotEqual`,`GreaterThan`, etc for specifying such tests.
 
 **`Miss`**:
 ![Stimulus response miss condition](~/images/statemachine-stimulus-response-miss-condition.svg)
-{: .notice--info}
 
 - Insert a `BitwiseNot` operator after `Source1`.
 
@@ -130,7 +126,6 @@ _Why did we not need to specify anything for the `Success` condition?_
 - Inside the `Reward` node you can specify your own logic to signal the trial was successful. For example, you can make the LED blink three times in rapid succession:
 
 **`Reward`**: ![Stimulus response reward outcome](~/images/statemachine-stimulus-response-outcomes-reward.svg)
-{: .notice--info}
 
 - Insert a `Timer` node and set both the `DueTime` and the `Period` properties to 100ms.
 - Insert a `Mod` operator and set the `Value` property to 2.
@@ -138,7 +133,6 @@ _Why did we not need to specify anything for the `Success` condition?_
 - Find and right-click the `Led` subject in the toolbox and select the option `Multicast`.
 - Insert a `Take` operator and set the `Count` property to 6.
 - Insert the `Last` operator.
-  {: .notice--info}
 
 _Try out your state machine and check whether you understand the behavior of the reward signal._
 
@@ -149,7 +143,7 @@ _Try out your state machine and check whether you understand the behavior of the
 
 _Try out your state machine and introduce variations to the task behavior and conditions._
 
-### **Exercise 6 (Optional):** Go/No-Go task
+### **Exercise 6:** Go/No-Go task
 
 Implement the following trial structure for a Go/No-Go task.
 
@@ -159,15 +153,16 @@ Implement the following trial structure for a Go/No-Go task.
 - Response events should be based on a button press, and reject events on a timeout.
 - Make sure to implement different visual or auditory feedback for either the cue or reward/failure states.
 
-**Suggestion**: To sample values from a discrete uniform distribution, you can use the following workflow: ![Stimulus response reward outcome](~/images/samplediscreteuniform.svg)
-{: .notice--info}
+> [!Tip]
+> To sample values from a discrete uniform distribution, you can use the following workflow: ![Stimulus response reward outcome](~/images/samplediscreteuniform.svg)
 
 - Record a timestamped chronological log of trial types and rewards into a CSV file using a `BehaviorSubject`.
 
-### **Exercise 7 (Optional):** Conditioned place preference
+### **Exercise 7:** Conditioned place preference
 
 Implement the following trial structure for conditioned place preference. `enter` and `leave` events should be triggered in real-time from the camera, by tracking an object moving in or out of a region of interest (ROI). `Reward` should be triggered once upon entering the ROI, and not repeat again until the object exits the ROI and the ITI has elapsed.
 
 ![Conditioned Place Preference](~/images/placepreference.svg)
 
-**Suggestion**: There are several ways to implement ROI activation, so feel free to explore different ideas. Consider using either `Crop`, `RoiActivity`, or `ContainsPoint` as part of different strategies to implement the `enter` and `leave` events.
+> [!Tip]
+> There are several ways to implement ROI activation, so feel free to explore different ideas. Consider using either `Crop`, `RoiActivity`, or `ContainsPoint` as part of different strategies to implement the `enter` and `leave` events.

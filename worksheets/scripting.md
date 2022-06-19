@@ -18,8 +18,8 @@ Install the following:
 3. [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code extensions menu.
 4. [.NET Framework 4.7.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net472).
 
-_You might need to reboot your machine after installing these components._
-{: .notice--info}
+> [!Warning]
+> You might need to reboot your machine after installing these components.
 
 ## Random Dot Kinematogram
 
