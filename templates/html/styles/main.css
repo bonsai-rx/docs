@@ -43,7 +43,6 @@
 .codeHeader > .language {
   padding: 2px 16px;
   flex-grow: 1;
-  text-transform: uppercase;
   line-height: 26px;
 }
 
