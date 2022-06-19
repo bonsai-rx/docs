@@ -90,3 +90,11 @@
   opacity: 0;
   transition: 500ms opacity ease-in-out;
 }
+
+.diagram {
+  text-align: center;
+}
+
+summary {
+  display: list-item;
+}
