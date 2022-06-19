@@ -80,6 +80,7 @@
     "markdownEngineName": "markdig",
     "markdownEngineProperties": {
       "markdigExtensions": [
+        "attributes",
         "customcontainers"
       ]
     },
