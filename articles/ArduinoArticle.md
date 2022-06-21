@@ -1,3 +1,7 @@
+---
+layout: article
+title: Bonsai & Arduino
+---
 # Bonsai & Arduino
 
 Bonsai excels at processing parallel and asynchronous streams of data (e.g. cameras, audio, etc...). However, for some applications, you might be looking for a solution to "*close the loop*". In other words, not only *see* (*read*) the world but also *act* (*write*) on it.
