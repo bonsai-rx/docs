@@ -23,8 +23,9 @@
 }
 
 .workflow > p > img {
-  margin-top: 12px;
-  margin-left: 12px;
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .codeHeader {
@@ -42,7 +43,6 @@
 .codeHeader > .language {
   padding: 2px 16px;
   flex-grow: 1;
-  text-transform: uppercase;
   line-height: 26px;
 }
 
@@ -89,4 +89,12 @@
 .codeHeader > .action .successful-copy-alert.is-transparent {
   opacity: 0;
   transition: 500ms opacity ease-in-out;
+}
+
+.diagram {
+  text-align: center;
+}
+
+summary {
+  display: list-item;
 }

@@ -40,7 +40,7 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 - Make sure that the `SamplingFrequency` property of the `AudioWriter` matches the frequency of audio capture.
 - Run the workflow for some seconds. Playback the file in Windows Media Player to check that it is a valid audio file.
 
-### **Exercise 4 (Optional):** Saving raw binary waveform data
+### **Exercise 4:** Saving raw binary waveform data
 
 ![Saving raw binary waveform data](~/images/acquisition-audiobinary.svg)
 
@@ -178,7 +178,7 @@ _Describe in your own words what the above modified workflow is doing._
 - Run the workflow, point the camera at a moving object and visualize the output of the `Sum` operator. Compare small movements to big movements. What happens to the signal when the object holds perfect still?
 - Right-click the `Sum` operator. Select the `Scalar` > `Val0` member from the context menu.
 
-**Note:** The `Sum` operator sums the pixel values across all image colour channels. However, in the case of grayscale binary images, there is only one active channel and its sum is stored in the `Val0` field.
-{: .notice--info}
+> [!Note]
+> The `Sum` operator sums the pixel values across all image colour channels. However, in the case of grayscale binary images, there is only one active channel and its sum is stored in the `Val0` field.
 
 - Record the motion of an object using a `CsvWriter` sink.
