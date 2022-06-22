@@ -1,5 +1,5 @@
 - name: Quickstart
-  href: 
+  href: intro.md
   items:
     - name: Installing Bonsai
       href: installation.md
