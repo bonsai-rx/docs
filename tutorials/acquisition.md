@@ -11,7 +11,9 @@ Bonsai can be used to acquire and record data from many different devices. The e
 
 ### **Exercise 1:** Saving a video
 
-![Saving a video](~/images/acquisition-video.svg)
+:::workflow
+![Saving a video](~/workflows/acquisition-video.bonsai)
+:::
 
 - Insert a `CameraCapture` source.
 - Insert a `VideoWriter` sink.
@@ -20,7 +22,9 @@ Bonsai can be used to acquire and record data from many different devices. The e
 
 ### **Exercise 2:** Saving a grayscale video
 
-![Saving a grayscale video](~/images/acquisition-grayvideo.svg)
+:::workflow
+![Saving a grayscale video](~/workflows/acquisition-grayvideo.bonsai)
+:::
 
 - Insert a `Grayscale` transform between `CameraCapture` and `VideoWriter`.
 - Run the workflow. The output should now be a grayscale movie.
@@ -32,7 +36,9 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 
 ### **Exercise 3:** Saving a WAV file
 
-![Saving a WAV file](~/images/acquisition-audio.svg)
+:::workflow
+![Saving a WAV file](~/workflows/acquisition-audio.bonsai)
+:::
 
 - Insert an `AudioCapture` source.
 - Insert an `AudioWriter` sink.
@@ -42,7 +48,9 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 
 ### **Exercise 4:** Saving raw binary waveform data
 
-![Saving raw binary waveform data](~/images/acquisition-audiobinary.svg)
+:::workflow
+![Saving raw binary waveform data](~/workflows/acquisition-audiobinary.bonsai)
+:::
 
 - Replace the `AudioWriter` operator with a `MatrixWriter` sink.
 - Configure the `Path` property of the `MatrixWriter` operator with a file name ending in `.bin`.
@@ -53,14 +61,18 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 
 ### **Exercise 5:** Trigger an auditory stimulus
 
-![Playback an audio file](~/images/acquisition-audioplayback.svg)
+:::workflow
+![Playback an audio file](~/workflows/acquisition-audioplayback.bonsai)
+:::
 
 - Insert an `AudioReader` source.
 - Configure the `FileName` property to point to the audio file you recorded in _Exercise 3_.
 - Insert an `AudioPlayback` sink.
 - Run the workflow and check that the sound is played correctly.
 
-![Trigger an auditory stimulus](~/images/acquisition-audiotrigger.svg)
+:::workflow
+![Trigger an auditory stimulus](~/workflows/acquisition-audiotrigger.bonsai)
+:::
 
 - Insert a `KeyDown` source.
 - Set the `BufferLength` property of the `AudioReader` to zero, so that all audio data is read into a single buffer.
@@ -80,7 +92,9 @@ In order to communicate and interact with an Arduino using Bonsai, you must prog
 
 ### **Exercise 6:** Saving analog data
 
-![Saving analog data](~/images/acquisition-analog.svg)
+:::workflow
+![Saving analog data](~/workflows/acquisition-analog.bonsai)
+:::
 
 - Insert an `AnalogInput` source.
 - Configure the `PortName` property to point to the correct serial port where the Arduino is connected.
@@ -92,7 +106,9 @@ In order to communicate and interact with an Arduino using Bonsai, you must prog
 
 ### **Exercise 7:** Control an LED
 
-![Control an LED](~/images/acquisition-led.svg)
+:::workflow
+![Control an LED](~/workflows/acquisition-led.bonsai)
+:::
 
 - Insert a `Boolean` source.
 - Insert a `DigitalOutput` sink.
@@ -103,7 +119,9 @@ In order to communicate and interact with an Arduino using Bonsai, you must prog
 
 ### **Exercise 8:** Control a servo motor
 
-![Control a servo motor](~/images/acquisition-servo.svg)
+:::workflow
+![Control a servo motor](~/workflows/acquisition-servo.bonsai)
+:::
 
 - Insert a `Timer` source. Set its `Period` property to 500 ms.
 - Insert a `Take` operator. Set its `Count` property to 10.
@@ -121,7 +139,9 @@ Bonsai allows processing captured raw video data to extract real-time measures o
 
 ### **Exercise 9:** Segmentation of a coloured object
 
-![Segmentation of a coloured object](~/images/acquisition-segmentation1.svg)
+:::workflow
+![Segmentation of a coloured object](~/workflows/acquisition-segmentation1.bonsai)
+:::
 
 - Insert a `CameraCapture` source.
 - Insert a `RangeThreshold` transform.
@@ -130,7 +150,9 @@ Bonsai allows processing captured raw video data to extract real-time measures o
 
 This method segments coloured objects by setting boundaries directly on the BGR colour space. This colour space is considered a poor choice for colour segmentation. Can you see why?
 
-![Segmentation of a coloured object](~/images/acquisition-segmentation2.svg)
+:::workflow
+![Segmentation of a coloured object](~/workflows/acquisition-segmentation2.bonsai)
+:::
 
 - Replace the `RangeThreshold` operator by a `ConvertColor` transform. This node converts the image from the BGR colour space to the [Hue-Saturation-Value (HSV) colour space](https://en.wikipedia.org/wiki/HSL_and_HSV).
 - Insert an `HsvThreshold` transform.
@@ -139,7 +161,9 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 
 ### **Exercise 10:** Real-time position tracking
 
-![Real-time position tracking](~/images/acquisition-tracking.svg)
+:::workflow
+![Real-time position tracking](~/workflows/acquisition-tracking.bonsai)
+:::
 
 - Starting with the workflow from the previous exercise, insert a `FindContours` transform. This operator traces the contours of all the objects in a black-and-white image. An _object_ is defined as a region of connected white pixels.
 - Insert a `BinaryRegionAnalysis` transform. This node calculates the area, center of mass, and orientation for all the detected contours.
@@ -150,7 +174,9 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 
 ### **Exercise 11:** Background subtraction and motion segmentation
 
-![Background subtraction](~/images/acquisition-backsubtraction.svg)
+:::workflow
+![Background subtraction](~/workflows/acquisition-backsubtraction.bonsai)
+:::
 
 - Create a grayscale video workflow similar to _Exercise 2_.
 - Insert a `Skip` operator. Set its `Count` property to 1.
@@ -161,7 +187,9 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 
 _Describe in your own words what the above workflow is doing._
 
-![Motion segmentation](~/images/acquisition-motionsegmentation.svg)
+:::workflow
+![Motion segmentation](~/workflows/acquisition-motionsegmentation.bonsai)
+:::
 
 - Replace the `CombineLatest` operator with the `Zip` combinator.
 - Delete the `Take` operator.
@@ -170,7 +198,9 @@ _Describe in your own words what the above modified workflow is doing._
 
 ### **Exercise 12:** Measuring motion
 
-![Measuring motion](~/images/acquisition-motion.svg)
+:::workflow
+![Measuring motion](~/workflows/acquisition-motion.bonsai)
+:::
 
 - Create a grayscale video stream similar to _Exercise 2_.
 - Insert a `BackgroundSubtraction` transform. Set its `AdaptationRate` property to 1.
