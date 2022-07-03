@@ -123,11 +123,40 @@ Thus, [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) receives as an inpu
 
 ## Servo Output
 
-In addition to 
+In addition to writing analog and digital values, the communication between Bonsai and Arduino is also able to control servo motors using, under the hood, the ['Servo.h'](https://www.arduino.cc/reference/en/libraries/servo/) library.
+Similarly to the previously showcased outputs, the [**`ServoOutput`**](xref:Bonsai.Arduino.ServoOutput) operator expects a [`Pin`](xref:Bonsai.Arduino.ServoOutput.Pin) connected to the servo-motor, and a [`PortName`](xref:Bonsai.Arduino.ServoOutput.PorName). You can instruct the servo to move to a specific angle (`0-180 degrees`) by simply sending an ```Int``` input to the operator.
+
+[![Example Workflow](../images/CreateArduino.svg)](../workflows/CreateArduino.bonsai)
 
 ## Coding best practices
 
+We have now covered the main operators that afford communication between Bonsai and Arduino. In this next section we will review coding pratices that will make your workflow more readable, scalable, and sometimes performant.
 ### Subjects
+
+Covering the topic of `Subjects` is far from the scope of this tutorial. For now, let's just take the intuition that `Subjects` are operators that allow the sharing of observables across your workflow, without the need for explicit branches to be made between operators.
+For instance:
+
+The output of timer is shared using a [**`PublishSubject`**](xref:Bonsai.Expressions.PublishSubject), and subscribed to using [**`SubscribeSubject`**](xref:Bonsai.Expressions.SubscribeSubject) from anywhere in your workflow. Keep in mind that, in order to pair connections between `Subjects`, these must have names. This can also be leveraged to keep your code cleaner as we will see.
+
+As a side node, due to the priority `Subjects` are initialized with in Bonsai, it is highly recomended to use them to define all your hardware objects and connections at the highest level of your workflow.
+
+
+#### Subjects afford "one-to-many" logic
+Consider the example wherein you might be interested in reading from a single digital pin and perform two independent computations in Bonsai. This would look something like:
+
+--input(1) -go1
+--input(1) -go2
+
+While valid, this creates a problem if you need to change the pin you want to read from. Since the number of changes you will need to refactor in your workflow will scale with the number of branches that use that operator.
+
+A good pratice to avoid these pitfals is to assign your observable to a subject with a more abstract name (e.g. `ButtonSignal`).
+
+--workflow
+
+As you can probably tell, as long as the downstream branches are subscribed to `ButtonSignal`, you would simply need to change the pin number in a single place (i.e. when creating the `Subject`)
+
+#### Subjects afford One-to-many logic "many-to-one" logic
+
 
 
 ## Alternatives to Firmata
