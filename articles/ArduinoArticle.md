@@ -158,14 +158,22 @@ As you can probably tell, as long as the downstream branches are subscribed to `
 ![One-to-many refactored with analog input](~/workflows/ArduinoOneToManyRefactored_withanalog.bonsai)
 :::
 
-#### Subjects afford One-to-many logic "many-to-one" logic
+#### Subjects afford "many-to-one" logic
+
+Related to the previous example, very often, we find the need to have multiple computations converging on to a single output. For instance, two independent conditions might be allowed to change the state of an output signal. If we were to do it without subjects, one way to achieve this would be:
+
+:::workflow
+![Many-to-one](~/workflows/ArduinoManyToOne.bonsai)
+:::
 
 
-## Alternatives to Firmata
+We can refactor the workflow by creating a `Subject Source`. Right-click on top of [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput) -> `Create Source` -> `Behavior Subject` and connect this source to our [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput). We can then change the state of our digital output pin by simply sending events to the newly created `MyControlSignal` `Subject` using a `MulticastSubject` operator.
 
-### An example of a simple Serial communication protocol
+:::workflow
+![Many-to-one refactored](~/workflows/ArduinoManyToOneRefactored.bonsai)
+:::
 
-## General references:
+## References:
 
 - https://github.com/firmata/arduino
 
