@@ -52,8 +52,6 @@ This node sets:
 
  - The [`SamplingInterval`](xref:Bonsai.Arduino.CreateArduino.SamplingInterval) that determines the frequency at which analog data is sampled from the Arduino. While in theory this value can be lowered to obtain higher sampling rates (by default 19 milliseconds or ~52Hz), given hardware resource contraints, the minimum value might differ across boards. For an Arduino UNO, for instance, this value seems to cap at 10 milliseconds.
 
->> ADD WORKFLOW WITH ARDUINO OBJECT HERE
-
 Now that we have created an object we can establish a connection with, it is finally time to get some data from Arduino.
 
 ## Digital Input and Output
@@ -64,7 +62,6 @@ Reading and Writing digital values from an Arduino is acomplished by instantiati
 
 - The [`PortName`](xref:Bonsai.Arduino.CreateArduino.PortName) of the Arduino object . As previously stated, if [`Name`](xref:Bonsai.Arduino.CreateArduino.Name) was left empty, the Arduino board can be selected by the COM port name. However, to increase the code flexibility across setups, the user is encouraged to enter a value. Under this scenario, the previously defined [`Name`](xref:Bonsai.Arduino.CreateArduino.Name) will be selectable under [`PortName`](xref:Bonsai.Arduino.CreateArduino.PortName). This way, when running the workflow in a distinct host PC, the user will simply have to change  [**`CreateArduino's`**](xref:Bonsai.Arduino.CreateArduino) [`PortName`](xref:Bonsai.Arduino.CreateArduino.PortName).
 
-
 ### Digital Input
 
 [**`DigitalInput`**](xref:Bonsai.Arduino.DigitalInput) source outputs a ```Boolean``` value (True/False) each time the state of the defined [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin) number changes (i.e. "Toggles"). Additionally, at start-up, the node will output the current value of the pin.
@@ -73,22 +70,23 @@ In addition to [**`DigitalInput`**](xref:Bonsai.Arduino.DigitalInput), [**`Input
 
 It should be noted that while any of the read events do not carry any temporal information from the Arduino, they can be timestamped in Bonsai with the [**`Timestamp`**](xref:Bonsai.Reactive.Timestamp) operator. Critically, the logged time will correspond to the time the event was registered in Bonsai and not when it was detected in hardware.
 
->> ADD WORKFLOW WITH ARDUINO OBJECT HERE
-
 ### Digital Output
 
 [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput), in contrast to the previous node, instructs the Arduino to change the state of a given [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin). This node accepts a single input in the form of a ```Boolean``` that is used to set the state of the output pin (```True=HIGH```, ```False=LOW```). The new value will remain set until a distinct value is received.
 
->> ADD WORKFLOW WITH ARDUINO OBJECT HERE
+:::workflow
+![Arduino Digital I/O](~/workflows/ArduinoDigitalIO.bonsai)
+:::
 
-### Combining DigitalOutput and DigitalInput to measure communication latencies
+### Measuring communication latency
 
 When using Arduino to control experimental rigs, especially those implementing closed-loop interactions, it is important to benchmark how long it takes for an instruction sent from Bonsai to produce an output in the world.
 
-One way to achieve this is to measure the time it takes to detect a change in a pin state connected to a second pin we write to. Let's first connect pin 5 to pin 6 in Arduino. We will then read from pin 5 (e.g. False) and use this value to update the state of pin 6 (i.e. NOT(False) = True). This operation will change the state of pin 5 (e.g. True) and restart a new loop. The time between each toggle read (e.g. False -> True) will give us a benchmark the round-trip time (TODO ADD WORKSHEET EXAMPLE HERE).
+One way to achieve this is to measure the time it takes to detect a change in a pin state connected to a second pin we write to. Let's first connect a wire from pin 5 to pin 6 in Arduino. We will then read from pin 5 (e.g. False) and use this value to update the state of pin 6 (i.e. NOT(False) = True). This operation will change the state of pin 5 (e.g. True) and restart a new loop. The time between each toggle read (e.g. False -> True) will give us a benchmark the round-trip time.
 
->> ADD WORKFLOW WITH ARDUINO OBJECT HERE
-
+:::workflow
+![Measuring round-trip delay](~/workflows/ArduinoRoundTrip.bonsai)
+:::
 
 ## Analog Input and Output
 
@@ -99,8 +97,6 @@ One way to achieve this is to measure the time it takes to detect a change in a 
 The output of [**`AnalogInput`**](xref:Bonsai.Arduino.AnalogInput) is an ```Int``` ranging from `0-1023` (`10 bits`) that linearly maps to the digitized voltage range of the analog input pin (e.g. for Arduino UNO, `0-1023` -> `0-5 Volts`).
 
 Finally, the sampling rate of this node is defined by [`SamplingInterval`](xref:Bonsai.Arduino.CreateArduino.SamplingInterval). While the sampling frequency is relatively stable, a small delay (and jitter) is to be expected from the time of acquisition to receiving data in Bonsai.
-
->> ADD WORKFLOW WITH ARDUINO OBJECT HERE
 
 ### Analog Write
 
@@ -114,21 +110,20 @@ Thus, [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) receives as an inpu
 |:--:|
 | **Pulse-width modulation of a square wave. A 50%, 75%, and 25% duty-cycle would correspond to an [**`AnalogOutput`**](xref:Bonsai.Arduino.AnalogOutput) input value of 128, 191 and 64, respectively.** (Reproduced from: https://en.wikipedia.org/wiki/Pulse-width_modulation under a CC BY-SA 4.0 license)|
 
->> ADD WORKFLOW WITH ARDUINO OBJECT HERE
-
-
-[![Example Workflow](../images/acquisition-example.svg)](../workflows/acquisition-example.bonsai)
-[![Example Workflow](../images/acquisition-example.svg)](../workflows/acquisition-example.bonsai)
-
+:::workflow
+![Arduino Analog I/O](~/workflows/ArduinoAnalogIO.bonsai)
+:::
 
 ## Servo Output
 
 In addition to writing analog and digital values, the communication between Bonsai and Arduino is also able to control servo motors using, under the hood, the ['Servo.h'](https://www.arduino.cc/reference/en/libraries/servo/) library.
 Similarly to the previously showcased outputs, the [**`ServoOutput`**](xref:Bonsai.Arduino.ServoOutput) operator expects a [`Pin`](xref:Bonsai.Arduino.ServoOutput.Pin) connected to the servo-motor, and a [`PortName`](xref:Bonsai.Arduino.ServoOutput.PorName). You can instruct the servo to move to a specific angle (`0-180 degrees`) by simply sending an ```Int``` input to the operator.
 
-[![Example Workflow](../images/CreateArduino.svg)](../workflows/CreateArduino.bonsai)
+:::workflow
+![Arduino Servo Output](~/workflows/ArduinoServo.bonsai)
+:::
 
-## Coding best practices
+## Best practices
 
 We have now covered the main operators that afford communication between Bonsai and Arduino. In this next section we will review coding pratices that will make your workflow more readable, scalable, and sometimes performant.
 ### Subjects
@@ -144,19 +139,26 @@ As a side node, due to the priority `Subjects` are initialized with in Bonsai, i
 #### Subjects afford "one-to-many" logic
 Consider the example wherein you might be interested in reading from a single digital pin and perform two independent computations in Bonsai. This would look something like:
 
---input(1) -go1
---input(1) -go2
+:::workflow
+![One-to-many](~/workflows/ArduinoOneToMany.bonsai)
+:::
+
 
 While valid, this creates a problem if you need to change the pin you want to read from. Since the number of changes you will need to refactor in your workflow will scale with the number of branches that use that operator.
 
-A good pratice to avoid these pitfals is to assign your observable to a subject with a more abstract name (e.g. `ButtonSignal`).
+A good pratice to avoid these pitfals is to assign your observable to a subject with a more abstract name (e.g. `MySignal`).
 
---workflow
+:::workflow
+![One-to-many refactored](~/workflows/ArduinoOneToManyRefactored.bonsai)
+:::
 
-As you can probably tell, as long as the downstream branches are subscribed to `ButtonSignal`, you would simply need to change the pin number in a single place (i.e. when creating the `Subject`)
+As you can probably tell, as long as the downstream branches are subscribed to `MySignal`, you would simply need to change the pin number in a single place (i.e. when creating the `MySignal` `Subject`). Additionally, this solution also affords the possiblity of completly changing the computation prior to `MySignal`. For instance, instead of using a digital input pin, we could opt to read from an analog signal and threshold it software.
+
+:::workflow
+![One-to-many refactored with analog input](~/workflows/ArduinoOneToManyRefactored_withanalog.bonsai)
+:::
 
 #### Subjects afford One-to-many logic "many-to-one" logic
-
 
 
 ## Alternatives to Firmata
