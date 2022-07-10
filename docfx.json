@@ -64,6 +64,7 @@
       }
     ],
     "globalMetadata": {
+      "_enableNewTab": true,
       "_gitContribute": {
         "repo": "https://github.com/bonsai-rx/docs-wip",
         "branch": "main"
