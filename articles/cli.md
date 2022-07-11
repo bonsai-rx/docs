@@ -152,6 +152,11 @@ Bonsai myWorkflow.bonsai --FLAG
 Bonsai --FLAG
 Bonsai --FLAG:<"parameterValue">
 ```
+Alternatively to `:`, ` ` (`space`) can also be used to bind parameters in the CLI. For example:
+
+```cmd
+Bonsai --FLAG <"parameterValue">
+```
 
 Other currently available flags:
 
