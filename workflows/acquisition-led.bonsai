@@ -12,7 +12,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="ard:DigitalOutput">
-          <ard:Pin>0</ard:Pin>
+          <ard:Pin>13</ard:Pin>
         </Combinator>
       </Expression>
     </Nodes>

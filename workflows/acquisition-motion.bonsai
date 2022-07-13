@@ -19,8 +19,8 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:BackgroundSubtraction">
           <cv:BackgroundFrames>1</cv:BackgroundFrames>
-          <cv:AdaptationRate>0</cv:AdaptationRate>
-          <cv:ThresholdValue>0</cv:ThresholdValue>
+          <cv:AdaptationRate>1</cv:AdaptationRate>
+          <cv:ThresholdValue>10</cv:ThresholdValue>
           <cv:ThresholdType>Binary</cv:ThresholdType>
           <cv:SubtractionMethod>Absolute</cv:SubtractionMethod>
         </Combinator>

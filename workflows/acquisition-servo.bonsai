@@ -10,21 +10,21 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT0S</rx:Period>
+          <rx:Period>PT0.5S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Take">
-          <rx:Count>1</rx:Count>
+          <rx:Count>10</rx:Count>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Rescale">
           <dsp:Min>0</dsp:Min>
-          <dsp:Max>1</dsp:Max>
+          <dsp:Max>10</dsp:Max>
           <dsp:RangeMin>0</dsp:RangeMin>
-          <dsp:RangeMax>1</dsp:RangeMax>
-          <dsp:RescaleType>Linear</dsp:RescaleType>
+          <dsp:RangeMax>180</dsp:RangeMax>
+          <dsp:RescaleType>Clamp</dsp:RescaleType>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -32,7 +32,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="ard:ServoOutput">
-          <ard:Pin>0</ard:Pin>
+          <ard:Pin>9</ard:Pin>
         </Combinator>
       </Expression>
     </Nodes>

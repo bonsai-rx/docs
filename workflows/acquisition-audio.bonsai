@@ -14,6 +14,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="al:AudioWriter">
+          <al:FileName>audio.wav</al:FileName>
           <al:Suffix>None</al:Suffix>
           <al:Buffered>true</al:Buffered>
           <al:Overwrite>false</al:Overwrite>
