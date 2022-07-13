@@ -1,4 +1,4 @@
-- name: Aquisition and Tracking
+- name: Acquisition and Tracking
   href: acquisition.md
 - name: Closed-Loop Systems
   href: closed-loop.md
