@@ -7,6 +7,7 @@
     <Nodes>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="al:AudioReader">
+          <al:FileName>audio.wav</al:FileName>
           <al:BufferLength>10</al:BufferLength>
           <al:SampleRate>0</al:SampleRate>
         </Combinator>

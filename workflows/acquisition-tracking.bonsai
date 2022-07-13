@@ -55,6 +55,7 @@
         <Combinator xsi:type="cv:Centroid" />
       </Expression>
       <Expression xsi:type="io:CsvWriter">
+        <io:FileName>centroid.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>

@@ -12,6 +12,7 @@
         </Combinator>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
+        <io:FileName>analog.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
