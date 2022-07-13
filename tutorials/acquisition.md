@@ -205,7 +205,7 @@ _Describe in your own words what the above modified workflow is doing._
 - Create a grayscale video stream similar to _Exercise 2_.
 - Insert a `BackgroundSubtraction` transform. Set its `AdaptationRate` property to 1.
 - Insert a `Sum` operator. This operator will sum the values of all the pixels in the image.
-- Run the workflow, point the camera at a moving object and visualize the output of the `Sum` operator. Compare small movements to big movements. What happens to the signal when the object holds perfect still?
+- Run the workflow, point the camera at a moving object and visualize the output of the `Sum` operator. Compare small movements to big movements. What happens to the signal when the object holds perfectly still?
 - Right-click the `Sum` operator. Select the `Scalar` > `Val0` member from the context menu.
 
 > [!Note]
