@@ -75,7 +75,7 @@
     "fileMetadataFiles": [],
     "template": [
       "default",
-      "templates/html"
+      "template"
     ],
     "postProcessors": [ "ExtractSearchIndex" ],
     "markdownEngineName": "markdig",
