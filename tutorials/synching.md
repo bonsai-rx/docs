@@ -9,7 +9,9 @@ Synchronizing behaviour and other experimental events with stimulation or record
 
 ### **Exercise 1:** Synchronizing video from two webcams
 
-![Synching Video](~/images/synching-webcam.svg)
+:::workflow
+![Synching Video](~/workflows/synching-camera.bonsai)
+:::
 
 - Insert a `CameraCapture` source and set it to index 0.
 - Insert another `CameraCapture` source and set it to index 1.
@@ -36,17 +38,21 @@ The task begins with an inter-trial interval (`ITI`), followed by stimulus prese
 
 In this first exercise, you will assemble the basic hardware and software components required to implement the reaction time task. The wiring diagram below illustrates the hardware assembly. You can wire the LED into any digital input pin, but make sure to note the pin number for the steps below.
 
-![Reaction Time Circuit](~/images/reaction-time-circuit.png){height=300}
+![Reaction Time Circuit](~/images/reactiontime-circuit.png){height=300}
 
 We will start by using a fixed-interval blinking LED as our stimulus.
 
-![Create Arduino](~/images/create-arduino.svg)
+:::workflow
+![Create Arduino](~/workflows/reactiontime-arduino.bonsai)
+:::
 
 - To configure the Arduino analog sampling rate, insert a `CreateArduino` source.
 - Configure the `PortName` to the Arduino port where the microcontroller is connected.
 - Configure the `SamplingInterval` property to 10 ms.
 
-![Reaction Time Stimulus](~/images/reaction-time-stimulus.svg)
+:::workflow
+![Reaction Time Stimulus](~/workflows/reactiontime-stimulus.bonsai)
+:::
 
 - Insert a `Timer` source and set its `DueTime` property to 1 second.
 - Insert a `Boolean` source and set its `Value` property to `True`.
@@ -59,7 +65,9 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 
 ### **Exercise 3:** Measuring reaction time
 
-![Reaction Time Measurement](~/images/reaction-time-measurement.svg)
+:::workflow
+![Reaction Time Measurement](~/workflows/reactiontime-measurement.bonsai)
+:::
 
 - Insert an `AnalogInput` source.
 - Set the `Pin` property to the analog pin number where the duplicate LED wire is connected.
@@ -74,7 +82,9 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 
 To analyze movement dynamics in the reaction time task, you will need to align individual frame timing to stimulus onset. To do this, you can take advantage of the fact that our simple visual stimulus can be seen in the camera image and recorded together with the behaviour.
 
-![Synching LED](~/images/synching-led.svg)
+:::workflow
+![Synching LED](~/workflows/synching-led.bonsai)
+:::
 
 - Starting from the workflow in the previous exercise, insert a `CameraCapture` source and position the camera such that you can see clearly both the LED and the computer keyboard.
 - Insert a `VideoWriter` sink and configure the `FileName` with a path ending in `.avi`.
@@ -90,7 +100,9 @@ To analyze movement dynamics in the reaction time task, you will need to align i
 
 To make our task more interesting, we will now trigger the stimulus manually using a button press and learn more about `SelectMany` along the way!
 
-![Triggered Stimulus Outer](~/images/triggered-stimulus-outer.svg)
+:::workflow
+![Triggered Stimulus Outer](~/workflows/reactiontime-triggerstimulus.bonsai)
+:::
 
 - Connect a new push button component into one of the Arduino digital inputs.
 - Insert a `DigitalInput` source and set its `Pin` property to the Arduino pin where the new button is connected.
@@ -98,7 +110,9 @@ To make our task more interesting, we will now trigger the stimulus manually usi
 - Insert a `Condition` operator.
 - Insert a `SelectMany` operator and move the stimulus generation logic inside the nested node:
 
-![Triggered Stimulus Inner](~/images/triggered-stimulus-inner.svg)
+:::workflow
+![Triggered Stimulus Inner](~/workflows/reactiontime-triggerstimulus-inner.bonsai)
+:::
 
 _Why do we need to remove the `Repeat` operator?_
 
@@ -107,7 +121,9 @@ _Why do we need to remove the `Repeat` operator?_
 
 ### **Exercise 6:** Recording response-triggered videos
 
-![Triggered Video Outer](~/images/triggered-video-outer.svg)
+:::workflow
+![Triggered Video Outer](~/workflows/reactiontime-triggervideo.bonsai)
+:::
 
 - Starting from the previous workflow, insert another `AnalogInput` source with the `Pin` property set to the button press pin number.
 - Insert a `GreaterThan` operator.
@@ -118,7 +134,9 @@ _Why do we need to remove the `Repeat` operator?_
 - Insert a `TriggeredWindow` operator, and set its `Count` property to 100.
 - Insert a `SelectMany` operator and inside the nested node create the below workflow:
 
-![Triggered Video Inner](~/images/triggered-video-inner.svg)
+:::workflow
+![Triggered Video Inner](~/workflows/reactiontime-triggervideo-inner.bonsai)
+:::
 
 - Run the workflow and record a few videos triggered on the button press.
 - Inspect the videos frame by frame and check whether the response LED comes ON at exactly the same frame number across different trials.
