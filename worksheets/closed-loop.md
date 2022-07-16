@@ -24,8 +24,8 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 - Insert a `TimeInterval` operator.
 - Right-click on the `TimeInterval` operator and select `Output` > `Interval` > `TotalMilliseconds`.
 
-**Note:** The `TimeInterval` operator measures the interval between consecutive events in an observable sequence using the [high-precision event timer (HPET)](https://en.wikipedia.org/wiki/High_Precision_Event_Timer) in the computer. The HPET has a frequency of at least 10MHz, allowing us to accurately time intervals with sub-microsecond precision.
-{: .notice--info}
+> [!Note]
+> The `TimeInterval` operator measures the interval between consecutive events in an observable sequence using the [high-precision event timer (HPET)](https://en.wikipedia.org/wiki/High_Precision_Event_Timer) in the computer. The HPET has a frequency of at least 10MHz, allowing us to accurately time intervals with sub-microsecond precision.
 
 - Run the workflow and measure the round-trip time between digital input messages.
 
@@ -38,13 +38,13 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 - Insert a `Crop` transform.
 - Run the workflow and set the `RegionOfInterest` property to a small area around the LED.
 
-**Hint:** You can use the visual editor for an easier calibration. While the workflow is running, right-click on the `Crop` transform and select `Show Default Editor` from the context menu or click in the small button with ellipsis that appears when you select the `RegionOfInterest` property.
-{: .notice--info}
+> [!Tip]
+> You can use the visual editor for an easier calibration. While the workflow is running, right-click on the `Crop` transform and select `Show Default Editor` from the context menu or click in the small button with ellipsis that appears when you select the `RegionOfInterest` property.
 
 - Insert a `Sum (Dsp)` transform and select the `Val2` field from the output.
 
-**Note:** The `Sum (Dsp)` operator adds the value of all the pixels in the image together, across all the color channels. Assuming the default BGR format, the result of summing all the pixels in the Red channel of the image will be stored in `Val2`. `Val0` and `Val1` would store the Blue and Green values, respectively. If you are using an LED with a color other than Red, please select the output field accordingly.
-{: .notice--info}
+> [!Note]
+> The `Sum (Dsp)` operator adds the value of all the pixels in the image together, across all the color channels. Assuming the default BGR format, the result of summing all the pixels in the Red channel of the image will be stored in `Val2`. `Val0` and `Val1` would store the Blue and Green values, respectively. If you are using an LED with a color other than Red, please select the output field accordingly.
 
 - Insert a `GreaterThan` transform.
 - Insert a `BitwiseNot` transform.
@@ -52,8 +52,8 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 - Run the workflow and use the visualizer of the `Sum` operator to choose an appropriate threshold for `GreaterThan`. When connected to pin 13, the LED should flash a couple of times when the Arduino is first connected.
 - Insert a [`DistinctUntilChanged`](https://bonsai-rx.org/docs/operators/distinctuntilchanged){:target="\_blank"} operator after the `BitwiseNot` transform.
 
-**Note:** The `DistinctUntilChanged` operator filters consecutive duplicate items from an observable sequence. In this case, we want to change the value of the LED only when the threshold output changes from `LOW` to `HIGH`, or vice-versa. This will let us measure correctly the latency between detecting a change in the input and measuring the response to that change.
-{: .notice--info}
+> [!Note]
+> The `DistinctUntilChanged` operator filters consecutive duplicate items from an observable sequence. In this case, we want to change the value of the LED only when the threshold output changes from `LOW` to `HIGH`, or vice-versa. This will let us measure correctly the latency between detecting a change in the input and measuring the response to that change.
 
 - Insert the `TimeInterval` operator and select `Output` > `Interval` > `TotalMilliseconds`.
 - Run the workflow and measure the round-trip time between LED triggers.
@@ -78,8 +78,8 @@ _Given the measurements obtained in Exercise 2, what would you estimate is the *
 - Run the workflow and verify that entering the region of interest triggers the Arduino LED.
 - **Optional:** Replace the `Crop` transform by a `CropPolygon` to allow for non-rectangular regions.
 
-**Note:** The `CropPolygon` operator uses the `Regions` property to define multiple, possibly non-rectangular regions. The visual editor is similar to `Crop`, where you draw a rectangular box. However, in `CropPolygon` you can move the corners of the box by right-clicking _inside_ the box and dragging the cursor to the new position. You can add new points by double-clicking with the left mouse button, and delete points by double-clicking with the right mouse button. You can delete regions by pressing the `Del` key and cycle through selected regions by pressing the `Tab` key.
-{: .notice--info}
+> [!Note]
+> The `CropPolygon` operator uses the `Regions` property to define multiple, possibly non-rectangular regions. The visual editor is similar to `Crop`, where you draw a rectangular box. However, in `CropPolygon` you can move the corners of the box by right-clicking _inside_ the box and dragging the cursor to the new position. You can add new points by double-clicking with the left mouse button, and delete points by double-clicking with the right mouse button. You can delete regions by pressing the `Del` key and cycle through selected regions by pressing the `Tab` key.
 
 ### **Exercise 4:** Modulating stimulus intensity based on distance to a point
 
@@ -102,16 +102,16 @@ The result of the `Subtract` operator will be a vector pointing from the target 
 - Insert an `ExpressionTransform` operator. This node allows you to write small mathematical and logical expressions to transform input values.
 - Right-click on the `ExpressionTransform` operator and select `Show Default Editor`. Set the expression to `Math.Sqrt(X*X + Y*Y)`.
 
-**Note:** Inside the `Expression` editor you can access any field of the input by name. In this case `X` and `Y` represent the corresponding fields of the `Point2f` data type. You can check which fields are available by right-clicking the previous node. You can use all the normal arithmetical and logical operators as well as the mathematical functions available in the [`Math`](<https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx>) type. The default expression `it` means "input" and represents the input value itself.
-{: .notice--info}
+> [!Note]
+> Inside the `Expression` editor you can access any field of the input by name. In this case `X` and `Y` represent the corresponding fields of the `Point2f` data type. You can check which fields are available by right-clicking the previous node. You can use all the normal arithmetical and logical operators as well as the mathematical functions available in the [`Math`](<https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx>) type. The default expression `it` means "input" and represents the input value itself.
 
 - Connect the `ExpressionTransform` operator to the externalized `Amplitude` property.
 - Run the workflow and verify that stimulus intensity is modulated by the distance of the object to the target point.
 - **Optional:** Modulate the `Frequency` property instead of `Amplitude`.
 - **Optional:** Use the `Rescale` operator to adjust the gain of the modulation by configuring the `Min`, `Max`, `RangeMax` and `RangeMin` properties. Set the `RescaleType` property to `Clamp` to restrict the output values to an allowed range.
 
-**Note:** You can specify inverse relationships using `Rescale` if you set the _maximum_ input value to the `Min` property, and the _minimum_ input value to the `Max` property. In this case, a small distance will generate a large output, and a large distance will produce a small output.
-{: .notice--info}
+> [!Note]
+> You can specify inverse relationships using `Rescale` if you set the _maximum_ input value to the `Min` property, and the _minimum_ input value to the `Max` property. In this case, a small distance will generate a large output, and a large distance will produce a small output.
 
 ### **Exercise 5:** Triggering a digital line based on distance between objects
 
@@ -171,8 +171,8 @@ We now want to map our negative centroid to the `Translation` property of `Affin
 - Open the `PropertyMappings` editor and add a new mapping to the `Translation` property.
 - Run the workflow. Verify the object is always placed at position (0,0). What is the problem?
 
-**Note:** Generally for image coordinates, (0,0) is at the top-left corner, and the center will be at coordinates (width/2, height/2), usually (320,240) for images with 640 x 480 resolution.
-{: .notice--info}
+> [!Note]
+> Generally for image coordinates, (0,0) is at the top-left corner, and the center will be at coordinates (width/2, height/2), usually (320,240) for images with 640 x 480 resolution.
 
 - Insert an `Add` transform. This will add a fixed offset to the point. Configure the `Value` property with an offset that will place the object at the image centre, e.g. (320,240).
 - Run the workflow, and verify the output of `WarpAffine` is now a video which is always centred on the tracked object.

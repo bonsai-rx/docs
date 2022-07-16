@@ -46,7 +46,7 @@ To find out the full path for any node, right-click on the operator of interest 
 ```markdown
 ### **Exercise 7:** Control an LED
 
-![Control an LED](../images/acquisition-led.svg)
+![Control an LED](~/images/acquisition-led.svg)
 
 - Insert a [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) source.
 - Insert a [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput) sink.
@@ -67,5 +67,5 @@ Add the `.svg` file to the **images** folder in this repo, and add the `.bonsai`
 Assuming you want to include `acquisition-example.bonsai`: 
 
 ```markdown
-[![Example Workflow](../images/acquisition-example.svg)](../workflows/acquisition-example.bonsai)
+[![Example Workflow](~/images/acquisition-example.svg)](~/workflows/acquisition-example.bonsai)
 ```

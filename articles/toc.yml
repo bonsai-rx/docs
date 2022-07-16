@@ -1,2 +1,31 @@
 - name: Introduction
   href: intro.md
+- name: Getting Started
+  href: installation.md
+  items:
+    - name: Installing Bonsai
+      href: installation.md
+    - name: Package Manager
+      href: packages.md
+    - name: Workflow Editor
+      href: editor.md
+    - name: Bonsai Gallery
+      href: gallery.md
+- name: Language Guide
+  href: observables.md
+  items:
+    - name: Observables
+      href: observables.md
+    - name: Operators
+      href: operators.md
+    - name: Property Mapping
+      href: property-mapping.md
+    - name: Higher Order Operators
+      href: higher-order.md
+    - name: Subjects
+      href: subjects.md
+- name: Extending Bonsai
+  href: create-package.md
+  items:
+    - name: Creating a Package
+      href: create-package.md

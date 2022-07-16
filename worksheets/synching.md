@@ -19,16 +19,16 @@ Synchronizing behaviour and other experimental events with stimulation or record
 
 _How would you test the synchronization between the two video streams?_
 
-**Note**: You can use the `FileCapture` source to inspect the video frame by frame by setting the `Playing` property to `False`. After setting the `FileName` property to match your recorded video, run the workflow, open the source visualizer, and then right-clicking on top of the video frame to open up the seek bar at the bottom. You can use the arrow keys to move forward and back on individual frames.
-{: .notice--info}
+> [!Note]
+> You can use the `FileCapture` source to inspect the video frame by frame by setting the `Playing` property to `False`. After setting the `FileName` property to match your recorded video, run the workflow, open the source visualizer, and then right-clicking on top of the video frame to open up the seek bar at the bottom. You can use the arrow keys to move forward and back on individual frames.
 
 ## Reaction Time
 
 For this and subsequent worksheets, we will use a simple reaction time task as our model systems neuroscience experiment. In this task, the subject needs to press a button as fast as possible following a stimulus, as described in the following diagram:
 
-<span style="display:block;text-align:center">
+:::diagram
 ![State Machine Diagram](~/images/reactiontime.svg)
-</span>
+:::
 
 The task begins with an inter-trial interval (`ITI`), followed by stimulus presentation (`ON`). After stimulus onset, advancement to the next state can happen only when the subject presses the button (`success`) or a timeout elapses (`miss`). Depending on which event is triggered first, the task advances either to the `Reward` state, or `Fail` state. At the end, the task goes back to the beginning of the ITI state for the next trial.
 
@@ -36,7 +36,7 @@ The task begins with an inter-trial interval (`ITI`), followed by stimulus prese
 
 In this first exercise, you will assemble the basic hardware and software components required to implement the reaction time task. The wiring diagram below illustrates the hardware assembly. You can wire the LED into any digital input pin, but make sure to note the pin number for the steps below.
 
-![Reaction Time Circuit](~/images/reaction-time-circuit.png){:height="300px"}
+![Reaction Time Circuit](~/images/reaction-time-circuit.png){height=300}
 
 We will start by using a fixed-interval blinking LED as our stimulus.
 

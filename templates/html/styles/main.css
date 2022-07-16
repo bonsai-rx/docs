@@ -20,6 +20,7 @@
 
 .workflow {
   border: 1px solid #e3e3e3;
+  padding: 1px;
 }
 
 .workflow > p > img {
@@ -89,4 +90,12 @@
 .codeHeader > .action .successful-copy-alert.is-transparent {
   opacity: 0;
   transition: 500ms opacity ease-in-out;
+}
+
+.diagram {
+  text-align: center;
+}
+
+summary {
+  display: list-item;
 }
