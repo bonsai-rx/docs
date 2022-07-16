@@ -1,0 +1,41 @@
+{{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
+
+<div class="masthead">
+  <div class="masthead__inner-wrap container">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        {{>partials/logo}}
+        <ul class="visible-links">
+          <li class="masthead__menu-item"><a href="{{_rel}}.">Docs</a></li>
+          <li class="masthead__menu-item"><a href="//bonsai-rx.org/learn">Learn</a></li>
+          <li class="masthead__menu-item"><a href="//bonsai-rx.org/community">Community</a></li>
+        </ul>
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar">
+      <form class="navbar-form navbar-right" role="search" id="search">
+        <div class="form-group">
+          <input type="text" class="form-control" id="search-query" placeholder="{{__global.search}}" autocomplete="off">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
