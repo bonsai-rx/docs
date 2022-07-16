@@ -114,8 +114,8 @@ summary {
   --sans-serif-narrow: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
   --type-size-8: 0.625em;
-  --nav-height: 3.5em;
-  --nav-toggle-height: 2rem;
+  --nav-height: 2.22em;
+  --nav-toggle-height: 2em;
   --background-color: #fff;
   --primary-color: #6f777d;
   --masthead-link-color: var(--primary-color);
@@ -125,26 +125,6 @@ summary {
   --medium-wide: 900px;
   --large: 1024px;
   --x-large: 1280px;
-}
-
-@media (min-width: 630px) {
-  .container { width: var(--small); }
-}
-
-@media (min-width: 800px) {
-  .container { width: var(--medium); }
-}
-
-@media (min-width: 940px) {
-  .container { width: var(--medium-wide); }
-}
-
-@media (min-width: 1060px) {
-  .container { width: var(--large); }
-}
-
-@media (min-width: 1300px) {
-  .container { width: var(--x-large); }
 }
 
 /* ==========================================================================
@@ -165,7 +145,7 @@ summary {
   clear: both;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.3em 1.6em 0.3em 0em;
+  padding: 0.2em 1em 0.2em 0em;
   max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -175,6 +155,27 @@ summary {
   justify-content: space-between;
   font-family: var(--sans-serif-narrow);
   background: var(--background-color);
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .masthead__inner-wrap { font-size: 18px; }
+}
+
+@media (min-width: 64em) {
+  .masthead__inner-wrap { font-size: 20px; }
+}
+
+@media (min-width: 80em) {
+  .container { max-width: var(--x-large); }
+  .masthead__inner-wrap {
+    font-size: 22px;
+    max-width: var(--x-large);
+  }
 }
 
 .site-logo img {
@@ -232,24 +233,6 @@ summary {
   text-decoration: none;
   -webkit-transition: none;
   transition: none;
-}
-
-@media (min-width: 48em) {
-  .greedy-nav a {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 64em) {
-  .greedy-nav a {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 80em) {
-  .greedy-nav a {
-    font-size: 22px;
-  }
 }
 
 .greedy-nav a:hover {
