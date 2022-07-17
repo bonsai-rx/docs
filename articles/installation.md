@@ -9,7 +9,7 @@ The Bonsai editor is currently designed to work with the .NET framework on Windo
 
 The latest stable release is: **2.6.3 (2.6.3.3552)**
 
-[Download Installer (.exe)](https://github.com/bonsai-rx/bonsai/releases/download/2.6.3/Bonsai-2.6.3.exe)
-[Download Portable (.zip)](https://github.com/bonsai-rx/bonsai/releases/download/2.6.3/Bonsai.zip)
+[<i class="fa fa-download"></i> Download Installer (.exe)](https://github.com/bonsai-rx/bonsai/releases/download/2.6.3/Bonsai-2.6.3.exe){class="btn btn-success"}
+[<i class="fa fa-download"></i> Download Portable (.zip)](https://github.com/bonsai-rx/bonsai/releases/download/2.6.3/Bonsai.zip){class="btn btn-warning"}
 
 The installer will make sure that .NET and any other required system dependencies for running Bonsai are correctly setup in your computer.
