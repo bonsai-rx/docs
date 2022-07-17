@@ -109,17 +109,24 @@ summary {
 
 :root {
   --gray: #7a8288;
+  --lighter-gray: mix(#fff, var(--gray), 90%);
   --global-transition: all 0.2s ease-in-out;
   --intro-transition: intro 0.3s both;
   --sans-serif-narrow: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  --type-size-5: 1em;
   --type-size-8: 0.625em;
   --nav-height: 2.22em;
   --nav-toggle-height: 2em;
+  --navicon-width: 1.5em;
+  --navicon-height: 0.25em;
+  --border-radius: 4px;
   --background-color: #fff;
   --primary-color: #6f777d;
+  --border-color: var(--lighter-gray);
   --masthead-link-color: var(--primary-color);
   --masthead-link-color-hover: mix(#000, var(--primary-color), 25%);
+  --navicon-link-color-hover: mix(#fff, var(--primary-color), 75%);
   --small: 600px;
   --medium: 768px;
   --medium-wide: 900px;
@@ -145,7 +152,7 @@ summary {
   clear: both;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.2em 1em 0.2em 0em;
+  padding: 0.1em 1em 0.1em 0em;
   max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,8 +169,30 @@ summary {
   width: 100%;
 }
 
+.navbar-brand {
+  height: 100%;
+  padding-top: 4.5px;
+  padding-bottom: 0.5px;
+}
+
+.container-fluid > .navbar-collapse,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container > .navbar-header {
+  margin-right: 0;
+  margin-left: -20px;
+}
+
 @media (min-width: 48em) {
-  .masthead__inner-wrap { font-size: 18px; }
+  .masthead__inner-wrap {
+    font-size: 18px;
+    padding: 0.2em 1em 0.2em 0em;
+  }
+
+  .navbar-brand {
+    padding-top: 5px;
+    padding-bottom: 0px;
+  }
 }
 
 @media (min-width: 64em) {
@@ -311,15 +340,100 @@ summary {
   transform: scaleX(1);
 }
 
-.navbar-brand {
-  height: 100%;
-  padding-top: 5px;
+.greedy-nav .hidden-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 15px;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--background-color);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(#000, 0.16),
+    0 2px 10px 0 rgba(#000, 0.12);
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
 }
 
-.container-fluid > .navbar-collapse,
-.container-fluid > .navbar-header,
-.container > .navbar-collapse,
-.container > .navbar-header {
-  margin-right: 0;
-  margin-left: -20px;
+.greedy-nav .hidden-links.hidden {
+  display: none;
+}
+
+.greedy-nav .hidden-links a {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: var(--type-size-5);
+}
+
+.greedy-nav .hidden-links a:hover {
+  color: var(--masthead-link-color-hover);
+  background: var(--navicon-link-color-hover);
+}
+
+.greedy-nav .hidden-links:before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  right: 10px;
+  width: 0;
+  border-style: solid;
+  border-width: 0 10px 10px;
+  border-color: var(--border-color) transparent;
+  display: block;
+  z-index: 0;
+}
+
+.greedy-nav .hidden-links:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 0;
+  border-style: solid;
+  border-width: 0 10px 10px;
+  border-color: var(--background-color) transparent;
+  display: block;
+  z-index: 1;
+}
+
+.greedy-nav .hidden-links li {
+  display: block;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.greedy-nav .hidden-links li:last-child {
+  border-bottom: none;
+}
+
+/*
+   Navicons
+   ========================================================================== */
+
+.navicon {
+  position: relative;
+  width: var(--navicon-width);
+  height: var(--navicon-height);
+  background: var(--primary-color);
+  margin: auto;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.navicon:before,
+.navicon:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: var(--navicon-width);
+  height: var(--navicon-height);
+  background: var(--primary-color);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.navicon:before {
+  top: calc(-2 * var(--navicon-height));
+}
+
+.navicon:after {
+  bottom: calc(-2 * var(--navicon-height));
 }
