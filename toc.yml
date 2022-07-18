@@ -1,6 +1,8 @@
-- name: Articles
+- name: Documentation
+  href: /
+- name: Manual
   href: articles/
-- name: Worksheets
-  href: worksheets/
-- name: API Documentation
+- name: Operators
   href: api/
+- name: Tutorials
+  href: worksheets/
