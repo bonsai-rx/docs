@@ -1,5 +1,5 @@
 - name: Documentation
-  href: "."
+  href: index.md
 - name: Manual
   href: articles/
 - name: Operators
