@@ -1,11 +1,6 @@
 .affix {
   height: auto;
 }
-  
-.sideaffix {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
 .affix > ul.level1 {
   overflow: inherit;
@@ -167,6 +162,10 @@ summary {
 
 .container {
   width: 100%;
+  --article-margin-top: 120px;
+  --sidefilter-offset: -30px;
+  --sidetoc-offset: 32px;
+  --sideaffix-offset: -20px;
 }
 
 .navbar-brand {
@@ -183,7 +182,30 @@ summary {
   margin-left: -20px;
 }
 
+.article {
+  margin-top: var(--article-margin-top);
+}
+
+.sideaffix {
+  overflow-x: hidden;
+  overflow-y: auto;
+  top: calc(var(--article-margin-top) + var(--sideaffix-offset));
+}
+
+.sidetoc {
+  top: calc(var(--article-margin-top) + var(--sidetoc-offset));
+}
+
+.sidetoc.shiftup {
+  bottom: 50px;
+}
+
+.sidefilter {
+  top: calc(var(--article-margin-top) + var(--sidefilter-offset));
+}
+
 @media (min-width: 48em) {
+  .container { --article-margin-top: 169px; }
   .masthead__inner-wrap {
     font-size: 18px;
     padding: 0.2em 1em 0.2em 0em;
@@ -196,11 +218,16 @@ summary {
 }
 
 @media (min-width: 64em) {
+  .container { --article-margin-top: 174px; }
   .masthead__inner-wrap { font-size: 20px; }
 }
 
 @media (min-width: 80em) {
-  .container { max-width: var(--x-large); }
+  .container {
+    max-width: var(--x-large);
+    --article-margin-top: 179px;
+  }
+
   .masthead__inner-wrap {
     font-size: 22px;
     max-width: var(--x-large);
