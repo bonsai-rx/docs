@@ -35,8 +35,8 @@
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
-          "worksheets/**.md",
-          "worksheets/**/toc.yml",
+          "tutorials/**.md",
+          "tutorials/**/toc.yml",
           "toc.yml",
           "*.md"
         ]

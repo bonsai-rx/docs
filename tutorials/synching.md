@@ -24,7 +24,7 @@ _How would you test the synchronization between the two video streams?_
 
 ## Reaction Time
 
-For this and subsequent worksheets, we will use a simple reaction time task as our model systems neuroscience experiment. In this task, the subject needs to press a button as fast as possible following a stimulus, as described in the following diagram:
+For this and subsequent tutorials, we will use a simple reaction time task as our model systems neuroscience experiment. In this task, the subject needs to press a button as fast as possible following a stimulus, as described in the following diagram:
 
 :::diagram
 ![State Machine Diagram](~/images/reactiontime.svg)
