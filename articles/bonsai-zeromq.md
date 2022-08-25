@@ -97,7 +97,7 @@ If we run the workflow now and monitor the output of the three **`Dealer`** clie
 Now our network has a complete loop of client --> server --> client communication, but only the client that sends a message receives anything back from the server. Instead we’d like all clients to know when any of the clients sends a message. We already have access to the connected clients from **`ClientAddresses`**, and we know how to package data and send it back to clients via the **`Router`**. In an imperative language we would do something like:
 
 ```
-foreach (var client in ClientAddresses) {
+foreach (var client in Clients) {
     Router.SendMessage(client.Address, Message);
 }
 ```
@@ -138,3 +138,21 @@ In this context, **`WithLatestFrom`** combines each client address from **`Selec
 ![Client message parsing](~/images/zeromq/client-message-parsing.svg)
 
 Running the workflow again and inspecting the output of the **`Parse`** nodes, we should see that all connected clients are updated with any client messages sent to the server.
+
+## Leave-one-out broadcast
+This is getting pretty close to our original network architecture goal but there is still some redundancy present. When client 1 sends a message to the server, clients 1, 2 and 3 all receive a copy of that message back from the server. This is fine for clients 2 and 3 as they are not aware of client 1’s messages without server communication; but client 1 does not need this message copy since it already has the message. Our goal then is that the server should send message copies back to all clients except the client that originated the message.
+
+To do this, we’ll create a **`Condition`** inside our **`SelectMany`** node that skips sequence generation for any client address that matches the current message sender address. For clarity, first rename the `SelectAllClients` **`SelectMany`** to ‘SelectNonSenderClients’. Inside this **`SelectMany`**, expose the output of **`Source1`** which should be a `byte` array address corresponding to the sender address. Use a **`WithLatestFrom (Reactive)`** node to combine the **`ClientAddresses`** output with the **`Source1`** output (**`ClientAddresses`** as first input). Next, add a **`Condition (Expressions)`** node after **`WithLatestFrom`** which will contain our comparison logic. **`SelectNonSenderClients`** should now look like this:
+
+![Select non sender clients](~/images/zeromq/selectnonsenderclients-selectmany.svg)
+
+Inside the **`Condition`** node expose both outputs of **`Source1`** and create an **`Index (Expressions)`** node after each of them (each with a `Value` property of 1 to extract the unique ID byte as we did when creating the unique address store). Use a **`Zip (Reactive)`** node to combine the byte IDs and then add a **`NotEqual (Expressions)`** that finally connects to the **`WorkflowOutput`**. The **`Condition`** node should now look like:
+
+![SelectMany filter](~/images/zeromq/selectmany-condition.svg)
+
+Finally, in **`SelectNonSenderclients`**, expose the first output of the **`Condition`** so that we pass the filtered **`ClientAddresses`** to the **`WorkflowOutput`**:
+
+![Filtered client addresses](~/images/zeromq/filtered-clientaddresses.svg)
+
+The general logic here is that inside our **`SelectMany`** operator we combine all the currently known unique client addresses with the address attached to the most recent received message. We then filter these pairs in the **`Condition`** by comparing the unique byte identifiers and only passing those that are not equal (i.e. addresses different from the received message sender address). After the condition we pass the filtered address sequence onto the **`SelectMany`** output. Running the workflow you should now see that connected clients will receive updates from all clients except themselves.
+
