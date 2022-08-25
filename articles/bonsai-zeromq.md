@@ -29,7 +29,7 @@ ZeroMQ provides a number of socket types that could be used to achieve something
 - Routers assign a unique address for each connected client allowing clients in turn to be addressed individually
 - Messages can be passed between Router / Dealer sockets without the requirement that a reply is received before the next message is sent, as is the case with the Request / Response socket pair.
 
-## Basic Client
+## Basic client
 To begin with, we’ll create a simple client that sends basic messages on a network. In a new Bonsai project, add a **`Dealer (ZeroMQ)`** node. In the node properties, set `Host`: localhost, `Port`: 5557, `SocketConnection`: Connect, `SocketProtocol`: TCP.
 
 ![Dealer](~/images/zeromq/dealer-socket.svg)
@@ -48,3 +48,15 @@ Copy and paste this client structure a couple of times and change the **`KeyDown
 
 ![Mutiple clients](~/images/zeromq/copied-clients.svg)
 
+> For the purposes of this article we are creating all of our clients and our server on the same Bonsai project and same machine for ease of demonstration. In a working example, each client and server could be running in separate Bonsai instances on different machines on a network. In this case, localhost would be replaced with the server machine’s IP address.
+
+## Basic server
+Now that we have our client pool set up and sending messages, let’s implement a server to listen for those messages. Add a **`Router (ZeroMQ)`** node to the project and set its properties to match the **`Dealer`** sockets we already added so that it is running on the same network. As the **`Router`** is acting as server and will be the ‘static’ part of the network, set its `SocketConnection` property to ‘Bind’.
+
+![Router](~/images/zeromq/server-listener-added.svg)
+
+As with the **`Dealer`** node, a **`Router`** node without any input will simply listen for messages on the network and not send anything in return. If we run the project now and monitor the output of the **`Router`** node, we’ll see that each time the client sends a message triggered by its associated key press we get a `ZeroMQMessage` arriving at the **`Router`**. Expanding the output of the **`Router`** node, we can see that the `ZeroMQMessage` contains a `byte` array address (in this case the address of the client that sent the message), a `byte` array containing the message itself, and the message type (the socket from which this message originated). To make sense of the message, let’s externalize the `Address` and `Message` outputs (right-click **`Router`** node and select each). Add an **`Index (Expressions)`** node to the `Address` output and set its `Value` property to 1 to access the unique address ID. Add a **`Parse (OSC)`** node to the `Message` output and set its `TypeTag` property to ‘s’ to indicate we expect the message to be a `string`.
+
+![Router message parsing](~/images/zeromq/router-parsing.svg)
+
+Running the project and then triggering client messages with key presses, we should see a unique `byte` value for each client in the **`Index`** node output and a corresponding `string` in the **`Parse`** node output.
