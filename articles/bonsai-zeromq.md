@@ -92,3 +92,26 @@ By creating the **`BehaviorSubject`** `Source` for the **`Zip`** node, we create
 4. Addressed message passed back to **`Router`** to send back to client **`Dealer`**. 
 
 If we run the workflow now and monitor the output of the three **`Dealer`** clients we’ll see that a message is received back at the **`Dealer`** only when that specific client sends a message to the server. 
+
+## SelectMany detour
+Now our network has a complete loop of client --> server --> client communication, but only the client that sends a message receives anything back from the server. Instead we’d like all clients to know when any of the clients sends a message. We already have access to the connected clients from **`ClientAddresses`**, and we know how to package data and send it back to clients via the **`Router`**. In an imperative language we would do something like:
+
+```
+foreach (var client in ClientAddresses) {
+    Router.SendMessage(client.Address, Message);
+}
+```
+
+using a loop to send the message back to each client in turn. In a reactive / observable sequence based framework we have to think about this a bit differently. The solution is to use a **`SelectMany`** operator and it is worth taking a detour here to understand its use in some detail before we apply it to our network.
+
+The **`SelectMany`** operator can be a tricky one to understand. Lee Campbell’s excellent [Introduction to Rx](http://introtorx.com/Content/v1.0.10621.0/08_Transformation.html#SelectMany) book does a good job of summarising its utility, suggesting we think of it as “from one, select many” or “from one, select zero or more”. In our case, we can think of **`SelectMany`** as a way to repeat some processing logic several times and feed the output of each repeat into a single sequence. More concretely, taking a single message and repeating the act of sending it several times for each client address. It is easier to show by example, so let’s set up a toy example in our project. 
+
+Create a **`KeyDown (Windows.Input)`** node followed by a **`SelectMany (Expressions)`**. Set the `Filter` for the **`KeyDown`** to a key that hasn’t been assigned to a client yet – here I will use ‘A’. 
+
+![SelectMany setup](~/images/zeromq/keydown-selectmany.svg)
+
+Inside the **`SelectMany`** node add a **`SubscribeSubject (Expressions)`** and set its subscription to the `ClientAddresses` subject we created earlier to replay unique client addresses. Add a **`TakeUntil (Reactive)`** node after the **`SubscribeSubject`** and connect the output of **`TakeUntil`** to the **`WorkflowOutput`** (disconnecting the `Source` node). Finally, create a **`KeyUp (Windows.Input)`** node and connect it to **`TakeUntil`**. Set the key `Filter` for **`KeyUp`** to the same as previously created **`KeyDown`** node outside the **`SelectMany`**.
+
+![Inside SelectMany](~/images/zeromq/keydown-selectmany-internal.svg)
+
+Run the project and inspect the output of the **`SelectMany`** node. If no client messages are triggered and we press ‘A’ to trigger the **`SelectMany`** nothing will be returned. If we trigger a single client and press ‘A’ again **`SelectMany`** gives us the address of that client. If we trigger a second client and press ‘A’ we get the addresses of these first two clients in sequence, and so on if we add the third client. Whenever we press ‘A’ we get a sequence of all the connected client addresses. Every time we trigger **`SelectMany`** with a **`KeyDown`** we generate a new sequence that immediately subscribes to **`ClientAddresses`**, a **`ReplaySubject`** which replays all our unique client addresses into the sequence. We could keep initiating these new sequences by continually pressing ‘A’ and if a new client address were to be added then all these sequences would report the new address (you can test this by connecting the **`SusbcribeSubject`** directly to the workflow output and deleting **`KeyUp`** and **`TakeUntil`**). Instead, we want to complete each new sequence once it has given us all the client addresses so we use an arbitrary event (releasing the key that initiated the sequence) to trigger **`TakeUntil`** and close the sequence. The overall effect is something similar to a loop that iterates over all client addresses every time we request it with a key press. This is the general structure of what we want to achieve next in our server logic to broadcast messages back to all connected clients.
