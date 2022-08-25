@@ -2,7 +2,7 @@
 layout: article
 title: Bonsai & ZeroMQ Networking
 ---
-# Bonsai & 0MQ Networking
+# Bonsai & ZeroMQ Networking
 The Bonsai.ZeroMQ package allows us to harness the powerful [ZeroMQ](https://zeromq.org/) library to build networked applications in Bonsai. Applications could include:
 - Interfacing with remote experimental rigs via network messages
 - Performing distributed work across pools of machines (e.g. for computationally expensive deep-learning inference) 
@@ -75,3 +75,20 @@ The **`DistinctBy`** node filters the output of **`Zip`** according to the uniqu
 ![Address replay subject](~/images/zeromq/address-replaysubject.svg)
 
 A **`ReplaySubject`** has the useful feature that it stores its input sequence and replays those values to any current or future subscribers. The effect in this case is that anything that subscribes to **`ClientAddresses`** will receive all the unique client addresses encountered by the server so far.
+
+## Server --> client communication
+Eventually, we will use these unique client addresses to route server messages back to specific clients. For now, we’ll implement a more basic approach where the server just sends messages back to the client that originally sent them. To do this, we first need to format the messages received by the server in a way that they can be sent back to the client. The **`Router`** node expects inputs that are a `Tuple` of a `byte` array corresponding to the client address (where to send the message) and an OSC `Message` (the contents of the message). We can implement this structure by adding a **`Format (OSC)`** node after the **`Parse`** node and using a **`Zip (Reactive)`** node to combine it with the `Address` output from the **`Router`**.
+
+![Server message format](~/images/zeromq/server-message-format.svg)
+
+Note here that order matters for the **`Zip`** node, the `Address` must be the first input, and the **`Format`** must be the second). With this new **`Zip`** node, every time the **`Router`** receives a message it parses the contents and reformats the contents back into an OSC `Message`. That formatted message is then combined with the corresponding client address. To send this data from the server we’ll first create a **`BehaviorSubject`** `Source` for the **`Zip`** output (`right-click on Zip >> Create Source >> BehaviorSubject`) and connect it to the **`Router`**. Name it ‘ServerMessages’. Add a **`MulticastSubject (Expressions)`** node after the **`Zip`** and set the subject `Name` also to ‘ServerMessages’.
+
+![Server message multicast](~/images/zeromq/server-message-multicast.svg)
+
+By creating the **`BehaviorSubject`** `Source` for the **`Zip`** node, we created a `Source` with an address/message `Tuple` output expected by the **`Router`** node input. Using a **`BehaviorSubject`** ensures that only the most recent message is used. Connecting it as an input to the **`Router`** node sets up the **`Router`** to send messages from **`BehaviorSubject`** while continuing to listen for incoming client messages. Finally, we used a **`MulticastSubject`** to feed the output of **`Zip`** into the **`BehaviorSubject`** to complete the loop: 
+1. Client **`Dealer`** sends a message
+2. Client message received by **`Router`**
+3. Message reformatted into an addressed message
+4. Addressed message passed back to **`Router`** to send back to client **`Dealer`**. 
+
+If we run the workflow now and monitor the output of the three **`Dealer`** clients we’ll see that a message is received back at the **`Dealer`** only when that specific client sends a message to the server. 
