@@ -60,3 +60,18 @@ As with the **`Dealer`** node, a **`Router`** node without any input will simply
 ![Router message parsing](~/images/zeromq/router-parsing.svg)
 
 Running the project and then triggering client messages with key presses, we should see a unique `byte` value for each client in the **`Index`** node output and a corresponding `string` in the **`Parse`** node output.
+
+## Client address tracking
+So far our network is rather one-sided. We can send client messages to the server which can in turn receive and parse them, but so far nothing is relayed back to the clients. The first goal for server feedback is that any time a client message is received, the server sends this message back to all connected clients. To do this, we first need a way of keeping track of all connected clients. Add a **`Zip (Reactive)`** node to the **`Index`** node and connect the `Address` output as the second input to the **`Zip`**. 
+
+![Address key-value pair](~/images/zeromq/address-kvp.svg)
+
+Every time the **`Router`** receives a message, the **`Zip`** will create a `Tuple` that can be thought of as a key-value pair, with the unique `byte` address of the client as the key, and the full `byte` array address used by ZeroMQ for routing as the value. Next, add a **`DistinctBy (Reactive)`** node after the **`Zip`** and set the `KeySelector` property to the `byte` value (`Item1`).
+
+![Unique key-value pair](~/images/zeromq/address-kvp-distinctby.svg)
+
+The **`DistinctBy`** node filters the output of **`Zip`** according to the unique `byte` value and produces a sequence containing only the distinct – or ‘new’ – values produced by **`Zip`**. The output of **`DistinctBy`** will therefore effectively be a sequence of unique client addresses corresponding to each connected client. We also need to store these unique values and make them available to other parts of the Bonsai workflow. Add a **`ReplaySubject (Expressions)`** node after **`DistinctBy`** and name it ‘ClientAddresses’. 
+
+![Address replay subject](~/images/zeromq/address-replaysubject.svg)
+
+A **`ReplaySubject`** has the useful feature that it stores its input sequence and replays those values to any current or future subscribers. The effect in this case is that anything that subscribes to **`ClientAddresses`** will receive all the unique client addresses encountered by the server so far.
