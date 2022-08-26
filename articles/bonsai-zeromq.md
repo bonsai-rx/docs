@@ -30,13 +30,13 @@ ZeroMQ provides a number of socket types that could be used to achieve something
 - Messages can be passed between Router / Dealer sockets without the requirement that a reply is received before the next message is sent, as is the case with the Request / Response socket pair.
 
 ## Basic client
-To begin with, we’ll create a simple client that sends basic messages on a network. In a new Bonsai project, add a **`Dealer (ZeroMQ)`** node. In the node properties, set `Host`: localhost, `Port`: 5557, `SocketConnection`: Connect, `SocketProtocol`: TCP.
+To begin with, we’ll create a simple client that sends basic messages on a network. In a new Bonsai project, add a [**`Dealer`**](xref:Bonsai.ZeroMQ.Dealer) node. In the node properties, set [`Host`](xref:Bonsai.ZeroMQ.Dealer.ConnectionId.Host): localhost, `Port`: 5557, `SocketConnection`: Connect, `SocketProtocol`: TCP.
 
 ![Dealer](~/images/zeromq/dealer-socket.svg)
 
 In Bonsai.ZeroMQ, the **`Dealer`** can have two functions based on its inputs. On its own, as above, the **`Dealer`** node creates a Dealer socket that listens for messages on the specified network. With the properties specified, we are asking our **`Dealer`** to listen for messages on the local machine on port 5557 using the TCP protocol. We use the ‘Connect’ argument for the `SocketConnection` property to tell the dealer that it will connect to a static part of the network with a known IP address, in this case the server which we will implement later.
 
-If we add inputs to the **`Dealer`**, it will act as both a sender and receiver of messages on the network. Before the **`Dealer`** node add a **`KeyDown (Windows.Input)`**, **`String (Expressions)`**, and **`Format (Osc)`** node in sequence.
+If we add inputs to the **`Dealer`**, it will act as both a sender and receiver of messages on the network. Before the **`Dealer`** node add a [**`KeyDown`**](xref:Bonsai.Windows.Input.KeyDown), [**`String`**](xref:Bonsai.Expressions.String), and **`Format (Osc)`** node in sequence.
 
 ![Basic client message](~/images/zeromq/dealer-basic-input.svg)
 
