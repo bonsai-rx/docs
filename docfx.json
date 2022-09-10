@@ -67,8 +67,9 @@
     "globalMetadata": {
       "_enableNewTab": true,
       "_gitContribute": {
-        "repo": "https://github.com/bonsai-rx/docs-wip",
-        "branch": "main"
+        "repo": "https://github.com/bonsai-rx/docs",
+        "branch": "main",
+        "apiSpecFolder": "apidoc"
       }
     },
     "dest": "_site",
