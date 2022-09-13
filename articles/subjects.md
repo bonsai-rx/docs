@@ -32,9 +32,11 @@ Anonymous branch points in the workflow implicitly define a [`PublishSubject`](#
 
 ## Subject Types
 
-Below are listed all different subject types. Subjects can be declared either from an existing observable sequence, or as a source. If they are created as a source, the type of the subject needs to be declared explicitly on creation, usually by referring to the existing type in the workflow that we are interested in sharing.
+Below are listed all different subject types. Subjects can be declared either from an existing observable sequence, or as a source. If they are created as a source, the type of the subject needs to be declared explicitly on creation, usually by referring to the existing type in the workflow that we are interested in sharing. Each subject has a unique icon representing its type.
 
-The last two operators, [`SubscribeSubject`](#subscribesubject) and [`MulticastSubject`](#multicastsubject), are used to access existing declared subjects for reading and writing, respectively. Their behavior will be determined by the type of subject they are accessing.
+![Visual indication of subject types](~/images/language-subject-types.svg)
+
+The last two operators, [`SubscribeSubject`](#subscribesubject) and [`MulticastSubject`](#multicastsubject), are used to access existing declared subjects for reading and writing, respectively. This is visually indicated by the `*` in the operator icon. Their behavior will be determined by the type of subject they are accessing.
 
 ### AsyncSubject
 [!include[Async Subject](~/articles/subject-async.md)]
