@@ -30,9 +30,21 @@ Anonymous branch points in the workflow implicitly define a [`PublishSubject`](#
 > [!Warning]
 > Dangling branches operate independently from each other, and from the subscription to the source sequence. If one branch terminates and resubscribes to the source (e.g. using the [`Repeat`](xref:Bonsai.Reactive.Repeat) operator) while other branches keep going, this will not reinitialize the shared subscription to the source. If such behavior is of interest, you will need to merge all branches together and implement the cancellation and resubscription logic downstream of the merge point.
 
+## Source Subjects
+
+Subjects can be declared either as a sink from an existing observable sequence, or as a source. Source subjects do not have a pre-existing input sequence from which values are generated, but rather they are setup to redirect inputs from multiple writers into one reader, for example for logging or control purposes.
+
+![Example of declaring a subject as a sink or a source](~/images/language-subject-declaration.svg)
+
+If subjects are created as a source, the type of the subject needs to be declared explicitly on creation. This is done by selecting the source sequence in the workflow whose type we would like to share, and using the right-click context menu.
+
+<img alt="How to declare a subject as a source"
+     src="~/images/language-subject-source.png"
+     style="max-height:160px;object-fit:contain" />
+
 ## Subject Types
 
-Below are listed all different subject types. Subjects can be declared either from an existing observable sequence, or as a source. If they are created as a source, the type of the subject needs to be declared explicitly on creation, usually by referring to the existing type in the workflow that we are interested in sharing. Each subject has a unique icon representing its type.
+Below are listed all different subject types, each represented visually by a unique icon.
 
 ![Visual indication of subject types](~/images/language-subject-types.svg)
 
