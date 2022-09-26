@@ -1,5 +1,5 @@
 ---
-uid: Bonsai.Expressions.ReplaySubjectBuilder`1
+uid: Bonsai.Reactive.ReplaySubjectBuilder
 ---
 
 [!include[Replay Subject](~/articles/subject-replay.md)]

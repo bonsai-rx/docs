@@ -1,5 +1,5 @@
 ---
-uid: Bonsai.Expressions.PublishSubjectBuilder`1
+uid: Bonsai.Reactive.PublishSubjectBuilder
 ---
 
 [!include[Publish Subject](~/articles/subject-publish.md)]
