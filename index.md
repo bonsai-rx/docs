@@ -7,7 +7,7 @@ Bonsai is a visual language for reactive programming. It is lightweight and easy
 
 ## Quick Start
 
-1. Download [Bonsai](articles/installation.md).
+1. Download [Bonsai](xref:installation).
 2. Install **Bonsai - Starter Pack** from the package manager. <br><img alt="The Bonsai package manager" src="~/images/packagemanager.png" style="max-height:400px;object-fit:contain" />
 3. Click on the `Updates` tab at the top of the screen and install any available upgrades.
-4. Read the [Workflow Editor](articles/editor.md) page for an introduction to the user interface.
+4. Read the [Workflow Editor](xref:editor) page for an introduction to the user interface.
