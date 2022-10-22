@@ -6,6 +6,10 @@ article h2, article h3 {
   margin-top: 1.5em;
 }
 
+.table > tbody > tr > td, .table > tbody > tr > th {
+  vertical-align: middle;
+}
+
 .affix {
   height: auto;
 }
