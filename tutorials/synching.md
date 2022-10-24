@@ -103,7 +103,7 @@ To make our task more interesting, we will now trigger the stimulus manually usi
 _Why do we need to remove the `Repeat` operator?_
 
 - Ask a friend to test your reaction time!
-- **Optional:** In the current workflow, what happens if you press the stimulus button twice in succession? Can you fix the current behaviour by using one of the higher order operators?
+- **Optional:** In the current workflow, what happens if you press the stimulus button twice in succession? Can you fix the current behaviour by using one of the higher-order operators?
 
 ### **Exercise 6:** Recording response-triggered videos
 
