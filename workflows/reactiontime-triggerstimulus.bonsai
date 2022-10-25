@@ -12,7 +12,7 @@
           <ard:Pin>1</ard:Pin>
         </Combinator>
       </Expression>
-      <Expression xsi:type="Condition">
+      <Expression xsi:type="rx:Condition">
         <Workflow>
           <Nodes>
             <Expression xsi:type="WorkflowInput">
@@ -25,7 +25,7 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="SelectMany">
+      <Expression xsi:type="rx:SelectMany">
         <Workflow>
           <Nodes>
             <Expression xsi:type="Combinator">

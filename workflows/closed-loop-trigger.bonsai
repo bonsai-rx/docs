@@ -2,7 +2,7 @@
 <WorkflowBuilder Version="2.7.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
-                 xmlns:py="clr-namespace:Bonsai.Scripting.Python;assembly=Bonsai.Scripting.Python"
+                 xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
                  xmlns:ard="clr-namespace:Bonsai.Arduino;assembly=Bonsai.Arduino"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -52,8 +52,8 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:SortBinaryRegions" />
       </Expression>
-      <Expression xsi:type="py:PythonTransform">
-        <py:Script>from math import sqrt
+      <Expression xsi:type="ipy:PythonTransform">
+        <ipy:Script>from math import sqrt
 
 @returns(float)
 def process(value):
@@ -71,7 +71,7 @@ def process(value):
     # d: displacement between two largest objects
     d = value[0].Centroid - value[1].Centroid
     return sqrt(d.X * d.X + d.Y * d.Y)
-</py:Script>
+</ipy:Script>
       </Expression>
       <Expression xsi:type="LessThan">
         <Operand xsi:type="DoubleProperty">
