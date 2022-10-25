@@ -3,7 +3,7 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
-                 xmlns:py="clr-namespace:Bonsai.Scripting.Python;assembly=Bonsai.Scripting.Python"
+                 xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
                  xmlns:ard="clr-namespace:Bonsai.Arduino;assembly=Bonsai.Arduino"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -50,8 +50,8 @@
           <dsp:RescaleType>Linear</dsp:RescaleType>
         </Combinator>
       </Expression>
-      <Expression xsi:type="py:PythonTransform">
-        <py:Script>position = 90.0
+      <Expression xsi:type="ipy:PythonTransform">
+        <ipy:Script>position = 90.0
 
 @returns(float)
 def process(value):
@@ -62,7 +62,7 @@ def process(value):
   if (20.0 &lt; temp and temp &lt; 160):
      position = temp
   return position
-</py:Script>
+</ipy:Script>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="ard:ServoOutput">
@@ -81,8 +81,8 @@ def process(value):
           <dsp:RescaleType>Linear</dsp:RescaleType>
         </Combinator>
       </Expression>
-      <Expression xsi:type="py:PythonTransform">
-        <py:Script>position = 90.0
+      <Expression xsi:type="ipy:PythonTransform">
+        <ipy:Script>position = 90.0
 
 @returns(float)
 def process(value):
@@ -93,7 +93,7 @@ def process(value):
   if (20.0 &lt; temp and temp &lt; 160):
      position = temp
   return position
-</py:Script>
+</ipy:Script>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="ard:ServoOutput">
