@@ -104,6 +104,26 @@ summary {
 }
 
 /* ==========================================================================
+   DESIGN GUIDELINES STYLE
+   ========================================================================== */
+
+.do > p::before {
+  content: "✔️ DO ";
+}
+
+.consider > p::before {
+  content: "✔️ CONSIDER ";
+}
+
+.avoid > p::before {
+  content: "❌ AVOID ";
+}
+
+.donot > p::before {
+  content: "❌ DO NOT ";
+}
+
+/* ==========================================================================
    MASTHEAD NAVIGATION ADAPTED FROM MINIMAL MISTAKES THEME
    Copyright (c) 2013-2020 Michael Rose and contributors
    Licensed under the MIT license. See LICENSE file in the project root for
