@@ -20,14 +20,14 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 :::
 
 - Connect the digital pin 8 on the Arduino to digital pin 13 using a jumper wire.
-- Insert a `DigitalInput` source and set its `Pin` property to 8.
-- Insert a `BitwiseNot` transform.
-- Insert a `DigitalOutput` sink and configure its `Pin` property to pin 13.
-- Insert a `TimeInterval` operator.
-- Right-click on the `TimeInterval` operator and select `Output` > `Interval` > `TotalMilliseconds`.
+- Insert a [`DigitalInput`](xref:Bonsai.Arduino.DigitalInput) source and set its `Pin` property to 8.
+- Insert a [`BitwiseNot`](xref:Bonsai.Expressions.BitwiseNotBuilder) transform.
+- Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink and configure its `Pin` property to pin 13.
+- Insert a [`TimeInterval`](xref:Bonsai.Reactive.TimeInterval) operator.
+- Right-click on the [`TimeInterval`](xref:Bonsai.Reactive.TimeInterval) operator and select `Output` > `Interval` > `TotalMilliseconds`.
 
 > [!Note]
-> The `TimeInterval` operator measures the interval between consecutive events in an observable sequence using the [high-precision event timer (HPET)](https://en.wikipedia.org/wiki/High_Precision_Event_Timer) in the computer. The HPET has a frequency of at least 10MHz, allowing us to accurately time intervals with sub-microsecond precision.
+> The [`TimeInterval`](xref:Bonsai.Reactive.TimeInterval) operator measures the interval between consecutive events in an observable sequence using the [high-precision event timer (HPET)](https://en.wikipedia.org/wiki/High_Precision_Event_Timer) in the computer. The HPET has a frequency of at least 10MHz, allowing us to accurately time intervals with sub-microsecond precision.
 
 - Run the workflow and measure the round-trip time between digital input messages.
 
@@ -38,28 +38,28 @@ The easiest way to measure the latency of a closed-loop system is to use a digit
 :::
 
 - Connect a red LED to Arduino digital pin 13.
-- Insert a `CameraCapture` source.
-- Insert a `Crop` transform.
+- Insert a [`CameraCapture`](xref:Bonsai.Vision.CameraCapture) source.
+- Insert a [`Crop`](xref:Bonsai.Vision.Crop) transform.
 - Run the workflow and set the `RegionOfInterest` property to a small area around the LED.
 
 > [!Tip]
-> You can use the visual editor for an easier calibration. While the workflow is running, right-click on the `Crop` transform and select `Show Default Editor` from the context menu or click in the small button with ellipsis that appears when you select the `RegionOfInterest` property.
+> You can use the visual editor for an easier calibration. While the workflow is running, right-click on the [`Crop`](xref:Bonsai.Vision.Crop) transform and select `Show Default Editor` from the context menu or click in the small button with ellipsis that appears when you select the `RegionOfInterest` property.
 
-- Insert a `Sum (Dsp)` transform and select the `Val2` field from the output.
+- Insert a [`Sum`](xref:Bonsai.Dsp.Sum) transform and select the `Val2` field from the output.
 
 > [!Note]
-> The `Sum (Dsp)` operator adds the value of all the pixels in the image together, across all the color channels. Assuming the default BGR format, the result of summing all the pixels in the Red channel of the image will be stored in `Val2`. `Val0` and `Val1` would store the Blue and Green values, respectively. If you are using an LED with a color other than Red, please select the output field accordingly.
+> The [`Sum`](xref:Bonsai.Dsp.Sum) operator adds the value of all the pixels in the image together, across all the color channels. Assuming the default BGR format, the result of summing all the pixels in the Red channel of the image will be stored in `Val2`. `Val0` and `Val1` would store the Blue and Green values, respectively. If you are using an LED with a color other than Red, please select the output field accordingly.
 
-- Insert a `GreaterThan` transform.
-- Insert a `BitwiseNot` transform.
-- Insert a `DigitalOutput` sink and configure its `Pin` property to pin 13.
-- Run the workflow and use the visualizer of the `Sum` operator to choose an appropriate threshold for `GreaterThan`. When connected to pin 13, the LED should flash a couple of times when the Arduino is first connected.
-- Insert a [`DistinctUntilChanged`](https://bonsai-rx.org/docs/operators/distinctuntilchanged){:target="\_blank"} operator after the `BitwiseNot` transform.
+- Insert a [`GreaterThan`](xref:Bonsai.Expressions.GreaterThanBuilder) transform.
+- Insert a [`BitwiseNot`](xref:Bonsai.Expressions.BitwiseNotBuilder) transform.
+- Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink and configure its `Pin` property to pin 13.
+- Run the workflow and use the visualizer of the `Sum` operator to choose an appropriate threshold for [`GreaterThan`](xref:Bonsai.Expressions.GreaterThanBuilder). When connected to pin 13, the LED should flash a couple of times when the Arduino is first connected.
+- Insert a [`DistinctUntilChanged`](xref:Bonsai.Reactive.DistinctUntilChanged) operator after the [`BitwiseNot`](xref:Bonsai.Expressions.BitwiseNotBuilder) transform.
 
 > [!Note]
 > The `DistinctUntilChanged` operator filters consecutive duplicate items from an observable sequence. In this case, we want to change the value of the LED only when the threshold output changes from `LOW` to `HIGH`, or vice-versa. This will let us measure correctly the latency between detecting a change in the input and measuring the response to that change.
 
-- Insert the `TimeInterval` operator and select `Output` > `Interval` > `TotalMilliseconds`.
+- Insert the [`TimeInterval`](xref:Bonsai.Reactive.TimeInterval) operator and select `Output` > `Interval` > `TotalMilliseconds`.
 - Run the workflow and measure the round-trip time between LED triggers.
 
 _Given the measurements obtained in Exercise 2, what would you estimate is the **input** latency for video acquisition?_
@@ -72,20 +72,20 @@ _Given the measurements obtained in Exercise 2, what would you estimate is the *
 ![Triggering a digital line on ROI activity](~/workflows/closed-loop-roi.bonsai)
 :::
 
-- Insert a `CameraCapture` source.
-- Insert a `Crop` transform.
+- Insert a [`CameraCapture`](xref:Bonsai.Vision.CameraCapture) source.
+- Insert a [`Crop`](xref:Bonsai.Vision.Crop) transform.
 - Run the workflow and use the `RegionOfInterest` property to specify the desired area.
-- Insert a `Grayscale` and a `Threshold (Vision)` transform (or the color segmentation operators).
-- Insert a `Sum (Dsp)` transform, and select the `Val0` field from the output.
-- Insert a `GreaterThan` transform and configure the `Value` property to an appropriate threshold. Remember you can use the visualizers to see what values are coming through the `Sum` and what the result of the `GreaterThan` operator is.
-- Insert the Arduino `DigitalOutput` sink.
-- Set the `Pin` property of the `DigitalOutput` operator to 13.
+- Insert a [`Grayscale`](xref:Bonsai.Vision.Grayscale) and a [`Threshold`](xref:Bonsai.Vision.Threshold) transform (or the color segmentation operators).
+- Insert a [`Sum`](xref:Bonsai.Dsp.Sum) transform, and select the `Val0` field from the output.
+- Insert a [`GreaterThan`](xref:Bonsai.Expressions.GreaterThanBuilder) transform and configure the `Value` property to an appropriate threshold. Remember you can use the visualizers to see what values are coming through the `Sum` and what the result of the [`GreaterThan`](xref:Bonsai.Expressions.GreaterThanBuilder) operator is.
+- Insert the Arduino [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
+- Set the `Pin` property of the [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
 - Configure the `PortName` property.
 - Run the workflow and verify that entering the region of interest triggers the Arduino LED.
-- **Optional:** Replace the `Crop` transform by a `CropPolygon` to allow for non-rectangular regions.
+- **Optional:** Replace the [`Crop`](xref:Bonsai.Vision.Crop) transform by a [`CropPolygon`](xref:Bonsai.Vision.CropPolygon) to allow for non-rectangular regions.
 
 > [!Note]
-> The `CropPolygon` operator uses the `Regions` property to define multiple, possibly non-rectangular regions. The visual editor is similar to `Crop`, where you draw a rectangular box. However, in `CropPolygon` you can move the corners of the box by right-clicking _inside_ the box and dragging the cursor to the new position. You can add new points by double-clicking with the left mouse button, and delete points by double-clicking with the right mouse button. You can delete regions by pressing the `Del` key and cycle through selected regions by pressing the `Tab` key.
+> The [`CropPolygon`](xref:Bonsai.Vision.CropPolygon) operator uses the `Regions` property to define multiple, possibly non-rectangular regions. The visual editor is similar to [`Crop`](xref:Bonsai.Vision.Crop), where you draw a rectangular box. However, in [`CropPolygon`](xref:Bonsai.Vision.CropPolygon) you can move the corners of the box by right-clicking _inside_ the box and dragging the cursor to the new position. You can add new points by double-clicking with the left mouse button, and delete points by double-clicking with the right mouse button. You can delete regions by pressing the `Del` key and cycle through selected regions by pressing the `Tab` key.
 
 ### **Exercise 4:** Modulating stimulus intensity based on distance to a point
 
@@ -93,9 +93,9 @@ _Given the measurements obtained in Exercise 2, what would you estimate is the *
 ![Playing a dynamic sound](~/workflows/closed-loop-generator.bonsai)
 :::
 
-- Insert a `FunctionGenerator` source.
+- Insert a [`FunctionGenerator`](xref:Bonsai.Dsp.FunctionGenerator) source.
 - Set the `Amplitude` property to 500, and the `Frequency` property to `200`.
-- Insert an `AudioPlayback` sink.
+- Insert an [`AudioPlayback`](xref:Bonsai.Audio.AudioPlayback) sink.
 - Externalize the `Amplitude` property of the `FunctionGenerator` using the right-click context menu.
 
 If you run the workflow, you should hear a pure tone coming through the speakers. The `FunctionGenerator` periodically emits buffered waveforms with values ranging between 0 and `Amplitude`, the shape of which changes the properties of the tone. For example, by changing the value of `Amplitude` you can make the sound loud or soft. The next step is to modulate the `Amplitude` property dynamically based on the distance of the object to a target.
@@ -109,16 +109,16 @@ If you run the workflow, you should hear a pure tone coming through the speakers
 
 The result of the `Subtract` operator will be a vector pointing from the target to the centroid of the largest object. The desired distance from the centroid to the target would be the length of that vector.
 
-- Insert an `ExpressionTransform` operator. This node allows you to write small mathematical and logical expressions to transform input values.
+- Insert an [`ExpressionTransform`](xref:Bonsai.Scripting.Expressions.ExpressionTransform) operator. This node allows you to write small mathematical and logical expressions to transform input values.
 - Right-click on the `ExpressionTransform` operator and select `Show Default Editor`. Set the expression to `Math.Sqrt(X*X + Y*Y)`.
 
 > [!Note]
-> Inside the `Expression` editor you can access any field of the input by name. In this case `X` and `Y` represent the corresponding fields of the `Point2f` data type. You can check which fields are available by right-clicking the previous node. You can use all the normal arithmetical and logical operators as well as the mathematical functions available in the [`Math`](<https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx>) type. The default expression `it` means "input" and represents the input value itself.
+> Inside the `Expression` editor you can access any field of the input by name. In this case `X` and `Y` represent the corresponding fields of the [`Point2f`](xref:OpenCV.Net.Point2f) data type. You can check which fields are available by right-clicking the previous node. You can use all the normal arithmetical and logical operators as well as the mathematical functions available in the [`Math`](<https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx>) type. The default expression `it` means "input" and represents the input value itself.
 
 - Connect the `ExpressionTransform` operator to the externalized `Amplitude` property.
 - Run the workflow and verify that stimulus intensity is modulated by the distance of the object to the target point.
 - **Optional:** Modulate the `Frequency` property instead of `Amplitude`.
-- **Optional:** Use the `Rescale` operator to adjust the gain of the modulation by configuring the `Min`, `Max`, `RangeMax` and `RangeMin` properties. Set the `RescaleType` property to `Clamp` to restrict the output values to an allowed range.
+- **Optional:** Use the [`Rescale`](xref:Bonsai.Dsp.Rescale) operator to adjust the gain of the modulation by configuring the `Min`, `Max`, `RangeMax` and `RangeMin` properties. Set the `RescaleType` property to `Clamp` to restrict the output values to an allowed range.
 
 > [!Note]
 > You can specify inverse relationships using `Rescale` if you set the _maximum_ input value to the `Min` property, and the _minimum_ input value to the `Max` property. In this case, a small distance will generate a large output, and a large distance will produce a small output.
@@ -158,7 +158,7 @@ def process(value):
 ```
 
 - Insert a `LessThan` transform and configure the `Value` property to an appropriate threshold.
-- Connect the boolean output to Arduino pin 13 using a `DigitalOutput` sink.
+- Connect the boolean output to Arduino pin 13 using a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
 - Run the workflow and verify that the Arduino LED is triggered when the two objects are close together.
 
 ### **Exercise 6:** Centring the video on a tracked object
@@ -167,7 +167,7 @@ def process(value):
 ![Shifting the video using warp affine](~/workflows/closed-loop-warpaffine.bonsai)
 :::
 
-- Insert a `CameraCapture` source.
+- Insert a [`CameraCapture`](xref:Bonsai.Vision.CameraCapture) source.
 - Insert a `WarpAffine` transform. This node applies affine transformations on the input defined by the `Transform` matrix.
 - Externalize the `Transform` property of the `WarpAffine` operator using the right-click context menu.
 - Create an `AffineTransform` source and connect it to the externalized property.
@@ -192,7 +192,7 @@ We now want to map our negative centroid to the `Translation` property of `Affin
 
 - Insert an `Add` transform. This will add a fixed offset to the point. Configure the `Value` property with an offset that will place the object at the image centre, e.g. (320,240).
 - Run the workflow, and verify the output of `WarpAffine` is now a video which is always centred on the tracked object.
-- **Optional**: Insert a `Crop` transform after `WarpAffine` to select a bounded region around the object.
+- **Optional**: Insert a [`Crop`](xref:Bonsai.Vision.Crop) transform after `WarpAffine` to select a bounded region around the object.
 - **Optional**: Modify the object tracking workflow to use `FindContours` and `BinaryRegionAnalysis`.
 
 ### **Exercise 7:** Make a robotic camera follow a tracked object
@@ -203,14 +203,14 @@ On this exercise we will use the Pan and Tilt servo motor assembly to make the c
 ![Computing the deviation from the image centre](~/workflows/closed-loop-pantilt-error.bonsai)
 :::
 
-- Insert a `CameraCapture` source.
+- Insert a [`CameraCapture`](xref:Bonsai.Vision.CameraCapture) source.
 - Insert nodes to complete a video tracking workflow using `ConvertColor`, `HsvThreshold`, and the `Centroid` operator.
 - Run the workflow and calibrate the threshold to make sure the colored object is perfectly segmented.
 
 To make the Pan and Tilt servo motors correct the position of the camera, we now need to transform the X and Y values of the centroid, which are in image coordinates, to servo motor commands in degrees. For each frame we will have an incremental error depending on the observed location of the object, i.e. the deviation from the image centre.
 
 - Right-click the `Centroid` and select `Output` > `X`.
-- Insert a `Rescale` transform and set the `Max` property to 640 (the image width), and the `RangeMin` and `RangeMax` properties to 1 and -1, respectively.
+- Insert a [`Rescale`](xref:Bonsai.Dsp.Rescale) transform and set the `Max` property to 640 (the image width), and the `RangeMin` and `RangeMax` properties to 1 and -1, respectively.
 
 The output of this workflow will be a relative error signal indicating how much from the centre, and in which direction, the motor should turn. However, the commands to the servo are absolute motor positions in degrees. This means we will need to integrate the relative error signals to get the actual position where the servo should be. We also need to be aware of the servo operational range (0 to 180 degrees) in order not to damage the motors. To accomplish this, we will develop a new operator to compute the error-corrected integration before sending the final command to the servos.
 
@@ -244,7 +244,7 @@ def process(value):
 :::
 
 - Right-click the `Centroid` and select `Output` > `Y` to create a new branch for the vertical Tilt motor.
-- Insert a `Rescale` transform and set the `Max` property to 480 (the image height), and the `RangeMin` and `RangeMax` properties to -1 and 1, respectively (note these values are swapped from before because in image coordinates zero is at the image top).
+- Insert a [`Rescale`](xref:Bonsai.Dsp.Rescale) transform and set the `Max` property to 480 (the image height), and the `RangeMin` and `RangeMax` properties to -1 and 1, respectively (note these values are swapped from before because in image coordinates zero is at the image top).
 - Copy and paste the `PythonTransform` script from the previous branch.
 - Insert a `ServoOutput` sink and set the `Pin` property to the Arduino pin where the vertical Tilt motor is connected.
 - Configure the `PortName` property.
