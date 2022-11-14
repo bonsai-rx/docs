@@ -27,3 +27,5 @@
   items:
     - name: Creating a Package
       href: create-package.md
+- name: Bonsai and ZeroMQ Networking
+  href: bonsai-zeromq.md
