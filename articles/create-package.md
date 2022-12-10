@@ -5,16 +5,18 @@ title: "Creating a Package"
 
 # Creating a Package
 
-The Bonsai language can be easily extended with custom operators, which are installed and shared using [NuGet](https://www.nuget.org/) packages. Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment.
+The Bonsai language can be extended with custom packages, which are installed and shared using [NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget). Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment. The Bonsai installer includes project templates that make it easier to create your own package project. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.
 
-## Install pre-requisites
+## Pre-requisites
 
 1. [Visual Studio](https://www.visualstudio.com/). You can install the Community edition for free.
+
 2. Bonsai VS Extensions. From the Windows Start Menu, search for the "**Install Bonsai VS Extensions**" shortcut and run it.
 
-## Create a package project
+## Creating a package project
 
 1. Start **Visual Studio**.
+
 2. Select the **Create a new project** option. In the **Create a new project** dialog, type `bonsai` in the search toolbox. The project template for creating a Bonsai package should now be displayed.
 
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
@@ -74,3 +76,21 @@ The Bonsai language can be easily extended with custom operators, which are inst
 7. It is also possible to debug our code while it is running by setting breakpoints, either by clicking on the left of the line we want to debug or by hitting **F9** over the target code. After this, you can run the code step by step and inspect the runtime value of variables.
 
     ![Debugging the sine source](~/images/extensions-debugging.png)
+
+## Publishing a package project
+
+1. Double-click the name of the project in the Visual Studio Solution Explorer to open up the package metadata.
+
+    ![Inspecting the package metadata](~/images/extensions-packagemetadata.png)
+
+2. Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to `Title`, `Description`, `Authors`, `Copyright`, `PackageProjectUrl`, `PackageLicenseExpression`, `PackageIcon` and `PackageTags` to make sure that they correctly describe your project. Make sure that `Version` is correctly assigned in every new release to avoid problems during package updates.
+
+    > [!Tip]
+    > Use version suffixes for sharing prerelease versions for testing, e.g. `0.1.0-alpha`. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox "Include prerelease" is checked.
+
+3. Build the project in **Release** mode. If all metadata is correctly specified, the build process should generate a `.nupkg` file as part of the output. By default, it will be placed in the same `bin\Release` folder where the project assembly (.dll) is generated.
+
+4. To install the package in the editor, [configure a new package source](https://bonsai-rx.org/docs/articles/packages.html#configure-package-sources) pointing to a folder containing your generated `.nupkg` file, or simply copy the `.nupkg` file to the `Gallery` folder of your local Bonsai installation. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).
+
+    > [!Note]
+    > If you would like to share the package with the broader Bonsai community, consider publishing your package in the [**Bonsai Community feed**](https://www.myget.org/gallery/bonsai-community). Click the `Connect to Feed` button for more details on how to push packages to the feed.
