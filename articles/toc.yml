@@ -22,13 +22,6 @@
       href: higher-order.md
     - name: Subjects
       href: subjects.md
-- name: Design Guidelines
-  href: design-guidelines.md
-  items:
-    - name: Overview
-      href: design-guidelines.md
-    - name: Workflow Design Guidelines
-      href: workflow-guidelines.md
 - name: Extending Bonsai
   href: cli.md
   items:
@@ -38,3 +31,10 @@
       href: scripting-extensions.md
     - name: Creating a Package
       href: create-package.md
+- name: Design Guidelines
+  href: design-guidelines.md
+  items:
+    - name: Overview
+      href: design-guidelines.md
+    - name: Workflow Design Guidelines
+      href: workflow-guidelines.md
