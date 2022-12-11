@@ -23,7 +23,9 @@
     - name: Subjects
       href: subjects.md
 - name: Extending Bonsai
-  href: create-package.md
+  href: scripting-extensions.md
   items:
+    - name: Scripting Extensions
+      href: scripting-extensions.md
     - name: Creating a Package
       href: create-package.md
