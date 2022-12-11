@@ -61,7 +61,7 @@ Scripting extensions are more commonly used to develop small project-specific fu
 6. After you are satisfied with your script extension, save the script file and switch back to the Bonsai editor. Save the workflow and select `Reload Extensions` from the `Tools` menu. All scripts will now be compiled and loaded every time the workflow is opened.
 
     > [!Warning]
-    > Any errors found while compiling the C# scripts will be logged to the black terminal window when the editor reloads. Make sure to check for any messages if you cannot use the scripting operators after reloading extensions.
+    > Any errors found while compiling the C# scripts will be logged to the black terminal window when the editor reloads. Make sure to check for any messages if you cannot use the scripting operators after reloading extensions. Be aware that scripting extensions in Bonsai currently use the built-in .NET Framework compiler which only allows for language features up to C# 5.
 
 ## Adding dependencies to a local extension
 
