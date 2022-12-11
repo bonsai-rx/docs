@@ -92,5 +92,8 @@ The Bonsai language can be extended with custom packages, which are installed an
 
 4. To install the package in the editor, [configure a new package source](https://bonsai-rx.org/docs/articles/packages.html#configure-package-sources) pointing to a folder containing your generated `.nupkg` file, or simply copy the `.nupkg` file to the `Gallery` folder of your local Bonsai installation. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).
 
+    > [!Warning]
+    > If you have your custom package installed in the same editor used to debug the source code, Bonsai will prefer the installed package over the compiled source code library. In this case, either uninstall the package, or use a local Bonsai installation.
+
     > [!Note]
     > If you would like to share the package with the broader Bonsai community, consider publishing your package in the [**Bonsai Community feed**](https://www.myget.org/gallery/bonsai-community). Click the `Connect to Feed` button for more details on how to push packages to the feed.
