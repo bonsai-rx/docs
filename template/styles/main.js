@@ -43,19 +43,20 @@ $(function() {
 
     $("code.hljs").each(function() {
         var $this = $(this);
-        var language = /lang-(.+?)(\s|$)/.exec($this.attr("class"))[1].toUpperCase();
-        if (language === 'CS' || language === 'CSHARP') {
-            language = "C#";
+        var languageQuery = /lang-(.+?)(\s|$)/.exec($this.attr("class"));
+        var language = languageQuery && languageQuery.length > 1 ? languageQuery[1].toUpperCase() : null;
+        if (language && language !== 'CMD') {
+            var language = languageQuery[1].toUpperCase();
+            if (language === 'CS' || language === 'CSHARP') { language = "C#"; }
+            if (language === 'JS') { language = "JavaScript"; }
+            if (language === 'PYTHON') { language = "Python"; }
+            var $codeHeader = createCodeHeader(language);
+            var $codeElement = $this.closest("pre");
+            $codeElement.before($codeHeader);
+            $codeHeader.find("button").click(function() {
+                navigator.clipboard.writeText($codeElement.text());
+                setCopyAlert($(this));
+            });
         }
-        if (language === 'JS') {
-            language = "JavaScript";
-        }
-        var $codeHeader = createCodeHeader(language);
-        var $codeElement = $this.closest("pre");
-        $codeElement.before($codeHeader);
-        $codeHeader.find("button").click(function() {
-            navigator.clipboard.writeText($codeElement.text());
-            setCopyAlert($(this));
-        });
     });
 });
