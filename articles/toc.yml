@@ -25,6 +25,8 @@
 - name: Extending Bonsai
   href: scripting-extensions.md
   items:
+    - name: Command Line Interface
+      href: cli.md
     - name: Scripting Extensions
       href: scripting-extensions.md
     - name: Creating a Package
