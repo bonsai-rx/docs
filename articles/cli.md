@@ -1,172 +1,138 @@
-## Bonsai Command-Line Interface (CLI)
+---
+uid: cli
+title: "Command Line Interface"
+---
 
-The Bonsai CLI (Command-Line Interface) makes it possible to launch workflows from the OS command-line tool. In addition to opening workflows with the default graphic interface, the CLI enables the use of other advanced features, such as "no-editor" mode, initialization of variable's values, and specifying layouts.
+# Command Line Interface (CLI)
 
+The Bonsai command-line interface makes it possible to interface with Bonsai directly from the operating system terminal. Using the CLI you can open files, set workflow properties, change the editor scale, run a workflow in application mode, or even export a workflow as a bitmap or vector graphics file.
 
-&nbsp;
-___
-### Installation and basic use
-Bonsai CLI can be called by targeting the ```Bonsai.exe``` executable. To make sure you are able to call Bonsai from the command line:
+## Quick Start
 
-```cmd
-pathToBonsaiExe\Bonsai.exe
-```
-Alternatively, by adding ```pathToBonsaiExe``` to your System Path, simply:
+Open a command prompt or system terminal, navigate to the location where Bonsai is installed (usually at `%LOCALAPPDATA%\Bonsai`), and run Bonsai:
 
 ```cmd
-Bonsai
+cd <bonsai installation directory>
+bonsai
 ```
-This command will open the default Bonsai editor.
 
-___
-&nbsp;
-### Opening a Workflow
-
-To open an existing workflow (i.e., ```myWorkflow.bonsai```), use the syntax:
-
-##### Example:
+If you add the Bonsai folder to your system `PATH` you can simply type:
 
 ```cmd
-Bonsai myWorkflow.bonsai
-Bonsai "C:\Users\User\Desktop\Example\myWorkflow.bonsai"
-```
-___
-&nbsp;
-### Starting a Workflow
-
-Adding additional flags will change the output behavior of the Bonsai CLI. For instance, to launch and immediately start a workflow from the command line we add the ```--start``` flag to the previous command:
-
-
-##### Example:
-```cmd
-Bonsai myWorkflow.bonsai --start
+bonsai
 ```
 
-___
-&nbsp;
-### Starting a Workflow without the editor
+This command will launch Bonsai in editor mode.
 
+## Opening a Workflow
 
-For some applications, such as batch processing, you might not be interested in having access to the UI. This can be achieved using the ```--no-editor``` flag. Note that the ```--start``` flag behavior is implicit when running with ```--no-editor``` mode.
-
-
-##### Example:
-```cmd
-Bonsai myWorkflow.bonsai --no-editor
-```
-
-Upon the successful launch of your workflow, a Bonsai icon will appear on your system tray, which can be used to stop the workflow or open other visualizers.
-
-(![SystemTray Example](../images/Article_CLI_SystemTrayBonsai.png)
-
-It is worth noting that only assigned visualizers will be available via this list.. To assign a visualizer:
-- Open the workflow in editor mode;
-- Right click the node of interest;
-- Under menu item "Show Visualizer", select any visualizer other than "None".
-
-(![Select visualizer](../images/Article_CLI_Select_visualizer.png)
-
-
-___
-&nbsp;
-### Passing parameter values to workflows
-
-One of the most useful features of the CLI is the ability to pass different values to different nodes before running a workflow. However, only [`Externalized Properties`](https://bonsai-rx.org/docs/property-mapping/) can be set in this way from the command line.
-
-##### To externalize a property:
-- Open the workflow in editor mode;
-- Right click the node of interest;
-- "Under menu item "Externalize Property", select the property of interest "
-
-(![Externalize Property Example 1](../images/Article_CLI_extern_prop_example.png)
-
-- A new node will appear with a dashed line connecting it to the original node of interest.
-- No two externalized properties, in the same group, are allowed to share the same name.
-- Additionally, you can externalize multiple properties from a single node.
-- To change the name of the externalized property (usually a good idea), simply edit the "DisplayName" field of the externalized property node.
-
-(![Externalize Property Example 2](../images/Article_CLI_extern_prop_example_2.png)
-
-##### Passing values from the command line
-To pass values from the command line we use the syntax :
+To open an existing workflow simply type the name of the workflow file (e.g., ```workflow.bonsai```):
 
 ```cmd
-Bonsai myWorkflow.bonsai -p:<propertyName>=<string>
-```
-You can set properties in nested workflows by using the ```.``` (dot) notation: (e.g. ```<NestedNodeName.propertyName>= <string>```)
+bonsai workflow.bonsai
 
-It is worth noting that the same workflow file can be called/run in parallel with different parameters, allowing for easy batch-processing pipelines!
-
-##### Example:
-```cmd
-:: set a single property
-bonsai myWorkflow.bonsai --start -p:"myProperty1"="100"
-
-:: set two distinct properties
-bonsai myWorkflow.bonsai --start -p:"myProperty1"="100" -p:"myProperty2"="200"
-
-:: with "--no-editor" mode enabled
-bonsai myWorkflow.bonsai --no-editor -p:"myProperty1"="100" -p:"myProperty2"="200"
-
-:: set a property of a nested workflow node
-bonsai myWorkflow.bonsai --no-editor -p:"myProperty1"="100" -p:"myProperty2"="200" -p:"myNestedNode.myProperty1"="Horizontal"
-```
-___
-&nbsp;
-### Specifying layout files
-As of Bonsai version 2.6.1, it is possible to specify the layout file with which to run the workflow, by using the --no-editor mode. This is especially useful when the same workflow is meant to be run several times in parallel (e.g. multiple identical behavior rigs).
-
-The general syntax is:
-
-##### Example:
-```cmd
-
-:: run the workflow myWorkflow.bonsai with myLayout.bonsai.layout
-Bonsai myWorkflow.bonsai --no-editor --visualizer-layout:myLayout.bonsai.layout
+bonsai "C:\Users\User\Desktop\Example\workflow.bonsai"
 ```
 
-Currently, the easiest way to generate multiple layouts for a given script is to do the following:
-- Launch a workflow with the editor;
-- Place the windows in the desired layout;;
-- Save the workflow.
+## Starting a Workflow
 
-This will create a ```*.bonsai.layout``` file with the same name as the workflow. This layout file should then be renamed to prevent it from being overwritten.
-
-It should be noted that ```--visualizer-layout``` can be used in combination with previous flags:
-
-##### Example:
-```cmd
-
-:: run the workflow with the previous layout while setting property values
-Bonsai myWorkflow.bonsai --no-editor --visualizer-layout:myLayout.bonsai.layout -p:"myProperty1"="100" -p:"myProperty2"="200" -p:"myNestedNode.myProperty1"="Horizontal"
-
-```
-
-&nbsp;
-
-### Other available flags
-Additional flags are available, and can be used similarly to the ones introduced above. E.g.:
+Additional flags can change the output behavior of the Bonsai CLI. For instance, to start a workflow from the command line we add the ```--start``` flag to the previous command.
 
 ```cmd
-Bonsai myWorkflow.bonsai --FLAG
-Bonsai --FLAG
-Bonsai --FLAG:<"parameterValue">
+bonsai workflow.bonsai --start
 ```
-Alternatively to `:`, ` ` (`space`) can also be used to bind parameters in the CLI. For example:
+
+## Starting a Workflow in Application Mode
+
+You can also start a workflow as an application, without editor support:
 
 ```cmd
-Bonsai --FLAG <"parameterValue">
+bonsai workflow.bonsai --no-editor
 ```
 
-Other currently available flags:
+This will start the workflow and block until the workflow terminates. Any active visualizers specified in the `.layout` file will also be displayed immediately. A Bonsai icon will be added to the system tray, which can be right-clicked to stop the workflow or open other visualizers.
 
-- ```--property``` - similar to the "-p" syntax for setting parameter values
-- ```--editor-scale``` - Scales the editor UI (e.g. ```bonsai --editor-scale:1.3```). Default value is 1.
-- ```--start-no-debug``` - Starts the script without the extension's debug mode on
-- ```--no-boot``` - Launches bonsai without the bootstrapper
-- ```--package-manager``` - Opens the `Package Manager`
-- ```--gallery``` - Opens the `Gallery`
-- ```--export-package``` - Exports the current workflow using the export package dialog (must be inside a folder with the same name)
+> [!Warning]
+> Only visualizers which have been [explicitly assigned](xref:editor#assigning-visualizers) in the workflow will be visible in the system tray icon.
 
+Application mode is useful for batch processing, interop with other languages and scripting tools, or for deploying self-contained user interfaces for running experiments.
 
+![SystemTray Example](~/images/cli-systemtrayapplication.png)
 
+> [!Tip]
+> You can pipe the standard output of a workflow running in application mode to other processes, or to a file:
+> ```cmd
+> bonsai workflow.bonsai --no-editor > output.txt
+> ```
+> Values can be written to the standard output using the [**WriteLine**](xref:Bonsai.IO.WriteLine) operator.
+
+## Passing parameter values to workflows
+
+One of the most useful features of the CLI is the ability to set property values of operators in the workflow before running. Only [`externalized properties`](xref:property-mapping#externalized-properties) can be set in this way from the command line.
+
+```cmd
+bonsai workflow.bonsai -p <propertyName>=<string>
+```
+
+You can also set properties in nested workflows by using the ```.``` (dot) notation:
+
+```cmd
+bonsai workflow.bonsai -p <NestedNodeName.propertyName>=<string>
+```
+
+> [!Tip]
+> The same workflow file can be started in parallel with different parameters, allowing easy creation of configurable batch-processing pipelines.
+
+Set a single property
+```cmd
+bonsai workflow.bonsai --start -p intProperty=100
+```
+
+Set two distinct properties
+```cmd
+bonsai workflow.bonsai --start -p intProperty=100 -p doubleProperty=4.2
+```
+
+Set properties in application mode
+```cmd
+bonsai workflow.bonsai --no-editor -p intProperty=100 -p doubleProperty=4.2
+```
+
+Set a property of a nested workflow node
+```cmd
+bonsai workflow.bonsai --no-editor -p intProperty=100 -p NestedNode.FlipMode="Horizontal"
+```
+
+> [!Warning]
+> The text representing property values needs to be convertible to the type of value stored in the property. As a rule of thumb, if you can write the property as a string in the editor, you can write that same string to set the same value in the CLI.
+
+## Specifying layout files in Application Mode
+
+You can specify the layout file with which to start the workflow in Application Mode. This is especially useful when the same workflow is meant to be run several times in parallel, e.g. multiple identical behavior rigs where each rig visualizer should be in its own position.
+
+```cmd
+bonsai workflow.bonsai --no-editor --visualizer-layout layout1.bonsai.layout
+```
+
+> [!Tip]
+> To generate multiple layouts for a given workflow:
+>   1. Start the workflow in editor mode.
+>   2. Arrange the visualizers in the desired layout.
+>   3. Save the workflow.
+> A ```.bonsai.layout``` file with the same name as the workflow will be created. Rename the layout file so it is not overwritten by future save operations and pass the renamed file to the ```--visualizer-layout``` option.
+
+## Advanced CLI options
+
+There are several additional CLI options that can be used to configure different settings in the editor or automate existing functions.
+
+| Argument                     | Description                                                         |
+| ---------------------------- | ------------------------------------------------------------------- |
+| ```--lib <dir>```            | Add folder to the list of directories to be scanned for extensions. |
+| ```--editor-scale <scale>``` | Sets the scale of the editor UI. Default value is 1.                |
+| ```--start-no-debug```       | Start the workflow without debugging.                               |
+| ```--debug-scripts```        | Compile local extensions with debug symbols.                        |
+| ```--no-boot```              | Launches Bonsai without the bootstrapper process.                   |
+| ```--package-manager```      | Opens the Bonsai package manager.                                   |
+| ```--gallery```              | Opens the Bonsai workflow gallery.                                  |
+| ```--export-package```       | Start the export dialog for the specified workflow.                 |
+| ```--export-image <file>```  | Export the specified workflow as a raster or vector image file.     |
