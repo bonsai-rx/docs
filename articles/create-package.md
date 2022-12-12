@@ -77,6 +77,25 @@ The Bonsai language can be extended with custom packages, which are installed an
 
     ![Debugging the sine source](~/images/extensions-debugging.png)
 
+8. Finally, we can add new operators by right-clicking the project name in the solution explorer and selecting `Add` > `New Item`. Templates for creating the most common operator types are available under the **Bonsai** category.
+
+    ![Creating a new Bonsai transform](~/images/extensions-itemtemplate.png)
+
+    For example, we can create a simple transform that tests whether each of the values emitted by the sinewave generator is positive:
+
+    ```c#
+    [Combinator]
+    [Description("")]
+    [WorkflowElementCategory(ElementCategory.Transform)]
+    public class Transform1
+    {
+        public IObservable<bool> Process(IObservable<double> source)
+        {
+            return source.Select(input => input > 0);
+        }
+    }
+    ```
+
 ## Publishing a package project
 
 1. Double-click the name of the project in the Visual Studio Solution Explorer to open up the package metadata.
