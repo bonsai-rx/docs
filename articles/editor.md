@@ -64,9 +64,15 @@ Type visualizers allow you to inspect online the data that is generated from a s
 
 ![Example of image type visualizers](~/images/editor-visualizers.png)
 
+#### Assigning visualizers
+
 Types can have more than one visualizer. You can choose the active type visualizer for a specific operator by right-clicking on the corresponding node and selecting from the available options in the `Show Visualizer` menu.
 
+![Select visualizer](~/images/editor-assignvisualizer.png)
+
 For example, image streams can be displayed on the screen using the default image visualizer, but you can also select the text visualizer to inspect image parameters such as size, or pixel bit depth. New visualizers can be added by installing new packages.
+
+#### Visualizer layout settings
 
 If you leave one or more visualizers open when you stop the workflow, the editor will memorize the position and size of each active window. When you run the workflow again, the same visualizer windows will be opened following the memorized layout. These settings are stored in a `.layout` file which is saved side by side with the workflow so they will persist between editor sessions.
 
