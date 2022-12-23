@@ -26,7 +26,7 @@ This command will launch Bonsai in editor mode.
 
 ## Opening a Workflow
 
-To open an existing workflow simply type the name of the workflow file (e.g., ```workflow.bonsai```):
+To open an existing workflow simply type the name of the workflow file (e.g., `workflow.bonsai`):
 
 ```cmd
 bonsai workflow.bonsai
@@ -36,7 +36,7 @@ bonsai "C:\Users\User\Desktop\Example\workflow.bonsai"
 
 ## Starting a Workflow
 
-Additional flags can change the output behavior of the Bonsai CLI. For instance, to start a workflow from the command line we add the ```--start``` flag to the previous command.
+Additional flags can change the output behavior of the Bonsai CLI. For instance, to start a workflow from the command line we add the `--start` flag to the previous command.
 
 ```cmd
 bonsai workflow.bonsai --start
@@ -74,7 +74,7 @@ One of the most useful features of the CLI is the ability to set property values
 bonsai workflow.bonsai -p <propertyName>=<string>
 ```
 
-You can also set properties in nested workflows by using the ```.``` (dot) notation:
+You can also set properties in nested workflows by using the `.` (dot) notation:
 
 ```cmd
 bonsai workflow.bonsai -p <NestedNodeName.propertyName>=<string>
@@ -119,20 +119,20 @@ bonsai workflow.bonsai --no-editor --visualizer-layout layout1.bonsai.layout
 >   1. Start the workflow in editor mode.
 >   2. Arrange the visualizers in the desired layout.
 >   3. Save the workflow.
-> A ```.bonsai.layout``` file with the same name as the workflow will be created. Rename the layout file so it is not overwritten by future save operations and pass the renamed file to the ```--visualizer-layout``` option.
+> A `.bonsai.layout` file with the same name as the workflow will be created. Rename the layout file so it is not overwritten by future save operations and pass the renamed file to the `--visualizer-layout` option.
 
 ## Advanced CLI options
 
 There are several additional CLI options that can be used to configure different settings in the editor or automate existing functions.
 
-| Argument                     | Description                                                         |
-| ---------------------------- | ------------------------------------------------------------------- |
-| ```--lib <dir>```            | Add folder to the list of directories to be scanned for extensions. |
-| ```--editor-scale <scale>``` | Sets the scale of the editor UI. Default value is 1.                |
-| ```--start-no-debug```       | Start the workflow without debugging.                               |
-| ```--debug-scripts```        | Compile local extensions with debug symbols.                        |
-| ```--no-boot```              | Launches Bonsai without the bootstrapper process.                   |
-| ```--package-manager```      | Opens the Bonsai package manager.                                   |
-| ```--gallery```              | Opens the Bonsai workflow gallery.                                  |
-| ```--export-package```       | Start the export dialog for the specified workflow.                 |
-| ```--export-image <file>```  | Export the specified workflow as a raster or vector image file.     |
+| Argument                 | Description                                                         |
+| ------------------------ | ------------------------------------------------------------------- |
+| `--lib <dir>`            | Add folder to the list of directories to be scanned for extensions. |
+| `--editor-scale <scale>` | Sets the scale of the editor UI. Default value is 1.                |
+| `--start-no-debug`       | Start the workflow without debugging.                               |
+| `--debug-scripts`        | Compile local extensions with debug symbols.                        |
+| `--no-boot`              | Launches Bonsai without the bootstrapper process.                   |
+| `--package-manager`      | Opens the Bonsai package manager.                                   |
+| `--gallery`              | Opens the Bonsai workflow gallery.                                  |
+| `--export-package`       | Start the export dialog for the specified workflow.                 |
+| `--export-image <file>`  | Export the specified workflow as a raster or vector image file.     |
