@@ -13,7 +13,7 @@ The output type is automatically inferred from the structure of the parse patter
 > [!Warning]
 > For convenience, both <xref href="Bonsai.Expressions.ParseBuilder.Pattern"/> and <xref href="Bonsai.Expressions.ParseBuilder.Separator"/> properties will accept the use of character escapes to represent specific white space or unicode characters. See the [list of supported character escapes in .NET](https://learn.microsoft.com/en-us/dotnet/standard/base-types/character-escapes-in-regular-expressions#character-escapes-in-net) for more information.
 
-## Examples
+### Examples
 
 The following examples illustrate using different combinations of the <xref href="Bonsai.Expressions.ParseBuilder.Pattern"/> and <xref href="Bonsai.Expressions.ParseBuilder.Separator"/> properties to match different kinds of formatted text data.
 
