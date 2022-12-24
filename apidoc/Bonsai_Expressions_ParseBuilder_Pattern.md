@@ -5,8 +5,11 @@ remarks: *content
 
 The parse pattern may contain zero or more placeholder characters. Each placeholder is always preceded by the character `%`, and must specify one of the allowed data type format specifiers (see table below). For each placeholder in the pattern, the `Parse` method of the corresponding data type will be called to convert the matched string to an equivalent instance of that type.
 
+> [!Note]
+> Some placeholder conversions will account for white space characters surrounding the input, e.g. the parse pattern `%i,%i` will work the same for `1,2` or `1, 2`.
+
 > [!Warning]
-> All parse conversions are done using the [invariant culture](xref:System.Globalization.CultureInfo.InvariantCulture). Specifying culture-specific conversions is not currently supported.
+> All parse conversions are done using the [invariant culture](xref:System.Globalization.CultureInfo.InvariantCulture). Specifying culture-specific conversions is not currently supported. There is also no support for implicit numeric conversions, e.g. attempting to parse `5.0` using `%i` will throw an error.
 
 If the parse pattern is `null` or empty, the operator will simply return the raw input value. If a non-empty parse pattern is provided, but no placeholder characters are specified, the result type will be of type <xref href="System.Reactive.Unit"/>. Otherwise, the output type will be a tuple of the types corresponding to each of the placeholder characters, in order of their appearance in the parse pattern.
 
