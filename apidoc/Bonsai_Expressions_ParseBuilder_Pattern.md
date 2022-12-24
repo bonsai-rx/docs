@@ -29,3 +29,6 @@ If the parse pattern is `null` or empty, the operator will simply return the raw
 | `%s`    | Match a text fragment using UTF-16 encoding ([string](xref:System.String)).             |
 | `%t`    | Match a timestamp measured relative to UTC time (<xref href="System.DateTimeOffset"/>). |
 | `%T`    | Match a time interval (<xref href="System.TimeSpan"/>).                                 |
+
+> [!Warning]
+> The parse pattern is a regular expression string and certain characters are reserved as special tokens, such as parentheses. It is possible to use these special characters by prefixing them with a backslash (e.g. `\(` for a left parentheses).
