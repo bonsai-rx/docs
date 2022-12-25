@@ -5,9 +5,11 @@ title: "Format"
 
 The `Format` operator is a [Transform](xref:operators#transform) that can be applied on sequences of any type. Each of the elements in the sequence will be converted to a <xref href="System.String"/> value using the specified <xref href="Bonsai.Expressions.FormatBuilder.Format"/>. The format string follows the same syntax of the [String.Format](xref:System.String.Format*) method. The <xref href="Bonsai.Expressions.FormatBuilder.Selector"/> property can be used to specify the order of the values that will be converted to strings and inserted at a specified place in the format string.
 
+If no format string is specified, the default [ToString](xref:System.Object.ToString) method is used to convert each value in the sequence.
+
 ### Example
 
-You can use the `Format` operator to insert the value of a sequence into another string. For example, the following workflow and format string visualizes the value and timestamp of each tick of a timer: 
+You can use the `Format` operator to insert the value of a sequence into another string. For example, the following workflow and format string visualizes the value and timestamp of each tick of a timer:
 
 :::workflow
 ![Example workflow](~/workflows/expressions-format-example.bonsai)
