@@ -7,12 +7,17 @@ The `Format` operator is a [Transform](xref:operators#transform) that can be app
 
 If no format string is specified, the default [ToString](xref:System.Object.ToString) method is used to convert each value in the sequence.
 
-### Example
+### Examples
+
+> [!Note]
+> Below you can find various applications of the `Format` operator. For more formatting examples and a comprehensive list of supported format strings for different data types, see the extended discussion section of the [**String.Format**](xref:System.String.Format*) method.
+
+#### Insert a string
 
 You can use the `Format` operator to insert the value of a sequence into another string. For example, the following workflow and format string visualizes the value and timestamp of each tick of a timer:
 
 :::workflow
-![Example workflow](~/workflows/expressions-format-example.bonsai)
+![Insert a string workflow](~/workflows/expressions-format-example.bonsai)
 :::
 
 ```
@@ -37,4 +42,10 @@ Which will then produce the following output:
 Received value 9 at time 22:15:06.
 ```
 
-For more formatting examples and a comprehensive list of supported format strings for different data types, see the extended discussion section for the [String.Format](xref:System.String.Format*) method.
+#### Format a file name
+
+You can format the names of data files dynamically using the `Format` operator. This is useful to generate file names relative to a common base path which can be easily changed in only one place:
+
+:::workflow
+![Format a file name workflow](~/workflows/expressions-format-path-example.bonsai)
+:::
