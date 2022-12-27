@@ -1,0 +1,2 @@
+> [!Warning]
+> If the source sequence is infinite (i.e. does not terminate), this operator will never emit the collection, and will keep accumulating all elements from the source sequence indefinitely, with likely impacts on available memory.

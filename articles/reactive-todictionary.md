@@ -9,3 +9,5 @@ title: ToDictionary
 
 > [!Warning]
 > If the source sequence emits a value with a duplicate key, an error will be raised and the sequence will terminate exceptionally.
+
+[!include[ToCollection](~/articles/reactive-tocollection.md)]
