@@ -5,13 +5,13 @@ title: Merge
 
 ![Marble diagram](~/images/reactive-merge.svg)
 
-The `Merge` operator allows you to combine the output of multiple sequences of the same type into a single sequence. `Merge` subscribes to all source sequences in parallel and emits all the values from each sequence downstream.
+The `Merge` operator allows you to combine the output of multiple sequences of the same type into a single sequence. `Merge` subscribes to all source sequences in parallel and emits all the elements from each sequence downstream.
 
 The resulting sequence will terminate successfully only when all source sequences have terminated successfully, or exceptionally as soon as any sequence produces an error.
 
 ### Higher-order operator
 
-`Merge` also works as a higher-order operator, so it can take as input a sequence of observable sequences. In this case, it will subscribe to all source sequences as soon as they are emitted by the outer sequence, and emit all values from each sequence downstream.
+`Merge` also works as a higher-order operator, so it can take as input a sequence of observable sequences. In this case, it will subscribe to all source sequences as soon as they are emitted by the outer sequence, and emit all elements from each sequence downstream.
 
 ![Higher order](~/images/reactive-mergewindow.svg)
 

@@ -1,6 +1,7 @@
 ---
 layout: worksheet
 title: State Machines
+uid: state-machines-tutorial
 ---
 
 # State Machines
