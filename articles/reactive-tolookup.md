@@ -9,3 +9,5 @@ title: ToLookup
 
 > [!Note]
 > A lookup allows multiple values to be grouped under the same key.
+
+[!include[ToCollection](~/articles/reactive-tocollection.md)]
