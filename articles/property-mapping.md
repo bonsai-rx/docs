@@ -35,10 +35,7 @@ The [ExternalizedMapping](xref:Bonsai.Expressions.ExternalizedMappingBuilder) op
 
 ![Externalized property](~/images/language-externalizedproperty.png)
 
-> [!Warning]
-> In any one group, it is not possible to have more than one externalized property with the same name. When externalizing multiple conflicting properties, you can use the [`DisplayName`](xref:Bonsai.Expressions.ExternalizedMapping.DisplayName) property of the externalized mapping to provide distinct unique names for each property. It is also possible to specify different category or description strings to the externalized property for documentation purposes.
-
-When externalized properties are nested inside an operator group, for example inside a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder), they will be exposed as member properties of the node group itself. This means that when the group node is selected, all named externalized properties will show up in the `Properties` panel.
+[!include[ExternalizedMapping](~/articles/expressions-externalizedmapping.md)]
 
 ## Mapping a sequence to a property
 
@@ -48,21 +45,11 @@ Now every time the source sequence emits a new notification, the mapping operato
 
 ![Rescale WAV playback with mouse position](~/images/language-wavplayback-mapping.svg)
 
-The connection between the property mapping and its target node only affects the state of properties. The behaviour of the operator will otherwise remain unaffected, since the subscription to the mapping is not considered as a proper upstream source. This is indicated in the editor by the dashed line linking the property mapping operator to its target.
-
-> [!Warning]
-> Because property values are updated independently, this means that values can change even while the target operator is reacting to notifications from other nodes. Care must be taken to ensure that changing the property state in this way does not break the behaviour of the workflow.
->
-> Specifically, some operators respond to changes in their parameters only at specific moments. For example, the parameters of the [`Timer`](xref:Bonsai.Reactive.Timer) operator must be set before the observable sequence is initialized. In this case, the input to the externalized property needs to be emitted immediately during the subscription phase for the mapping to work.
+[!include[PropertyMapping](~/articles/expressions-propertymapping.md)]
 
 ## Mapping multiple properties
 
-Multiple properties can be mapped simultaneously from the same source sequence by using the [`PropertyMapping`](xref:Bonsai.Expressions.PropertyMappingBuilder) operator. You can select which properties to map by using the editors available in the `Properties` panel. For each mapped property you must specify a source selector, i.e. an expression specifying which members of the input data type are used to assign values to the mapped property.
-
-> [!Note]
-> If the type of the selected member does not match the type of the property, a conversion is attempted. If no compatible conversion is available, Bonsai checks whether it is possible to construct the corresponding data type from the selected members. For example, it would be possible to map a [`Point`](xref:OpenCV.Net.Point) data type by selecting two numeric values from the input. In this case, the values would be used to construct a [`Point`](xref:OpenCV.Net.Point) instance by assigning them to the X and Y fields.
-
-In each property mapping operator, all mapped properties are updated at the same time every time the source sequence sends out a new value. It is also possible to connect property mapping operators to multiple target nodes.
+[!include[PropertyMappingMultiple](~/articles/expressions-propertymapping-multiple.md)]
 
 ## Mapping properties synchronously
 
@@ -70,6 +57,4 @@ Sometimes you need to synchronize property updates with the data flow, i.e. you 
 
 For example, imagine a transform operator which is converting a source sequence from one format to another, where the format specification is given by a set of operator properties. You may need the target format to change dynamically from time to time, but you may also need to guarantee that parts of the format specification do not change while the operator was converting some other input. The [`InputMapping`](xref:Bonsai.Expressions.InputMappingBuilder) operator allows you to do this by synchronizing property updates with input notifications.
 
-Fundamentally, the `InputMapping` operator works exactly the same way as [`PropertyMapping`](xref:Bonsai.Expressions.PropertyMappingBuilder), but now the connection from the mapping operator to its target node is done through the upstream sources. In this case, only values from the source sequence can be used to map properties in the target node. However, it is possible to specify which specific member of the original data source will be selected as input to the target node by setting the [`Selector`](xref:Bonsai.Expressions.InputMappingBuilder.Selector) property of `InputMapping`.
-
-Whenever the original input sequence sends out a new data item, all the specified property mappings will be updated at the same time before this item is finally allowed to go through and notify the target. In this way, you can be sure that no property changes are performed between upstream notifications.
+[!include[InputMapping](~/articles/expressions-inputmapping.md)]
