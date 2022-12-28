@@ -1,0 +1,2 @@
+> [!Warning]
+> If the nested workflow is reentrant, properties of inner nodes are shared by all asynchronous operations which are running simultaneously. If the shared state never changes across reentrant operations (i.e. the state is immutable), this is not a problem. If shared state is changing dynamically, you should consider using synchronization primitives to make sure that state updates are coordinated across the different asynchronous operations.
