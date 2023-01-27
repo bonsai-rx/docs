@@ -9,6 +9,8 @@
       href: editor.md
     - name: Bonsai Gallery
       href: gallery.md
+    - name: Environments
+      href: environments.md
 - name: Language Guide
   href: observables.md
   items:
