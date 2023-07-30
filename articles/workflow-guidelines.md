@@ -30,7 +30,7 @@ use a [`BehaviorSubject`](xref:Bonsai.Reactive.BehaviorSubject) to share global 
 ::: 
 
 :::avoid
-using [`MulticastSubject`](xref:Bonsai.Reactive.MulticastSubject) on variables which are not declared as [`BehaviorSubject`](xref:Bonsai.Reactive.BehaviorSubject). This will prevent accidental termination of the subject sequence if a producer terminates prematurely.
+using [`MulticastSubject`](xref:Bonsai.Expressions.MulticastSubject) on variables which are not declared as [`BehaviorSubject`](xref:Bonsai.Reactive.BehaviorSubject). This will prevent accidental termination of the subject sequence if a producer terminates prematurely.
 :::
 
 :::consider
