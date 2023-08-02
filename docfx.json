@@ -48,6 +48,7 @@
           "logo.svg",
           "favicon.ico",
           "editor/index.html",
+          "installation/index.html",
           "images/**",
           "workflows/**"
         ]
