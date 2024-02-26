@@ -1,6 +1,4 @@
 ---
-layout: worksheet
-title: Vision Psychophysics
 ---
 
 # Vision Psychophysics

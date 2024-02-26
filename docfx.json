@@ -80,6 +80,8 @@
     "fileMetadataFiles": [],
     "template": [
       "default",
+      "modern",
+      "docfx-tools/template",
       "template"
     ],
     "markdownEngineName": "markdig",

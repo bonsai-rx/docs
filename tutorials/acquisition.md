@@ -1,6 +1,4 @@
 ---
-layout: worksheet
-title: Acquisition and Tracking
 ---
 
 # Acquisition and Tracking

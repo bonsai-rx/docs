@@ -1,6 +1,4 @@
 ---
-layout: worksheet
-title: Data Synchronization
 ---
 
 # Data Synchronization

@@ -1,6 +1,4 @@
 ---
-layout: worksheet
-title: Closed-Loop Systems
 ---
 
 # Closed-Loop Systems
