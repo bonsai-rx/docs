@@ -68,7 +68,7 @@
     "globalMetadata": {
       "_enableSearch": true,
       "_enableNewTab": true,
-      "_appFooter": "<span>&copy; 2024 Bonsai Foundation and Contributors. Licensed under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a></span>",
+      "_appFooter": "<span>&copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a></span>",
       "_gitContribute": {
         "repo": "https://github.com/bonsai-rx/docs",
         "branch": "main",
