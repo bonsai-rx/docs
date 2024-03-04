@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Bonsai Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Bonsai Documentation ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="bonsai-documentation">Bonsai Documentation</h1>
+
+<p>This repo contains the technical reference manual for the Bonsai visual programming language, in addition to articles and examples that document the collective knowledge of the Bonsai user community.</p>
+<h1 id="would-you-like-to-contribute-to-this-repo">Would you like to contribute to this repo?</h1>
+<h2 id="step-by-step-guide-to-getting-started-as-a-contributor">Step-by-step guide to getting started as a contributor</h2>
+<ol>
+<li>Fork the &quot;develop&quot; branch of this repository.</li>
+<li>Download and install the latest stable version of <a href="https://dotnet.github.io/docfx/index.html">DocFx</a> (currently 2.59).</li>
+<li>In a Windows Powershell, use the command <code>docfx docfx.json --serve</code> to generate a local preview of the documentation website.</li>
+<li>If you are working on multiple articles at once, create a descriptively named branch of your fork of the repo for each article. We recommend creating an issue for each article (if it does not already exist), and name the branch <code>issue-###</code> where <code>###</code> is the issue number.</li>
+<li>When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork of the repo and create a PR to merge that branch with the &quot;develop&quot; branch of this original repo. Because the &quot;develop&quot; branch was created explicitly to aid collaboration between contributors, pull requests to this branch will be accepted and merged rapidly (at least once a week).</li>
+<li>Once a piece of documentation has been polished, and at least two community members agree that it is ready for a final review, create a pull request to merge with the &quot;main&quot; branch of this repo. At this point, @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with &quot;main&quot; will be approved and the contribution will be published on the <a href="https://bonsai-rx.org/docs-wip/">publicly accessible Bonsai documentation website</a>.</li>
+</ol>
+<h2 id="contributor-style-guide">Contributor Style Guide</h2>
+<h3 id="why-use-the-develop-branch">Why use the &quot;develop&quot; branch?</h3>
+<p>The &quot;develop&quot; branch is specifically created so that contributors can quickly commit drafts of documentation and collaborate with other community members in order to edit and polish documentation contributions.</p>
+<h3 id="re-useupdate-existing-documentation">Re-use/update existing documentation</h3>
+<p>When working on an article, first check <a href="https://bonsai-rx.org/docs/">the old documentation</a> to see what written material might already exist for that topic.</p>
+<h3 id="including-figures">Including figures</h3>
+<p>To include a figure or image in an article:</p>
+<ul>
+<li>save your figure or image as a <code>.svg</code> file, naming the file using the pattern <code>[article filename]-[figure name].svg</code></li>
+<li>add the figure/image to the <strong>images</strong> folder in this repo</li>
+</ul>
+<h3 id="standard-formatting-for-operators-and-operator-properties">Standard formatting for operators and operator properties</h3>
+<p>When referring to operators (also known as nodes in Bonsai), place operator names inside a pair of backticks and double stars (<code>**`Operator_name`**</code>) so that the node names render as bold text in code snippet formatting (i.e. <strong><code>CameraCapture</code></strong>).</p>
+<p>When referring to operator properties, simply place the operator property name inside a pair of backticks (<code>`Operator_property_name`</code>).</p>
+<p>For both operators and operator properties, link the name to the relevant documentation in the code base, using the <a href="https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html">markdown syntax for xref in DocFX</a>.</p>
+<p>For example, the <strong><code>DigitalOutput</code></strong> node is part of the <code>Bonsai.Arduino</code> namespace/package, and contains a property called <code>PortName</code>. To reference this specific property you need to specify the full path to it including namespace, operator name and property name, like so: <code>xref:Bonsai.Arduino.DigitalOutput.PortName</code>.</p>
+<p>To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option &quot;Go to Definition&quot; or hit F12. The xref will be the namespace + operator name + (optionally) property name.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-markdown">### **Exercise 7:** Control an LED
+
+![Control an LED](~/images/acquisition-led.svg)
+
+- Insert a [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) source.
+- Insert a [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput) sink.
+- Set the [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin) property of the [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
+- Configure the [`PortName`](xref:Bonsai.Arduino.DigitalOutput.PortName) property.
+- Run the workflow and change the [`Value`](xref:Bonsai.Expressions.BooleanProperty.Value) property of the [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) operator.
+- **Optional:** Use your mouse to control the LED! Replace the [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput).
+</code></pre>
+<h3 id="how-to-include-andor-reference-examples-of-workflows">How to include and/or reference examples of workflows</h3>
+<p>To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor. Then open File -&gt; Export -&gt; Image or use keyboard shortcut Ctrl + Shift + E. Name the example according to the following pattern: <code>articleFileName_workflowName</code>. This will export the example workflow as both a <code>.svg</code> file and a <code>.bonsai</code> file.</p>
+<p>Add the <code>.svg</code> file to the <strong>images</strong> folder in this repo, and add the <code>.bonsai</code> file to the <strong>workflows</strong> folder in this repo. In the text of the article that includes/references this example workflow, add the <code>.svg</code> file as an image and link that image to the <code>.bonsai</code> file.</p>
+<p><strong>Example:</strong></p>
+<p>Assuming you want to include <code>acquisition-example.bonsai</code>:</p>
+<pre><code class="lang-markdown">[![Example Workflow](~/images/acquisition-example.svg)](~/workflows/acquisition-example.bonsai)
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

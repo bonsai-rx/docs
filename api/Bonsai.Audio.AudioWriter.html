@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AudioWriter </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AudioWriter ">
+      
+      <meta name="description" content="Represents an operator that writes a sequence of buffered samples into an uncompressed RIFF/WAV file.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Audio_AudioWriter.md&amp;value=---%0Auid%3A%20Bonsai.Audio.AudioWriter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Audio.AudioWriter">
+
+
+
+  <h1 id="Bonsai_Audio_AudioWriter" data-uid="Bonsai.Audio.AudioWriter" class="text-break">
+Class AudioWriter  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/AudioWriter.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Audio.html">Audio</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Audio.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an operator that writes a sequence of buffered samples into an uncompressed RIFF/WAV file.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AudioWriter : FileSink&lt;Mat, RiffWriter&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.IO.FileSink.html">FileSink</a></div>
+      <div><a class="xref" href="Bonsai.IO.FileSink-2.html">FileSink</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>, <a class="xref" href="Bonsai.Audio.RiffWriter.html">RiffWriter</a>&gt;</div>
+      <div><span class="xref">AudioWriter</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink-2.html#Bonsai_IO_FileSink_2_CreateWriter_System_String__0_">FileSink&lt;Mat, RiffWriter&gt;.CreateWriter(string, Mat)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink-2.html#Bonsai_IO_FileSink_2_Write__1__0_">FileSink&lt;Mat, RiffWriter&gt;.Write(RiffWriter, Mat)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink-2.html#Bonsai_IO_FileSink_2_Process__1_System_IObservable___0__System_Func___0__0__">FileSink&lt;Mat, RiffWriter&gt;.Process&lt;TElement&gt;(IObservable&lt;TElement&gt;, Func&lt;TElement, Mat&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink-2.html#Bonsai_IO_FileSink_2_Process__1_System_IObservable___0__System_Func___0__0__System_String_">FileSink&lt;Mat, RiffWriter&gt;.Process&lt;TElement&gt;(IObservable&lt;TElement&gt;, Func&lt;TElement, Mat&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink-2.html#Bonsai_IO_FileSink_2_Process_System_IObservable__0__">FileSink&lt;Mat, RiffWriter&gt;.Process(IObservable&lt;Mat&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink.html#Bonsai_IO_FileSink_FileName">FileSink.FileName</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink.html#Bonsai_IO_FileSink_Suffix">FileSink.Suffix</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink.html#Bonsai_IO_FileSink_Buffered">FileSink.Buffered</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.IO.FileSink.html#Bonsai_IO_FileSink_Overwrite">FileSink.Overwrite</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Audio_AudioWriter_SampleRate_" data-uid="Bonsai.Audio.AudioWriter.SampleRate*"></a>
+
+  <h3 id="Bonsai_Audio_AudioWriter_SampleRate" data-uid="Bonsai.Audio.AudioWriter.SampleRate">
+  SampleRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/AudioWriter.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the sample rate of the input signal, in Hz.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SampleRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Audio_AudioWriter_CreateWriter_" data-uid="Bonsai.Audio.AudioWriter.CreateWriter*"></a>
+
+  <h3 id="Bonsai_Audio_AudioWriter_CreateWriter_System_String_OpenCV_Net_Mat_" data-uid="Bonsai.Audio.AudioWriter.CreateWriter(System.String,OpenCV.Net.Mat)">
+  CreateWriter(string, Mat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/AudioWriter.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When overridden in a derived class, creates the writer over the specified
+<code class="paramref">fileName</code> that will be responsible for handling the input elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override RiffWriter CreateWriter(string fileName, Mat input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the file on which the elements should be written.</p>
+</dd>
+    <dt><code>input</code> <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a></dt>
+    <dd><p>The first input element that needs to be pushed into the file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Audio.RiffWriter.html">RiffWriter</a></dt>
+    <dd><p>The writer that will be used to push elements into the file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Audio_AudioWriter_Write_" data-uid="Bonsai.Audio.AudioWriter.Write*"></a>
+
+  <h3 id="Bonsai_Audio_AudioWriter_Write_Bonsai_Audio_RiffWriter_OpenCV_Net_Mat_" data-uid="Bonsai.Audio.AudioWriter.Write(Bonsai.Audio.RiffWriter,OpenCV.Net.Mat)">
+  Write(RiffWriter, Mat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/AudioWriter.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a sample buffer into the WAV file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Write(RiffWriter writer, Mat input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <a class="xref" href="Bonsai.Audio.RiffWriter.html">RiffWriter</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Audio.RiffWriter.html">RiffWriter</a> used to write data into the WAV file.</p>
+</dd>
+    <dt><code>input</code> <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a></dt>
+    <dd><p>A <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> object containing the audio samples to write into the file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/AudioWriter.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

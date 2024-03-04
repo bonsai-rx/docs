@@ -1,0 +1,754 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Bonsai.Reactive </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Bonsai.Reactive ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Reactive">
+
+  <h1 id="Bonsai_Reactive" data-uid="Bonsai.Reactive" class="text-break">Namespace Bonsai.Reactive</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Accumulate.html">Accumulate</a></dt>
+      <dd><p>Represents an operator that computes the cumulative sum of an observable sequence
+and returns each intermediate result.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Amb.html">Amb</a></dt>
+      <dd><p>Represents an operator that propagates the observable sequence that reacts first.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.AsyncSubject.html">AsyncSubject</a></dt>
+      <dd><p>Represents an expression builder that broadcasts the last value of an observable
+sequence to all subscribed and future observers using a shared subject.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.AsyncSubject-1.html">AsyncSubject&lt;T&gt;</a></dt>
+      <dd><p>Represents an expression builder that broadcasts the result of the first observable
+sequence to complete to all subscribed and future observers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Average.html">Average</a></dt>
+      <dd><p>Represents an operator that computes the numerical average of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.BehaviorSubject.html">BehaviorSubject</a></dt>
+      <dd><p>Represents an expression builder that broadcasts the latest value of an observable
+sequence to all subscribed and future observers using a shared subject.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.BehaviorSubject-1.html">BehaviorSubject&lt;T&gt;</a></dt>
+      <dd><p>Represents an expression builder that broadcasts the latest value from other observable
+sequences to all subscribed and future observers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.BufferCount.html">BufferCount</a></dt>
+      <dd><p>Represents an operator that projects each element of the sequence into zero or more
+buffers based on element count information.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.BufferTime.html">BufferTime</a></dt>
+      <dd><p>Represents an operator that projects each element of the sequence into zero or more
+buffers based on timing information.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.BufferTrigger.html">BufferTrigger</a></dt>
+      <dd><p>Represents an operator that projects each element of an observable sequence into zero
+or more buffers created when the second sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Catch.html">Catch</a></dt>
+      <dd><p>Represents an operator that continues an observable sequence that is terminated
+by an exception with the next observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.CombineLatest.html">CombineLatest</a></dt>
+      <dd><p>Represents an operator that combines values from the source sequences whenever
+any of the sequences produces an element.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.CombineTimestamp.html">CombineTimestamp</a></dt>
+      <dd><p>Represents an operator that converts element-timestamp pairs of an observable
+sequence into proper timestamped elements.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Concat.html">Concat</a></dt>
+      <dd><p>Represents an operator that concatenates any number of observable sequences as long as the
+previous sequence terminated successfully.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Condition.html">Condition</a></dt>
+      <dd><p>Represents an expression builder which filters the elements of an observable
+sequence according to a condition specified by the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Count.html">Count</a></dt>
+      <dd><p>Represents an operator that returns the count of the number of elements
+in an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.CreateObservable.html">CreateObservable</a></dt>
+      <dd><p>Represents an expression builder that creates higher-order observable sequences
+specified by the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.CurrentThreadScheduler.html">CurrentThreadScheduler</a></dt>
+      <dd><p>Represents an operator that returns an object that schedules units of work
+on the current thread.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.DefaultScheduler.html">DefaultScheduler</a></dt>
+      <dd><p>Represents an operator that returns an object that schedules units of work
+on the platform's default scheduler.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Defer.html">Defer</a></dt>
+      <dd><p>Represents an expression builder that creates a new observable sequence
+for each subscription using the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Delay.html">Delay</a></dt>
+      <dd><p>Represents an operator that delays the notifications of an observable sequence by
+the specified time interval.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.DelaySubscription.html">DelaySubscription</a></dt>
+      <dd><p>Represents an operator that time-shifts the observable sequence by delaying the
+subscription by the specified time interval.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Dematerialize.html">Dematerialize</a></dt>
+      <dd><p>Represents an operator that dematerializes the explicit notification values of an observable
+sequence as implicit notifications.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Distinct.html">Distinct</a></dt>
+      <dd><p>Represents an operator that returns an observable sequence containing only distinct elements.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.DistinctBy.html">DistinctBy</a></dt>
+      <dd><p>Represents an operator that returns an observable sequence containing only
+elements which are distinct according to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.DistinctUntilChanged.html">DistinctUntilChanged</a></dt>
+      <dd><p>Represents an operator that returns only distinct contiguous elements
+of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.DistinctUntilChangedBy.html">DistinctUntilChangedBy</a></dt>
+      <dd><p>Represents an operator that returns only distinct contiguous elements
+according to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ElementAccumulation-2.html">ElementAccumulation&lt;TAccumulation, TElement&gt;</a></dt>
+      <dd><p>Represents the current state of an accumulation over an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ElementIndex.html">ElementIndex</a></dt>
+      <dd><p>Represents an operator that incorporates the zero-based index of elements
+in an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.EventLoopScheduler.html">EventLoopScheduler</a></dt>
+      <dd><p>Represents an operator that creates an object that schedules units of work
+on a single dedicated thread.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.First.html">First</a></dt>
+      <dd><p>Represents an operator that returns the first element of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.FirstOrDefault.html">FirstOrDefault</a></dt>
+      <dd><p>Represents an operator that returns the first element of an observable sequence,
+or a default value if no such element exists.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Gate.html">Gate</a></dt>
+      <dd><p>Represents an operator that allows a single element from the first sequence
+to pass through every time a second sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.GateInterval.html">GateInterval</a></dt>
+      <dd><p>Represents an operator that allows a single element from the first sequence
+to pass through every time the specified time interval elapses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.GroupBy.html">GroupBy</a></dt>
+      <dd><p>Represents an operator that groups the elements of an observable
+sequence according to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.IgnoreElements.html">IgnoreElements</a></dt>
+      <dd><p>Represents an operator that ignores all elements in an observable sequence
+leaving only the termination messages.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ImmediateScheduler.html">ImmediateScheduler</a></dt>
+      <dd><p>Represents an operator that returns an object that schedules units of work
+to run immediately on the current thread.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.IsEmpty.html">IsEmpty</a></dt>
+      <dd><p>Represents an operator that determines whether the observable
+sequence is empty.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Last.html">Last</a></dt>
+      <dd><p>Represents an operator that returns the last element of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.LastOrDefault.html">LastOrDefault</a></dt>
+      <dd><p>Represents an operator that returns the last element of an observable sequence,
+or a default value if no such element exists.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Materialize.html">Materialize</a></dt>
+      <dd><p>Represents an operator that materializes the implicit notifications of an observable
+sequence as explicit notification values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Max.html">Max</a></dt>
+      <dd><p>Represents an operator that computes the maximum element in an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.MaxBy.html">MaxBy</a></dt>
+      <dd><p>Represents an operator that returns the elements in the observable
+sequence with the maximum key value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Merge.html">Merge</a></dt>
+      <dd><p>Represents an operator that merges any number of observable sequences into a
+single observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Min.html">Min</a></dt>
+      <dd><p>Represents an operator that computes the minimum element in an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.MinBy.html">MinBy</a></dt>
+      <dd><p>Represents an operator that returns the elements in the observable
+sequence with the minimum key value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.NewThreadScheduler.html">NewThreadScheduler</a></dt>
+      <dd><p>Represents an operator that returns an object that schedules each unit of work
+on a separate thread.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ObserveOn.html">ObserveOn</a></dt>
+      <dd><p>Represents an operator that sends all notifications in the sequence through
+the specified scheduler.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.OnErrorResumeNext.html">OnErrorResumeNext</a></dt>
+      <dd><p>Represents an operator that concatenates any number of observable sequences even if any of
+the sequences terminates exceptionally.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.OrderBy.html">OrderBy</a></dt>
+      <dd><p>Represents an operator that sorts the elements of all the collections
+in an observable sequence in ascending order according to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.OrderByDescending.html">OrderByDescending</a></dt>
+      <dd><p>Represents an operator that sorts the elements of all the collections
+in an observable sequence in descending order according to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Publish.html">Publish</a></dt>
+      <dd><p>Represents an expression builder that shares a single subscription to an observable
+sequence across the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.PublishSubject.html">PublishSubject</a></dt>
+      <dd><p>Represents an expression builder that broadcasts the values of an observable
+sequence to multiple subscribers using a shared subject.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.PublishSubject-1.html">PublishSubject&lt;T&gt;</a></dt>
+      <dd><p>Represents an expression builder that broadcasts the values from other observable
+sequences to multiple subscribers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Range.html">Range</a></dt>
+      <dd><p>Represents an operator that generates an observable sequence of integer
+numbers within a specified range.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Repeat.html">Repeat</a></dt>
+      <dd><p>Represents an operator that repeats an observable sequence indefinitely.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.RepeatCount.html">RepeatCount</a></dt>
+      <dd><p>Represents an operator that repeats an observable sequence a specified number of times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Replay.html">Replay</a></dt>
+      <dd><p>Represents an expression builder that handles sharing of an observable sequence
+across the encapsulated workflow by eagerly replaying notifications.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ReplaySubject.html">ReplaySubject</a></dt>
+      <dd><p>Represents an expression builder that replays the values of an observable
+sequence to all subscribed and future observers using a shared subject.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ReplaySubject-1.html">ReplaySubject&lt;T&gt;</a></dt>
+      <dd><p>Represents an expression builder that replays the values of other observable
+sequences to all subscribed and future observers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ResourceSubject.html">ResourceSubject</a></dt>
+      <dd><p>Represents an expression builder that stores and broadcasts the last disposable
+value of an observable sequence to all subscribed and future observers. The value
+is disposed when the containing context is closed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ResourceSubject-1.html">ResourceSubject&lt;T&gt;</a></dt>
+      <dd><p>Represents an expression builder that stores and broadcasts the last disposable
+value of an observable sequence to all subscribed and future observers. The value
+is disposed when the containing context is closed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Retry.html">Retry</a></dt>
+      <dd><p>Represents an operator that repeats an observable sequence
+until it successfully terminates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.RetryCount.html">RetryCount</a></dt>
+      <dd><p>Represents an operator that repeats an observable sequence the specified
+number of times or until it successfully terminates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Sample.html">Sample</a></dt>
+      <dd><p>Represents an operator that samples elements from an observable sequence
+whenever the second sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SampleInterval.html">SampleInterval</a></dt>
+      <dd><p>Represents an operator that samples the latest element from the sequence
+whenever the specified time interval elapses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Scan.html">Scan</a></dt>
+      <dd><p>Represents an expression builder which accumulates the values of an observable
+sequence using the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SelectMany.html">SelectMany</a></dt>
+      <dd><p>Represents an expression builder that merges higher-order observable sequences
+generated from the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SequenceEqual.html">SequenceEqual</a></dt>
+      <dd><p>Represents an operator that determines whether two sequences are equal by comparing
+the elements pairwise.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Sink.html">Sink</a></dt>
+      <dd><p>Represents an expression builder that adds the side effects specified by the
+encapsulated workflow to an observable sequence without modifying its elements.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Skip.html">Skip</a></dt>
+      <dd><p>Represents an operator that bypasses the specified number of elements at the start
+of an observable sequence and returns the remaining elements.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SkipLast.html">SkipLast</a></dt>
+      <dd><p>Represents an operator that bypasses the specified number of elements at the end
+of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SkipUntil.html">SkipUntil</a></dt>
+      <dd><p>Represents an operator that returns the elements from the first sequence
+only after the second sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SkipWhile.html">SkipWhile</a></dt>
+      <dd><p>Represents an expression builder which bypasses elements in an observable sequence
+as long as the condition specified by the encapsulated workflow is true.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Slice.html">Slice</a></dt>
+      <dd><p>Represents an operator that extracts a range of elements from an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SubscribeOn.html">SubscribeOn</a></dt>
+      <dd><p>Represents an operator that wraps the source sequence in order to run its
+subscription and unsubscription logic on the specified scheduler.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SubscribeWhen.html">SubscribeWhen</a></dt>
+      <dd><p>Represents an operator that subscribes to the first sequence only after the second
+sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Sum.html">Sum</a></dt>
+      <dd><p>Represents an operator that computes the sum of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Switch.html">Switch</a></dt>
+      <dd><p>Represents an operator that transforms a sequence of observable sequences into a
+sequence of values produced only from the most recent observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Synchronize.html">Synchronize</a></dt>
+      <dd><p>Represents an operator that synchronizes the observable sequence
+to ensure that observer notifications cannot be delivered concurrently.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Take.html">Take</a></dt>
+      <dd><p>Represents an operator that returns the specified number of contiguous elements
+from the start of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.TakeLast.html">TakeLast</a></dt>
+      <dd><p>Represents an operator that returns a specified number of contiguous elements
+from the end of an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.TakeUntil.html">TakeUntil</a></dt>
+      <dd><p>Represents an operator that returns elements from the first sequence only until
+the second sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.TakeWhile.html">TakeWhile</a></dt>
+      <dd><p>Represents an expression builder which returns elements from an observable sequence
+as long as the condition specified by the encapsulated workflow is true.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.TaskPoolScheduler.html">TaskPoolScheduler</a></dt>
+      <dd><p>Represents an operator that returns an object that schedules units of work
+on the Task Parallel Library (TPL) task pool.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ThenBy.html">ThenBy</a></dt>
+      <dd><p>Represents an operator that subsequently sorts the elements of all the
+ordered collections in an observable sequence in ascending order according
+to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ThenByDescending.html">ThenByDescending</a></dt>
+      <dd><p>Represents an operator that subsequently sorts the elements of all the
+ordered collections in an observable sequence in descending order according
+to the specified key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ThreadPoolScheduler.html">ThreadPoolScheduler</a></dt>
+      <dd><p>Represents an operator that returns an object that schedules units of work
+on the CLR thread pool.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Throttle.html">Throttle</a></dt>
+      <dd><p>Represents an operator that ignores elements from an observable sequence which
+are followed by another element before the specified duration elapses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.TimeInterval.html">TimeInterval</a></dt>
+      <dd><p>Represents an operator that records the time interval between consecutive
+values produced by an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Timeout.html">Timeout</a></dt>
+      <dd><p>Represents an operator that raises an error if the next element is not received
+within the specified timeout duration from the previous element.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Timer.html">Timer</a></dt>
+      <dd><p>Represents an operator that generates an observable sequence that
+periodically produces a value after the specified initial relative
+due time has elapsed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Timestamp.html">Timestamp</a></dt>
+      <dd><p>Represents an operator that records the timestamp for each element produced by
+an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ToArray.html">ToArray</a></dt>
+      <dd><p>Represents an operator that creates an array containing every element
+in the observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ToDictionary.html">ToDictionary</a></dt>
+      <dd><p>Represents an operator that creates a dictionary from an observable
+sequence according to the specified key and element selector.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ToList.html">ToList</a></dt>
+      <dd><p>Represents an operator that creates a list containing every element
+in the observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ToLookup.html">ToLookup</a></dt>
+      <dd><p>Represents an operator that creates a lookup from an observable
+sequence according to the specified key and element selector.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Visualizer.html">Visualizer</a></dt>
+      <dd><p>Represents an expression builder that uses the encapsulated workflow as a visualizer
+to an observable sequence without modifying its elements.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Window.html">Window</a></dt>
+      <dd><p>Represents an expression builder that projects the input sequence into
+zero or more windows with boundaries defined by the encapsulated workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.WindowCount.html">WindowCount</a></dt>
+      <dd><p>Represents an operator that projects each element of an observable sequence into zero
+or more windows based on element count information.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.WindowTime.html">WindowTime</a></dt>
+      <dd><p>Represents an operator that projects each element of an observable sequence into zero
+or more windows based on timing information.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.WindowTrigger.html">WindowTrigger</a></dt>
+      <dd><p>Represents an operator that projects each element of an observable sequence into zero
+or more windows created when the second sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.WithLatestFrom.html">WithLatestFrom</a></dt>
+      <dd><p>Represents an operator that combines the latest values from the source sequences only
+when the first sequence produces an element.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.Zip.html">Zip</a></dt>
+      <dd><p>Represents an operator that combines values from the source sequences whenever
+all of the sequences have produced an element.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.ElementIndex-1.html">ElementIndex&lt;T&gt;</a></dt>
+      <dd><p>Represents an element from an observable sequence associated with its index information.
+The zero-based index represents the order of the element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Reactive.SchedulerMapping.html">SchedulerMapping</a></dt>
+      <dd><p>Represents a value specifying the scheduler to be used when handling
+concurrency in a reactive operator.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,767 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ShaderWindowSettings </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ShaderWindowSettings ">
+      
+      <meta name="description" content="Represents the configuration settings used to initialize a shader window.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Shaders_Configuration_ShaderWindowSettings.md&amp;value=---%0Auid%3A%20Bonsai.Shaders.Configuration.ShaderWindowSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings">
+
+
+
+  <h1 id="Bonsai_Shaders_Configuration_ShaderWindowSettings" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings" class="text-break">
+Class ShaderWindowSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Shaders.html">Shaders</a>.<a class="xref" href="Bonsai.Shaders.Configuration.html">Configuration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Shaders.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the configuration settings used to initialize a shader window.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(SettingsConverter))]
+public class ShaderWindowSettings</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ShaderWindowSettings</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings__ctor_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.#ctor*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings__ctor" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.#ctor">
+  ShaderWindowSettings()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Shaders.Configuration.ShaderWindowSettings.html">ShaderWindowSettings</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShaderWindowSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_ClearColor_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.ClearColor*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_ClearColor" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.ClearColor">
+  ClearColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the color used to clear the framebuffer before rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color ClearColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.color">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_ClearColorHtml_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.ClearColorHtml*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_ClearColorHtml" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.ClearColorHtml">
+  ClearColorHtml
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets an HTML representation of the clear color value for serialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public string ClearColorHtml { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_ClearMask_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.ClearMask*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_ClearMask" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.ClearMask">
+  ClearMask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying which buffers to clear before rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClearBufferMask ClearMask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.Graphics.OpenGL4.ClearBufferMask.html">ClearBufferMask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_CursorVisible_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.CursorVisible*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_CursorVisible" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.CursorVisible">
+  CursorVisible
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying whether to hide or show the mouse cursor
+over the shader window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CursorVisible { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_DisplayDevice_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.DisplayDevice*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_DisplayDevice" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.DisplayDevice">
+  DisplayDevice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the display device index on which to
+create the shader window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DisplayIndex DisplayDevice { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.DisplayIndex.html">DisplayIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_GraphicsMode_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.GraphicsMode*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_GraphicsMode" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.GraphicsMode">
+  GraphicsMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the graphics mode of the shader window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(ExpandableObjectConverter))]
+public GraphicsModeConfiguration GraphicsMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Shaders.Configuration.GraphicsModeConfiguration.html">GraphicsModeConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Height_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Height*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Height" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the height of the shader window, in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Height { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Location_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Location*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Location" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Location">
+  Location
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the starting location of the shader window.
+If no value is specified, the window will be located at the center of the screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point? Location { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.point">Point</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_RenderState_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.RenderState*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_RenderState" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.RenderState">
+  RenderState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of configuration objects specifying the initial render
+state of the shader window graphics context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StateConfigurationCollection RenderState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Shaders.Configuration.StateConfigurationCollection.html">StateConfigurationCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_SwapSync_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.SwapSync*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_SwapSync" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.SwapSync">
+  SwapSync
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying whether to synchronize buffer swaps
+across application windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SwapSync { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_TargetRenderFrequency_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.TargetRenderFrequency*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_TargetRenderFrequency" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.TargetRenderFrequency">
+  TargetRenderFrequency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the target render frequency. A value of zero
+indicates the maximum possible frequency will be used to generate render events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double TargetRenderFrequency { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_TargetUpdateFrequency_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.TargetUpdateFrequency*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_TargetUpdateFrequency" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.TargetUpdateFrequency">
+  TargetUpdateFrequency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the target update frequency. If no value is
+specified, the value of the target render frequency will be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? TargetUpdateFrequency { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Title_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Title*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Title" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Title">
+  Title
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the title of the shader window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Title { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_VSync_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.VSync*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_VSync" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.VSync">
+  VSync
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the V-Sync configuration for shader
+window buffer swaps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VSyncMode VSync { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">VSyncMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Width_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Width*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_Width" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the width of the shader window, in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_WindowBorder_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.WindowBorder*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_WindowBorder" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.WindowBorder">
+  WindowBorder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the shader window border.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WindowBorder WindowBorder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.WindowBorder.html">WindowBorder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ShaderWindowSettings_WindowState_" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.WindowState*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ShaderWindowSettings_WindowState" data-uid="Bonsai.Shaders.Configuration.ShaderWindowSettings.WindowState">
+  WindowState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the starting state of the shader window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WindowState WindowState { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.WindowState.html">WindowState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ShaderWindowSettings.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,612 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CollectionEditor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CollectionEditor ">
+      
+      <meta name="description" content="Provides a user interface editor that displays a dialog for editing a collection of objects.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Resources_Design_CollectionEditor.md&amp;value=---%0Auid%3A%20Bonsai.Resources.Design.CollectionEditor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Resources.Design.CollectionEditor">
+
+
+
+  <h1 id="Bonsai_Resources_Design_CollectionEditor" data-uid="Bonsai.Resources.Design.CollectionEditor" class="text-break">
+Class CollectionEditor  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Resources.html">Resources</a>.<a class="xref" href="Bonsai.Resources.Design.html">Design</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.System.Design.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides a user interface editor that displays a dialog for editing
+a collection of objects.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CollectionEditor : UITypeEditor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor">UITypeEditor</a></div>
+      <div><span class="xref">CollectionEditor</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Resources.Design.ResourceCollectionEditor.html">ResourceCollectionEditor</a></div>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.Design.BufferBindingConfigurationCollectionEditor.html">BufferBindingConfigurationCollectionEditor</a></div>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.Design.FramebufferAttachmentConfigurationCollectionEditor.html">FramebufferAttachmentConfigurationCollectionEditor</a></div>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.Design.StateConfigurationCollectionEditor.html">StateConfigurationCollectionEditor</a></div>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.Design.UniformConfigurationCollectionEditor.html">UniformConfigurationCollectionEditor</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.editvalue#system-drawing-design-uitypeeditor-editvalue(system-iserviceprovider-system-object)">UITypeEditor.EditValue(IServiceProvider, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.geteditstyle#system-drawing-design-uitypeeditor-geteditstyle">UITypeEditor.GetEditStyle()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.getpaintvaluesupported#system-drawing-design-uitypeeditor-getpaintvaluesupported">UITypeEditor.GetPaintValueSupported()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.getpaintvaluesupported#system-drawing-design-uitypeeditor-getpaintvaluesupported(system-componentmodel-itypedescriptorcontext)">UITypeEditor.GetPaintValueSupported(ITypeDescriptorContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.paintvalue#system-drawing-design-uitypeeditor-paintvalue(system-object-system-drawing-graphics-system-drawing-rectangle)">UITypeEditor.PaintValue(object, Graphics, Rectangle)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.paintvalue#system-drawing-design-uitypeeditor-paintvalue(system-drawing-design-paintvalueeventargs)">UITypeEditor.PaintValue(PaintValueEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.isdropdownresizable">UITypeEditor.IsDropDownResizable</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor__ctor_" data-uid="Bonsai.Resources.Design.CollectionEditor.#ctor*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor__ctor_System_Type_" data-uid="Bonsai.Resources.Design.CollectionEditor.#ctor(System.Type)">
+  CollectionEditor(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Resources.Design.CollectionEditor.html">CollectionEditor</a> class
+using the specified collection type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollectionEditor(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of the collection for this editor to edit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_CollectionItemType_" data-uid="Bonsai.Resources.Design.CollectionEditor.CollectionItemType*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_CollectionItemType" data-uid="Bonsai.Resources.Design.CollectionEditor.CollectionItemType">
+  CollectionItemType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the items in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Type CollectionItemType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_CollectionType_" data-uid="Bonsai.Resources.Design.CollectionEditor.CollectionType*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_CollectionType" data-uid="Bonsai.Resources.Design.CollectionEditor.CollectionType">
+  CollectionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Type CollectionType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_NewItemTypes_" data-uid="Bonsai.Resources.Design.CollectionEditor.NewItemTypes*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_NewItemTypes" data-uid="Bonsai.Resources.Design.CollectionEditor.NewItemTypes">
+  NewItemTypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the available types of items that can be created for this collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Type[] NewItemTypes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_CreateCollectionItemType_" data-uid="Bonsai.Resources.Design.CollectionEditor.CreateCollectionItemType*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_CreateCollectionItemType" data-uid="Bonsai.Resources.Design.CollectionEditor.CreateCollectionItemType">
+  CreateCollectionItemType()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the items in this collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Type CreateCollectionItemType()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of of the items in this collection, or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> if no
+<code>Item</code> property can be located on the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_CreateEditorDialog_" data-uid="Bonsai.Resources.Design.CollectionEditor.CreateEditorDialog*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_CreateEditorDialog" data-uid="Bonsai.Resources.Design.CollectionEditor.CreateEditorDialog">
+  CreateEditorDialog()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new dialog to display and edit the current collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual CollectionEditorDialog CreateEditorDialog()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Resources.Design.CollectionEditorDialog.html">CollectionEditorDialog</a></dt>
+    <dd><p>A <a class="xref" href="Bonsai.Resources.Design.CollectionEditorDialog.html">CollectionEditorDialog</a> to provide as a user interface for
+editing the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_CreateNewItemTypes_" data-uid="Bonsai.Resources.Design.CollectionEditor.CreateNewItemTypes*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_CreateNewItemTypes" data-uid="Bonsai.Resources.Design.CollectionEditor.CreateNewItemTypes">
+  CreateNewItemTypes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the available types of items that can be created for this collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Type[] CreateNewItemTypes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd><p>An array of types that this collection can contain.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_EditValue_" data-uid="Bonsai.Resources.Design.CollectionEditor.EditValue*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_EditValue_System_ComponentModel_ITypeDescriptorContext_System_IServiceProvider_System_Object_" data-uid="Bonsai.Resources.Design.CollectionEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+  EditValue(ITypeDescriptorContext, IServiceProvider, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Edits the specified object's value using the editor style indicated by the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.geteditstyle#system-drawing-design-uitypeeditor-geteditstyle">GetEditStyle()</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.itypedescriptorcontext">ITypeDescriptorContext</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.itypedescriptorcontext">ITypeDescriptorContext</a> that can be used to gain additional context information.</p>
+</dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> that this editor can use to obtain services.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to edit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_GetDisplayText_" data-uid="Bonsai.Resources.Design.CollectionEditor.GetDisplayText*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_GetDisplayText_System_Object_" data-uid="Bonsai.Resources.Design.CollectionEditor.GetDisplayText(System.Object)">
+  GetDisplayText(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the display text for the specified collection item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string GetDisplayText(object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The collection item for which to retrieve display text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The display text for the specified item value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_GetEditStyle_" data-uid="Bonsai.Resources.Design.CollectionEditor.GetEditStyle*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_GetEditStyle_System_ComponentModel_ITypeDescriptorContext_" data-uid="Bonsai.Resources.Design.CollectionEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+  GetEditStyle(ITypeDescriptorContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the editor style used by the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.editvalue#system-drawing-design-uitypeeditor-editvalue(system-iserviceprovider-system-object)">EditValue(IServiceProvider, object)</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.itypedescriptorcontext">ITypeDescriptorContext</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.itypedescriptorcontext">ITypeDescriptorContext</a> that can be used to gain additional context information.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditoreditstyle">UITypeEditorEditStyle</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditoreditstyle">UITypeEditorEditStyle</a> value that indicates the style of editor used by the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.editvalue#system-drawing-design-uitypeeditor-editvalue(system-iserviceprovider-system-object)">EditValue(IServiceProvider, object)</a> method. If the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor">UITypeEditor</a> does not support this method, then <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditor.geteditstyle#system-drawing-design-uitypeeditor-geteditstyle">GetEditStyle()</a> will return <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.design.uitypeeditoreditstyle#system-drawing-design-uitypeeditoreditstyle-none">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Resources_Design_CollectionEditor_SetItems_" data-uid="Bonsai.Resources.Design.CollectionEditor.SetItems*"></a>
+
+  <h3 id="Bonsai_Resources_Design_CollectionEditor_SetItems_System_Object_System_Collections_IEnumerable_" data-uid="Bonsai.Resources.Design.CollectionEditor.SetItems(System.Object,System.Collections.IEnumerable)">
+  SetItems(object, IEnumerable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the specified sequence as the items of the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SetItems(object editValue, IEnumerable items)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>editValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The collection to edit.</p>
+</dd>
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd><p>A sequence of objects to set as collection items.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System.Design/Resources/CollectionEditor.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

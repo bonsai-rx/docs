@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Bonsai.Dsp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Bonsai.Dsp ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Dsp">
+
+  <h1 id="Bonsai_Dsp" data-uid="Bonsai.Dsp" class="text-break">Namespace Bonsai.Dsp</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Abs.html">Abs</a></dt>
+      <dd><p>Represents an operator that calculates the absolute value of each element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.AbsoluteDifference.html">AbsoluteDifference</a></dt>
+      <dd><p>Represents an operator that calculates the absolute difference between all pairs of arrays in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Accumulate.html">Accumulate</a></dt>
+      <dd><p>Represents an operator that calculates the cumulative sum of the arrays in a sequence
+and returns each intermediate result.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ArrayTransform.html">ArrayTransform</a></dt>
+      <dd><p>Provides an abstract base class for operators that transform sequences
+of array-like objects.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Average.html">Average</a></dt>
+      <dd><p>Represents an operator that calculates the average, or arithmetic mean, of each channel for
+all the arrays in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.BinaryArrayTransform.html">BinaryArrayTransform</a></dt>
+      <dd><p>Provides an abstract base class for operators that perform a binary transformation
+on pairs of array-like objects in an observable sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.BitBuffer.html">BitBuffer</a></dt>
+      <dd><p>Represents an operator that demultiplexes individual bits of all the elements in a sequence
+into separate rows of a 2D array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Buffer.html">Buffer</a></dt>
+      <dd><p>Represents an operator that collects each element of the sequence into zero or more
+array buffers based on element count information.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Butterworth.html">Butterworth</a></dt>
+      <dd><p>Represents an operator that filters frequencies in the input signal using a Butterworth
+infinite-impulse response filter with the specified design parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.CartToPolar.html">CartToPolar</a></dt>
+      <dd><p>Represents an operator that computes the magnitude and angle of each array
+of 2D vectors in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Concat.html">Concat</a></dt>
+      <dd><p>Represents an operator that concatenates each set of arrays in the sequence
+into a single buffer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ConvertFromArray.html">ConvertFromArray</a></dt>
+      <dd><p>Represents an operator that converts each managed array in the sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ConvertScale.html">ConvertScale</a></dt>
+      <dd><p>Represents an operator that converts each array in the sequence to the specified
+bit depth, with optional linear transformation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ConvertToArray.html">ConvertToArray</a></dt>
+      <dd><p>Represents an operator that converts each array or collection in the sequence into
+a managed array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ConvertToMat.html">ConvertToMat</a></dt>
+      <dd><p>Represents an operator that converts each array-like object in the sequence
+into a 2D matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ConvertToSeq.html">ConvertToSeq</a></dt>
+      <dd><p>Represents an operator that converts a fixed size array type into a
+sequence of elements.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.CountNonZero.html">CountNonZero</a></dt>
+      <dd><p>Represents an operator that counts all the non-zero elements for each array
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Decimate.html">Decimate</a></dt>
+      <dd><p>Represents an operator that decreases the sampling rate of the input signal
+by the specified factor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Delay.html">Delay</a></dt>
+      <dd><p>Represents an operator that delays the input signal by the specified number of samples.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.DetectSpikes.html">DetectSpikes</a></dt>
+      <dd><p>Represents an operator that detects spike events in the input signal and
+extracts their waveforms.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Difference.html">Difference</a></dt>
+      <dd><p>Represents an operator that calculates the Nth difference between adjacent
+samples in the input signal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.DiscreteFourierTransform.html">DiscreteFourierTransform</a></dt>
+      <dd><p>Represents an operator that performs a forward or inverse discrete Fourier transform
+on each 1D or 2D array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Exp.html">Exp</a></dt>
+      <dd><p>Represents an operator that calculates the exponent of every element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Extrema.html">Extrema</a></dt>
+      <dd><p>Represents an operator that finds the global minimum and maximum of each
+array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.FirFilter.html">FirFilter</a></dt>
+      <dd><p>Represents an operator that convolves the input signal with a finite-impulse
+response filter kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.FrequencyFilter.html">FrequencyFilter</a></dt>
+      <dd><p>Represents an operator that filters frequencies in the input signal using a linear phase
+filter with the specified design parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.FunctionGenerator.html">FunctionGenerator</a></dt>
+      <dd><p>Represents an operator that generates signal waveforms following any of a
+set of common periodic functions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Histogram1D.html">Histogram1D</a></dt>
+      <dd><p>Represents an operator that computes a sequence of one-dimensional histograms
+from each element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Histogram2D.html">Histogram2D</a></dt>
+      <dd><p>Represents an operator that computes a sequence of two-dimensional histograms
+from each element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.IirFilter.html">IirFilter</a></dt>
+      <dd><p>Represents an operator that filters the input signal using an infinite-impulse response.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.IncrementalMean.html">IncrementalMean</a></dt>
+      <dd><p>Represents an operator that incrementally computes the mean of the arrays in the sequence
+and returns each intermediate result.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Log.html">Log</a></dt>
+      <dd><p>Represents an operator that calculates the natural logarithm of the absolute
+value of every element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Magnitude.html">Magnitude</a></dt>
+      <dd><p>Represents an operator that calculates the magnitude of 2D vector elements in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.MatConverter.html">MatConverter</a></dt>
+      <dd><p>Provides a type converter to convert two-dimensional <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects
+to and from various other representations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.MatchTemplate.html">MatchTemplate</a></dt>
+      <dd><p>Represents an operator that compares a template against overlapping regions of each array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.MatrixReader.html">MatrixReader</a></dt>
+      <dd><p>Represents an operator that generates a sequence of signal sample buffers from
+the specified raw binary input stream.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.MatrixWriter.html">MatrixWriter</a></dt>
+      <dd><p>Represents an operator that writes each array-like object in the sequence
+to a raw binary output stream.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Merge.html">Merge</a></dt>
+      <dd><p>Represents an operator that merges each set of arrays in the sequence into
+a single multi-channel array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Norm.html">Norm</a></dt>
+      <dd><p>Represents an operator that calculates the absolute array norm, absolute difference norm,
+or relative difference norm for each array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Phase.html">Phase</a></dt>
+      <dd><p>Represents an operator that calculates the phase of 2D vector elements in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.PolarToCart.html">PolarToCart</a></dt>
+      <dd><p>Represents an operator that computes the cartesian coordinates of 2D vectors
+represented in polar form.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Pow.html">Pow</a></dt>
+      <dd><p>Represents an operator that raises every element in the sequence to the specified power.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Range.html">Range</a></dt>
+      <dd><p>Represents an operator that generates a sequence of buffers filled with a
+specified range of numbers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.RasterSpikes.html">RasterSpikes</a></dt>
+      <dd><p>Represents an operator that rasterizes a sequence of spike waveforms into
+sample buffers where spike timepoints are the only non-zero values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Reduce.html">Reduce</a></dt>
+      <dd><p>Represents an operator that reduces every array in the sequence to a 1D vector using the specified operation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ReferenceChannels.html">ReferenceChannels</a></dt>
+      <dd><p>Represents an operator that subtracts a reference channel from all the
+individual rows in a 2D array sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Rescale.html">Rescale</a></dt>
+      <dd><p>Represents an operator that rescales each element in the sequence to a new range
+following the specified linear relationship.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Reshape.html">Reshape</a></dt>
+      <dd><p>Represents an operator that changes the shape of each array in the sequence
+without copying data.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.RunningAverage.html">RunningAverage</a></dt>
+      <dd><p>Represents an operator that computes the running average of all the arrays in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ScalarBuffer.html">ScalarBuffer</a></dt>
+      <dd><p>Represents an operator that generates a sequence with a single buffer
+where all elements are set to the same scalar value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.SelectChannels.html">SelectChannels</a></dt>
+      <dd><p>Represents an operator that selects a subset of the input channels or reorganizes
+channel layout for each array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Shift.html">Shift</a></dt>
+      <dd><p>Represents an operator that shifts the elements of each array in the sequence
+by a specified offset.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Skip.html">Skip</a></dt>
+      <dd><p>Represents an operator that skips a specified number of samples in the input signal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Slice.html">Slice</a></dt>
+      <dd><p>Represents an operator that splits each array in the sequence into multiple
+sub-arrays along the specified dimension.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.SpikeWaveform.html">SpikeWaveform</a></dt>
+      <dd><p>Represents a single spike event extracted from an input signal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.SpikeWaveformCollection.html">SpikeWaveformCollection</a></dt>
+      <dd><p>Represents a collection of spike waveforms detected by the
+<a class="xref" href="Bonsai.Dsp.DetectSpikes.html">DetectSpikes</a> operator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Split.html">Split</a></dt>
+      <dd><p>Represents an operator that splits the channels of each array in the sequence into separate arrays.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Submatrix.html">Submatrix</a></dt>
+      <dd><p>Represents an operator that extracts a submatrix from each array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Sum.html">Sum</a></dt>
+      <dd><p>Represents an operator that calculates the sum of each channel for all the
+arrays in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Threshold.html">Threshold</a></dt>
+      <dd><p>Represents an operator that applies a fixed threshold to each element in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Tile.html">Tile</a></dt>
+      <dd><p>Represents an operator that replicates each array in the sequence along the
+horizontal or vertical dimensions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.Transpose.html">Transpose</a></dt>
+      <dd><p>Represents an operator that transposes every array in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.TriggeredBuffer.html">TriggeredBuffer</a></dt>
+      <dd><p>Represents an operator that extracts a number of samples from the input signal
+whenever a trigger rises.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.ArrayExtrema.html">ArrayExtrema</a></dt>
+      <dd><p>Represents the minimum and maximum values of a 2D array, and their corresponding locations.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.DownsamplingMethod.html">DownsamplingMethod</a></dt>
+      <dd><p>Specifies the downsampling method used to decimate digital signals.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.FilterType.html">FilterType</a></dt>
+      <dd><p>Specifies the type of digital pass filter to apply on a signal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.FunctionWaveform.html">FunctionWaveform</a></dt>
+      <dd><p>Specifies the periodic function used to generate a signal waveform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.MatrixLayout.html">MatrixLayout</a></dt>
+      <dd><p>Specifies how to store the elements of a multi-channel array or matrix
+in sequential memory.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.RescaleMethod.html">RescaleMethod</a></dt>
+      <dd><p>Specifies the method used to rescale values in the <a class="xref" href="Bonsai.Dsp.Rescale.html">Rescale</a> operator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Dsp.SpikeWaveformRefinement.html">SpikeWaveformRefinement</a></dt>
+      <dd><p>Specifies the spike waveform refinement method used in the
+<a class="xref" href="Bonsai.Dsp.DetectSpikes.html">DetectSpikes</a> operator.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

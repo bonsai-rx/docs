@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SerialPortConfiguration </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SerialPortConfiguration ">
+      
+      <meta name="description" content="Represents the set of configuration parameters used to create a new serial port connection.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_IO_Ports_SerialPortConfiguration.md&amp;value=---%0Auid%3A%20Bonsai.IO.Ports.SerialPortConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.IO.Ports.SerialPortConfiguration">
+
+
+
+  <h1 id="Bonsai_IO_Ports_SerialPortConfiguration" data-uid="Bonsai.IO.Ports.SerialPortConfiguration" class="text-break">
+Class SerialPortConfiguration  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.IO.html">IO</a>.<a class="xref" href="Bonsai.IO.Ports.html">Ports</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.System.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the set of configuration parameters used to create a new serial port connection.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SerialPortConfiguration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SerialPortConfiguration</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_BaudRate_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.BaudRate*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_BaudRate" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.BaudRate">
+  BaudRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the serial baud rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(BaudRateConverter))]
+public int BaudRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_DataBits_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.DataBits*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_DataBits" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.DataBits">
+  DataBits
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of data bits per byte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DataBits { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_DiscardNull_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.DiscardNull*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_DiscardNull" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.DiscardNull">
+  DiscardNull
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether null bytes are ignored when transmitted
+between the port and the receive buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DiscardNull { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_DtrEnable_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.DtrEnable*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_DtrEnable" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.DtrEnable">
+  DtrEnable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the Data Terminal Ready (DTR) signal should
+be enabled during serial communication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DtrEnable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_Encoding_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.Encoding*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_Encoding" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.Encoding">
+  Encoding
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the byte encoding used for pre- and post-transmission conversion of text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(SerialPortEncodingConverter))]
+public string Encoding { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_Handshake_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.Handshake*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_Handshake" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.Handshake">
+  Handshake
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the handshaking protocol for serial port transmission of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Handshake Handshake { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ports.handshake">Handshake</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_NewLine_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.NewLine*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_NewLine" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.NewLine">
+  NewLine
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the new line separator used to delimit reads from the serial port.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NewLine { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_Parity_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.Parity*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_Parity" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.Parity">
+  Parity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the parity bit for the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ports.serialport">SerialPort</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Parity Parity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ports.parity">Parity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_ParityReplace_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.ParityReplace*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_ParityReplace" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.ParityReplace">
+  ParityReplace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the byte that replaces invalid bytes in the data stream when a parity error occurs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte ParityReplace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_PortName_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.PortName*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_PortName" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.PortName">
+  PortName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of the serial port.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(SerialPortNameConverter))]
+public string PortName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_ReadBufferSize_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.ReadBufferSize*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_ReadBufferSize" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.ReadBufferSize">
+  ReadBufferSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the size of the read buffer, in bytes. This is the maximum number of
+read bytes which can be buffered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReadBufferSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_ReceivedBytesThreshold_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.ReceivedBytesThreshold*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_ReceivedBytesThreshold" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.ReceivedBytesThreshold">
+  ReceivedBytesThreshold
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of bytes received into the internal input buffer before
+the read event is fired.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReceivedBytesThreshold { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_RtsEnable_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.RtsEnable*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_RtsEnable" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.RtsEnable">
+  RtsEnable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the Request to Send (RTS) signal should be
+enabled during serial communication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RtsEnable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_StopBits_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.StopBits*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_StopBits" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.StopBits">
+  StopBits
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of stop bits per byte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopBits StopBits { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ports.stopbits">StopBits</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_IO_Ports_SerialPortConfiguration_WriteBufferSize_" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.WriteBufferSize*"></a>
+
+  <h3 id="Bonsai_IO_Ports_SerialPortConfiguration_WriteBufferSize" data-uid="Bonsai.IO.Ports.SerialPortConfiguration.WriteBufferSize">
+  WriteBufferSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the size of the write buffer, in bytes. This is the maximum number of
+bytes which can be queued for write.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WriteBufferSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.System/IO/Ports/SerialPortConfiguration.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

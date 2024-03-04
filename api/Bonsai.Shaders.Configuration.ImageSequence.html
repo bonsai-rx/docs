@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImageSequence </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImageSequence ">
+      
+      <meta name="description" content="Provides configuration and loading functionality for initializing texture sequences from a movie file or image sequence search pattern.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Shaders_Configuration_ImageSequence.md&amp;value=---%0Auid%3A%20Bonsai.Shaders.Configuration.ImageSequence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Shaders.Configuration.ImageSequence">
+
+
+
+  <h1 id="Bonsai_Shaders_Configuration_ImageSequence" data-uid="Bonsai.Shaders.Configuration.ImageSequence" class="text-break">
+Class ImageSequence  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Shaders.html">Shaders</a>.<a class="xref" href="Bonsai.Shaders.Configuration.html">Configuration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Shaders.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides configuration and loading functionality for initializing texture
+sequences from a movie file or image sequence search pattern.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ImageSequence : Texture2D, IResourceConfiguration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.Resources.ResourceConfiguration-1.html">ResourceConfiguration</a>&lt;<a class="xref" href="Bonsai.Shaders.Texture.html">Texture</a>&gt;</div>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.TextureConfiguration.html">TextureConfiguration</a></div>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html">Texture2D</a></div>
+      <div><span class="xref">ImageSequence</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Resources.IResourceConfiguration.html">IResourceConfiguration</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Shaders.Configuration.VideoTexture.html">VideoTexture</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_Width">Texture2D.Width</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_Height">Texture2D.Height</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_InternalFormat">Texture2D.InternalFormat</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_WrapS">Texture2D.WrapS</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_WrapT">Texture2D.WrapT</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_MinFilter">Texture2D.MinFilter</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Shaders.Configuration.Texture2D.html#Bonsai_Shaders_Configuration_Texture2D_MagFilter">Texture2D.MagFilter</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Resources.ResourceConfiguration-1.html#Bonsai_Resources_ResourceConfiguration_1_Name">ResourceConfiguration&lt;Texture&gt;.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Resources.ResourceConfiguration-1.html#Bonsai_Resources_ResourceConfiguration_1_OpenResource_System_String_">ResourceConfiguration&lt;Texture&gt;.OpenResource(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Shaders_Configuration_ImageSequence_FileName_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.FileName*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ImageSequence_FileName" data-uid="Bonsai.Shaders.Configuration.ImageSequence.FileName">
+  FileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the path to a movie file or image sequence search pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(ResourceFileNameConverter))]
+[FileNameFilter(&quot;Video Files|*.avi;*.mp4;*.ogg;*.ogv;*.wmv|AVI Files (*.avi)|*.avi|MP4 Files (*.mp4)|*.mp4|OGG Files (*.ogg;*.ogv)|*.ogg;*.ogv|WMV Files (*.wmv)|*.wmv&quot;)]
+public string FileName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ImageSequence_FlipMode_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.FlipMode*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ImageSequence_FlipMode" data-uid="Bonsai.Shaders.Configuration.ImageSequence.FlipMode">
+  FlipMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the flip mode applied to individual frames.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FlipMode? FlipMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.FlipMode.html">FlipMode</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ImageSequence_FrameCount_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.FrameCount*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ImageSequence_FrameCount" data-uid="Bonsai.Shaders.Configuration.ImageSequence.FrameCount">
+  FrameCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum number of frames to include in the image sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? FrameCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Bonsai_Shaders_Configuration_ImageSequence_FrameCount_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If no value is specified, all frames in the video will be loaded in the
+image sequence.</p>
+</div>
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ImageSequence_StartPosition_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.StartPosition*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ImageSequence_StartPosition" data-uid="Bonsai.Shaders.Configuration.ImageSequence.StartPosition">
+  StartPosition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the offset, in frames, at which the image sequence should start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StartPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Shaders_Configuration_ImageSequence_CreateResource_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.CreateResource*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ImageSequence_CreateResource_Bonsai_Resources_ResourceManager_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.CreateResource(Bonsai.Resources.ResourceManager)">
+  CreateResource(ResourceManager)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="Bonsai.Shaders.Texture.html">Texture</a> class containing
+all loaded texture resources in the image sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Texture CreateResource(ResourceManager resourceManager)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resourceManager</code> <a class="xref" href="Bonsai.Resources.ResourceManager.html">ResourceManager</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Resources.ResourceManager.html">ResourceManager</a> object onto which this resource will be loaded.
+The resource manager can be accessed to load additional resource dependencies which
+may be required to create the new resource.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Shaders.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of the <a class="xref" href="Bonsai.Shaders.Texture.html">Texture</a> class representing
+the image texture sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_ImageSequence_ToString_" data-uid="Bonsai.Shaders.Configuration.ImageSequence.ToString*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_ImageSequence_ToString" data-uid="Bonsai.Shaders.Configuration.ImageSequence.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/ImageSequence.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

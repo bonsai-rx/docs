@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PolarToCart </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PolarToCart ">
+      
+      <meta name="description" content="Represents an operator that computes the cartesian coordinates of 2D vectors represented in polar form.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Dsp_PolarToCart.md&amp;value=---%0Auid%3A%20Bonsai.Dsp.PolarToCart%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Dsp.PolarToCart">
+
+
+
+  <h1 id="Bonsai_Dsp_PolarToCart" data-uid="Bonsai.Dsp.PolarToCart" class="text-break">
+Class PolarToCart  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Dsp.html">Dsp</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Dsp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an operator that computes the cartesian coordinates of 2D vectors
+represented in polar form.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PolarToCart : ArrayTransform</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.Dsp.ArrayTransform.html">ArrayTransform</a></div>
+      <div><span class="xref">PolarToCart</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Dsp_PolarToCart_AngleInDegrees_" data-uid="Bonsai.Dsp.PolarToCart.AngleInDegrees*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_AngleInDegrees" data-uid="Bonsai.Dsp.PolarToCart.AngleInDegrees">
+  AngleInDegrees
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying whether vector angle values are measured in degrees.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AngleInDegrees { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Dsp_PolarToCart_Process_" data-uid="Bonsai.Dsp.PolarToCart.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_Process_System_IObservable_OpenCV_Net_Point2d__" data-uid="Bonsai.Dsp.PolarToCart.Process(System.IObservable{OpenCV.Net.Point2d})">
+  Process(IObservable&lt;Point2d&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the cartesian coordinates for each pair of polar coordinates in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Point2d&gt; Process(IObservable&lt;Point2d&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Point2d.html">Point2d</a>&gt;</dt>
+    <dd><p>A sequence of points in double-precision polar coordinates, where the first
+coordinate stores the magnitude, and the second coordinate the angle of a
+vector for which to compute the cartesian coordinates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Point2d.html">Point2d</a>&gt;</dt>
+    <dd><p>A sequence of 2D points with double-precision cartesian coordinates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_PolarToCart_Process_" data-uid="Bonsai.Dsp.PolarToCart.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_Process_System_IObservable_OpenCV_Net_Point2f__" data-uid="Bonsai.Dsp.PolarToCart.Process(System.IObservable{OpenCV.Net.Point2f})">
+  Process(IObservable&lt;Point2f&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the cartesian coordinates for each pair of polar coordinates in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Point2f&gt; Process(IObservable&lt;Point2f&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Point2f.html">Point2f</a>&gt;</dt>
+    <dd><p>A sequence of points in single-precision polar coordinates, where the first
+coordinate stores the magnitude, and the second coordinate the angle of a
+vector for which to compute the cartesian coordinates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Point2f.html">Point2f</a>&gt;</dt>
+    <dd><p>A sequence of 2D points with single-precision cartesian coordinates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_PolarToCart_Process_" data-uid="Bonsai.Dsp.PolarToCart.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_Process_System_IObservable_System_Tuple_System_Double_System_Double___" data-uid="Bonsai.Dsp.PolarToCart.Process(System.IObservable{System.Tuple{System.Double,System.Double}})">
+  Process(IObservable&lt;Tuple&lt;double, double&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the cartesian coordinates for each pair of polar coordinates in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;double, double&gt;&gt; Process(IObservable&lt;Tuple&lt;double, double&gt;&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>A sequence of pairs specifying double-precision polar coordinates, where the
+first coordinate stores the magnitude, and the second coordinate the angle
+of a vector for which to compute the cartesian coordinates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>A sequence of pairs specifying double-precision cartesian coordinates, where
+the first item stores the x-coordinate, and the second item the y-coordinate
+of a 2D vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_PolarToCart_Process_" data-uid="Bonsai.Dsp.PolarToCart.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_Process_System_IObservable_System_Tuple_System_Single_System_Single___" data-uid="Bonsai.Dsp.PolarToCart.Process(System.IObservable{System.Tuple{System.Single,System.Single}})">
+  Process(IObservable&lt;Tuple&lt;float, float&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the cartesian coordinates for each pair of polar coordinates in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;float, float&gt;&gt; Process(IObservable&lt;Tuple&lt;float, float&gt;&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;&gt;</dt>
+    <dd><p>A sequence of pairs specifying single-precision polar coordinates, where the
+first coordinate stores the magnitude, and the second coordinate the angle
+of a vector for which to compute the cartesian coordinates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;&gt;</dt>
+    <dd><p>A sequence of pairs specifying single-precision cartesian coordinates, where
+the first item stores the x-coordinate, and the second item the y-coordinate
+of a 2D vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_PolarToCart_Process_" data-uid="Bonsai.Dsp.PolarToCart.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_Process__1_System_IObservable_System_Tuple___0___0___" data-uid="Bonsai.Dsp.PolarToCart.Process``1(System.IObservable{System.Tuple{``0,``0}})">
+  Process&lt;TArray&gt;(IObservable&lt;Tuple&lt;TArray, TArray&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the cartesian coordinates for each pair of polar coordinates in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TArray, TArray&gt;&gt; Process&lt;TArray&gt;(IObservable&lt;Tuple&lt;TArray, TArray&gt;&gt; source) where TArray : Arr</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;TArray, TArray&gt;&gt;</dt>
+    <dd><p>A sequence of pairs of arrays, where the first array stores the magnitude, and the
+second array the angle of a 2D vector field for which to compute the cartesian
+coordinates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;TArray, TArray&gt;&gt;</dt>
+    <dd><p>A sequence of pairs of arrays, where the first array stores the x-coordinates, and the
+second array the y-coordinates of a 2D vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TArray</code></dt>
+    <dd><p>The type of the array-like objects in the <code class="paramref">source</code> sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_PolarToCart_Process_" data-uid="Bonsai.Dsp.PolarToCart.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_PolarToCart_Process__1_System_IObservable___0__" data-uid="Bonsai.Dsp.PolarToCart.Process``1(System.IObservable{``0})">
+  Process&lt;TArray&gt;(IObservable&lt;TArray&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the cartesian coordinates for each array of vectors in polar form
+in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IObservable&lt;TArray&gt; Process&lt;TArray&gt;(IObservable&lt;TArray&gt; source) where TArray : Arr</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TArray&gt;</dt>
+    <dd><p>A sequence of 2D vector fields represented by a 2-channel array or image,
+for which to compute the cartesian coordinates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TArray&gt;</dt>
+    <dd><p>A sequence of 2-channel arrays or images, where the first channel of each
+element stores the x-coordinates and the second channel the y-coordinates of
+a 2D vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TArray</code></dt>
+    <dd><p>The type of the array-like objects in the <code class="paramref">source</code> sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/PolarToCart.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

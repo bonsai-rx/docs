@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Workflow Editor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Workflow Editor ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/editor.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="editor">
+<h1 id="workflow-editor">Workflow Editor</h1>
+
+<p>When Bonsai starts you will be taken directly to the workflow editor. This is where you can create, configure, and run Bonsai workflows. The editor is composed of three main panels: the <a href="#toolbox"><code>Toolbox</code></a>, the <a href="#workflow"><code>Workflow</code></a>, and <a href="#properties"><code>Properties</code></a>. These are described in more detail below.</p>
+<p><img src="../images/editor.png" alt="The Bonsai workflow editor"></p>
+<h2 id="toolbox">Toolbox</h2>
+<p>The <code>Toolbox</code> allows you to search for available operators to place in the workflow. The listing is organized into six main categories:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Category</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="../images/language-source.svg" alt="Source"></td>
+<td>generate event streams from devices or files</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="../images/language-transform.svg" alt="Transform"></td>
+<td>convert or process individual data items</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="../images/language-sink.svg" alt="Sink"></td>
+<td>save data or trigger external outputs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="../images/language-combinator.svg" alt="Combinator"></td>
+<td>manage control flow or synchronize parallel inputs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="../images/language-workflow.svg" alt="Workflow"></td>
+<td>reusable workflow fragments stored in <code>.bonsai</code> files</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="../images/language-subject.svg" alt="Subject"></td>
+<td>access named event streams defined in the workflow</td>
+</tr>
+</tbody>
+</table>
+<p>Operators inside each major category are further organized by namespaces linked to the packages you have installed. The name of each namespace can give you a hint about what kind of operations or devices can be accessed inside (e.g. the <a class="xref" href="../api/Bonsai.Audio.html"><code>Audio</code></a> namespace provides access to audio capture devices or WAV file readers).</p>
+<p>Once you have found which operator you want to insert, you can place it by double-clicking, dragging it to the workflow or alternatively right-clicking and selecting a specific placement option. See the <a href="#commands-and-shortcuts">Commands and Shortcuts</a> section for more information.</p>
+<h3 id="search-operators">Search Operators</h3>
+<p>Another way to quickly find operators is to use the <code>Search</code> textbox. Any text inserted here is matched against available operators, subjects, or namespaces for a match in any order. This means you can search not only for a specific operator name but also by category names to locate all the operators in a namespace (e.g. try typing <code>Arduino</code>).</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can directly type and search for operator names when the <code>Workflow</code> panel has the input focus. This allows you to simply start typing an operator name and directly select which operator you want with the up/down arrow keys. Once you have the right operator, press the <code>Enter</code> key to place it. You can repeat the process multiple times to very quickly chain a sequence of operators.</p>
+</div>
+<p>Another useful function of the <code>Search</code> textbox is to find existing instances of the selected toolbox operator in the workflow. Once you select an operator in the toolbox, you can use the <code>Find Next</code> or <code>Find Previous</code> commands to jump into the next instance of the operator, subject, or workflow extension, starting from the current cursor position.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can browse through the reference documentation to learn more about each operator in the <code>Toolbox</code> by pressing <code>F1</code> or selecting <code>View Help</code> from the context menu.</p>
+</div>
+<h2 id="workflow">Workflow</h2>
+<p>The <code>Workflow</code> panel is where you combine different operators together to create data processing pipelines. Each operator is represented by a circular node. Nodes can be connected together, forming a directed feedforward graph from left to right. Connections going into a node indicate which operators that node subscribes to (see the <a class="xref" href="observables.html">Language Guide</a> for an extended discussion).</p>
+<p>The most useful action to learn your way around the <code>Workflow</code> panel is right-clicking. This will bring up the context menu for the specific node you selected, or a list of possible actions you can do with the current selection.</p>
+<p><img src="../images/editor-contextmenu.png" alt="The workflow context menu"></p>
+<p>If only one node is selected, the <code>Output</code> menu item will display the type of the elements emitted by that operator sequence.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If the output of an operator is a complex type, you can inspect its public data members. Clicking on any of the sub-items will automatically place a new <a class="xref" href="../api/Bonsai.Expressions.MemberSelectorBuilder.html"><code>MemberSelector</code></a> operator to pick the specified data member from the output of the node.</p>
+</div>
+<p>The context menu also allows you to externalize public properties of the operator as explicit nodes in the workflow using the <code>Externalize Property</code> drop-down menu. Once a property is externalized, you can connect other nodes in the workflow to it so you can change the value of the property dynamically (see the <a class="xref" href="property-mapping.html">Property Mapping</a> section for more information).</p>
+<p>Finally, it is possible to group nodes, both for organizing large workflows, and to define <a class="xref" href="higher-order.html">higher-order operators</a>. The most basic grouping is the <a class="xref" href="../api/Bonsai.Expressions.GroupWorkflowBuilder.html"><code>GroupWorkflow</code></a> which allows you to encapsulate a workflow fragment inside a single node. Any group can be assigned a <code>Name</code> for ease of reference and a <code>Description</code> for documentation. Any named properties which are externalized from nodes inside the group will be shown as properties of the group node itself on the top-level workflow.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can use <code>GroupWorkflow</code> nodes to document your workflow by adding names and descriptions inline with operator chains. These can help readability of a workflow and no additional processing cost is incurred by the use of <code>GroupWorkflow</code> nodes.</p>
+</div>
+<h3 id="type-visualizers">Type Visualizers</h3>
+<p>Type visualizers allow you to inspect online the data that is generated from a specific node during the execution of the workflow. They are useful to visualize the result of specific operations or to debug the behaviour of the workflow itself.</p>
+<p><img src="../images/editor-visualizers.png" alt="Example of image type visualizers"></p>
+<h4 id="assigning-visualizers">Assigning visualizers</h4>
+<p>Types can have more than one visualizer. You can choose the active type visualizer for a specific operator by right-clicking on the corresponding node and selecting from the available options in the <code>Show Visualizer</code> menu.</p>
+<p><img src="../images/editor-assignvisualizer.png" alt="Select visualizer"></p>
+<p>For example, image streams can be displayed on the screen using the default image visualizer, but you can also select the text visualizer to inspect image parameters such as size, or pixel bit depth. New visualizers can be added by installing new packages.</p>
+<h4 id="visualizer-layout-settings">Visualizer layout settings</h4>
+<p>If you leave one or more visualizers open when you stop the workflow, the editor will memorize the position and size of each active window. When you run the workflow again, the same visualizer windows will be opened following the memorized layout. These settings are stored in a <code>.layout</code> file which is saved side by side with the workflow so they will persist between editor sessions.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Many visualizers allow you to access more detailed information or advanced configuration parameters by right-clicking on the visualizer window.</p>
+</div>
+<h3 id="workflow-extensions">Workflow Extensions</h3>
+<p>You can create and save workflow extensions by selecting one or more nodes and clicking the <code>Save Workflow As...</code> button in the context menu.</p>
+<p>Workflow extensions are a powerful way to reuse common workflow patterns across a large project. When you save a new extension it will immediately show up in the <code>Toolbox</code> panel for placement. Placing a workflow extension will create a new <a class="xref" href="../api/Bonsai.Expressions.IncludeWorkflowBuilder.html"><code>IncludeWorkflow</code></a> operator pointing to the saved workflow. You can place an extension multiple times in the same workflow.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Like other groups, any named properties which are externalized from nodes inside the <code>IncludeWorkflow</code> will be shown as properties of the include node itself. These properties can have different values across different instances of the same workflow extension, and will be saved as part of the top-level workflow.</p>
+</div>
+<p>All included workflow extensions are read-only, meaning that you cannot change the internal structure of the extension once it is loaded into the workflow, only its properties. If you want to change the implementation of the extension you need to first <code>Ungroup</code> the <code>IncludeWorkflow</code> operator. This will make a copy of the included workflow and place it inside a <a class="xref" href="../api/Bonsai.Expressions.GroupWorkflowBuilder.html"><code>GroupWorkflow</code></a>. From there you will be able to modify the internal implementation at will. After you have changed the structure, you can save the extension again using <code>Save Workflow As...</code>.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>When you change the structure of an included workflow and save it over the original file, all references to that workflow extension will be automatically reloaded and updated. This ensures that all references to the same extension remain consistent throughout.</p>
+</div>
+<h2 id="properties">Properties</h2>
+<p>Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the <a class="xref" href="../api/Bonsai.Reactive.Timer.html"><code>Timer</code></a> operator exposes the period between generated values, whereas an image <a class="xref" href="../api/Bonsai.Vision.Threshold.html"><code>Threshold</code></a> exposes the brightness cutoff value applied to individual pixels).</p>
+<p>The <code>Properties</code> panel will display all the configuration properties which are available for the currently selected operator. A summary description of the currently selected property can be found in the textbox at the bottom of the panel. Similarly, a description of the behaviour of the currently selected operator itself is shown at the top of the panel.</p>
+<p>Most properties can be configured simply by changing the text value in the corresponding row of the property grid. Some properties have further specialized editors which can be accessed by clicking the drop-down or dialog button which will be displayed to the right of the property text.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Some operators have even more specialized editor windows such as camera configuration dialogs or media player controls. If such property pages exist for the currently selected operator, the small <code>Property Pages</code> button (<img src="../images/propertypages.png">) above the property grid will become active.</p>
+</div>
+<h2 id="commands-and-shortcuts">Commands and Shortcuts</h2>
+<p>Below is a summary of the most used commands and shortcuts in the workflow editor:</p>
+<h3 id="running-the-workflow">Running the workflow</h3>
+<ul>
+<li>Click the arrow <code>Start</code> button</li>
+<li>Press <code>F5</code></li>
+</ul>
+<h3 id="stopping-the-workflow">Stopping the workflow</h3>
+<ul>
+<li>Click the square <code>Stop</code> button</li>
+<li>Press <code>Shift</code>+<code>F5</code></li>
+</ul>
+<h3 id="insert-an-operator-after-the-selected-node">Insert an operator after the selected node</h3>
+<ul>
+<li>Right-click the operator name and select the <code>Insert After</code> option</li>
+<li>Drag-and-drop the operator from the toolbox to the worflow</li>
+<li>Double-click the operator name in the toolbox</li>
+<li>Press the <code>Enter</code> key while the operator is selected in the toolbox</li>
+<li>Copy another node (<code>Ctrl</code>+<code>C</code>) and paste in the toolbox (<code>Ctrl</code>+<code>V</code>)</li>
+</ul>
+<h3 id="insert-an-operator-before-the-selected-node">Insert an operator before the selected node</h3>
+<ul>
+<li>Right-click the operator name and select the <code>Insert Before</code> option</li>
+<li>Hold the <code>Shift</code> key together with any of the above commands (e.g., <code>Shift</code>+<code>Enter</code>)</li>
+</ul>
+<h3 id="insert-an-operator-as-a-new-branch-of-the-selected-node">Insert an operator as a new branch of the selected node</h3>
+<ul>
+<li>Right-click the operator name and select the <code>Create Branch</code> option</li>
+<li>Hold the <code>Alt</code> key together with any of the above commands (e.g., <code>Ctrl</code>+<code>Alt</code>+<code>V</code>)</li>
+</ul>
+<h3 id="create-a-connection-between-two-operators">Create a connection between two operators</h3>
+<ul>
+<li>Right-click the source node, select the <code>Create Connection</code> option and left-click on the target node</li>
+<li>Drag the source node and drop it on the target node</li>
+</ul>
+<h3 id="remove-a-connection-between-two-operators">Remove a connection between two operators</h3>
+<ul>
+<li>Right-click the source node, select the <code>Remove Connection</code> option and left-click on the target node</li>
+<li>While holding the <code>Shift</code> key, drag the source node and drop it on the target node</li>
+</ul>
+<h3 id="selecting-multiple-nodes">Selecting multiple nodes</h3>
+<ul>
+<li>Click an empty space in the workflow panel and drag a box around the nodes to be selected</li>
+<li>While holding the <code>Shift</code> key, press the arrow keys to select a string of nodes around the currently selected node</li>
+<li>Hold the <code>Ctrl</code> key and click on a node to add/remove it from the current selection</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Many operations can be performed on multi-node selections (e.g., delete, create connections, create a node group, etc.).</p>
+</div>
+<h3 id="open-the-type-visualizer-for-an-operator">Open the type visualizer for an operator</h3>
+<ul>
+<li>Double-click on the target node while the workflow is running</li>
+<li>Right-click on the target node and select a visualizer from the <code>Show Visualizer</code> dropdown</li>
+<li>Press <code>Enter</code> while the target node is selected</li>
+</ul>
+<h3 id="grouping-operators-into-a-node-group">Grouping operators into a node group</h3>
+<ul>
+<li>Select all the nodes to group and press <code>Ctrl</code>+<code>G</code> to create a nested workflow</li>
+<li>Right-click on a multi-node selection and select a group type from the <code>Group</code> dropdown context menu</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can change the type of an existing group simply by right-clicking on the group node and selecting a different type from the <code>Group</code> dropdown.</p>
+</div>
+<h3 id="open-a-node-group-or-the-default-editor-for-an-operator">Open a node group or the default editor for an operator</h3>
+<ul>
+<li>Double-click on the target node while the workflow is not running</li>
+<li>If the workflow is running, hold the <code>Ctrl</code> key while double-clicking on the target node</li>
+<li>Press <code>Ctrl</code>+<code>Enter</code> while the target node is selected</li>
+</ul>
+<h3 id="ungrouping-a-node-group">Ungrouping a node group</h3>
+<ul>
+<li>Right-click on the group node and select the <code>Ungroup</code> option from the context menu</li>
+<li>Press <code>Ctrl</code>+<code>Shift</code>+<code>G</code></li>
+</ul>
+<h3 id="open-context-menu">Open context menu</h3>
+<ul>
+<li>Right-click any node, multi-node selection or empty space in the workflow panel</li>
+<li>Press <code>Shift</code>+<code>F10</code></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Depending on what is currently selected, the context menu may show different available actions.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/editor.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

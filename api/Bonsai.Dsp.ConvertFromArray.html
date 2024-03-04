@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ConvertFromArray </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ConvertFromArray ">
+      
+      <meta name="description" content="Represents an operator that converts each managed array in the sequence into a 2D array buffer with the specified size, depth and number of channels.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Dsp_ConvertFromArray.md&amp;value=---%0Auid%3A%20Bonsai.Dsp.ConvertFromArray%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Dsp.ConvertFromArray">
+
+
+
+  <h1 id="Bonsai_Dsp_ConvertFromArray" data-uid="Bonsai.Dsp.ConvertFromArray" class="text-break">
+Class ConvertFromArray  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Dsp.html">Dsp</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Dsp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an operator that converts each managed array in the sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class ConvertFromArray</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ConvertFromArray</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Channels_" data-uid="Bonsai.Dsp.ConvertFromArray.Channels*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Channels" data-uid="Bonsai.Dsp.ConvertFromArray.Channels">
+  Channels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of channels in the output array buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Channels { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Bonsai_Dsp_ConvertFromArray_Channels_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If this property is not specified, the default number of channels
+will be one.</p>
+</div>
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Depth_" data-uid="Bonsai.Dsp.ConvertFromArray.Depth*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Depth" data-uid="Bonsai.Dsp.ConvertFromArray.Depth">
+  Depth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the bit depth of each element in the output array buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Depth? Depth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Depth.html">Depth</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Bonsai_Dsp_ConvertFromArray_Depth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If this property is not specified, the default depth will be automatically
+selected based on the type of the input array elements.</p>
+</div>
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Size_" data-uid="Bonsai.Dsp.ConvertFromArray.Size*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Size" data-uid="Bonsai.Dsp.ConvertFromArray.Size">
+  Size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the size of the output array buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size Size { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Size.html">Size</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Bonsai_Dsp_ConvertFromArray_Size_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If one dimension is zero, the output will be either a row or column vector
+along the non-zero dimension. If both dimensions are zero, the output will
+be a row vector with the same number of elements as the length of each
+array in the sequence.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process_System_IObservable_System_Byte____" data-uid="Bonsai.Dsp.ConvertFromArray.Process(System.IObservable{System.Byte[]})">
+  Process(IObservable&lt;byte[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> array in an observable sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process(IObservable&lt;byte[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd><p>A sequence of 8-bit unsigned integer arrays to convert into a sequence of
+sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process_System_IObservable_System_Double____" data-uid="Bonsai.Dsp.ConvertFromArray.Process(System.IObservable{System.Double[]})">
+  Process(IObservable&lt;double[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> array in an observable sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process(IObservable&lt;double[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]&gt;</dt>
+    <dd><p>A sequence of 64-bit floating-point arrays to convert into a sequence of
+sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process_System_IObservable_System_Int16____" data-uid="Bonsai.Dsp.ConvertFromArray.Process(System.IObservable{System.Int16[]})">
+  Process(IObservable&lt;short[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a> array in an observable sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process(IObservable&lt;short[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>[]&gt;</dt>
+    <dd><p>A sequence of 16-bit signed integer arrays to convert into a sequence of
+sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process_System_IObservable_System_Int32____" data-uid="Bonsai.Dsp.ConvertFromArray.Process(System.IObservable{System.Int32[]})">
+  Process(IObservable&lt;int[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> array in an observable sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process(IObservable&lt;int[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]&gt;</dt>
+    <dd><p>A sequence of 32-bit signed integer arrays to convert into a sequence of
+sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process_System_IObservable_System_Single____" data-uid="Bonsai.Dsp.ConvertFromArray.Process(System.IObservable{System.Single[]})">
+  Process(IObservable&lt;float[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> array in an observable sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process(IObservable&lt;float[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]&gt;</dt>
+    <dd><p>A sequence of 32-bit floating-point arrays to convert into a sequence of
+sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process_System_IObservable_System_UInt16____" data-uid="Bonsai.Dsp.ConvertFromArray.Process(System.IObservable{System.UInt16[]})">
+  Process(IObservable&lt;ushort[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a> array in an observable sequence into a
+2D array buffer with the specified size, depth and number of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process(IObservable&lt;ushort[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>[]&gt;</dt>
+    <dd><p>A sequence of 16-bit unsigned integer arrays to convert into a sequence of
+sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dsp_ConvertFromArray_Process_" data-uid="Bonsai.Dsp.ConvertFromArray.Process*"></a>
+
+  <h3 id="Bonsai_Dsp_ConvertFromArray_Process__1_System_IObservable___0____" data-uid="Bonsai.Dsp.ConvertFromArray.Process``1(System.IObservable{``0[]})">
+  Process&lt;TData&gt;(IObservable&lt;TData[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts each array of type <code class="typeparamref">TData</code> in an observable
+sequence into a 2D array buffer with the specified size, depth and number
+of channels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Mat&gt; Process&lt;TData&gt;(IObservable&lt;TData[]&gt; source) where TData : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TData[]&gt;</dt>
+    <dd><p>A sequence of arrays of type <code class="typeparamref">TData</code> to convert into a
+sequence of sample buffers.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Mat.html">Mat</a> objects containing a copy of the managed
+array data reinterpreted as a 2D array buffer with the specified size, depth
+and number of channels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the values stored in each array.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Dsp/ConvertFromArray.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

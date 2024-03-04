@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Environments </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Environments ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/environments.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="environments">
+<h1 id="bonsai-environments">Bonsai Environments</h1>
+
+<p>By default, Bonsai is installed system-wide and can be used to run any workflow. However, as projects grow, it is common to have to install new packages to access specific functionality, or update the version of existing packages to get the latest bug fixes and patches.</p>
+<p>If you have many projects, you might notice that older projects require specific obsolete package versions which are not compatible with newer projects, resulting in setups that break when the system-wide installation gets updated since only one version of the package can be installed at any one time.</p>
+<p>Bonsai addresses these problems by supporting the creation of reproducible package environments. An environment is a self-contained, portable, installation of Bonsai that records a <em>snapshot</em> of all the packages required to run the workflows in your project. This makes it much easier to share a project with other people, or keep track of multiple separate projects in our local machine, and be assured you always have everything you need in the right place.</p>
+<h2 id="creating-an-environment">Creating an environment</h2>
+<p>The key to creating and updating environments is the <code>Bonsai.config</code> file, which keeps a record of all currently installed dependencies for a specific Bonsai setup. You can find this file in the same location of the Bonsai executable (<code>Bonsai.exe</code>). Anytime you install or update a package, Bonsai will automatically modify the config file.</p>
+<p>The contents of the <code>Bonsai.config</code> file are compared with the current state of the <code>Packages</code> folder when Bonsai starts. If there are any missing packages the Bonsai bootstrapper will download them automatically to recover the expected state of the installation folder.</p>
+<p>The easiest way to create a self-contained Bonsai environment is then to download the portable version of Bonsai and install the packages which are necessary for a specific project. For example, to share a project that depends on the <a class="xref" href="../api/Bonsai.Vision.html"><code>Vision</code></a> package:</p>
+<ol>
+<li>Start by downloading the <a href="https://github.com/bonsai-rx/bonsai/releases/latest/download/Bonsai.zip">latest Bonsai portable release</a>.</li>
+<li>After extracting all the files from the <code>Bonsai.zip</code> file, your folder will look like this:</li>
+</ol>
+<p><img src="../images/environments-portablerelease.png" alt="Portable Bonsai release"></p>
+<ol start="3">
+<li>Run <code>Bonsai.exe</code>. During this first run, Bonsai will bootstrap the core dependencies and create an initial <code>Bonsai.config</code> file.</li>
+<li>Install the <strong>Bonsai - Vision</strong> package using the <a class="xref" href="packages.html"><code>Package Manager</code></a>. The <code>Bonsai.config</code> file will be modified to specify this package as a new dependency. Any additional dependencies which might be needed for the package to run will also be added.</li>
+<li>Close Bonsai.</li>
+</ol>
+<h2 id="deploying-your-environment">Deploying your environment</h2>
+<p>Now that you have a <code>Bonsai.config</code> file with all the dependencies needed to run your project, how can you reproduce this installation elsewhere? As we saw in the previous step, when we run <code>Bonsai.exe</code> for the first time, the bootstrapper will attempt to download and resolve all core dependencies.</p>
+<p>However, if a <code>Bonsai.config</code> file is found inside the executable folder, the bootstrapper will also resolve those dependencies at startup time. We can test this by doing the following:</p>
+<ol>
+<li>Create a new folder and repeat steps 1. and 2. from the previous section.</li>
+<li>This time, before running <code>Bonsai.exe</code>, copy your <code>Bonsai.config</code> into the folder:</li>
+</ol>
+<p><img src="../images/environments-bonsaiconfig.png" alt="Unziped Bonsai release with config"></p>
+<ol start="2">
+<li>Run <code>Bonsai.exe</code>.</li>
+<li>Add a node that depends on the Vision package (e.g. <a class="xref" href="../api/Bonsai.Vision.CameraCapture.html"><code>CameraCapture</code></a>) to verify that the package has been successfully installed.</li>
+</ol>
+<p>The new folder is now a copy of your previous environment.</p>
+<h2 id="adding-local-dependencies">Adding local dependencies</h2>
+<p>There is a second configuration file located next to the <code>Bonsai.config</code> file called <code>NuGet.config</code>. This file stores a list of all the remote, and local, NuGet package sources where the <a class="xref" href="packages.html"><code>Package Manager</code></a> should look for new packages.</p>
+<p>The <code>NuGet.config</code> file can be modified to specify new package sources. For example, you may want to install local NuGet packages as dependencies (e.g. when testing <a class="xref" href="create-package.html">your own packages</a>).</p>
+<p>To do this we just need to add new entries in the <code>NuGet.config</code> file. For example, to add a new package source named <code>LocalPackages</code> pointing to the Desktop folder:</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;packageSources&gt;
+    &lt;add key=&quot;Gallery&quot; value=&quot;Gallery&quot; /&gt;
+    &lt;add key=&quot;Bonsai Packages&quot; value=&quot;https://www.myget.org/F/bonsai/api/v3/index.json&quot; /&gt;
+    &lt;add key=&quot;Community Packages&quot; value=&quot;https://www.myget.org/F/bonsai-community/api/v3/index.json&quot; /&gt;
+    &lt;add key=&quot;LocalPackages&quot; value=&quot;C:\Users\BonsaiUser\Desktop&quot;/&gt;
+  &lt;/packageSources&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>You can also use relative paths if you want to keep package sources relative to the local environment. For instance:</p>
+<pre><code class="lang-xml">&lt;add key=&quot;LocalPackages&quot; value=&quot;.\LocalPackages&quot;/&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>NuGet.config</code> files can be deployed hierarchically. You can have other <code>NuGet.config</code> files located higher in the file system to specify package sources that should be shared across multiple projects or specific for the local machine. For more information on this and other settings see the <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior">Common NuGet configurations</a> documentation page.</p>
+</div>
+<h2 id="version-control-and-one-click-bonsai-deployment">Version control and &quot;one-click&quot; Bonsai deployment</h2>
+<p>Now that we know how to create and reuse Bonsai environments, we will show you one way to streamline this whole process.</p>
+<ol>
+<li>Create the <code>Bonsai.config</code> and, if necessary, modify your <code>NuGet.config</code> files.</li>
+<li>Create a new folder and add these two files to it.</li>
+<li>Add the following <code>PowerShell</code> script to the folder (e.g.: open a new text file and copy-paste the code) and name it <code>Setup.ps1</code>:</li>
+</ol>
+<pre><code class="lang-powershell">if (!(Test-Path &quot;./Bonsai.exe&quot;)) {
+    Invoke-WebRequest &quot;https://github.com/bonsai-rx/bonsai/releases/download/2.7/Bonsai.zip&quot; -OutFile &quot;temp.zip&quot;
+    Move-Item -Path &quot;NuGet.config&quot; &quot;temp.config&quot;
+    Expand-Archive &quot;temp.zip&quot; -DestinationPath &quot;.&quot; -Force
+    Move-Item -Path &quot;temp.config&quot; &quot;NuGet.config&quot; -Force
+    Remove-Item -Path &quot;temp.zip&quot;
+    Remove-Item -Path &quot;Bonsai32.exe&quot;
+}
+&amp; .\Bonsai.exe --no-editor
+</code></pre>
+<p>When executed, this small script will attempt to download a portable version of a Bonsai release, unzip it, and delete all the unnecessary files.</p>
+<ol start="4">
+<li>Add a second batch command file <code>Setup.cmd</code> that targets and runs <code>Setup.ps1</code>. It will look this:</li>
+</ol>
+<pre><code class="lang-cmd">powershell -ExecutionPolicy Bypass -File .\setup.ps1
+</code></pre>
+<ol start="5">
+<li>Your folder should now contain only four files:</li>
+</ol>
+<ul>
+<li><code>Setup.ps1</code></li>
+<li><code>Setup.cmd</code>.</li>
+<li><code>NuGet.config</code></li>
+<li><code>Bonsai.config</code></li>
+</ul>
+<p>You can now simply share this folder with another person who will be able to easily install your current Bonsai dependencies by running the <code>Setup.cmd</code> or <code>Setup.ps1</code> file.</p>
+<p>As a final bonus, since all these files are encoded as text, they are easily version controlled using a distributed version control system such as <a href="https://git-scm.com/"><code>git</code></a>. Because of this, we often keep this folder inside our project repository and keep updating it with new dependencies as the project evolves.</p>
+<p>To prevent installed packages and other binary files from being tracked, you can add the following lines to the <code>.gitignore</code> file for convenience:</p>
+<pre><code>Packages
+*.exe
+*.exe.settings
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/environments.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

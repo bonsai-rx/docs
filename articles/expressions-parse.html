@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Parse </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Parse ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/expressions-parse.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="expressions-parse">
+
+
+<p>The <code>Parse</code> operator is a <a class="xref" href="operators.html#transform">Transform</a> on sequences of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> values. Each of the strings in the sequence will be matched against the specified <a class="xref" href="../api/Bonsai.Expressions.ParseBuilder.html#Bonsai_Expressions_ParseBuilder_Pattern">Pattern</a> using the .NET regular expression engine (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a>). If a <a class="xref" href="../api/Bonsai.Expressions.ParseBuilder.html#Bonsai_Expressions_ParseBuilder_Separator">Separator</a> is specified, every input string will first be split using the delimiter, and each substring will then be matched against the regular expression.</p>
+<p>The output type is automatically inferred from the structure of the parse pattern. If a separator is used, the output will be an array containing the results of matching each delimited substring against the parse pattern. If any of the values in the input sequence fails to match, an error will be raised and the sequence will be terminated.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Multi-character strings can be used to specify both the pattern and the separator. This can sometimes help to parse text formats with more complex tokens. For more flexible or conditional parsing, it is also possible to chain multiple <code>Parse</code> operators in a sequence, by matching against the placeholder <code>%s</code> at the end of the sequence. This will match and capture any remaining text for downstream processing.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>For convenience, both <a class="xref" href="../api/Bonsai.Expressions.ParseBuilder.html#Bonsai_Expressions_ParseBuilder_Pattern">Pattern</a> and <a class="xref" href="../api/Bonsai.Expressions.ParseBuilder.html#Bonsai_Expressions_ParseBuilder_Separator">Separator</a> properties will accept the use of character escapes to represent specific white space or unicode characters. See the <a href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/character-escapes-in-regular-expressions#character-escapes-in-net">list of supported character escapes in .NET</a> for more information.</p>
+</div>
+<h3 id="examples">Examples</h3>
+<p>The following examples illustrate using different combinations of the <a class="xref" href="../api/Bonsai.Expressions.ParseBuilder.html#Bonsai_Expressions_ParseBuilder_Pattern">Pattern</a> and <a class="xref" href="../api/Bonsai.Expressions.ParseBuilder.html#Bonsai_Expressions_ParseBuilder_Separator">Separator</a> properties to match different kinds of formatted text data.</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Separator</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%f</code></td>
+<td></td>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+<td>Match a floating-point number.</td>
+<td><code>5.0</code></td>
+</tr>
+<tr>
+<td><code>%f;%i</code></td>
+<td></td>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+<td>Match a floating-point number and an integer separated by a semicolon.</td>
+<td><code>5.1;5</code></td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td><code>,</code></td>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</td>
+<td>Match each comma-delimited substring with a floating-point number.</td>
+<td><code>3.2, 5.6, 8.9</code></td>
+</tr>
+<tr>
+<td><code>\(%f,%f\)</code></td>
+<td><code>;</code></td>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;[]</td>
+<td>Match each semicolon-delimited substring with a pair of floating-point numbers surrounded by parentheses.</td>
+<td><code>(1, 2); (3.14, 4.5)</code></td>
+</tr>
+<tr>
+<td><code>%s,msg:%b</code></td>
+<td><code>\t</code></td>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;[]</td>
+<td>Match each tab-delimited substring with a pattern containing a string and boolean.</td>
+<td><code>tag1,msg:true tag2,msg:false</code></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/expressions-parse.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

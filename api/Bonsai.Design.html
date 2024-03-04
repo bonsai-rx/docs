@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Bonsai.Design </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Bonsai.Design ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Design">
+
+  <h1 id="Bonsai_Design" data-uid="Bonsai.Design" class="text-break">Namespace Bonsai.Design</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.AnnotationBuilderEditor.html">AnnotationBuilderEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a dialog box for editing
+a workflow annotation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.AnnotationTextEditor.html">AnnotationTextEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a dialog box for editing
+the annotation text.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.BufferedVisualizer.html">BufferedVisualizer</a></dt>
+      <dd><p>Provides an abstract base class for type visualizers with an update
+frequency potentially much higher than the screen refresh rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.CommandExecutor.html">CommandExecutor</a></dt>
+      <dd><p>Represents a command execution stack with support for undo and redo operations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.ControlObservable.html">ControlObservable</a></dt>
+      <dd><p>Provides a set of static methods for subscribing to observable sequences using Windows Forms controls.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.ControlScheduler.html">ControlScheduler</a></dt>
+      <dd><p>Represents an object that schedules units of work using the UI thread
+of a Windows Forms control.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.DataSourceTypeEditor.html">DataSourceTypeEditor</a></dt>
+      <dd><p>Provides an abstract base class for property editors that require inspecting
+the runtime notifications of an operator to provide their functionality.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.DescriptiveCollectionEditor.html">DescriptiveCollectionEditor</a></dt>
+      <dd><p>Provides a user interface with a scaled description panel that can edit
+most types of collections at design time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html">DialogTypeVisualizer</a></dt>
+      <dd><p>Provides the abstract base class for type visualizers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.DynamicPropertyDescriptor.html">DynamicPropertyDescriptor</a></dt>
+      <dd><p>Provides a virtual property for a class.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.DynamicTypeDescriptionProvider.html">DynamicTypeDescriptionProvider</a></dt>
+      <dd><p>Provides dynamic supplemental metadata to a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.typedescriptor">TypeDescriptor</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.FileNameEditor.html">FileNameEditor</a></dt>
+      <dd><p>Provides the abstract base class for user interface editors
+that display a dialog box from which the user can select a file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.FolderBrowserDialog.html">FolderBrowserDialog</a></dt>
+      <dd><p>Specifies a folder browser dialog box.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.FolderNameEditor.html">FolderNameEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a browser dialog box
+from which the user can select a folder.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MashupSource.html">MashupSource</a></dt>
+      <dd><p>Represents an association between a workflow element and a type visualizer
+to be combined in a <a class="xref" href="Bonsai.Design.MashupVisualizer.html">MashupVisualizer</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MashupSourceCollection.html">MashupSourceCollection</a></dt>
+      <dd><p>Represents a collection of visualizer sources to be combined in a
+mashup visualizer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MashupSource-1.html">MashupSource&lt;TMashupVisualizer&gt;</a></dt>
+      <dd><p>Provides a generic type signature which can be used to declare that the
+specified mashup visualizer type accepts mashup combinations from any
+type visualizer object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MashupSource-2.html">MashupSource&lt;TMashupVisualizer, TVisualizer&gt;</a></dt>
+      <dd><p>Represents a generic type signature which can be used to declare an association
+between the specified mashup visualizer type and compatible type visualizer
+objects.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MashupVisualizer.html">MashupVisualizer</a></dt>
+      <dd><p>Provides an abstract base class for a visualizer which can be combined
+with other visualizers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MemberSelectorEditor.html">MemberSelectorEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a dialog for selecting
+members of a workflow expression type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MemberSelectorEditorDialog.html">MemberSelectorEditorDialog</a></dt>
+      <dd><p>Represents a dialog for selecting members of a workflow expression type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MultiMemberSelectorEditor.html">MultiMemberSelectorEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a dialog for
+selecting multiple members of a workflow expression type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.MultiMemberSelectorEditorDialog.html">MultiMemberSelectorEditorDialog</a></dt>
+      <dd><p>Represents a dialog for selecting multiple members of a workflow expression type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.NumericUpDownEditor.html">NumericUpDownEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays an up-down control for selecting
+numeric values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.ObjectTextVisualizer.html">ObjectTextVisualizer</a></dt>
+      <dd><p>Provides a type visualizer for displaying any object type as text.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.OpenFileNameEditor.html">OpenFileNameEditor</a></dt>
+      <dd><p>Provides a user interface editor that prompts the user to
+open a file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.ParsePatternEditor.html">ParsePatternEditor</a></dt>
+      <dd><p>Provides a drop-down user interface for selecting available format specifiers
+which can be passed to the <a class="xref" href="Bonsai.ExpressionHelper.html#Bonsai_ExpressionHelper_Parse_System_Linq_Expressions_Expression_System_String_">Parse(Expression, string)</a> method.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.PathConvert.html">PathConvert</a></dt>
+      <dd><p>Provides static methods for converting project paths.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.PropertyGrid.html">PropertyGrid</a></dt>
+      <dd><p>Provides a user interface for browsing the properties of an object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.RichTextEditor.html">RichTextEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a rich text box for editing
+the property value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.SaveFileNameEditor.html">SaveFileNameEditor</a></dt>
+      <dd><p>Provides a user interface editor that prompts the user to
+select a location for saving a file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.SeekBar.html">SeekBar</a></dt>
+      <dd><p>Represents a horizontal seek bar.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.Slider.html">Slider</a></dt>
+      <dd><p>Represents a slider control used to select values from a continuous range.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.SliderEditor.html">SliderEditor</a></dt>
+      <dd><p>Provides a user interface editor that displays a slider for selecting
+numeric values between a specified range.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.TypeMappingEditor.html">TypeMappingEditor</a></dt>
+      <dd><p>Provides a user interface for selecting method overloads from a workflow operator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.TypeVisualizerDialog.html">TypeVisualizerDialog</a></dt>
+      <dd><p>Represents a window or panel where a type visualizer can be displayed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.VisualizerDialogSettings.html">VisualizerDialogSettings</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.VisualizerDialogSettingsCollection.html">VisualizerDialogSettingsCollection</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.VisualizerLayout.html">VisualizerLayout</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.WorkflowComponentEditor.html">WorkflowComponentEditor</a></dt>
+      <dd><p>Provides the abstract base class for a custom workflow component editor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.WorkflowEditorSettings.html">WorkflowEditorSettings</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.IDialogTypeVisualizerService.html">IDialogTypeVisualizerService</a></dt>
+      <dd><p>Provides an interface for a <a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html">DialogTypeVisualizer</a> to add
+controls to a type visualizer dialog.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.ITypeVisualizerContext.html">ITypeVisualizerContext</a></dt>
+      <dd><p>Provides additional context information for a <a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html">DialogTypeVisualizer</a>,
+such as the workflow element and a source for subscribing to runtime notifications.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.IWorkflowEditorState.html">IWorkflowEditorState</a></dt>
+      <dd><p>Provides information about the state of the workflow editor.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Design.DataSourceTypeEditor.DataSource.html">DataSourceTypeEditor.DataSource</a></dt>
+      <dd><p>Specifies the source of runtime notifications to the property editor.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

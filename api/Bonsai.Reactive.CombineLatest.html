@@ -1,0 +1,708 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CombineLatest </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CombineLatest ">
+      
+      <meta name="description" content="Represents an operator that combines values from the source sequences whenever any of the sequences produces an element.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/apidoc/Bonsai_Reactive_CombineLatest.md/#L2">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Reactive.CombineLatest">
+
+
+
+  <h1 id="Bonsai_Reactive_CombineLatest" data-uid="Bonsai.Reactive.CombineLatest" class="text-break">
+Class CombineLatest  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Reactive.html">Reactive</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an operator that combines values from the source sequences whenever
+any of the sequences produces an element.</p>
+</div>
+  <div class="markdown conceptual"><p><img src="../images/reactive-combinelatest.svg" alt="Marble diagram"></p>
+<p><code>CombineLatest</code> combines the values from each sequence which are closest in time. Whenever any of the source sequences emits a value (as long as all source sequences have emitted at least one value), <code>CombineLatest</code> takes the most recently emitted values from all other sequences and creates the combined result. <code>CombineLatest</code> will continue to emit values as long as at least one source sequence remains active (i.e. without terminating).</p>
+<p><code>CombineLatest</code> can be useful to temporally correlate separate sources (e.g. frames from different cameras, or the closest frame to a key press). It can also be useful when combining a sequence containing a single reference value with a possibly infinite sequence of values to be associated with the reference (e.g. subtracting a background from every frame).</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Because <code>CombineLatest</code> emits a combined value whenever <em>any</em> of the source sequences emits a new value, the number of values emitted by <code>CombineLatest</code> is approximately the sum of the number of values in each sequence. If you need to discard redundant values you can filter the output, e.g. using <a class="xref" href="Bonsai.Reactive.Sample.html"><code>Sample</code></a> to use one of the source sequences as a master driver.</p>
+</div>
+<h3 id="higher-order-operator">Higher-order operator</h3>
+<p><code>CombineLatest</code> also works as a higher-order operator, so it can take as input a sequence of observable sequences. In this case, it will subscribe to each of the source sequences and start collecting all the latest values from each sequence. As soon as the outer sequence terminates, it will start reactively combining the latest values whenever any sequence changes, just as in the case of using <code>CombineLatest</code> with a fixed number of inputs.</p>
+<p><img src="../images/reactive-combinelatestwindow.svg" alt="Higher order"></p>
+</div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Combinator]
+public class CombineLatest</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CombineLatest</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__1_System_IObservable_System_IObservable___0___" data-uid="Bonsai.Reactive.CombineLatest.Process``1(System.IObservable{System.IObservable{``0}})">
+  Process&lt;TSource&gt;(IObservable&lt;IObservable&lt;TSource&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges elements from all inner observable sequences into one observable sequence by emitting
+a list with the elements of each sequence whenever any of the sequences produces a notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;IList&lt;TSource&gt;&gt; Process&lt;TSource&gt;(IObservable&lt;IObservable&lt;TSource&gt;&gt; sources)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sources</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource&gt;&gt;</dt>
+    <dd><p>The observable sequence of inner observable sequences.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;TSource&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+inner sequences into lists.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource</code></dt>
+    <dd><p>The type of the elements in the source sequences.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__1_System_IObservable___0__System_IObservable___0__System_IObservable___0____" data-uid="Bonsai.Reactive.CombineLatest.Process``1(System.IObservable{``0},System.IObservable{``0},System.IObservable{``0}[])">
+  Process&lt;TSource&gt;(IObservable&lt;TSource&gt;, IObservable&lt;TSource&gt;, params IObservable&lt;TSource&gt;[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a list with
+the latest source elements whenever any of the observable sequences produces a
+notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;IList&lt;TSource&gt;&gt; Process&lt;TSource&gt;(IObservable&lt;TSource&gt; first, IObservable&lt;TSource&gt; second, params IObservable&lt;TSource&gt;[] remainder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource&gt;</dt>
+    <dd><p>The first observable sequence.</p>
+</dd>
+    <dt><code>second</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource&gt;</dt>
+    <dd><p>The second observable sequence.</p>
+</dd>
+    <dt><code>remainder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource&gt;[]</dt>
+    <dd><p>The remaining observable sequences to combine.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;TSource&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into lists.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource</code></dt>
+    <dd><p>The type of the elements in the source sequences.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__2_System_IObservable___0__System_IObservable___1__" data-uid="Bonsai.Reactive.CombineLatest.Process``2(System.IObservable{``0},System.IObservable{``1})">
+  Process&lt;TSource1, TSource2&gt;(IObservable&lt;TSource1&gt;, IObservable&lt;TSource2&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a pair with
+the latest source elements whenever any of the observable sequences produces a
+notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TSource1, TSource2&gt;&gt; Process&lt;TSource1, TSource2&gt;(IObservable&lt;TSource1&gt; source1, IObservable&lt;TSource2&gt; source2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource1&gt;</dt>
+    <dd><p>The first observable source.</p>
+</dd>
+    <dt><code>source2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource2&gt;</dt>
+    <dd><p>The second observable source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;TSource1, TSource2&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into pairs.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource1</code></dt>
+    <dd><p>The type of the elements in the first source sequence.</p>
+</dd>
+    <dt><code>TSource2</code></dt>
+    <dd><p>The type of the elements in the second source sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__3_System_IObservable___0__System_IObservable___1__System_IObservable___2__" data-uid="Bonsai.Reactive.CombineLatest.Process``3(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2})">
+  Process&lt;TSource1, TSource2, TSource3&gt;(IObservable&lt;TSource1&gt;, IObservable&lt;TSource2&gt;, IObservable&lt;TSource3&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a triple with
+the latest source elements whenever any of the observable sequences produces a
+notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TSource1, TSource2, TSource3&gt;&gt; Process&lt;TSource1, TSource2, TSource3&gt;(IObservable&lt;TSource1&gt; source1, IObservable&lt;TSource2&gt; source2, IObservable&lt;TSource3&gt; source3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource1&gt;</dt>
+    <dd><p>The first observable source.</p>
+</dd>
+    <dt><code>source2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource2&gt;</dt>
+    <dd><p>The second observable source.</p>
+</dd>
+    <dt><code>source3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource3&gt;</dt>
+    <dd><p>The third observable source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-3">Tuple</a>&lt;TSource1, TSource2, TSource3&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into triples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource1</code></dt>
+    <dd><p>The type of the elements in the first source sequence.</p>
+</dd>
+    <dt><code>TSource2</code></dt>
+    <dd><p>The type of the elements in the second source sequence.</p>
+</dd>
+    <dt><code>TSource3</code></dt>
+    <dd><p>The type of the elements in the third source sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__4_System_IObservable___0__System_IObservable___1__System_IObservable___2__System_IObservable___3__" data-uid="Bonsai.Reactive.CombineLatest.Process``4(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3})">
+  Process&lt;TSource1, TSource2, TSource3, TSource4&gt;(IObservable&lt;TSource1&gt;, IObservable&lt;TSource2&gt;, IObservable&lt;TSource3&gt;, IObservable&lt;TSource4&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a quadruple
+with the latest source elements whenever any of the observable sequences produces
+a notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TSource1, TSource2, TSource3, TSource4&gt;&gt; Process&lt;TSource1, TSource2, TSource3, TSource4&gt;(IObservable&lt;TSource1&gt; source1, IObservable&lt;TSource2&gt; source2, IObservable&lt;TSource3&gt; source3, IObservable&lt;TSource4&gt; source4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource1&gt;</dt>
+    <dd><p>The first observable source.</p>
+</dd>
+    <dt><code>source2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource2&gt;</dt>
+    <dd><p>The second observable source.</p>
+</dd>
+    <dt><code>source3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource3&gt;</dt>
+    <dd><p>The third observable source.</p>
+</dd>
+    <dt><code>source4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource4&gt;</dt>
+    <dd><p>The fourth observable source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-4">Tuple</a>&lt;TSource1, TSource2, TSource3, TSource4&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into quadruples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource1</code></dt>
+    <dd><p>The type of the elements in the first source sequence.</p>
+</dd>
+    <dt><code>TSource2</code></dt>
+    <dd><p>The type of the elements in the second source sequence.</p>
+</dd>
+    <dt><code>TSource3</code></dt>
+    <dd><p>The type of the elements in the third source sequence.</p>
+</dd>
+    <dt><code>TSource4</code></dt>
+    <dd><p>The type of the elements in the fourth source sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__5_System_IObservable___0__System_IObservable___1__System_IObservable___2__System_IObservable___3__System_IObservable___4__" data-uid="Bonsai.Reactive.CombineLatest.Process``5(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4})">
+  Process&lt;TSource1, TSource2, TSource3, TSource4, TSource5&gt;(IObservable&lt;TSource1&gt;, IObservable&lt;TSource2&gt;, IObservable&lt;TSource3&gt;, IObservable&lt;TSource4&gt;, IObservable&lt;TSource5&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a quintuple
+with the latest source elements whenever any of the observable sequences produces
+a notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TSource1, TSource2, TSource3, TSource4, TSource5&gt;&gt; Process&lt;TSource1, TSource2, TSource3, TSource4, TSource5&gt;(IObservable&lt;TSource1&gt; source1, IObservable&lt;TSource2&gt; source2, IObservable&lt;TSource3&gt; source3, IObservable&lt;TSource4&gt; source4, IObservable&lt;TSource5&gt; source5)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource1&gt;</dt>
+    <dd><p>The first observable source.</p>
+</dd>
+    <dt><code>source2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource2&gt;</dt>
+    <dd><p>The second observable source.</p>
+</dd>
+    <dt><code>source3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource3&gt;</dt>
+    <dd><p>The third observable source.</p>
+</dd>
+    <dt><code>source4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource4&gt;</dt>
+    <dd><p>The fourth observable source.</p>
+</dd>
+    <dt><code>source5</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource5&gt;</dt>
+    <dd><p>The fifth observable source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-5">Tuple</a>&lt;TSource1, TSource2, TSource3, TSource4, TSource5&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into quintuples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource1</code></dt>
+    <dd><p>The type of the elements in the first source sequence.</p>
+</dd>
+    <dt><code>TSource2</code></dt>
+    <dd><p>The type of the elements in the second source sequence.</p>
+</dd>
+    <dt><code>TSource3</code></dt>
+    <dd><p>The type of the elements in the third source sequence.</p>
+</dd>
+    <dt><code>TSource4</code></dt>
+    <dd><p>The type of the elements in the fourth source sequence.</p>
+</dd>
+    <dt><code>TSource5</code></dt>
+    <dd><p>The type of the elements in the fifth source sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__6_System_IObservable___0__System_IObservable___1__System_IObservable___2__System_IObservable___3__System_IObservable___4__System_IObservable___5__" data-uid="Bonsai.Reactive.CombineLatest.Process``6(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5})">
+  Process&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6&gt;(IObservable&lt;TSource1&gt;, IObservable&lt;TSource2&gt;, IObservable&lt;TSource3&gt;, IObservable&lt;TSource4&gt;, IObservable&lt;TSource5&gt;, IObservable&lt;TSource6&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a sextuple
+with the latest source elements whenever any of the observable sequences produces
+a notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6&gt;&gt; Process&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6&gt;(IObservable&lt;TSource1&gt; source1, IObservable&lt;TSource2&gt; source2, IObservable&lt;TSource3&gt; source3, IObservable&lt;TSource4&gt; source4, IObservable&lt;TSource5&gt; source5, IObservable&lt;TSource6&gt; source6)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource1&gt;</dt>
+    <dd><p>The first observable source.</p>
+</dd>
+    <dt><code>source2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource2&gt;</dt>
+    <dd><p>The second observable source.</p>
+</dd>
+    <dt><code>source3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource3&gt;</dt>
+    <dd><p>The third observable source.</p>
+</dd>
+    <dt><code>source4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource4&gt;</dt>
+    <dd><p>The fourth observable source.</p>
+</dd>
+    <dt><code>source5</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource5&gt;</dt>
+    <dd><p>The fifth observable source.</p>
+</dd>
+    <dt><code>source6</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource6&gt;</dt>
+    <dd><p>The sixth observable source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-6">Tuple</a>&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into sextuples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource1</code></dt>
+    <dd><p>The type of the elements in the first source sequence.</p>
+</dd>
+    <dt><code>TSource2</code></dt>
+    <dd><p>The type of the elements in the second source sequence.</p>
+</dd>
+    <dt><code>TSource3</code></dt>
+    <dd><p>The type of the elements in the third source sequence.</p>
+</dd>
+    <dt><code>TSource4</code></dt>
+    <dd><p>The type of the elements in the fourth source sequence.</p>
+</dd>
+    <dt><code>TSource5</code></dt>
+    <dd><p>The type of the elements in the fifth source sequence.</p>
+</dd>
+    <dt><code>TSource6</code></dt>
+    <dd><p>The type of the elements in the sixth source sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_CombineLatest_Process_" data-uid="Bonsai.Reactive.CombineLatest.Process*"></a>
+
+  <h3 id="Bonsai_Reactive_CombineLatest_Process__7_System_IObservable___0__System_IObservable___1__System_IObservable___2__System_IObservable___3__System_IObservable___4__System_IObservable___5__System_IObservable___6__" data-uid="Bonsai.Reactive.CombineLatest.Process``7(System.IObservable{``0},System.IObservable{``1},System.IObservable{``2},System.IObservable{``3},System.IObservable{``4},System.IObservable{``5},System.IObservable{``6})">
+  Process&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6, TSource7&gt;(IObservable&lt;TSource1&gt;, IObservable&lt;TSource2&gt;, IObservable&lt;TSource3&gt;, IObservable&lt;TSource4&gt;, IObservable&lt;TSource5&gt;, IObservable&lt;TSource6&gt;, IObservable&lt;TSource7&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Merges the specified sources into one observable sequence by emitting a septuple
+with the latest source elements whenever any of the observable sequences produces
+a notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;Tuple&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6, TSource7&gt;&gt; Process&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6, TSource7&gt;(IObservable&lt;TSource1&gt; source1, IObservable&lt;TSource2&gt; source2, IObservable&lt;TSource3&gt; source3, IObservable&lt;TSource4&gt; source4, IObservable&lt;TSource5&gt; source5, IObservable&lt;TSource6&gt; source6, IObservable&lt;TSource7&gt; source7)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource1&gt;</dt>
+    <dd><p>The first observable source.</p>
+</dd>
+    <dt><code>source2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource2&gt;</dt>
+    <dd><p>The second observable source.</p>
+</dd>
+    <dt><code>source3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource3&gt;</dt>
+    <dd><p>The third observable source.</p>
+</dd>
+    <dt><code>source4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource4&gt;</dt>
+    <dd><p>The fourth observable source.</p>
+</dd>
+    <dt><code>source5</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource5&gt;</dt>
+    <dd><p>The fifth observable source.</p>
+</dd>
+    <dt><code>source6</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource6&gt;</dt>
+    <dd><p>The sixth observable source.</p>
+</dd>
+    <dt><code>source7</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource7&gt;</dt>
+    <dd><p>The seventh observable source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-7">Tuple</a>&lt;TSource1, TSource2, TSource3, TSource4, TSource5, TSource6, TSource7&gt;&gt;</dt>
+    <dd><p>An observable sequence containing the result of combining the latest elements of the
+sources into septuples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource1</code></dt>
+    <dd><p>The type of the elements in the first source sequence.</p>
+</dd>
+    <dt><code>TSource2</code></dt>
+    <dd><p>The type of the elements in the second source sequence.</p>
+</dd>
+    <dt><code>TSource3</code></dt>
+    <dd><p>The type of the elements in the third source sequence.</p>
+</dd>
+    <dt><code>TSource4</code></dt>
+    <dd><p>The type of the elements in the fourth source sequence.</p>
+</dd>
+    <dt><code>TSource5</code></dt>
+    <dd><p>The type of the elements in the fifth source sequence.</p>
+</dd>
+    <dt><code>TSource6</code></dt>
+    <dd><p>The type of the elements in the sixth source sequence.</p>
+</dd>
+    <dt><code>TSource7</code></dt>
+    <dd><p>The type of the elements in the seventh source sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/CombineLatest.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

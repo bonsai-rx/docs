@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Creating a Package </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Creating a Package ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/create-package.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="create-package">
+<h1 id="creating-a-package">Creating a Package</h1>
+
+<p>The Bonsai language can be extended with custom packages, which are installed and shared using <a href="https://learn.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>. Packages are typically written in the C# programming language, using the <a href="https://www.visualstudio.com/">Visual Studio</a> development environment. The Bonsai installer includes project templates that make it easier to create your own package project. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.</p>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ol>
+<li><p><a href="https://www.visualstudio.com/">Visual Studio</a>. You can install the Community edition for free.</p>
+</li>
+<li><p>Bonsai VS Extensions. From the Windows Start Menu, search for the &quot;<strong>Install Bonsai VS Extensions</strong>&quot; shortcut and run it.</p>
+</li>
+</ol>
+<h2 id="creating-a-package-project">Creating a package project</h2>
+<ol>
+<li><p>Start <strong>Visual Studio</strong>.</p>
+</li>
+<li><p>Select the <strong>Create a new project</strong> option. In the <strong>Create a new project</strong> dialog, type <code>bonsai</code> in the search toolbox. The project template for creating a Bonsai package should now be displayed.</p>
+<p><img src="../images/extensions-packageproject.png" alt="Creating a new Bonsai package project"></p>
+</li>
+<li><p>Give the project a name and a location, and press the <code>Create</code> button. After the project is created, you should see that a file &quot;<strong>Source1.cs</strong>&quot; has been added to the solution explorer. This file contains an example implementation of a custom source.</p>
+<p><img src="../images/extensions-sourcetemplate.png" alt="Bonsai source template"></p>
+</li>
+<li><p>Every Bonsai operator specifies an observable sequence using the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable&lt;T&gt;</a> interface. The <a href="http://reactivex.io/">System.Reactive</a> package provides a comprehensive library of methods used to generate and manipulate observable sequences in C#. The simplest way to implement a source is by using the methods in the <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Linq.Observable.html">Observable</a> class.</p>
+<p>As an example, the expression below will generate a simple periodic sinewave by applying the projection operator <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Linq.Observable.html#System_Reactive_Linq_Observable_Select_">Select</a> to the incremental counter sequence generated by a <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Linq.Observable.html#System_Reactive_Linq_Observable_Timer_">Timer</a>.</p>
+<pre><code class="lang-c#">[Description(&quot;&quot;)]
+[Combinator(MethodName = nameof(Generate))]
+[WorkflowElementCategory(ElementCategory.Source)]
+public class Source1
+{
+    public IObservable&lt;double&gt; Generate()
+    {
+        return Observable
+            .Timer(
+                dueTime: TimeSpan.Zero,
+                period: TimeSpan.FromSeconds(0.5))
+            .Select(counter =&gt; Math.Sin(counter));
+    }
+}
+</code></pre>
+</li>
+<li><p>We can test our operator by starting the project with <strong>F5</strong>. This will automatically launch the Bonsai editor with our package preloaded in the <strong>Toolbox</strong>. Add the new <code>Source1</code> node and run the workflow.</p>
+<p><img src="../images/extensions-running.png" alt="Running the sine source"></p>
+</li>
+<li><p>If we need to parameterize our operator, we can add new public properties to the class. Custom editors can be used to provide interactive widgets for editing the property values. Several common widgets are provided in the <a class="xref" href="../api/Bonsai.DesignTypes.html">DesignTypes</a> class. For example, to make the period customizable with a slider over a specified range, we can modify our source operator:</p>
+<pre><code class="lang-c#">[Description(&quot;&quot;)]
+[Combinator(MethodName = nameof(Generate))]
+[WorkflowElementCategory(ElementCategory.Source)]
+public class Source1
+{
+    [Range(0.1, 2)]
+    [Editor(DesignTypes.SliderEditor, DesignTypes.UITypeEditor)]
+    public double PeriodSeconds { get; set; } = 0.5;
+
+    public IObservable&lt;double&gt; Generate()
+    {
+        return Observable
+            .Timer(
+                dueTime: TimeSpan.Zero,
+                period: TimeSpan.FromSeconds(PeriodSeconds))
+            .Select(counter =&gt; Math.Sin(counter));
+    }
+}
+</code></pre>
+</li>
+<li><p>It is also possible to debug our code while it is running by setting breakpoints, either by clicking on the left of the line we want to debug or by hitting <strong>F9</strong> over the target code. After this, you can run the code step by step and inspect the runtime value of variables.</p>
+<p><img src="../images/extensions-debugging.png" alt="Debugging the sine source"></p>
+</li>
+<li><p>Finally, we can add new operators by right-clicking the project name in the solution explorer and selecting <code>Add</code> &gt; <code>New Item</code>. Templates for creating the most common operator types are available under the <strong>Bonsai</strong> category.</p>
+<p><img src="../images/extensions-itemtemplate.png" alt="Creating a new Bonsai transform"></p>
+<p>For example, we can create a simple transform that tests whether each of the values emitted by the sinewave generator is positive:</p>
+<pre><code class="lang-c#">[Combinator]
+[Description(&quot;&quot;)]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class Transform1
+{
+    public IObservable&lt;bool&gt; Process(IObservable&lt;double&gt; source)
+    {
+        return source.Select(input =&gt; input &gt; 0);
+    }
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="publishing-a-package-project">Publishing a package project</h2>
+<ol>
+<li><p>Double-click the name of the project in the Visual Studio Solution Explorer to open up the package metadata.</p>
+<p><img src="../images/extensions-packagemetadata.png" alt="Inspecting the package metadata"></p>
+</li>
+<li><p>Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to <code>Title</code>, <code>Description</code>, <code>Authors</code>, <code>Copyright</code>, <code>PackageProjectUrl</code>, <code>PackageLicenseExpression</code>, <code>PackageIcon</code> and <code>PackageTags</code> to make sure that they correctly describe your project. Make sure that <code>Version</code> is correctly assigned in every new release to avoid problems during package updates.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Use version suffixes for sharing prerelease versions for testing, e.g. <code>0.1.0-alpha</code>. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox &quot;Include prerelease&quot; is checked.</p>
+</div>
+</li>
+<li><p>Build the project in <strong>Release</strong> mode. If all metadata is correctly specified, the build process should generate a <code>.nupkg</code> file as part of the output. By default, it will be placed in the same <code>bin\Release</code> folder where the project assembly (.dll) is generated.</p>
+</li>
+<li><p>To install the package in the editor, <a href="https://bonsai-rx.org/docs/articles/packages.html#configure-package-sources">configure a new package source</a> pointing to a folder containing your generated <code>.nupkg</code> file, or simply copy the <code>.nupkg</code> file to the <code>Gallery</code> folder of your local Bonsai installation. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If you have your custom package installed in the same editor used to debug the source code, Bonsai will prefer the installed package over the compiled source code library. In this case, either uninstall the package, or use a local Bonsai installation.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you would like to share the package with the broader Bonsai community, consider publishing your package in the <a href="https://www.myget.org/gallery/bonsai-community"><strong>Bonsai Community feed</strong></a>. Click the <code>Connect to Feed</code> button for more details on how to push packages to the feed.</p>
+</div>
+</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/create-package.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
