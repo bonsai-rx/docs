@@ -1,6 +1,4 @@
 ---
-layout: worksheet
-title: Ephys Synchronization
 ---
 
 # Ephys Synchronization

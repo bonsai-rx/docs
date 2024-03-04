@@ -3,7 +3,7 @@
 Bonsai is a visual language for reactive programming. It is lightweight and easy to use with a variety of packages and modules for interfacing with hardware and for real-time processing and manipulation of data streams.
 
 > [!Warning]
-> These docs are under active development, feel free to contribute by either [raising an issue](https://github.com/bonsai-rx/docs/issues) or following the links saying **Improve this Doc**.
+> These docs are under active development, feel free to contribute by either [raising an issue](https://github.com/bonsai-rx/docs/issues) or following the links saying **Edit this page**.
 
 ## Quick Start
 

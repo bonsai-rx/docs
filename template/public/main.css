@@ -1,0 +1,21 @@
+@import "workflow.css";
+
+/* ==========================================================================
+   DESIGN GUIDELINES STYLE
+   ========================================================================== */
+
+.do > p::before {
+  content: "✔️ DO ";
+}
+
+.consider > p::before {
+  content: "✔️ CONSIDER ";
+}
+
+.avoid > p::before {
+  content: "❌ AVOID ";
+}
+
+.donot > p::before {
+  content: "❌ DO NOT ";
+}
