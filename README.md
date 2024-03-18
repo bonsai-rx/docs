@@ -29,7 +29,7 @@ For packages without existing documentation, a new Doc-fx website needs to be in
 1) In Windows Powershell, setup a local installation of DocFX in the repo with the following commands (executed in the root directory of the repo). 
 
 ```
-dotnet new tool-manifest # if you are setting up this repo for the same time
+dotnet new tool-manifest 
 dotnet tool install --local docfx --version 2.75.3
 ```
 
@@ -47,14 +47,14 @@ Markdown docs location (docs): articles
 Enable site search? [y/n] (y): y
 Enable PDF? [y/n] (y): n
 ```
-4) This creates a docfx.json file in the "docs" folder that hosts the configuration options for the website. From here on out we just need to make a few tweaks to the configuration as well as copy over some files.
+This creates a docfx.json file in the "docs" folder that hosts the configuration options for the website. From here on out we just need to make a few tweaks to the configuration as well as copy over some files.
 
-5) In the "docs" folder, create these folders 
-articles - this will host markdown files for various articles
-images - this will host images for the website
-workflows - this will host .bonsai files for example workflows. 
+4) In the "docs" folder, create these folders.
+* articles - this will host markdown files for various articles
+* images - this will host images for the website
+* workflows - this will host .bonsai files for example workflows. 
 
-6) Copy over these files from a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/), and place them in the root folder of the repo. Amend the files as necessary
+5) Copy over these files from a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/), and place them in the root folder of the repo. Amend the files as necessary
 
 * .github folder - this includes a workflows/docs.yml file that is a Github Actions workflow recipe to build the docfx website. 
 If one already exists, make sure that it is updated to the latest version and change the package name parameters
@@ -65,15 +65,23 @@ If one already exists, make sure that it is updated to the latest version and ch
 
 * .gitignore file - this needs to be updated to ignore some of the new workflow files (like the .bonsai packages env)
 
-The rest of the folders and files go into the docs folder
-* docs\filter.yml file - this filters out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported)
-* docs\.gitignore file - this filters out the _site folder that is generated during local preview
-* docs\favicon.ico and docs\logo.svg files- site logos
-* docs\workflows\.gitignore file - this ignore bonsai layout files and svg files 
-* docs\build.ps1 file - this script calls upon the export images 
+6) Copy the rest of these folders and files into the "docs" folder
+* docs/filter.yml file - this filters out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported)
+* docs/.gitignore file - this filters out the _site folder that is generated during local preview
+* docs/favicon.ico and logo.svg - files for site logo and bookmark icon
+* docs/workflows/.gitignore file - this ignore bonsai layout files and svg files 
+* docs/build.ps1 file - this script is used to export images for sample workflows
     * amend the line in the file to the new package name and source location.
-* docs\template\public folder- this should contain main.css and main.js which are patches for the default template and utilise the docfx-tools submodule.
+* docs/template/public folder- this should contain main.css and main.js which are patches for the default template and utilise the docfx-tools submodule.
     * amend main.js to change the github link to the current repository.
+
+7) The docfx-tools submodule adds scripts for automating SVG export from sample workflows and patches the docfx CSS templates to add workflow containers. 
+
+to add it to the first time to a new docfx website, use
+```
+git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
+```
+The main.css and main.js should already be modified but if not more information on how to modify them can be found at  https://github.com/bonsai-rx/docfx-tools.
 
 
 
