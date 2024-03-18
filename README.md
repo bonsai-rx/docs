@@ -4,22 +4,84 @@
 
 This repo contains the technical reference manual for the Bonsai visual programming language, in addition to articles and examples that document the collective knowledge of the Bonsai user community.
 
-# Would you like to contribute to this repo?
+> [!NOTE]  
+> This repo hosts the documentation for the base Bonsai library. Documentation for each new Bonsai package will be hosted in its own repo. For instance, https://github.com/bonsai-rx/machinelearning hosts the documentation for the Bonsai Machine Learning package. The instructions below apply to both documentation for the base Bonsai library as well as new packages.
 
-## Step-by-step guide to getting started as a contributor
+Documentation is built using DocFx, a static site generator that can automatically generate API documentation for .NET projects, and deployed using a Github Actions workflow on Github Pages.
 
-1. Fork the "develop" branch of this repository. 
-2. Download and install the latest stable version of [DocFx](https://dotnet.github.io/docfx/index.html) (currently 2.59).
-3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website.
-4. If you are working on multiple articles at once, create a descriptively named branch of your fork of the repo for each article. We recommend creating an issue for each article (if it does not already exist), and name the branch `issue-###` where `###` is the issue number.
-5. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork of the repo and create a PR to merge that branch with the "develop" branch of this original repo. Because the "develop" branch was created explicitly to aid collaboration between contributors, pull requests to this branch will be accepted and merged rapidly (at least once a week). 
-6. Once a piece of documentation has been polished, and at least two community members agree that it is ready for a final review, create a pull request to merge with the "main" branch of this repo. At this point, @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published on the [publicly accessible Bonsai documentation website](https://bonsai-rx.org/docs-wip/).
+# Would you like to contribute to documentation?
+
+## Step by step guide to contributing to existing documentation
+
+These instructions apply to repos that already have a Doc-fx website created in the repo.
+
+1. Fork the "main" branch of the repository you want to contribute documentation to.
+2. Download and install the latest stable version of [DocFx](https://dotnet.github.io/docfx/index.html) (currently 2.75.3).
+3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website as you make changes.
+4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork of the repo and create a pull request to merge that branch with the "main" branch of the original repo.
+5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published.
+
+
+## Step by step guide to setting up new documentation
+
+For packages without existing documentation, a new Doc-fx website needs to be initialized.
+
+1) In Windows Powershell, setup a local installation of DocFX in the repo with the following commands (executed in the root directory of the repo). 
+
+```
+dotnet new tool-manifest # if you are setting up this repo for the same time
+dotnet tool install --local docfx --version 2.75.3
+```
+
+2) Create a new “docs” folder to host the documentation files. Navigate to folder and initialise a new doc-fx website with the following command.
+
+```
+dotnet docfx init 
+```
+3) Select these options for the new website
+```
+Name (mysite): Bonsai - Package Name
+Generate .NET API documentation? [y/n] (y): y
+.NET projects location (src): src
+Markdown docs location (docs): articles
+Enable site search? [y/n] (y): y
+Enable PDF? [y/n] (y): n
+```
+4) This creates a docfx.json file in the "docs" folder that hosts the configuration options for the website. From here on out we just need to make a few tweaks to the configuration as well as copy over some files.
+
+5) In the "docs" folder, create these folders 
+articles - this will host markdown files for various articles
+images - this will host images for the website
+workflows - this will host .bonsai files for example workflows. 
+
+6) Copy over these files from a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/), and place them in the root folder of the repo. Amend the files as necessary
+
+* .github folder - this includes a workflows/docs.yml file that is a Github Actions workflow recipe to build the docfx website. 
+If one already exists, make sure that it is updated to the latest version and change the package name parameters
+
+* .bonsai folder -this includes the files necessary to build a Bonsai environment on Github Actions.
+    * The config.yml file in the .bonsai folder needs to be amended to include any packages that are necessary for running the SVG export for sample Bonsai workflows on Github Actions (see below for more details).
+    * The new Bonsai package itself does not need to be included.
+
+* .gitignore file - this needs to be updated to ignore some of the new workflow files (like the .bonsai packages env)
+
+The rest of the folders and files go into the docs folder
+* docs\filter.yml file - this filters out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported)
+* docs\.gitignore file - this filters out the _site folder that is generated during local preview
+* docs\favicon.ico and docs\logo.svg files- site logos
+* docs\workflows\.gitignore file - this ignore bonsai layout files and svg files 
+* docs\build.ps1 file - this script calls upon the export images 
+    * amend the line in the file to the new package name and source location.
+* docs\template\public folder- this should contain main.css and main.js which are patches for the default template and utilise the docfx-tools submodule.
+    * amend main.js to change the github link to the current repository.
+
+
+
+# Editing Articles
+
 
 ## Contributor Style Guide 
 
-### Why use the "develop" branch?
-
-The "develop" branch is specifically created so that contributors can quickly commit drafts of documentation and collaborate with other community members in order to edit and polish documentation contributions. 
 
 ### Re-use/update existing documentation
 
