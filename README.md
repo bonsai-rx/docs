@@ -28,18 +28,18 @@ For packages without existing documentation, a new DocFx website needs to be ini
 
 1) In Windows Powershell, setup a local installation of DocFx in the repo with the following commands (executed in the root directory of the repo). 
 
-```
+```powershell
 dotnet new tool-manifest 
 dotnet tool install --local docfx --version 2.75.3
 ```
 
 2) Create a new “docs” folder to host the documentation files. Navigate to folder and initialise a new DocFx website with the following command.
 
-```
+```powershell
 dotnet docfx init 
 ```
 3) Select these options for the new website
-```
+```powershell
 Name (mysite): Bonsai - Package Name
 Generate .NET API documentation? [y/n] (y): y
 .NET projects location (src): src
@@ -51,14 +51,17 @@ This creates a docfx.json file in the "docs" folder that hosts the configuration
 
 4) Configuring docfx.json - most of the parameters to be changed can be copied over from the docfx.json in a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/). A few of the important changes are explained here (not exhaustive).
 
-```
+```yml
 "metadata": [
     {
         "filter": "filter.yml"
     }
 ]
- - this uses the filter.yml file to filter out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported).
+```
 
+This uses the filter.yml file to filter out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported).
+
+```yml
 "resource": {
     "files": [
         "logo.svg",
@@ -67,10 +70,11 @@ This creates a docfx.json file in the "docs" folder that hosts the configuration
         "workflows/**"
     ]
 }
+```
 
-- any additional files that are to be used in the docs needs to be added here
+List any additional files/folders that are to be used in the docs needs to be added here
 
-
+```yml
 "globalMetadata": {
     "_appName": "Bonsai - PackageName",
     "_appTitle": "Bonsai.PackageName",
@@ -81,30 +85,31 @@ This creates a docfx.json file in the "docs" folder that hosts the configuration
         "apiSpecFolder": "apidoc"
     }
 }
+```
+Change PackageName and github link to the repo being worked on and add footer information
 
-- change PackageName and github link to the repo being worked on.
-
+```yml
 "template": [
     "default",
     "modern",
     "bonsai/template",
     "template"
 ]
-- this applies CSS patches to enable custom workflow containers
+```
+This applies CSS patches to enable custom workflow containers
 
+```yml
 "xref": [
     "https://bonsai-rx.org/docs/xrefmap.yml",
     "https://horizongir.github.io/reactive/xrefmap.yml"
 ]
-- this allows for linking of operators and properties across the different Bonsai docs websites
-
-
 ```
+This allows for cross reference of operators and properties across the different Bonsai docs websites
 
 
 5) In the "docs" folder, create these folders.
 
-```
+```markdown
 * articles - this will host markdown files for various articles that will go into the "Manual" documentation
 * apidoc - this will host markdown files for individual Bonsai operators or properties that will go into the "Reference" documentation.
 * images - this will host images for the website.
@@ -113,7 +118,7 @@ This creates a docfx.json file in the "docs" folder that hosts the configuration
 
 6) Copy over these files from a repo that has been recently updated, and place them in the root folder of the repo. Amend the files as necessary. 
 
-```
+```markdown
 * .github folder - this includes a workflows/docs.yml file that is a Github Actions workflow recipe to build the DocFx website. 
 If one already exists, make sure that it is updated to the latest version and change the package name parameters
 
@@ -126,7 +131,7 @@ If one already exists, make sure that it is updated to the latest version and ch
 
 7) Copy the rest of these folders and files into the "docs" folder
 
-```
+```markdown
 * docs/filter.yml file - this filters out obsolete operators from being included in API documentation.
 * docs/.gitignore file - this filters out the _site folder that is generated during local preview
 * docs/favicon.ico and logo.svg - files for site logo and bookmark icon
