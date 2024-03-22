@@ -5,7 +5,7 @@
 This repo contains the technical reference manual for the Bonsai visual programming language, in addition to articles and examples that document the collective knowledge of the Bonsai user community.
 
 > [!NOTE]  
-> This repo hosts the documentation for the base Bonsai library. Documentation for each new Bonsai package will be hosted in its own repo. For instance, https://github.com/bonsai-rx/machinelearning hosts the documentation for the Bonsai Machine Learning package. The instructions below apply to both documentation for the base Bonsai library as well as new packages.
+> This repo hosts the documentation for the base Bonsai library. Documentation for each new Bonsai package will be hosted in its own repo, for instance, https://github.com/bonsai-rx/machinelearning. The instructions below apply to both documentation for the base Bonsai library as well as new packages.
 
 Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects, and deployed using a Github Actions workflow on Github Pages.
 
@@ -15,10 +15,14 @@ Documentation is built using DocFx, a static site generator that automatically g
 
 These instructions apply to repos that already have a DocFx website created.
 
-1. Fork the "main" branch of the repository you want to contribute documentation to.
+1. Fork the `main` branch of the repository you want to contribute documentation to.
 2. Download and install the latest stable version of [DocFx](https://dotnet.github.io/docfx/index.html) (currently 2.75.3).
 3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website as you make changes.
-4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork of the repo and create a pull request to merge that branch with the "main" branch of the original repo.
+
+> [!NOTE]  
+> Occasionally, we run into weird bugs and errors with the local preview. Check if the error persists by publishing your fork online.
+
+4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the "main" branch of the original repo.
 5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published.
 
 
@@ -33,11 +37,12 @@ dotnet new tool-manifest
 dotnet tool install --local docfx --version 2.75.3
 ```
 
-2) Create a new “docs” folder to host the documentation files. Navigate to folder and initialise a new DocFx website with the following command.
+2) Create a new `docs` folder to host the documentation files. Navigate to folder and initialise a new DocFx website with the following command.
 
 ```powershell
 dotnet docfx init 
 ```
+
 3) Select these options for the new website
 ```powershell
 Name (mysite): Bonsai - Package Name
@@ -150,21 +155,17 @@ git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
 
 
 
-# Editing Articles
-
+# Creating and Editing Articles
 
 ## Contributor Style Guide 
-
 
 ### Re-use/update existing documentation
 
 When working on an article, first check [the old documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic. 
 
-### Including figures
+### Table of contents
 
-To include a figure or image in an article: 
- - save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`
- - add the figure/image to the **images** folder in the repo
+* Introduction/Overview/Landing page - the first page of the docs website will be the index.md file that is located in the docs folder.  This typically includes a description of what the package does,  installation instructions (if its not too complicated) and acknowledgements. To make this page be the first page that is loaded on the docs website, in the articles/toc.yml file, the introduction page should be listed as shown.
 
 ### Standard formatting for operators and operator properties
 
@@ -206,3 +207,64 @@ Assuming you want to include `acquisition-example.bonsai`:
 ```markdown
 [![Example Workflow](~/images/acquisition-example.svg)](~/workflows/acquisition-example.bonsai)
 ```
+
+
+
+### Other media
+
+#### Figures
+
+> [!NOTE]  
+> In general, we want to avoid images/screenshots when possible as they do not display well across light/dark themes and are not responsive across different display sizes and resolutions. The following sections detail alternative methods for creating different media types.
+
+To include a figure or image in an article: 
+ - save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`
+ - add the figure/image to the **images** folder in the repo
+ - reference the figure by 
+
+#### Diagrams and Charts
+
+DocFX support the creation of flow charts and other diagrams using [Mermaid](https://mermaid.js.org/) syntax which may be helpful for visualising pipelines.
+
+**Example:**
+
+```mermaid
+
+flowchart LR
+
+    A(["Create Python Runtime"])
+    B(["Load LDS Module"])
+    C(["Create KF Model"])
+    D(["Generate Observations"])
+    E(["Perform Inference"])
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+
+```
+
+#### Property Tables
+
+Property grids can be represented as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
+
+**Example:**
+
+| Category          | Property Name       | Value                  | Description
+| ----------------  | ------------------- | ---------------------- | -------------------- | 
+|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train. |
+|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.  |
+
+# Publishing to Github Pages
+
+Although this step is not necessary, it can be helpful if you want to check how your edits look online (and if the local preview is not working for some reason).
+
+1) Setup a new branch called `gh-pages` on your fork of the repository.
+2) Go to your repo settings -> `Pages` -> `Build and deployment` - under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
+3) Commit your edits and push to the `main` branch of your repo fork. 
+4) Under the `Actions` tab of your github repo, trigger the `Build docs` workflow manually with the `Run workflow` button. This will build the docs site on the `gh-pages` branch.
+5) Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
+7) The URL for the site can be found in your `Pages` section of your repo settings.
+
+
