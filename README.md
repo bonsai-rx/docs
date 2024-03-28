@@ -176,13 +176,9 @@ To write documentation for new packages or releases that have not been published
 
 ### Standard formatting for operators and operator properties
 
-When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` 'Operator_name' ``) so that the node names render as in code snippet formatting (i.e. ``CameraCapture``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
+When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To reference this you need to specify the full path to it including namespace, operator name, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. 
 
-When referring to operator properties, simply place the operator property name inside a pair of backticks (`` 'Operator_property_name' ``). 
-
-For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package, and contains a property called `PortName`. To reference this specific property you need to specify the full path to it including namespace, operator name and property name, like so: `xref:Bonsai.Arduino.DigitalOutput.PortName`. 
-
-To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. The xref will be the namespace + operator name + (optionally) property name.
+When referring to operator properties, simply place the operator property name inside a pair of backticks (`` `Operator_property_name` ``). 
 
 **Example:**
 
@@ -196,7 +192,7 @@ To find out the full path for any node, right-click on the operator of interest 
 - Set the `Pin` property of the [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
 - Configure the `PortName` property.
 - Run the workflow and change the `Value` property of the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator.
-- **Optional:** Use your mouse to control the LED! Replace the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput).
+- **Optional:** Use your mouse to control the LED! Replace the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput)).
 ```
 
 ### Bonsai Workflows
@@ -223,7 +219,7 @@ To include a figure or image in an article:
  - Save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`.
  - Add the figure/image to the **images** folder in the repo.
  - Reference the figure in the article with the following code.
- - For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a custom attribute on the img element directly like follows.
+ - (Optional) For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a `width` attribute on the img element directly like follows.
 
 **Example:**
 
@@ -231,7 +227,7 @@ To include a figure or image in an article:
 !['Editor Gallery'](~/images/editor-gallery.png){width=500}
 ```
 
-!['Editor Gallery'](~/images/editor-gallery.png){width=500}
+!['Editor Gallery'](~/articles/images/editor-gallery.png){width=500}
 
 
 ### Diagrams and Charts
@@ -240,7 +236,7 @@ DocFX support the creation of flow charts and other diagrams using [Mermaid](htt
 
 **Example:**
 
-```markdown
+````markdown
 ```mermaid
 
 flowchart LR
@@ -257,7 +253,7 @@ flowchart LR
     D --> E
 
 ```
-```
+````
 
 ```mermaid
 
@@ -281,18 +277,18 @@ flowchart LR
 If you want to highlight certain properties to change for a particular application, they can be represented as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
 
 **Example:**
-
+Markdown
 ``` markdown
-| Category          | Property Name       | Value                  | Description
-| ----------------  | ------------------- | ---------------------- | -------------------- | 
-|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train. |
-|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.  |
+| Category          | Property Name       | Value                  | Description                        |    
+| ----------------  | ------------------- | ---------------------- | ---------------------------------- | 
+|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train.|
+|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.   |
 ```
 
-| Category          | Property Name       | Value                  | Description
-| ----------------  | ------------------- | ---------------------- | -------------------- | 
-|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train. |
-|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.  |
+| Category          | Property Name       | Value                  | Description                        |
+| ----------------  | ------------------- | ---------------------- | ---------------------------------- | 
+|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train.|
+|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.   |
 
 ### Final Polishing Steps
 
