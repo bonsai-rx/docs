@@ -7,7 +7,7 @@ This repo contains the technical reference manual for the Bonsai visual programm
 > [!NOTE]  
 > This repo hosts the documentation for the base Bonsai library. Documentation for each new Bonsai package will be hosted in its own repo, for instance, https://github.com/bonsai-rx/machinelearning. The instructions below apply to both documentation for the base Bonsai library as well as new packages.
 
-Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects, and deployed using a Github Actions workflow on Github Pages.
+Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects and deployed using a Github Actions workflow on Github Pages.
 
 # Would you like to contribute to documentation?
 
@@ -20,7 +20,7 @@ These instructions apply to repos that already have a DocFx website created.
 3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website as you make changes.
 
 > [!NOTE]  
-> Occasionally, we run into weird bugs and errors with the local preview. Check if the error persists by publishing your fork online.
+> Occasionally, we run into weird bugs with the local preview. Check if the error persists by publishing your fork online.
 
 4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the "main" branch of the original repo.
 5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published.
@@ -147,21 +147,28 @@ If one already exists, make sure that it is updated to the latest version and ch
     * amend main.js to change the github link to the current repository.
 ```
 
-8) Add the docfx-tools submodule. This submodule contains scripts for automating SVG export from sample workflows and patches the DocFx CSS templates to add workflow containers. 
+8) Add the [docfx-tools]() submodule. This submodule contains scripts for automating SVG export from sample workflows and patches the DocFx CSS templates to add workflow containers. 
 ```
 git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
 ```
 
+# Testing Unpublished Packages
+To write documentation for new packages or releases that have not been published to the community, you can test them in Visual Studio. 
+(adapted from https://bonsai-rx.org/docs/articles/create-package.html)
 
+1) Install Visual Studio (the community edition can be installed for free)
+2) Install Bonsai VS Extensions
+3) In Visual Studio, open `src/PackageName.sln` in the repo
+4) Press F5 to open the Bonsai editor with the new package added. 
+5) From here, you can make Bonsai workflows and save them as per normal.
 
 
 # Creating and Editing Articles
 
 ## Contributor Style Guide 
 
-### Re-use/update existing documentation
-
-When working on an article, first check [the old documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic. 
+> [!NOTE]  
+> When working on an article, first check [the old documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic. 
 
 ### Table of contents
 
@@ -169,13 +176,11 @@ When working on an article, first check [the old documentation](https://bonsai-r
 
 ### Standard formatting for operators and operator properties
 
-When referring to operators (also known as nodes in Bonsai), place operator names inside a pair of backticks and double stars (``**`Operator_name`**``) so that the node names render as bold text in code snippet formatting (i.e. **`CameraCapture`**). 
+When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` 'Operator_name' ``) so that the node names render as in code snippet formatting (i.e. ``CameraCapture``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
 
-When referring to operator properties, simply place the operator property name inside a pair of backticks (`` `Operator_property_name` ``). 
+When referring to operator properties, simply place the operator property name inside a pair of backticks (`` 'Operator_property_name' ``). 
 
-For both operators and operator properties, link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
-
-For example, the **`DigitalOutput`** node is part of the `Bonsai.Arduino` namespace/package, and contains a property called `PortName`. To reference this specific property you need to specify the full path to it including namespace, operator name and property name, like so: `xref:Bonsai.Arduino.DigitalOutput.PortName`. 
+For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package, and contains a property called `PortName`. To reference this specific property you need to specify the full path to it including namespace, operator name and property name, like so: `xref:Bonsai.Arduino.DigitalOutput.PortName`. 
 
 To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. The xref will be the namespace + operator name + (optionally) property name.
 
@@ -186,47 +191,73 @@ To find out the full path for any node, right-click on the operator of interest 
 
 ![Control an LED](~/images/acquisition-led.svg)
 
-- Insert a [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) source.
-- Insert a [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput) sink.
-- Set the [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin) property of the [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
-- Configure the [`PortName`](xref:Bonsai.Arduino.DigitalOutput.PortName) property.
-- Run the workflow and change the [`Value`](xref:Bonsai.Expressions.BooleanProperty.Value) property of the [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) operator.
-- **Optional:** Use your mouse to control the LED! Replace the [**`Boolean`**](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [**`DigitalOutput`**](xref:Bonsai.Arduino.DigitalOutput).
+- Insert a [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) source.
+- Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
+- Set the `Pin` property of the [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
+- Configure the `PortName` property.
+- Run the workflow and change the `Value` property of the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator.
+- **Optional:** Use your mouse to control the LED! Replace the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput).
 ```
 
-### How to include and/or reference examples of workflows
+### Bonsai Workflows
 
-To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor. Then open File -> Export -> Image or use keyboard shortcut Ctrl + Shift + E. Name the example according to the following pattern: `articleFileName_workflowName`. This will export the example workflow as both a `.svg` file and a `.bonsai` file. 
-
-Add the `.svg` file to the **images** folder in this repo, and add the `.bonsai` file to the **workflows** folder in this repo. In the text of the article that includes/references this example workflow, add the `.svg` file as an image and link that image to the `.bonsai` file. 
+To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName_workflowName`. 
+Add the `.bonsai` file to the **workflows** folder in the repo. In the text of the article that includes/references this example workflow, add a workflow container.
 
 **Example:**
 
-Assuming you want to include `acquisition-example.bonsai`: 
+Assuming you want to include `custom-pulse-train_send-custom-waveform.bonsai`: 
 
 ```markdown
-[![Example Workflow](~/images/acquisition-example.svg)](~/workflows/acquisition-example.bonsai)
+:::workflow
+![Send Custom Waveform](../workflows/custom-pulse-train_send-custom-waveform.bonsai)
+:::
 ```
 
-
-
-### Other media
-
-#### Figures
+### Figures
 
 > [!NOTE]  
-> In general, we want to avoid images/screenshots when possible as they do not display well across light/dark themes and are not responsive across different display sizes and resolutions. The following sections detail alternative methods for creating different media types.
+> In general, we want to avoid images/screenshots when possible as they do not display well across light/dark themes and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
 
 To include a figure or image in an article: 
- - save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`
- - add the figure/image to the **images** folder in the repo
- - reference the figure by 
+ - Save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`.
+ - Add the figure/image to the **images** folder in the repo.
+ - Reference the figure in the article with the following code.
+ - For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a custom attribute on the img element directly like follows.
 
-#### Diagrams and Charts
+**Example:**
+
+```markdown
+!['Editor Gallery'](~/images/editor-gallery.png){width=500}
+```
+
+!['Editor Gallery'](~/images/editor-gallery.png){width=500}
+
+
+### Diagrams and Charts
 
 DocFX support the creation of flow charts and other diagrams using [Mermaid](https://mermaid.js.org/) syntax which may be helpful for visualising pipelines.
 
 **Example:**
+
+```markdown
+```mermaid
+
+flowchart LR
+
+    A(["Create Python Runtime"])
+    B(["Load LDS Module"])
+    C(["Create KF Model"])
+    D(["Generate Observations"])
+    E(["Perform Inference"])
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+
+```
+```
 
 ```mermaid
 
@@ -245,16 +276,27 @@ flowchart LR
 
 ```
 
-#### Property Tables
+### Property Tables
 
-Property grids can be represented as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
+If you want to highlight certain properties to change for a particular application, they can be represented as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
 
 **Example:**
+
+``` markdown
+| Category          | Property Name       | Value                  | Description
+| ----------------  | ------------------- | ---------------------- | -------------------- | 
+|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train. |
+|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.  |
+```
 
 | Category          | Property Name       | Value                  | Description
 | ----------------  | ------------------- | ---------------------- | -------------------- | 
 |  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train. |
 |  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.  |
+
+### Final Polishing Steps
+
+Delete redundant blank rows in between markdown lines and at the end of the articles. This improves code readability for future contributors.
 
 # Publishing to Github Pages
 
@@ -266,5 +308,3 @@ Although this step is not necessary, it can be helpful if you want to check how 
 4) Under the `Actions` tab of your github repo, trigger the `Build docs` workflow manually with the `Run workflow` button. This will build the docs site on the `gh-pages` branch.
 5) Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
 7) The URL for the site can be found in your `Pages` section of your repo settings.
-
-
