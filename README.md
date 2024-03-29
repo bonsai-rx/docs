@@ -37,13 +37,14 @@ dotnet new tool-manifest
 dotnet tool install --local docfx --version 2.75.3
 ```
 
-2) Create a new `docs` folder to host the documentation files. Navigate to folder and initialise a new DocFx website with the following command.
+2) Create a new `docs` folder to host the documentation files. Navigate to the folder and initialise a new DocFx website with the following command.
 
 ```powershell
 dotnet docfx init 
 ```
 
-3) Select these options for the new website
+3) Select these options for the new website.
+
 ```powershell
 Name (mysite): Bonsai - Package Name
 Generate .NET API documentation? [y/n] (y): y
@@ -52,10 +53,11 @@ Markdown docs location (docs): articles
 Enable site search? [y/n] (y): y
 Enable PDF? [y/n] (y): n
 ```
-This creates a docfx.json file in the "docs" folder that hosts the configuration options for the website. From here on out we just need to make a few tweaks to docfx.json as well as copy over some additional files and folders.
+This creates a docfx.json file in the "docs" folder that hosts the configuration options for the website. 
 
-4) Configure docfx.json - most of the parameters to be changed can be copied over from the docfx.json in a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/). 
+4) Configure docfx.json - the parameters to be changed can be copied over from the docfx.json in a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/). 
 
+Add the `filter` attribute to filter out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported).
 ```yml
 "metadata": [
     {
@@ -63,21 +65,66 @@ This creates a docfx.json file in the "docs" folder that hosts the configuration
     }
 ]
 ```
-
-This uses the filter.yml file to filter out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported).
+Exclude the filter.yml from being included in the building of content.
 
 ```yml
-"resource": {
-    "files": [
-        "logo.svg",
-        "favicon.ico",
-        "images/**",
-        "workflows/**"
+"build": {
+    "content": [
+        {
+        "exclude": [
+            "_site/**",
+            "filter.yml"
+        ]
+        }
     ]
 }
 ```
 
-List any additional files/folders that are to be used in the docs needs to be added here
+List any additional files/folders that are to be used in the doc in the resource attribute.
+
+```yml
+"build": {
+    "resource": {
+        "files": [
+            "logo.svg",
+            "favicon.ico",
+            "images/**",
+            "workflows/**"
+        ]
+    }
+}
+```
+
+Add the `overwrite` attribute to enable individual operator articles stored in the `apidocs` folder to be included in articles and API docs.
+
+```yml
+"build": {
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+}
+```
+
+Modify the template attribute to use the modern template and apply custom templates to enable workflow containers.
+
+```yml
+"template": [
+    "default",
+    "modern",
+    "bonsai/template",
+    "template"
+]
+```
+
+Change PackageName and github link to the repo being worked on and add footer information to the `globalMetadata` attribute.
 
 ```yml
 "globalMetadata": {
@@ -91,63 +138,68 @@ List any additional files/folders that are to be used in the docs needs to be ad
     }
 }
 ```
-Change PackageName and github link to the repo being worked on and add footer information
+
+Enable additional markdig (the default DocFX markdown processor) extensions.
 
 ```yml
-"template": [
-    "default",
-    "modern",
-    "bonsai/template",
-    "template"
-]
+"build": {
+    "markdownEngineProperties": {
+        "markdigExtensions": [
+        "attributes",
+        "customcontainers"
+        ]
+    }
+}
 ```
-This applies CSS patches to enable custom workflow containers
+
+Add a `xref` attribute to cross reference operators and properties across the different Bonsai docs websites.
 
 ```yml
-"xref": [
-    "https://bonsai-rx.org/docs/xrefmap.yml",
-    "https://horizongir.github.io/reactive/xrefmap.yml"
-]
+"build": {
+    "xref": [
+        "https://bonsai-rx.org/docs/xrefmap.yml",
+        "https://horizongir.github.io/reactive/xrefmap.yml"
+    ]
+}
 ```
-This allows for cross reference of operators and properties across the different Bonsai docs websites
-
 
 5) In the "docs" folder, create these folders.
 
 ```markdown
-* articles - this will host markdown files for various articles that will go into the "Manual" documentation
-* apidoc - this will host markdown files for individual Bonsai operators or properties that will go into the "Reference" documentation.
-* images - this will host images for the website.
-* workflows - this will host .bonsai files for example workflows. 
+- articles - this will host markdown files for various articles that will go into the `Manual` documentation.
+- apidoc - this will host markdown files for individual Bonsai operators or properties that will go into the "Reference" documentation.
+- images - this will host images for the website.
+- workflows - this will host .bonsai files for example workflows. 
 ```
 
-6) Copy over these files from a repo that has been recently updated, and place them in the root folder of the repo. Amend the files as necessary. 
+6) Copy over these folders/files from a repo that has been recently updated into the root folder of the repo. Amend the files as necessary. 
 
 ```markdown
-* .github folder - this includes a workflows/docs.yml file that is a Github Actions workflow recipe to build the DocFx website. 
-If one already exists, make sure that it is updated to the latest version and change the package name parameters
+- .github folder - this includes a workflows/docs.yml file that is a Github Actions workflow recipe to build the DocFx website. 
+If one already exists, make sure that it is updated to the latest version and change the package name parameters.
 
-* .bonsai folder -this includes the files necessary to build a Bonsai environment on Github Actions.
-    * The config.yml file in the .bonsai folder needs to be amended to include any packages that are necessary for running the SVG export for sample Bonsai workflows on Github Actions (see below for more details).
-    * The new Bonsai package itself does not need to be included.
+- .bonsai folder -this includes the files necessary to build a Bonsai environment on Github Actions.
+    - The config.yml file in the .bonsai folder needs to be amended to include any packages that are necessary for running the SVG export for sample Bonsai workflows on Github Actions (see below for more details).
+    - The new Bonsai package itself does not need to be included.
 
-* .gitignore file - this needs to be updated to ignore some of the new workflow files (like the .bonsai packages env)
+- .gitignore file - this needs to be updated to ignore some of the new workflow files (like the .bonsai packages env).
 ```
 
-7) Copy the rest of these folders and files into the "docs" folder
+7) Copy over these folders/files from a repo that has been recently updated into the "docs" folder.
 
 ```markdown
-* docs/filter.yml file - this filters out obsolete operators from being included in API documentation.
-* docs/.gitignore file - this filters out the _site folder that is generated during local preview
-* docs/favicon.ico and logo.svg - files for site logo and bookmark icon
-* docs/workflows/.gitignore file - this ignore bonsai layout files and svg files 
-* docs/build.ps1 file - this script is used to export images for sample workflows
-    * amend the line in the file to the new package name and source location.
-* docs/template/public folder- this should contain main.css and main.js which are patches for the default template and utilise the docfx-tools submodule.
-    * amend main.js to change the github link to the current repository.
+- docs/filter.yml file - this filters out obsolete operators from being included in API documentation.
+- docs/.gitignore file - this filters out the _site folder that is generated during local preview.
+- docs/favicon.ico and logo.svg - files for site logo and bookmark icon.
+- docs/workflows/.gitignore file - this ignore bonsai layout files and svg files.
+- docs/build.ps1 file - this script is used to export images for sample workflows.
+    - amend the line in the file to the new package name and source location.
+- docs/template/public folder- this should contain main.css and main.js which are patches for the default template and utilise the docfx-tools submodule.
+    - amend main.js to change the github link to the current repository.
 ```
 
-8) Add the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. This submodule contains scripts for automating SVG export from sample workflows and patches the DocFx CSS templates to add workflow containers. 
+8) Add the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. This submodule contains scripts for automating SVG export from Bonsai workflows and patches the DocFx CSS templates to add workflow containers. 
+
 ```powershell
 git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
 ```
@@ -159,15 +211,14 @@ git submodule update
 ```
 
 # Testing Unpublished Packages
-To write documentation for new packages or releases that have not been published to the community, you can test them in Visual Studio. 
-(adapted from https://bonsai-rx.org/docs/articles/create-package.html)
+To write documentation for new packages or releases that have not been published to the community, test them in Visual Studio. 
+Adapted from https://bonsai-rx.org/docs/articles/create-package.html.
 
 1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free)
 2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
 3) In Visual Studio, open `src/PackageName.sln` in the repo
 4) Press F5 to open the Bonsai editor with the new package added. 
 5) From here, you can make Bonsai workflows and save them as per normal.
-
 
 # Creating and Editing Documentation
 
@@ -194,7 +245,7 @@ To construct the navigation bar, edit the docs/toc.yml file to reflect the locat
 ### Table of contents
 For the `Manual` and `Tutorials` pages of the website, the table of contents is built from a toc.yml file located in the respective folders. The table of contents for the API page is generated automatically.
 
-Getting started/Landing page - the first page of the docs website will be an `index.md` file that is located in the `docs` folder. This typically includes a description of what the package does, installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the `articles/toc.yml` file, the getting started page should be listed as shown. This step is omited from the tutorials `toc.yml`.
+Getting started/Landing page - the first page of the docs website will be an `index.md` file that is located in the `docs` folder. This typically includes a description of what the package does, installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the `articles/toc.yml` file, the getting started page should be listed as shown. This step is omitted from the tutorials `toc.yml`.
 
 ```yml
 - href: ../index.md
@@ -220,12 +271,12 @@ To organise articles into different sections, simply include a name before the l
 - href: lds-installation-guide-windows.md
 - href: lds-installation-guide-linux.md
 ```
+
 > [!NOTE]
 > While there is another method of grouping articles together that makes a nested table of contents, we prefer this method as it expands the table of contents so that users can see all the articles at once and get to them quicker.
 
-
 ### Individual Bonsai operator articles
-Where possible, documentation should be written for individual Bonsai operators and embedded in the `Manual` articles. The advantage of this approach is that documentation for individual operators will be appended to automatically generated API docs and show up in the Bonsai editor when users right click on individual operators to `View Help`.
+Where possible, documentation should be written for individual Bonsai operators and embedded in the `Manual` articles. The advantage of this approach is that documentation for individual operators will be appended to the automatically generated API docs. In addition, they will also show up in the Bonsai editor when users right click on individual operators to `View Help`.
 
 For example, to create documentation for a `PredictPoses` operator that will be included in a `Network Inference` article for the `Bonsai.Sleap` package:
 
@@ -242,14 +293,10 @@ Write content here.
 2) Create a `Network-Inference.md` article and place it in the `docs\articles` folder. In the markdown file, include a reference to the individual operator.md file.
 
 ```yml
-
 [!include[Title](~/apidoc/Bonsai_Sleap_PredictPoses.md)]
-
 ```
 > [!NOTE]  
-> The title is optional 
-
-
+> The title is optional.
 
 ## Contributor Style Guide 
 
@@ -264,7 +311,9 @@ With DocFX, articles are written in [Markdown](https://dotnet.github.io/docfx/do
 
 ### Standard formatting for operators and operator properties
 
-When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To reference this you need to specify the full path to it including namespace, operator name, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. 
+When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
+
+For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To reference this you need to specify the full path to it including namespace, operator name, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. 
 
 When referring to operator properties, simply place the operator property name inside a pair of backticks (`` `Operator_property_name` ``). 
 
@@ -272,15 +321,11 @@ When referring to operator properties, simply place the operator property name i
 
 ```markdown
 ### **Exercise 7:** Control an LED
-
-![Control an LED](~/images/acquisition-led.svg)
-
 - Insert a [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) source.
 - Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
 - Set the `Pin` property of the [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
 - Configure the `PortName` property.
 - Run the workflow and change the `Value` property of the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator.
-- **Optional:** Use your mouse to control the LED! Replace the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput)).
 ```
 
 ### Bonsai workflows
@@ -301,13 +346,14 @@ Assuming you want to include `custom-pulse-train_send-custom-waveform.bonsai`:
 ### Figures
 
 > [!NOTE]  
-> In general, we want to avoid images/screenshots when possible as they do not display well across light/dark themes and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
+> Avoid images/screenshots when possible as they do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
 
 To include a figure or image in an article: 
- - Save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`.
- - Add the figure/image to the **images** folder in the repo.
- - Reference the figure in the article with the following code.
- - (Optional) For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a `width` attribute on the img element directly like follows.
+
+1) Save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`.
+2) Add the figure/image to the **images** folder in the repo.
+3) Reference the figure in the article with the following code.
+4) (Optional) For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a `width` attribute on the img element directly like follows.
 
 **Example:**
 
@@ -317,7 +363,7 @@ To include a figure or image in an article:
 
 ### Diagrams and Charts
 
-DocFX supports the creation of flow charts and other diagrams using [Mermaid](https://mermaid.js.org/) syntax which we recommend using to visualize pipelines or other concepts.
+Use [Mermaid](https://mermaid.js.org/) graphs to visualize flowcharts or pipelines.
 
 **Example:**
 
@@ -343,7 +389,6 @@ flowchart LR
 ```mermaid
 
 flowchart LR
-
     A(["Create Python Runtime"])
     B(["Load LDS Module"])
     C(["Create KF Model"])
@@ -354,12 +399,11 @@ flowchart LR
     B --> C
     C --> D
     D --> E
-
 ```
 
 ### Property Tables
 
-If you want to highlight certain properties to change for a particular application, they can be represented as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+Highlight properties to change for a particular application by representing them as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
 
 **Example:**
 ``` markdown
@@ -374,9 +418,19 @@ If you want to highlight certain properties to change for a particular applicati
 |  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train.|
 |  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.   |
 
+### Code snippets
+Use code blocks to highlight code to run. Enable language specific highlighting by adding a language identifier at the beginning.
+
+````markdown
+```powershell
+dotnet new tool-manifest 
+dotnet tool install --local docfx --version 2.75.3
+```
+````
+
 ### Alerts
 
-Docfx supports the use of alerts which are block quotes that render in different colors. In general, we recommend only the use of these two alerts as their light and dark mode colors do not conflict with the formatting for property names.
+Use alerts to alert users to important information. Only use either the `Note` or `Warning` alerts as they do not conflict with the formatting for property names.
 
 **Example:**
 ```markdown
@@ -398,7 +452,7 @@ Delete redundant blank rows in between markdown lines and at the end of the arti
 
 # Publishing to Github Pages
 
-Although this step is not necessary, it can be helpful if you want to check how your edits look online (and if the local preview is not working for some reason).
+Although this step is not necessary, it can be helpful if you want to check how your edits look online if the local preview is not working.
 
 1) Setup a new branch called `gh-pages` on your fork of the repository.
 2) Go to your repo settings -> `Pages` -> `Build and deployment` - under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
