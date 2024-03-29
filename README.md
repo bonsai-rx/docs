@@ -11,13 +11,13 @@ Documentation is built using DocFx, a static site generator that automatically g
 
 # Would you like to contribute to documentation?
 
-## Step by step guide to contributing to existing documentation
+## Contributing to existing documentation
 
 These instructions apply to repos that already have a DocFx website created.
 
 1. Fork the `main` branch of the repository you want to contribute documentation to.
 2. Download and install the latest stable version of [DocFx](https://dotnet.github.io/docfx/index.html) (currently 2.75.3).
-3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website as you make changes.
+3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website as you [make changes](#creating-and-editing-articles).
 
 > [!NOTE]  
 > Occasionally, we run into weird bugs with the local preview. Check if the error persists by [publishing your fork online](#publishing-to-github-pages)
@@ -26,7 +26,7 @@ These instructions apply to repos that already have a DocFx website created.
 5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published.
 
 
-## Step by step guide to setting up new documentation
+## Setting up new documentation
 
 For packages without existing documentation, a new DocFx website needs to be initialized.
 
@@ -113,7 +113,7 @@ Add the `overwrite` attribute to enable individual operator articles stored in t
 }
 ```
 
-Modify the template attribute to use the modern template and apply custom templates to enable workflow containers.
+Modify the `template` attribute to use the modern template and apply custom templates to enable workflow containers.
 
 ```yml
 "template": [
@@ -163,38 +163,39 @@ Add a `xref` attribute to cross reference operators and properties across the di
 }
 ```
 
-5) In the "docs" folder, create these folders.
+5) In the "docs" folder, create these folders to host various contents that will go into the docs.
 
 ```markdown
-- articles - this will host markdown files for various articles that will go into the `Manual` documentation.
-- apidoc - this will host markdown files for individual Bonsai operators or properties that will go into the "Reference" documentation.
-- images - this will host images for the website.
-- workflows - this will host .bonsai files for example workflows. 
+- articles - markdown files for various articles that will go into the `Manual`.
+- apidoc - markdown files for individual Bonsai operators to be included in articles or `Reference`.
+- images - images for the website.
+- workflows - .bonsai files for example workflows. 
 ```
 
 6) Copy over these folders/files from a repo that has been recently updated into the root folder of the repo. Amend the files as necessary. 
 
 ```markdown
-- .github folder - this includes a workflows/docs.yml file that is a Github Actions workflow recipe to build the DocFx website. 
-If one already exists, make sure that it is updated to the latest version and change the package name parameters.
+- .github folder - contains a workflows/docs.yml file that is a Github Actions workflow recipe.
+    - Make sure that it is updated to the latest version and change the package name parameters.
 
-- .bonsai folder -this includes the files necessary to build a Bonsai environment on Github Actions.
-    - The config.yml file in the .bonsai folder needs to be amended to include any packages that are necessary for running the SVG export for sample Bonsai workflows on Github Actions (see below for more details).
+- .bonsai folder - files necessary to build a Bonsai environment on Github Actions.
+    - The config.yml file in the .bonsai folder needs to be amended to include any packages 
+    that are necessary for running the SVG export for sample [Bonsai workflows](#bonsai-workflows).
     - The new Bonsai package itself does not need to be included.
 
-- .gitignore file - this needs to be updated to ignore some of the new workflow files (like the .bonsai packages env).
+- .gitignore file - this needs to be updated to ignore workflow files (i.e. .bonsai packages env).
 ```
 
 7) Copy over these folders/files from a repo that has been recently updated into the "docs" folder.
 
 ```markdown
-- docs/filter.yml file - this filters out obsolete operators from being included in API documentation.
-- docs/.gitignore file - this filters out the _site folder that is generated during local preview.
+- docs/filter.yml file - filters out obsolete operators from being included in API documentation.
+- docs/.gitignore file - filters out the _site folder that is generated during local preview.
 - docs/favicon.ico and logo.svg - files for site logo and bookmark icon.
-- docs/workflows/.gitignore file - this ignore bonsai layout files and svg files.
-- docs/build.ps1 file - this script is used to export images for sample workflows.
+- docs/workflows/.gitignore file - ignores bonsai layout files and svg files.
+- docs/build.ps1 file - script  used to export images for sample workflows.
     - amend the line in the file to the new package name and source location.
-- docs/template/public folder- this should contain main.css and main.js which are patches for the default template and utilise the docfx-tools submodule.
+- docs/template/public folder- contains main.css and main.js which patches in `docfx-tools`(see next).
     - amend main.js to change the github link to the current repository.
 ```
 
@@ -210,25 +211,15 @@ git submodule init
 git submodule update
 ```
 
-# Testing Unpublished Packages
-To write documentation for new packages or releases that have not been published to the community, test them in Visual Studio. 
-Adapted from https://bonsai-rx.org/docs/articles/create-package.html.
+# Creating and Editing Articles
 
-1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free)
-2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
-3) In Visual Studio, open `src/PackageName.sln` in the repo
-4) Press F5 to open the Bonsai editor with the new package added. 
-5) From here, you can make Bonsai workflows and save them as per normal.
-
-# Creating and Editing Documentation
-
-## Docs Organization
+## Article Organization
 
 ### Navigation bar
-The navigation var at the top of the DocFX website should have 2-3 links to the main pages of the website.
+The navigation bar at the top of the DocFX website should have 2-3 links to the main pages of the website.
 
 * Manual - hosts documentation that explains the basic functions of the various operators in the package.
-* API - generated automatically by DocFX from XML comments in the Bonsai package source code.
+* Reference - generated automatically by DocFX from XML comments in the Bonsai package source code.
 * Tutorials - optional page that would have examples or tutorials for various applications.
 
 To construct the navigation bar, edit the docs/toc.yml file to reflect the location and name of the various pages.
@@ -276,7 +267,7 @@ To organise articles into different sections, simply include a name before the l
 > While there is another method of grouping articles together that makes a nested table of contents, we prefer this method as it expands the table of contents so that users can see all the articles at once and get to them quicker.
 
 ### Individual Bonsai operator articles
-Where possible, documentation should be written for individual Bonsai operators and embedded in the `Manual` articles. The advantage of this approach is that documentation for individual operators will be appended to the automatically generated API docs. In addition, they will also show up in the Bonsai editor when users right click on individual operators to `View Help`.
+Where possible, documentation should be written for individual Bonsai operators and embedded in the `Manual` articles. The advantage of this approach is that documentation for individual operators will be appended to the automatically generated `Reference` API docs. In addition, they will also show up in the Bonsai editor when users right click on individual operators to `View Help`.
 
 For example, to create documentation for a `PredictPoses` operator that will be included in a `Network Inference` article for the `Bonsai.Sleap` package:
 
@@ -342,6 +333,13 @@ Assuming you want to include `custom-pulse-train_send-custom-waveform.bonsai`:
 ![Send Custom Waveform](../workflows/custom-pulse-train_send-custom-waveform.bonsai)
 :::
 ```
+
+Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. 
+If any of the nodes are greyed out in the SVG images when published, then the `config.yml` file in `.Bonsai` folders needs to be updated.  
+For instance, if you used a `KeyDown` operator in your sample Bonsai workflow, the `Bonsai.Windows.Input` package needs to be included.
+
+Navigate to your local Bonsai installation folder, and you will find a `config.yml` that includes the necessary information to copy over to the `config.yml` file in `.bonsai` folder. 
+Only copy the lines that reference the package.
 
 ### Figures
 
@@ -448,7 +446,17 @@ Use alerts to alert users to important information. Only use either the `Note` o
 
 ### Final Polishing Steps
 
-Delete redundant blank rows in between markdown lines and at the end of the articles. This improves code readability for future contributors.
+Delete redundant blank rows in between lines and at the end of the articles. This improves code readability for future contributors.
+
+# Testing Unpublished Packages
+To write documentation for new packages or releases that have not been published to the community, test them in Visual Studio. 
+Adapted from https://bonsai-rx.org/docs/articles/create-package.html.
+
+1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free)
+2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
+3) In Visual Studio, open `src/PackageName.sln` in the repo
+4) Press F5 to open the Bonsai editor with the new package added. 
+5) From here, you can make Bonsai workflows and save them as per normal.
 
 # Publishing to Github Pages
 
