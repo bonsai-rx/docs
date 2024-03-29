@@ -169,18 +169,18 @@ To write documentation for new packages or releases that have not been published
 5) From here, you can make Bonsai workflows and save them as per normal.
 
 
-# Creating and Editing Articles
+# Creating and Editing Documentation
 
-## Docs organization
+## Docs Organization
 
-### Navigation menu
-The navigation menu at the top of the DocFX website should have 2-3 links to the main pages of the website.
+### Navigation bar
+The navigation var at the top of the DocFX website should have 2-3 links to the main pages of the website.
 
 * Manual - hosts documentation that explains the basic functions of the various operators in the package.
 * API - generated automatically by DocFX from XML comments in the Bonsai package source code.
 * Tutorials - optional page that would have examples or tutorials for various applications.
 
-To construct the navigation menu, edit the docs/toc.yml file to reflect the location and name of the various pages.
+To construct the navigation bar, edit the docs/toc.yml file to reflect the location and name of the various pages.
 
 ```yml
 - name: Manual
@@ -192,14 +192,16 @@ To construct the navigation menu, edit the docs/toc.yml file to reflect the loca
 ```
 
 ### Table of contents
-Getting started/Landing page - the first page of the docs website will be an index.md file that is located in the docs folder.  This typically includes a description of what the package does,  installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the articles/toc.yml file, the getting started page should be listed as shown. 
+For the `Manual` and `Tutorials` pages of the website, the table of contents is built from a toc.yml file located in the respective folders. The table of contents for the API page is generated automatically.
+
+Getting started/Landing page - the first page of the docs website will be an `index.md` file that is located in the `docs` folder. This typically includes a description of what the package does, installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the `articles/toc.yml` file, the getting started page should be listed as shown. This step is omited from the tutorials `toc.yml`.
 
 ```yml
 - href: ../index.md
 ```
 
 > [!NOTE]  
-> Article names can be ommited as they will be taken from the first `Heading 1` element in the article.
+> Article names can be omitted as they will be taken from the first `Heading 1` element in the article.
 
 For the rest of the articles, they can be added to the articles folder and referred to as follows.
 Article filenames should be simple and reflect either the article title or operator name (if the article is about a specific operator).
@@ -218,10 +220,35 @@ To organise articles into different sections, simply include a name before the l
 - href: lds-installation-guide-windows.md
 - href: lds-installation-guide-linux.md
 ```
+> [!NOTE]
+> While there is another method of grouping articles together that makes a nested table of contents, we prefer this method as it expands the table of contents so that users can see all the articles at once and get to them quicker.
 
-This leads to an expanded table of contents. We prefer this approach to other methods that create collapsible, nested table of contents.
 
-## API docs
+### Individual Bonsai operator articles
+Where possible, documentation should be written for individual Bonsai operators and embedded in the `Manual` articles. The advantage of this approach is that documentation for individual operators will be appended to automatically generated API docs and show up in the Bonsai editor when users right click on individual operators to `View Help`.
+
+For example, to create documentation for a `PredictPoses` operator that will be included in a `Network Inference` article for the `Bonsai.Sleap` package:
+
+1) Create a `Bonsai_Sleap_PredictPoses.md` article and place it in the `docs\apidoc` folder. In the markdown file, assign a UID that follows the namespace.operator format.
+
+```yml
+---
+uid: Bonsai.Sleap.PredictPoses
+---
+
+Write content here.
+```
+
+2) Create a `Network-Inference.md` article and place it in the `docs\articles` folder. In the markdown file, include a reference to the individual operator.md file.
+
+```yml
+
+[!include[Title](~/apidoc/Bonsai_Sleap_PredictPoses.md)]
+
+```
+> [!NOTE]  
+> The title is optional 
+
 
 
 ## Contributor Style Guide 
@@ -231,7 +258,7 @@ This leads to an expanded table of contents. We prefer this approach to other me
 
 With DocFX, articles are written in [Markdown](https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet) and rendered with the [Markdig](https://github.com/xoofx/markdig) parsing engine that supports additional markdown extensions. When writing articles, please follow the [MSDN writing tips](https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips). In particular:
 
-- Keep article and section titles short and succint so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation)
+- Keep article and section titles short and succinct so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation)
 - Reuse operator names, properties, and descriptions in the articles and titles (do not use synonyms) so that readers may more easily follow and refer to them.
 - Use the imperative style i.e. "Link hardware triggers" rather than "Linking hardware triggers".
 
@@ -256,7 +283,7 @@ When referring to operator properties, simply place the operator property name i
 - **Optional:** Use your mouse to control the LED! Replace the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator by a `MouseMove` source (hint: use `GreaterThan`, `LessThan`, or equivalent operators to connect one of the mouse axis to [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput)).
 ```
 
-### Bonsai Workflows
+### Bonsai workflows
 
 To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName_workflowName`. 
 Add the `.bonsai` file to the **workflows** folder in the repo. In the text of the article that includes/references this example workflow, add a workflow container.
@@ -335,7 +362,6 @@ flowchart LR
 If you want to highlight certain properties to change for a particular application, they can be represented as [markdown pipe tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
 
 **Example:**
-Markdown
 ``` markdown
 | Category          | Property Name       | Value                  | Description                        |    
 | ----------------  | ------------------- | ---------------------- | ---------------------------------- | 
