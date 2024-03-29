@@ -22,8 +22,8 @@ These instructions apply to repos that already have a DocFx website created.
 > [!NOTE]  
 > Occasionally, we run into weird bugs with the local preview. Check if the error persists by [publishing your fork online](#publishing-to-github-pages)
 
-4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the "main" branch of the original repo.
-5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published.
+4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the `main` branch of the original repo.
+5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with `main` will be approved and the contribution will be published.
 
 
 ## Setting up new documentation
@@ -65,7 +65,7 @@ Add the `filter` attribute to filter out obsolete nodes in the package from the 
     }
 ]
 ```
-Exclude the filter.yml from being included in the building of content.
+Exclude the `filter.yml` from being included in the building of content.
 
 ```yml
 "build": {
@@ -80,7 +80,7 @@ Exclude the filter.yml from being included in the building of content.
 }
 ```
 
-List any additional files/folders that are to be used in the doc in the resource attribute.
+List any additional files/folders that are to be used in the doc in the `resource` attribute.
 
 ```yml
 "build": {
@@ -195,13 +195,13 @@ Add a `xref` attribute to cross reference operators and properties across the di
 - docs/workflows/.gitignore file - ignores bonsai layout files and svg files.
 - docs/build.ps1 file - script  used to export images for sample workflows.
     - amend the line in the file to the new package name and source location.
-- docs/template/public folder- contains main.css and main.js which patches in `docfx-tools`(see next).
+- docs/template/public folder- contains main.css and main.js which patches in `docfx-tools`.
     - amend main.js to change the github link to the current repository.
 ```
 
 8) Add the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. This submodule contains scripts for automating SVG export from Bonsai workflows and patches the DocFx CSS templates to add workflow containers. 
 
-```powershell
+```cmd
 git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
 ```
 If the submodule does not show up in your local copy, run these additional commands.
@@ -289,6 +289,17 @@ Write content here.
 > [!NOTE]  
 > The title is optional.
 
+### Tutorials/Examples Submodule
+For packages with extensive tutorials, a separate repository can be created and imported as a submodule.
+This may be especially helpful if they contain multimedia and other large files. 
+A tutorial submodule can be added with the following command.
+
+```cmd
+git submodule add https://github.com/bonsai-rx/machinelearning-examples
+```
+In addition, the `docfx.json` file needs to be modified.
+For an example of how to setup a Tutorial submodule, refer to https://github.com/bonsai-rx/machinelearning and its submodule https://github.com/bonsai-rx/machinelearning-examples.
+
 ## Contributor Style Guide 
 
 > [!NOTE]  
@@ -335,7 +346,7 @@ Assuming you want to include `custom-pulse-train_send-custom-waveform.bonsai`:
 ```
 
 Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. 
-If any of the nodes are greyed out in the SVG images when published, then the `config.yml` file in `.Bonsai` folders needs to be updated.  
+If any of the nodes are greyed out in the SVG images when published, then the `config.yml` file in the `.Bonsai` folder needs to be updated.  
 For instance, if you used a `KeyDown` operator in your sample Bonsai workflow, the `Bonsai.Windows.Input` package needs to be included.
 
 Navigate to your local Bonsai installation folder, and you will find a `config.yml` that includes the necessary information to copy over to the `config.yml` file in `.bonsai` folder. 
