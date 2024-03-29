@@ -7,7 +7,7 @@ This repo contains the technical reference manual for the Bonsai visual programm
 > [!NOTE]  
 > This repo hosts the documentation for the base Bonsai library. Documentation for each new Bonsai package will be hosted in its own repo, for instance, https://github.com/bonsai-rx/machinelearning. The instructions below apply to both documentation for the base Bonsai library as well as new packages.
 
-Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects and deployed using a Github Actions workflow on Github Pages.
+Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects, and deployed using Github Actions on Github Pages.
 
 # Would you like to contribute to documentation?
 
@@ -20,7 +20,7 @@ These instructions apply to repos that already have a DocFx website created.
 3. In a Windows Powershell, use the command `docfx docfx.json --serve` to generate a local preview of the documentation website as you make changes.
 
 > [!NOTE]  
-> Occasionally, we run into weird bugs with the local preview. Check if the error persists by publishing your fork online.
+> Occasionally, we run into weird bugs with the local preview. Check if the error persists by [publishing your fork online](#publishing-to-github-pages)
 
 4. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the "main" branch of the original repo.
 5. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with "main" will be approved and the contribution will be published.
@@ -54,7 +54,7 @@ Enable PDF? [y/n] (y): n
 ```
 This creates a docfx.json file in the "docs" folder that hosts the configuration options for the website. From here on out we just need to make a few tweaks to docfx.json as well as copy over some additional files and folders.
 
-4) Configuring docfx.json - most of the parameters to be changed can be copied over from the docfx.json in a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/). A few of the important changes are explained here (not exhaustive).
+4) Configure docfx.json - most of the parameters to be changed can be copied over from the docfx.json in a repo that has been recently updated (for instance https://bonsai-rx.org/machinelearning/). 
 
 ```yml
 "metadata": [
@@ -147,17 +147,23 @@ If one already exists, make sure that it is updated to the latest version and ch
     * amend main.js to change the github link to the current repository.
 ```
 
-8) Add the [docfx-tools]() submodule. This submodule contains scripts for automating SVG export from sample workflows and patches the DocFx CSS templates to add workflow containers. 
-```
+8) Add the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. This submodule contains scripts for automating SVG export from sample workflows and patches the DocFx CSS templates to add workflow containers. 
+```powershell
 git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
+```
+If the submodule does not show up in your local copy, run these additional commands.
+
+```powershell
+git submodule init
+git submodule update
 ```
 
 # Testing Unpublished Packages
 To write documentation for new packages or releases that have not been published to the community, you can test them in Visual Studio. 
 (adapted from https://bonsai-rx.org/docs/articles/create-package.html)
 
-1) Install Visual Studio (the community edition can be installed for free)
-2) Install Bonsai VS Extensions
+1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free)
+2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
 3) In Visual Studio, open `src/PackageName.sln` in the repo
 4) Press F5 to open the Bonsai editor with the new package added. 
 5) From here, you can make Bonsai workflows and save them as per normal.
@@ -165,14 +171,69 @@ To write documentation for new packages or releases that have not been published
 
 # Creating and Editing Articles
 
+## Docs organization
+
+### Navigation menu
+The navigation menu at the top of the DocFX website should have 2-3 links to the main pages of the website.
+
+* Manual - hosts documentation that explains the basic functions of the various operators in the package.
+* API - generated automatically by DocFX from XML comments in the Bonsai package source code.
+* Tutorials - optional page that would have examples or tutorials for various applications.
+
+To construct the navigation menu, edit the docs/toc.yml file to reflect the location and name of the various pages.
+
+```yml
+- name: Manual
+  href: articles/
+- name: Reference
+  href: api/
+- name: Tutorials
+  href: articles/tutorials/
+```
+
+### Table of contents
+Getting started/Landing page - the first page of the docs website will be an index.md file that is located in the docs folder.  This typically includes a description of what the package does,  installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the articles/toc.yml file, the getting started page should be listed as shown. 
+
+```yml
+- href: ../index.md
+```
+
+> [!NOTE]  
+> Article names can be ommited as they will be taken from the first `Heading 1` element in the article.
+
+For the rest of the articles, they can be added to the articles folder and referred to as follows.
+Article filenames should be simple and reflect either the article title or operator name (if the article is about a specific operator).
+
+```yml
+- href: ../index.md
+- href: lds-overview.md
+```
+
+To organise articles into different sections, simply include a name before the links to the articles that you want to group together. 
+
+```yml
+- href: ../index.md
+- name: LinearDynamicalSystems
+- href: lds-overview.md
+- href: lds-installation-guide-windows.md
+- href: lds-installation-guide-linux.md
+```
+
+This leads to an expanded table of contents. We prefer this approach to other methods that create collapsible, nested table of contents.
+
+## API docs
+
+
 ## Contributor Style Guide 
 
 > [!NOTE]  
-> When working on an article, first check [the old documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic. 
+> When working on an article, first check [the main documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic that could possibly be used as a reference.
 
-### Table of contents
+With DocFX, articles are written in [Markdown](https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet) and rendered with the [Markdig](https://github.com/xoofx/markdig) parsing engine that supports additional markdown extensions. When writing articles, please follow the [MSDN writing tips](https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips). In particular:
 
-* Introduction/Overview/Landing page - the first page of the docs website will be the index.md file that is located in the docs folder.  This typically includes a description of what the package does,  installation instructions (if its not too complicated) and acknowledgements. To make this page be the first page that is loaded on the docs website, in the articles/toc.yml file, the introduction page should be listed as shown.
+- Keep article and section titles short and succint so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation)
+- Reuse operator names, properties, and descriptions in the articles and titles (do not use synonyms) so that readers may more easily follow and refer to them.
+- Use the imperative style i.e. "Link hardware triggers" rather than "Linking hardware triggers".
 
 ### Standard formatting for operators and operator properties
 
@@ -227,12 +288,9 @@ To include a figure or image in an article:
 !['Editor Gallery'](~/images/editor-gallery.png){width=500}
 ```
 
-!['Editor Gallery'](~/articles/images/editor-gallery.png){width=500}
-
-
 ### Diagrams and Charts
 
-DocFX support the creation of flow charts and other diagrams using [Mermaid](https://mermaid.js.org/) syntax which may be helpful for visualising pipelines.
+DocFX supports the creation of flow charts and other diagrams using [Mermaid](https://mermaid.js.org/) syntax which we recommend using to visualize pipelines or other concepts.
 
 **Example:**
 
@@ -289,6 +347,24 @@ Markdown
 | ----------------  | ------------------- | ---------------------- | ---------------------------------- | 
 |  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train.|
 |  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.   |
+
+### Alerts
+
+Docfx supports the use of alerts which are block quotes that render in different colors. In general, we recommend only the use of these two alerts as their light and dark mode colors do not conflict with the formatting for property names.
+
+**Example:**
+```markdown
+> [!NOTE]
+> Information the user should notice even if skimming.
+
+> [!WARNING]
+> Dangerous certain consequences of an action.
+```
+> [!NOTE]
+> Information the user should notice even if skimming.
+
+> [!WARNING]
+> Dangerous certain consequences of an action.
 
 ### Final Polishing Steps
 
