@@ -180,7 +180,7 @@ Add a `xref` attribute to cross reference operators and properties across the di
 
 - .bonsai folder - files necessary to build a Bonsai environment on Github Actions.
     - The config.yml file in the .bonsai folder needs to be amended to include any packages 
-    that are necessary for running the SVG export for sample [Bonsai workflows](#bonsai-workflows).
+    that are necessary for running the SVG export for sample Bonsai workflows (see section below)
     - The new Bonsai package itself does not need to be included.
 
 - .gitignore file - this needs to be updated to ignore workflow files (i.e. .bonsai packages env).
@@ -222,7 +222,7 @@ The navigation bar at the top of the DocFX website should have 2-3 links to the 
 * Reference - generated automatically by DocFX from XML comments in the Bonsai package source code.
 * Tutorials - optional page that would have examples or tutorials for various applications.
 
-To construct the navigation bar, edit the docs/toc.yml file to reflect the location and name of the various pages.
+To construct the navigation bar, edit the `docs/toc.yml` file to reflect the location and name of the various pages.
 
 ```yml
 - name: Manual
@@ -234,7 +234,7 @@ To construct the navigation bar, edit the docs/toc.yml file to reflect the locat
 ```
 
 ### Table of contents
-For the `Manual` and `Tutorials` pages of the website, the table of contents is built from a toc.yml file located in the respective folders. The table of contents for the API page is generated automatically.
+For the `Manual` and `Tutorials` pages of the website, the table of contents is built from a `toc.yml` file located in the respective folders. The table of contents for the API page is generated automatically.
 
 Getting started/Landing page - the first page of the docs website will be an `index.md` file that is located in the `docs` folder. This typically includes a description of what the package does, installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the `articles/toc.yml` file, the getting started page should be listed as shown. This step is omitted from the tutorials `toc.yml`.
 
@@ -463,9 +463,9 @@ Delete redundant blank rows in between lines and at the end of the articles. Thi
 To write documentation for new packages or releases that have not been published to the community, test them in Visual Studio. 
 Adapted from https://bonsai-rx.org/docs/articles/create-package.html.
 
-1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free)
+1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free).
 2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
-3) In Visual Studio, open `src/PackageName.sln` in the repo
+3) In Visual Studio, open `src/PackageName.sln` in the repo.
 4) Press F5 to open the Bonsai editor with the new package added. 
 5) From here, you can make Bonsai workflows and save them as per normal.
 
