@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Scripting Extensions </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Scripting Extensions ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/scripting-extensions.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="scripting-extensions">
+<h1 id="scripting-extensions">Scripting Extensions</h1>
+
+<p>Local extensions can be used to augment the functionality of workflows with new operators scripted directly using the C# programming language. This gives you the ability to tap into the entire .NET ecosystem without requiring a more formal C# project, as the Bonsai bootstrapper will automatically compile the scripts from source each time the workflow is loaded.</p>
+<p>Scripting extensions are more commonly used to develop small project-specific functionality, but can also be easily shared with others by simply copying individual scripts.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you are interested in developing extensions to be reused across several different projects, consider <a class="xref" href="create-package.html"><strong>creating a package</strong></a> instead.</p>
+</div>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ol>
+<li><a href="https://dotnet.microsoft.com/en-us/download">.NET 6.0 SDK</a>.</li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp">C# extension for Visual Studio Code</a>.</li>
+<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472">.NET Framework 4.7.2 Developer Pack</a>.</li>
+</ol>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>You might need to reboot your machine after installing these components.</p>
+</div>
+<h2 id="creating-a-local-extension">Creating a local extension</h2>
+<ol>
+<li><p>From the Bonsai editor, either open an existing workflow, or create and save a new workflow.</p>
+</li>
+<li><p>Add a new <code>CSharpSource</code> operator from the <strong>Toolbox</strong>.</p>
+</li>
+<li><p>Double-click on the scripting node. A dialog should be displayed asking whether you want to create the <strong>Extensions</strong> folder. Click <code>Yes</code> to proceed and give a name to your new scripting operator. If the above <a href="#pre-requisites">pre-requisites</a> have been installed, Visual Studio Code should then be launched automatically.</p>
+</li>
+<li><p>After Visual Studio Code opens, a notification should appear on the lower-right corner with a warning about unresolved dependencies. Click the <code>Restore</code> button to finish configuring the extensions project. You can now go ahead and modify your local extension script.</p>
+<p><img src="../images/scripting-restoredependencies.png" alt="Restore unresolved dependencies"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the notification disappears before you have a chance to click <code>Restore</code>, you can bring back the notification by clicking the small blue bell icon on the lower-right corner of Visual Studio Code.</p>
+</div>
+</li>
+<li><p>Every Bonsai operator specifies an observable sequence using the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable&lt;T&gt;</a> interface. The <a href="http://reactivex.io/">System.Reactive</a> package provides a comprehensive library of methods used to generate and manipulate observable sequences in C#. The simplest way to implement new operators is by using the methods in the <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Linq.Observable.html">Observable</a> class.</p>
+<p>As an example, the expression below will generate a simple periodic sinewave by applying the projection operator <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Linq.Observable.html#System_Reactive_Linq_Observable_Select_">Select</a> to the incremental counter sequence generated by a <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Linq.Observable.html#System_Reactive_Linq_Observable_Timer_">Timer</a>.</p>
+<pre><code class="lang-c#">[Combinator]
+[Description(&quot;&quot;)]
+[WorkflowElementCategory(ElementCategory.Source)]
+public class SourceScript
+{
+    public IObservable&lt;double&gt; Process()
+    {
+        return Observable
+            .Timer(
+                dueTime: TimeSpan.Zero,
+                period: TimeSpan.FromSeconds(0.5))
+            .Select(counter =&gt; Math.Sin(counter));
+    }
+}
+</code></pre>
+</li>
+<li><p>After you are satisfied with your script extension, save the script file and switch back to the Bonsai editor. Save the workflow and select <code>Reload Extensions</code> from the <code>Tools</code> menu. All scripts will now be compiled and loaded every time the workflow is opened.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Any errors found while compiling the C# scripts will be logged to the black terminal window when the editor reloads. Make sure to check for any messages if you cannot use the scripting operators after reloading extensions. Be aware that scripting extensions in Bonsai currently use the built-in .NET Framework compiler which only allows for language features up to C# 5.</p>
+</div>
+</li>
+</ol>
+<h2 id="adding-dependencies-to-a-local-extension">Adding dependencies to a local extension</h2>
+<p>If you need to access external libraries when writing your scripting extensions, you can add new <code>PackageReference</code> items in the <code>Extensions.csproj</code> file. For example, to add <a href="https://horizongir.github.io/opencv.net/">OpenCV.NET</a> as a dependency to your project extensions:</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Bonsai.Core&quot; Version=&quot;2.7.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;OpenCV.Net&quot; Version=&quot;3.4.1&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Make sure all package references are also installed in the Bonsai package manager. Otherwise, your scripting extensions may fail to compile successfully.</p>
+</div>
+<h2 id="debugging-a-local-extension">Debugging a local extension</h2>
+<p>It is possible to debug a local extension project. However, you will have to use the <a href="https://www.visualstudio.com/">Visual Studio</a> debugger, as it is currently not possible to debug Bonsai extensions using Visual Studio Code.</p>
+<p>To enable debugging, select <code>Reload Extensions with Debugging</code> from the <code>Tools</code> menu. This will recompile the extensions project with debugging symbols enabled. From within Visual Studio, select the option <code>Attach to Process</code> from the <code>Debug</code> menu and find the Bonsai editor process from the list of active processes.</p>
+<p>After attaching to the process, you should be able to open or drag into the editor any local script file and place breakpoints or inspect local variables, as if you were running a standard C# project.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/scripting-extensions.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

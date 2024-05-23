@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BufferedVisualizer </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BufferedVisualizer ">
+      
+      <meta name="description" content="Provides an abstract base class for type visualizers with an update frequency potentially much higher than the screen refresh rate.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Design_BufferedVisualizer.md&amp;value=---%0Auid%3A%20Bonsai.Design.BufferedVisualizer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Design.BufferedVisualizer">
+
+
+
+  <h1 id="Bonsai_Design_BufferedVisualizer" data-uid="Bonsai.Design.BufferedVisualizer" class="text-break">
+Class BufferedVisualizer  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Design/BufferedVisualizer.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Design.html">Design</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Design.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides an abstract base class for type visualizers with an update
+frequency potentially much higher than the screen refresh rate.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BufferedVisualizer : DialogTypeVisualizer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html">DialogTypeVisualizer</a></div>
+      <div><span class="xref">BufferedVisualizer</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Design.ObjectTextVisualizer.html">ObjectTextVisualizer</a></div>
+      <div><a class="xref" href="Bonsai.Design.Visualizers.BarGraphVisualizer.html">BarGraphVisualizer</a></div>
+      <div><a class="xref" href="Bonsai.Design.Visualizers.LineGraphVisualizer.html">LineGraphVisualizer</a></div>
+      <div><a class="xref" href="Bonsai.Design.Visualizers.RollingGraphVisualizer.html">RollingGraphVisualizer</a></div>
+      <div><a class="xref" href="Bonsai.Design.Visualizers.TimeSeriesVisualizerBase.html">TimeSeriesVisualizerBase</a></div>
+      <div><a class="xref" href="Bonsai.Dsp.Design.MatVisualizer-1.html">MatVisualizer&lt;TWaveformView&gt;</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html#Bonsai_Design_DialogTypeVisualizer_Show_System_Object_">DialogTypeVisualizer.Show(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html#Bonsai_Design_DialogTypeVisualizer_Load_System_IServiceProvider_">DialogTypeVisualizer.Load(IServiceProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html#Bonsai_Design_DialogTypeVisualizer_Unload">DialogTypeVisualizer.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Design.DialogTypeVisualizer.html#Bonsai_Design_DialogTypeVisualizer_SequenceCompleted">DialogTypeVisualizer.SequenceCompleted()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Design_BufferedVisualizer_TargetInterval_" data-uid="Bonsai.Design.BufferedVisualizer.TargetInterval*"></a>
+
+  <h3 id="Bonsai_Design_BufferedVisualizer_TargetInterval" data-uid="Bonsai.Design.BufferedVisualizer.TargetInterval">
+  TargetInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Design/BufferedVisualizer.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the target interval, in milliseconds, between visualizer updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int TargetInterval { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Design_BufferedVisualizer_Show_" data-uid="Bonsai.Design.BufferedVisualizer.Show*"></a>
+
+  <h3 id="Bonsai_Design_BufferedVisualizer_Show_System_DateTime_System_Object_" data-uid="Bonsai.Design.BufferedVisualizer.Show(System.DateTime,System.Object)">
+  Show(DateTime, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Design/BufferedVisualizer.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the type visualizer to display a buffered value object
+received at the specified time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Show(DateTime time, object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>The time at which the value was received.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The value to visualize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Design_BufferedVisualizer_ShowBuffer_" data-uid="Bonsai.Design.BufferedVisualizer.ShowBuffer*"></a>
+
+  <h3 id="Bonsai_Design_BufferedVisualizer_ShowBuffer_System_Collections_Generic_IList_System_Reactive_Timestamped_System_Object___" data-uid="Bonsai.Design.BufferedVisualizer.ShowBuffer(System.Collections.Generic.IList{System.Reactive.Timestamped{System.Object}})">
+  ShowBuffer(IList&lt;Timestamped&lt;object&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Design/BufferedVisualizer.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the type visualizer with a new buffer of timestamped values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void ShowBuffer(IList&lt;Timestamped&lt;object&gt;&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Timestamped-1.html">Timestamped</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd><p>A buffer of timestamped values where each timestamp indicates the
+time at which the value was received.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Design_BufferedVisualizer_Visualize_" data-uid="Bonsai.Design.BufferedVisualizer.Visualize*"></a>
+
+  <h3 id="Bonsai_Design_BufferedVisualizer_Visualize_System_IObservable_System_IObservable_System_Object___System_IServiceProvider_" data-uid="Bonsai.Design.BufferedVisualizer.Visualize(System.IObservable{System.IObservable{System.Object}},System.IServiceProvider)">
+  Visualize(IObservable&lt;IObservable&lt;object&gt;&gt;, IServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Design/BufferedVisualizer.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an observable sequence used to visualize all notifications emitted by
+a workflow operator, using this type visualizer and the specified service provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IObservable&lt;object&gt; Visualize(IObservable&lt;IObservable&lt;object&gt;&gt; source, IServiceProvider provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd><p>An observable sequence that multicasts notifications from all the active
+subscriptions to the workflow operator.</p>
+</dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd><p>A service provider object which can be used to obtain visualization,
+runtime inspection, or other editing services.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>An observable sequence where every notification updates the type visualizer
+object in the UI thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Design/BufferedVisualizer.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Higher-Order Operators </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Higher-Order Operators ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/higher-order.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="higher-order">
+<h1 id="higher-order-operators">Higher-Order Operators</h1>
+
+<p>When building simple reactive programs, it is usually enough to place a source for every device or every file you are accessing, and explicitly replicate the chain of transforms, sinks and combinators representing all the operations you need to perform on the data.</p>
+<p>However, sometimes you may need to build systems that deal with an unknown number of sources. For example, imagine you wanted to create a workflow to merge together several video files. If you knew beforehand how many files you will need to combine and where they are exactly located, you might use the <a class="xref" href="../api/Bonsai.Reactive.Concat.html"><code>Concat</code></a> operator to design a workflow like the following:</p>
+<p><img src="../images/concatfile-firstorder.svg" alt="Concatenate video files using first order operators"></p>
+<p>But what if you did not know beforehand how many video files you will need to combine, and you wanted to merge all these videos without having to manually place a source node for every file?</p>
+<p>Suppose all you had to get started was the <a class="xref" href="../api/Bonsai.IO.EnumerateFiles.html"><code>EnumerateFiles</code></a> source. This operator creates an observable sequence that will emit all the file names in a folder, one after the other.</p>
+<p><img alt="Enumerate all file names in a folder" src="../images/concatfile-enumeratefiles.svg" style="max-height:100px"></p>
+<p>In order to merge all the frames from these files in a single sequence you would need to create a different <a class="xref" href="../api/Bonsai.Vision.FileCapture.html"><code>FileCapture</code></a> source for every file name emitted by this sequence, and pass all these sources to the <a class="xref" href="../api/Bonsai.Reactive.Concat.html"><code>Concat</code></a> operator to generate a single sequence of frames. In other words, you want to create a sequence of frames for every file name in the folder, and then combine all these sequences into a single video file.</p>
+<p>Whenever an operator receives or emits a sequence of sequences, we call it a higher-order operator. These operators play a particularly powerful role in the Bonsai programming language so it is useful to describe them in some detail.</p>
+<h2 id="higher-order-workflows">Higher-Order Workflows</h2>
+<p>Higher-order operators are represented in the workflow as nodes, just like any other operator. However, some higher-order operators allow you to specify their behaviour by using node groups. This allows you to program how the created sequences behave by reusing existing sources, transforms and other nodes.</p>
+<p>For example, the video concatenation workflow can be implemented in Bonsai as follows:</p>
+<p><img src="../images/concatfile-higherorder.png" alt="Concatenate video files using higher order operators"></p>
+<p>The behaviour of the <a class="xref" href="../api/Bonsai.Reactive.CreateObservable.html"><code>CreateObservable</code></a> operator is specified by the floating node group. Each time a new file name is emitted by the <a class="xref" href="../api/Bonsai.IO.EnumerateFiles.html"><code>EnumerateFiles</code></a> source, the <code>CreateObservable</code> operator creates a new observable sequence controlled by the operators inside the group.</p>
+<p>The input to the node group -- represented by the <code>Source1</code> operator -- is a sequence containing the individual items received by <code>CreateObservable</code>. In this case, it is a sequence with a single item that returns the file name emitted by the <code>EnumerateFiles</code> source. We use an externalized property to assign this value to the <a class="xref" href="../api/Bonsai.Vision.FileCapture.html#Bonsai_Vision_FileCapture_FileName"><code>FileName</code></a> property of the <code>FileCapture</code> node, so that the correct video is accessed. Finally, the output of the node group determines the type and timing of the items emitted by the created sequence.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>CreateObservable</code> operator creates new sequences for every input notification. However, it does not automatically subscribe to them -- they are latent. No data actually flows through the operators in the node group until some other higher-order operator -- in this case <code>Concat</code> -- actually takes these sequences and subscribes to them.</p>
+</div>
+<h2 id="marble-diagrams-for-higher-order-operators">Marble diagrams for higher-order operators</h2>
+<p>Marble diagrams can also be extended to describe the behaviour of higher-order operators. Emitted sequences are represented by diagonal timelines branching off the main operator timeline. The start of the branching sequence represents the time at which that sequence was emitted.</p>
+<p>For example, the <a class="xref" href="../api/Bonsai.Reactive.CreateObservable.html"><code>CreateObservable</code></a> operator used to convert file names into sequences of video frames is described below:</p>
+<p><img alt="Create sequences of frames from file names" src="../images/concatfile-createobservable.svg" style="max-height:250px;padding:1em 0"></p>
+<p>This marble diagram makes clear that the operator reacts to each file name notification by creating a new observable sequence. In this case, each created sequence will emit all the frames in the specified video. In general, however, this operator can produce all kinds of sequences, determined by the particular combination of operators inside the node group.</p>
+<p>Finally, operators can combine sequences of sequences into a single sequence by collecting all the items from each sequence. There are multiple ways to perform this combination. For example, the <a class="xref" href="../api/Bonsai.Reactive.CreateObservable.html"><code>Concat</code></a> operator subscribes to each emitted sequence one at a time, advancing to the next sequence only when the previous one terminated successfully.</p>
+<p>This behaviour is described by the following marble diagram:</p>
+<p><img alt="Combine all sequences of frames into a single sequence" src="../images/concatfile-combine.svg" style="max-height:250px;padding:1em 0"></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/higher-order.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

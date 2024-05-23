@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Observables </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Observables ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/observables.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="observables">
+<h1 id="observables">Observables</h1>
+
+<p>Observable sequences were first introduced in the <a href="http://reactivex.io/">ReactiveX</a> library and are a central concept in the Bonsai programming language. This section discusses what is an observable sequence and how they are manipulated using Bonsai reactive operators.</p>
+<h2 id="introduction">Introduction</h2>
+<p>An observable is a sequence of elements ordered in time, and can be represented visually using a marble diagram.</p>
+<p><img src="../images/language-marblediagram.svg" alt="Marble diagram"></p>
+<p>Each marble is called an <code>OnNext</code> notification, and represents a unique element emitted by the sequence. The color of each notification is typically used to represent the <em>order</em> of elements in the sequence, and shape indicates the <em>type or value</em> of each element. Marble diagrams allow you to describe when elements are emitted by a sequence. Notifications can occur regularly or irregularly and do not need to conform to any underlying clock -- observable sequences are asynchronous.</p>
+<p><img src="../images/language-marblediagram-error.svg" alt="Marble diagram with error"></p>
+<p>Sequences can be finite or infinite, depending on whether they emit a termination message. There are two types of termination message: <code>OnCompleted</code> (represented by a vertical bar) indicates successful termination of the sequence, and <code>OnError</code> (represented by an X) indicates an abnormal termination of the sequence due to a failure.</p>
+<h2 id="reactive-programming">Reactive Programming</h2>
+<p>In reactive programming, we compose operations on sequences (generation, filtering, combining, etc.) in order to define new sequences. The behaviour of each operator can also be analysed using a marble diagram. Below is an example for an operator manipulating a single sequence.</p>
+<p><img src="../images/language-marblediagram-operator.svg" alt="Marble diagram for operator"></p>
+<p>Arrows entering the box indicate that the operator is receiving notifications from the observable sequence that it is subscribed to. Arrows leaving the box show items that are emitted by the operator itself. If no <code>subscribe</code> arrow is explicitly indicated in the diagram, it is assumed to be placed at the start of the source sequence.</p>
+<p>In this case we can see from the diagram that the <a class="xref" href="../api/Bonsai.Reactive.Condition.html"><code>Condition</code></a> operator is filtering the input notifications from the source sequence: only notifications with a specific shape are sent out in the result sequence.</p>
+<h2 id="bonsai-workflows">Bonsai Workflows</h2>
+<p>The Bonsai language uses a graphical representation called a <em>workflow</em> to describe complex combinations of operations on observable sequences.</p>
+<p><img src="../images/language-sampleframe.svg" alt="Example workflow"></p>
+<p>In a workflow, each node represents an operator defining an observable sequence. Nodes can be connected to other nodes, from left to right. Each connection indicates that the downstream operator on the right subscribes, or &quot;listens&quot;, to the notifications of the upstream operator on the left.</p>
+<p>By chaining networks of observable sequences in this way, it becomes possible to express complex interactive systems using a very compact visual representation. For example, the workflow diagram above describes a system that saves a grayscale snapshot from a camera into a file whenever there is a key press.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Do not confuse a <em>workflow</em> with the marble diagrams described above. A marble diagram describes the dynamic behaviour over time of an observable sequence or reactive operator, whereas a Bonsai workflow describes only which different operators subscribe to each other.</p>
+</div>
+<p>We often combine marble diagrams with the workflow representation to better understand the behaviour of a Bonsai program. In the example above, we can see from the workflow that the <a class="xref" href="../api/Bonsai.Reactive.Sample.html"><code>Sample</code></a> operator subscribes to the sequences generated by two other operators: <a class="xref" href="../api/Bonsai.Vision.Grayscale.html"><code>Grayscale</code></a> and <a class="xref" href="../api/Bonsai.Windows.Input.KeyDown.html"><code>KeyDown</code></a>. <code>Grayscale</code> sends out images periodically, following the camera. However, <code>KeyDown</code> sends out a notification only when there is a key press, which can happen at any moment, even in between camera images.</p>
+<p>What exactly will be the result sequence coming out of <code>Sample</code> in this case? Below is the marble diagram for the <code>Sample</code> operator, where the first sequence is the &quot;source&quot; sequence (<code>Grayscale</code>), and the second sequence is the &quot;sampler&quot; (<code>KeyDown</code>).</p>
+<img alt="Sample operator" src="../images/language-samplegrayscale.svg" style="max-height:250px;padding:1em 0">
+<p>From the marble diagram the behaviour of <code>Sample</code> is clear: it sends out the latest image that was received from <code>Grayscale</code> whenever there was a new key press. Marble diagrams can be an extremely useful tool to convey graphically the intuition of what a reactive operator is doing and are used extensively throughout the documentation.</p>
+<h2 id="temperature">Hot versus cold observable sequences</h2>
+<p>One of the most important aspects for understanding the behaviour of observable sequences is to clarify the side-effects of subscription. For example, when an image processing operator like <code>Grayscale</code> subscribes to a sequence of images from a camera for the first time, the camera is turned on and an acquisition loop starts streaming live frames. If instead we have the <code>Grayscale</code> operator subscribe to a sequence of images from a pre-recorded video, the movie file is opened and frames begin to be decoded from disk into memory.</p>
+<img alt="Observable side effects" src="../images/language-temperature-effects.svg" style="max-height:250px">
+<p>Starting the camera or opening a movie file are examples of subscription side effects which are necessary in order to generate the data emitted from a sequence. The effects of subscription can have critical implications in the behaviour of our reactive programs, and to understand them we often need to determine what we call the <em>temperature</em> of the underlying observable sequence.</p>
+<p>Consider again the difference between starting a camera and opening a video file when we have multiple observers. A video camera streams a live feed of images. When an operator subscribes to the feed at time <em>t<sub>0</sub></em> it will receive frames from time <em>t &gt; t<sub>0</sub></em>. If another operator subscribes to the camera at a later time <em>t<sub>1</sub></em>, it will receive all frames from time <em>t &gt; t<sub>1</sub></em> but not earlier: the camera shares the same subscription with all observers and never re-emits frames from the past! When observable sequences share the same subscription across all downstream observers, they are said to be <em>hot</em>.</p>
+<img alt="Observable side effects" src="../images/language-temperature.svg" style="max-height:180px">
+<p>A video file also generates a sequence of images, but in contrast to the camera, these images are generated on-demand. They are permanently stored on disk, and whenever an operator subscribes to the file, all the images can be played back from the beginning. Every operator will receive all the frames from the file, no matter when they subscribe to the sequence. When observable sequences have this on-demand behaviour, they are said to be <em>cold</em>.</p>
+<p>Understanding the <em>temperature</em> of an observable sequence is particularly important when that sequence is shared between multiple operators. It can help to understand whether those operators will see the same data items, and what the effect of subscribing to the shared sequence at different times is going to be.</p>
+<p>It is also possible to change the temperature of observable sequences using reactive operators. The <a class="xref" href="../api/Bonsai.Reactive.Replay.html">Replay</a> operator can be used to subscribe to the camera and start recording all incoming images. Every time a downstream observer subscribes to the result sequence, it will then replay all images on-demand, even if they subscribe late. The originally <em>hot</em> sequence has been turned into a <em>cold</em> observable by the replay behaviour.</p>
+<img alt="Replay operator" src="../images/reactive-replay.svg" style="max-height:250px;padding:1em 0">
+<p>Conversely, the <a class="xref" href="../api/Bonsai.Reactive.Publish.html">Publish</a> operator can be used to share a single subscription to a video file when sending images to downstream observers. In this case, instead of requesting a new subscription to the video for each new observer, the publish behaviour will always share only the images coming from the original subscription, no matter at what point the video is in. The original sequence has been turned from <em>cold</em> to <em>hot</em>.</p>
+<img alt="Publish operator" src="../images/reactive-publish.svg" style="max-height:250px;padding:1em 0">
+<p>In the Bonsai visual language, whenever two operators receive data from the same source, i.e. whenever there are branches in the workflow, subscriptions use the <code>Publish</code> behaviour. This means that the default sharing behaviour of Bonsai sequences is <em>hot</em>. It is possible to change this by using specialized sharing operators, called <a class="xref" href="subjects.html">Subjects</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/observables.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

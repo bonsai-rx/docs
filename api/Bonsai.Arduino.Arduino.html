@@ -1,0 +1,1141 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Arduino </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Arduino ">
+      
+      <meta name="description" content="Represents an Arduino board communicating with the host computer using the Firmata protocol.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Arduino_Arduino.md&amp;value=---%0Auid%3A%20Bonsai.Arduino.Arduino%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Arduino.Arduino">
+
+
+
+  <h1 id="Bonsai_Arduino_Arduino" data-uid="Bonsai.Arduino.Arduino" class="text-break">
+Class Arduino  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Arduino.html">Arduino</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Arduino.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an Arduino board communicating with the host computer using
+the Firmata protocol.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Arduino : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Arduino</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Arduino_Arduino__ctor_" data-uid="Bonsai.Arduino.Arduino.#ctor*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino__ctor_System_String_" data-uid="Bonsai.Arduino.Arduino.#ctor(System.String)">
+  Arduino(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Arduino.Arduino.html">Arduino</a> class using the
+specified port name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Arduino(string portName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>portName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The port to use (for example, COM1).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino__ctor_" data-uid="Bonsai.Arduino.Arduino.#ctor*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino__ctor_System_String_System_Int32_" data-uid="Bonsai.Arduino.Arduino.#ctor(System.String,System.Int32)">
+  Arduino(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Arduino.Arduino.html">Arduino</a> class using the
+specified port name and baud rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Arduino(string portName, int baudRate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>portName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The port to use (for example, COM1).</p>
+</dd>
+    <dt><code>baudRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The serial baud rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Bonsai_Arduino_Arduino_DefaultBaudRate" data-uid="Bonsai.Arduino.Arduino.DefaultBaudRate">
+  DefaultBaudRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents the default serial baud rate used to communicate with the Arduino.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultBaudRate = 57600</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Bonsai_Arduino_Arduino_DefaultSamplingInterval" data-uid="Bonsai.Arduino.Arduino.DefaultSamplingInterval">
+  DefaultSamplingInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents the default sampling interval for analog pins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultSamplingInterval = 19</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Arduino_Arduino_IsOpen_" data-uid="Bonsai.Arduino.Arduino.IsOpen*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_IsOpen" data-uid="Bonsai.Arduino.Arduino.IsOpen">
+  IsOpen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating the open or closed status of the <a class="xref" href="Bonsai.Arduino.Arduino.html">Arduino</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOpen { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_MajorVersion_" data-uid="Bonsai.Arduino.Arduino.MajorVersion*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_MajorVersion" data-uid="Bonsai.Arduino.Arduino.MajorVersion">
+  MajorVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the major version of the Firmata firmware reported by the board on initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MajorVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_MinorVersion_" data-uid="Bonsai.Arduino.Arduino.MinorVersion*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_MinorVersion" data-uid="Bonsai.Arduino.Arduino.MinorVersion">
+  MinorVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minor version of the Firmata firmware reported by the board on initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MinorVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Arduino_Arduino_AnalogRead_" data-uid="Bonsai.Arduino.Arduino.AnalogRead*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_AnalogRead_System_Int32_" data-uid="Bonsai.Arduino.Arduino.AnalogRead(System.Int32)">
+  AnalogRead(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current value of the specified analog pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AnalogRead(int pin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the analog pin to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> value representing a digitized analog measurement.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_AnalogWrite_" data-uid="Bonsai.Arduino.Arduino.AnalogWrite*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_AnalogWrite_System_Int32_System_Int32_" data-uid="Bonsai.Arduino.Arduino.AnalogWrite(System.Int32,System.Int32)">
+  AnalogWrite(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes an analog value as a PWM wave to the specified digital output pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AnalogWrite(int pin, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the digital pin to write.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> value used to update the PWM signal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_Close_" data-uid="Bonsai.Arduino.Arduino.Close*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_Close" data-uid="Bonsai.Arduino.Arduino.Close">
+  Close()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L526"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes the port connection, sets the <a class="xref" href="Bonsai.Arduino.Arduino.html#Bonsai_Arduino_Arduino_IsOpen">IsOpen</a>
+property to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and disposes of the
+internal <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ports.serialport">SerialPort</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_DigitalPortRead_" data-uid="Bonsai.Arduino.Arduino.DigitalPortRead*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_DigitalPortRead_System_Int32_" data-uid="Bonsai.Arduino.Arduino.DigitalPortRead(System.Int32)">
+  DigitalPortRead(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the current state of all the digital pins in the specified port.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte DigitalPortRead(int port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the digital port (i.e. collection of 8 pins) to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> value where each bit represents the state of one pin in the digital port.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_DigitalPortWrite_" data-uid="Bonsai.Arduino.Arduino.DigitalPortWrite*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_DigitalPortWrite_System_Int32_System_Byte_" data-uid="Bonsai.Arduino.Arduino.DigitalPortWrite(System.Int32,System.Byte)">
+  DigitalPortWrite(int, byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the state of all the digital output pins in the specified
+port simultaneously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DigitalPortWrite(int port, byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the digital port (i.e. collection of 8 pins) to write.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> value where each bit will be used to set the state of one pin in the digital port.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_DigitalRead_" data-uid="Bonsai.Arduino.Arduino.DigitalRead*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_DigitalRead_System_Int32_" data-uid="Bonsai.Arduino.Arduino.DigitalRead(System.Int32)">
+  DigitalRead(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the current state of the specified digital input pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DigitalRead(int pin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the digital pin to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the pin is HIGH; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if the pin is LOW.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_DigitalWrite_" data-uid="Bonsai.Arduino.Arduino.DigitalWrite*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_DigitalWrite_System_Int32_System_Boolean_" data-uid="Bonsai.Arduino.Arduino.DigitalWrite(System.Int32,System.Boolean)">
+  DigitalWrite(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the state of the specified digital output pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DigitalWrite(int pin, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the digital pin to write.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set the pin HIGH; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> to set the pin LOW.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_GetPortNumber_" data-uid="Bonsai.Arduino.Arduino.GetPortNumber*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_GetPortNumber_System_Int32_" data-uid="Bonsai.Arduino.Arduino.GetPortNumber(System.Int32)">
+  GetPortNumber(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the digital port number for the specified pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetPortNumber(int pin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pin number for which to retrieve the digital port.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> identifier for the digital port containing the specified pin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_I2CConfig_" data-uid="Bonsai.Arduino.Arduino.I2CConfig*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_I2CConfig_System_Byte___" data-uid="Bonsai.Arduino.Arduino.I2CConfig(System.Byte[])">
+  I2CConfig(params byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L390"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures I2C settings such as delay time and power pins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void I2CConfig(params byte[] args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The I2C configuration arguments. The first two bytes are used
+to configure the optional delay time, in microseconds, between
+writing to the I2C register, and reading the data from the device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_I2CRequest_" data-uid="Bonsai.Arduino.Arduino.I2CRequest*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_I2CRequest_System_Int32_Bonsai_Arduino_I2CRequestMode_System_Byte___" data-uid="Bonsai.Arduino.Arduino.I2CRequest(System.Int32,Bonsai.Arduino.I2CRequestMode,System.Byte[])">
+  I2CRequest(int, I2CRequestMode, params byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a request to the I2C device with the specified address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void I2CRequest(int address, I2CRequestMode mode, params byte[] data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The address of the slave device in the I2C bus.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Bonsai.Arduino.I2CRequestMode.html">I2CRequestMode</a></dt>
+    <dd><p>The read/write mode of the request.</p>
+</dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The data payload for the I2C request.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_I2CWrite_" data-uid="Bonsai.Arduino.Arduino.I2CWrite*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_I2CWrite_System_Int32_System_Byte___" data-uid="Bonsai.Arduino.Arduino.I2CWrite(System.Int32,System.Byte[])">
+  I2CWrite(int, params byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a data payload to the I2C device with the specified address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void I2CWrite(int address, params byte[] data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The address of the slave device in the I2C bus.</p>
+</dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The data payload to write to the device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_Open_" data-uid="Bonsai.Arduino.Arduino.Open*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_Open_System_Threading_CancellationToken_" data-uid="Bonsai.Arduino.Arduino.Open(System.Threading.CancellationToken)">
+  Open(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a new serial port connection to the Arduino board.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Open(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> which can be used to cancel the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_PinMode_" data-uid="Bonsai.Arduino.Arduino.PinMode*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_PinMode_System_Int32_Bonsai_Arduino_PinMode_" data-uid="Bonsai.Arduino.Arduino.PinMode(System.Int32,Bonsai.Arduino.PinMode)">
+  PinMode(int, PinMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the mode of an individual Arduino pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PinMode(int pin, PinMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the pin to configure.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Bonsai.Arduino.PinMode.html">PinMode</a></dt>
+    <dd><p>The pin mode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_ReportAnalog_" data-uid="Bonsai.Arduino.Arduino.ReportAnalog*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_ReportAnalog_System_Int32_System_Boolean_" data-uid="Bonsai.Arduino.Arduino.ReportAnalog(System.Int32,System.Boolean)">
+  ReportAnalog(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables or disables reporting of analog pin values for
+the specified pin number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReportAnalog(int pin, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the pin to configure.</p>
+</dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if analog reporting for the pin should be enabled;
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_ReportDigital_" data-uid="Bonsai.Arduino.Arduino.ReportDigital*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_ReportDigital_System_Int32_System_Boolean_" data-uid="Bonsai.Arduino.Arduino.ReportDigital(System.Int32,System.Boolean)">
+  ReportDigital(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables or disables reporting of digital pin changes for
+the specified digital port in the Arduino.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReportDigital(int port, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The digital port to configure.</p>
+</dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if reporting of digital pin changes on the
+specified port should be enabled; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_SamplingInterval_" data-uid="Bonsai.Arduino.Arduino.SamplingInterval*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_SamplingInterval_System_Int32_" data-uid="Bonsai.Arduino.Arduino.SamplingInterval(System.Int32)">
+  SamplingInterval(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the sampling rate for reporting analog and I2C data in the main firmware loop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SamplingInterval(int milliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>milliseconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The sampling interval, in milliseconds, between analog and I2C measurements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Arduino_Arduino_SendSysex_" data-uid="Bonsai.Arduino.Arduino.SendSysex*"></a>
+
+  <h3 id="Bonsai_Arduino_Arduino_SendSysex_System_Byte_System_Byte___" data-uid="Bonsai.Arduino.Arduino.SendSysex(System.Byte,System.Byte[])">
+  SendSysex(byte, params byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends the specified MIDI SysEx command using the specified arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendSysex(byte command, params byte[] args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> value indicating the SysEx command ID.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The optional extended payload sent to configure the SysEx command.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Bonsai_Arduino_Arduino_AnalogInputReceived" data-uid="Bonsai.Arduino.Arduino.AnalogInputReceived">
+  AnalogInputReceived
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the <a class="xref" href="Bonsai.Arduino.Arduino.html">Arduino</a> object receives a new analog input event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;AnalogInputReceivedEventArgs&gt; AnalogInputReceived</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Bonsai.Arduino.AnalogInputReceivedEventArgs.html">AnalogInputReceivedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Bonsai_Arduino_Arduino_DigitalInputReceived" data-uid="Bonsai.Arduino.Arduino.DigitalInputReceived">
+  DigitalInputReceived
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the <a class="xref" href="Bonsai.Arduino.Arduino.html">Arduino</a> object receives a new digital input event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DigitalInputReceivedEventArgs&gt; DigitalInputReceived</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Bonsai.Arduino.DigitalInputReceivedEventArgs.html">DigitalInputReceivedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Bonsai_Arduino_Arduino_SysexReceived" data-uid="Bonsai.Arduino.Arduino.SysexReceived">
+  SysexReceived
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the <a class="xref" href="Bonsai.Arduino.Arduino.html">Arduino</a> object receives a new MIDI SysEx message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SysexReceivedEventArgs&gt; SysexReceived</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Bonsai.Arduino.SysexReceivedEventArgs.html">SysexReceivedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/arduino/blob/main/Bonsai.Arduino/Arduino.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

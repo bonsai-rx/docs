@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PublishSubject&lt;T&gt; </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PublishSubject&lt;T&gt; ">
+      
+      <meta name="description" content="Represents an expression builder that broadcasts the values from other observable sequences to multiple subscribers.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/apidoc/Bonsai_Reactive_PublishSubject_1.md/#L2">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Reactive.PublishSubject`1">
+
+
+
+  <h1 id="Bonsai_Reactive_PublishSubject_1" data-uid="Bonsai.Reactive.PublishSubject`1" class="text-break">
+Class PublishSubject&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Subjects/PublishSubject.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Reactive.html">Reactive</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an expression builder that broadcasts the values from other observable
+sequences to multiple subscribers.</p>
+</div>
+  <div class="markdown conceptual"><p><img src="../images/language-subject-publish.svg" alt="Marble diagram"></p>
+<p><code>PublishSubject</code> passes to each subscribed observer only the values from the source sequence which were emitted after the time of subscription.</p>
+<p>This fire-and-forget behavior means that any observers which subscribe late might lose one or more items emitted between the time that <code>PublishSubject</code> was created and the time that the observer subscribed to it. If you require guaranteed delivery of all values from the source sequence, you need to ensure that all observers subscribe immediately upon workflow initialization. If this is not possible, you should consider switching to an <a class="xref" href="Bonsai.Reactive.AsyncSubject.html"><code>AsyncSubject</code></a> if the sequence contains a single value, or a <a class="xref" href="Bonsai.Reactive.ReplaySubject.html"><code>ReplaySubject</code></a> if the sequence contains multiple values.</p>
+<p>If the source sequence terminates with an error, <code>PublishSubject</code> will not emit any items to subsequent observers, but will pass along the terminating error.</p>
+</div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkflowElementIcon(&quot;PublishSubject&quot;)]
+public class PublishSubject&lt;T&gt; : SubjectBuilder&lt;T&gt;, IExpressionBuilder, INamedElement</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the elements processed by the subject.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html">ExpressionBuilder</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.VariableArgumentExpressionBuilder.html">VariableArgumentExpressionBuilder</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.SubjectExpressionBuilder.html">SubjectExpressionBuilder</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.SubjectBuilder-1.html">SubjectBuilder</a>&lt;T&gt;</div>
+      <div><span class="xref">PublishSubject&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Expressions.IExpressionBuilder.html">IExpressionBuilder</a></div>
+      <div><a class="xref" href="Bonsai.INamedElement.html">INamedElement</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.SubjectBuilder-1.html#Bonsai_Expressions_SubjectBuilder_1_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__">SubjectBuilder&lt;T&gt;.Build(IEnumerable&lt;Expression&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.SubjectExpressionBuilder.html#Bonsai_Expressions_SubjectExpressionBuilder_Name">SubjectExpressionBuilder.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.VariableArgumentExpressionBuilder.html#Bonsai_Expressions_VariableArgumentExpressionBuilder_ArgumentRange">VariableArgumentExpressionBuilder.ArgumentRange</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.VariableArgumentExpressionBuilder.html#Bonsai_Expressions_VariableArgumentExpressionBuilder_SetArgumentRange_System_Int32_System_Int32_">VariableArgumentExpressionBuilder.SetArgumentRange(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_ToString">ExpressionBuilder.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_Unwrap_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.Unwrap(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetWorkflowElement_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.GetWorkflowElement(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetVisualizerElement_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.GetVisualizerElement(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetVisualizerMappings_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.GetVisualizerMappings(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_FromWorkflowElement_System_Object_Bonsai_ElementCategory_">ExpressionBuilder.FromWorkflowElement(object, ElementCategory)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetElementDisplayName_System_Type_">ExpressionBuilder.GetElementDisplayName(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetElementDisplayName_System_Object_">ExpressionBuilder.GetElementDisplayName(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraphExtensions.html#Bonsai_Expressions_ExpressionBuilderGraphExtensions_AsInspectBuilder_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilderGraphExtensions.AsInspectBuilder(ExpressionBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraphExtensions.html#Bonsai_Expressions_ExpressionBuilderGraphExtensions_Build_Bonsai_Expressions_ExpressionBuilder_System_Linq_Expressions_Expression___">ExpressionBuilderGraphExtensions.Build(ExpressionBuilder, params Expression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraphExtensions.html#Bonsai_Expressions_ExpressionBuilderGraphExtensions_IsBuildDependency_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilderGraphExtensions.IsBuildDependency(ExpressionBuilder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Reactive_PublishSubject_1_CreateSubject_" data-uid="Bonsai.Reactive.PublishSubject`1.CreateSubject*"></a>
+
+  <h3 id="Bonsai_Reactive_PublishSubject_1_CreateSubject" data-uid="Bonsai.Reactive.PublishSubject`1.CreateSubject">
+  CreateSubject()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Subjects/PublishSubject.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a shared subject that broadcasts the values from other observable
+sequences to multiple subscribers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ISubject&lt;T&gt; CreateSubject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Subjects.ISubject-1.html">ISubject</a>&lt;T&gt;</dt>
+    <dd><p>A new instance of <a class="xref" href="https://horizongir.github.io/reactive/api/System.Reactive.Subjects.ISubject-1.html">ISubject&lt;T&gt;</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Subjects/PublishSubject.cs/#L31" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

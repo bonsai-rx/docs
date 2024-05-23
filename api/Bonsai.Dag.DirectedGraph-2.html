@@ -1,0 +1,1316 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DirectedGraph&lt;TNodeValue, TEdgeLabel&gt; </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DirectedGraph&lt;TNodeValue, TEdgeLabel&gt; ">
+      
+      <meta name="description" content="Represents a directed graph that consists of labeled nodes and edges.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Dag_DirectedGraph_2.md&amp;value=---%0Auid%3A%20Bonsai.Dag.DirectedGraph%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Dag.DirectedGraph`2">
+
+
+
+  <h1 id="Bonsai_Dag_DirectedGraph_2" data-uid="Bonsai.Dag.DirectedGraph`2" class="text-break">
+Class DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Dag.html">Dag</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a directed graph that consists of labeled nodes and edges.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DirectedGraph&lt;TNodeValue, TEdgeLabel&gt; : ICollection&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;, IReadOnlyList&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;, IReadOnlyCollection&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;, IEnumerable&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;, IEnumerable</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TNodeValue</code></dt>
+    <dd><p>The type of the labels associated with graph nodes.</p>
+</dd>
+    <dt><code>TEdgeLabel</code></dt>
+    <dd><p>The type of the labels associated with graph edges.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraph.html">ExpressionBuilderGraph</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_Acyclic__2_Bonsai_Dag_DirectedGraph___0___1__">DirectedGraphExtensions.Acyclic&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_DepthFirstSearch__2_Bonsai_Dag_DirectedGraph___0___1__">DirectedGraphExtensions.DepthFirstSearch&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_PredecessorEdges__2_Bonsai_Dag_DirectedGraph___0___1__Bonsai_Dag_Node___0___1__">DirectedGraphExtensions.PredecessorEdges&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;, Node&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_Predecessors__2_Bonsai_Dag_DirectedGraph___0___1__Bonsai_Dag_Node___0___1__">DirectedGraphExtensions.Predecessors&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;, Node&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_Sinks__2_Bonsai_Dag_DirectedGraph___0___1__">DirectedGraphExtensions.Sinks&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_Sources__2_Bonsai_Dag_DirectedGraph___0___1__">DirectedGraphExtensions.Sources&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_Successors__2_Bonsai_Dag_DirectedGraph___0___1__Bonsai_Dag_Node___0___1__">DirectedGraphExtensions.Successors&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;, Node&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Dag.DirectedGraphExtensions.html#Bonsai_Dag_DirectedGraphExtensions_TopologicalSort__2_Bonsai_Dag_DirectedGraph___0___1__">DirectedGraphExtensions.TopologicalSort&lt;TNodeValue, TEdgeLabel&gt;(DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2__ctor_" data-uid="Bonsai.Dag.DirectedGraph`2.#ctor*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2__ctor" data-uid="Bonsai.Dag.DirectedGraph`2.#ctor">
+  DirectedGraph()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Dag.DirectedGraph-2.html">DirectedGraph&lt;TNodeValue, TEdgeLabel&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectedGraph()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Count_" data-uid="Bonsai.Dag.DirectedGraph`2.Count*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Count" data-uid="Bonsai.Dag.DirectedGraph`2.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of nodes in the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Item_" data-uid="Bonsai.Dag.DirectedGraph`2.Item*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Item_System_Int32_" data-uid="Bonsai.Dag.DirectedGraph`2.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the node at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node&lt;TNodeValue, TEdgeLabel&gt; this[int index] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of the node to get.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node at the specified index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Add_" data-uid="Bonsai.Dag.DirectedGraph`2.Add*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Add_Bonsai_Dag_Node__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.Add(Bonsai.Dag.Node{`0,`1})">
+  Add(Node&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a node and all its successors to the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(Node&lt;TNodeValue, TEdgeLabel&gt; node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node to be added to the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Add_" data-uid="Bonsai.Dag.DirectedGraph`2.Add*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Add__0_" data-uid="Bonsai.Dag.DirectedGraph`2.Add(`0)">
+  Add(TNodeValue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and adds a new node with the specified value to the
+directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node&lt;TNodeValue, TEdgeLabel&gt; Add(TNodeValue value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">TNodeValue</span></dt>
+    <dd><p>The value of the node label.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The created node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_AddEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.AddEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_AddEdge_Bonsai_Dag_Node__0__1__Bonsai_Dag_Edge__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.AddEdge(Bonsai.Dag.Node{`0,`1},Bonsai.Dag.Edge{`0,`1})">
+  AddEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, Edge&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a labeled outgoing edge from the specified node in the
+directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, Edge&lt;TNodeValue, TEdgeLabel&gt; edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>edge</code> <a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The labeled outgoing edge to be added to the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_AddEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.AddEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_AddEdge_Bonsai_Dag_Node__0__1__Bonsai_Dag_Node__0__1___1_" data-uid="Bonsai.Dag.DirectedGraph`2.AddEdge(Bonsai.Dag.Node{`0,`1},Bonsai.Dag.Node{`0,`1},`1)">
+  AddEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, Node&lt;TNodeValue, TEdgeLabel&gt;, TEdgeLabel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and adds a new labeled edge linking the specified nodes in the
+directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Edge&lt;TNodeValue, TEdgeLabel&gt; AddEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, Node&lt;TNodeValue, TEdgeLabel&gt; to, TEdgeLabel label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the target of the edge.</p>
+</dd>
+    <dt><code>label</code> <span class="xref">TEdgeLabel</span></dt>
+    <dd><p>The value of the edge label.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The created edge.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_AddRange_" data-uid="Bonsai.Dag.DirectedGraph`2.AddRange*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_AddRange_System_Collections_Generic_IEnumerable_Bonsai_Dag_Node__0__1___" data-uid="Bonsai.Dag.DirectedGraph`2.AddRange(System.Collections.Generic.IEnumerable{Bonsai.Dag.Node{`0,`1}})">
+  AddRange(IEnumerable&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the nodes in a collection to the end of the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRange(IEnumerable&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt; collection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</dt>
+    <dd><p>The collection of nodes to insert into the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Bonsai_Dag_DirectedGraph_2_AddRange_System_Collections_Generic_IEnumerable_Bonsai_Dag_Node__0__1____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If any of the nodes in the collection are already in the directed graph,
+they will be moved into the new index position. Any successor nodes which
+are not in the graph will also be added in depth-first order.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Clear_" data-uid="Bonsai.Dag.DirectedGraph`2.Clear*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Clear" data-uid="Bonsai.Dag.DirectedGraph`2.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L594"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all nodes and corresponding edges from the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Contains_" data-uid="Bonsai.Dag.DirectedGraph`2.Contains*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Contains_Bonsai_Dag_Node__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.Contains(Bonsai.Dag.Node{`0,`1})">
+  Contains(Node&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a node is in the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(Node&lt;TNodeValue, TEdgeLabel&gt; node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node to locate in the directed graph.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">node</code> is found in the
+directed graph; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_CopyTo_" data-uid="Bonsai.Dag.DirectedGraph`2.CopyTo*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_CopyTo_Bonsai_Dag_Node__0__1____" data-uid="Bonsai.Dag.DirectedGraph`2.CopyTo(Bonsai.Dag.Node{`0,`1}[])">
+  CopyTo(Node&lt;TNodeValue, TEdgeLabel&gt;[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L615"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies all the nodes in the directed graph to a compatible
+one-dimensional array, starting at the beginning of the target array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(Node&lt;TNodeValue, TEdgeLabel&gt;[] array)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;[]</dt>
+    <dd><p>The one-dimensional array that is the destination of the nodes
+copied from the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The number of nodes in the directed graph is greater than the number
+of elements that the destination array can contain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_CopyTo_" data-uid="Bonsai.Dag.DirectedGraph`2.CopyTo*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_CopyTo_Bonsai_Dag_Node__0__1____System_Int32_" data-uid="Bonsai.Dag.DirectedGraph`2.CopyTo(Bonsai.Dag.Node{`0,`1}[],System.Int32)">
+  CopyTo(Node&lt;TNodeValue, TEdgeLabel&gt;[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L641"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies all the nodes in the directed graph to a compatible
+one-dimensional array, starting at the specified index of the target array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(Node&lt;TNodeValue, TEdgeLabel&gt;[] array, int arrayIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;[]</dt>
+    <dd><p>The one-dimensional array that is the destination of the nodes
+copied from the directed graph.</p>
+</dd>
+    <dt><code>arrayIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index in the array at which copying begins.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">arrayIndex</code> is less than 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The number of nodes in the directed graph is greater than the available
+space from <code class="paramref">arrayIndex</code> to the end of the destination array.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_GetEnumerator_" data-uid="Bonsai.Dag.DirectedGraph`2.GetEnumerator*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_GetEnumerator" data-uid="Bonsai.Dag.DirectedGraph`2.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L654"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the nodes in the
+directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</dt>
+    <dd><p>An enumerator that can be used to iterate through the nodes in the
+directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_IndexOf_" data-uid="Bonsai.Dag.DirectedGraph`2.IndexOf*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_IndexOf_Bonsai_Dag_Node__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.IndexOf(Bonsai.Dag.Node{`0,`1})">
+  IndexOf(Node&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Searches for the specified node and returns its zero-based
+index within the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(Node&lt;TNodeValue, TEdgeLabel&gt; node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node to locate in the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of <code class="paramref">node</code> in the collection,
+if found; otherwise, -1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Insert_" data-uid="Bonsai.Dag.DirectedGraph`2.Insert*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Insert_System_Int32_Bonsai_Dag_Node__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.Insert(System.Int32,Bonsai.Dag.Node{`0,`1})">
+  Insert(int, Node&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inserts a node into the directed graph at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, Node&lt;TNodeValue, TEdgeLabel&gt; node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index at which the node should be inserted.</p>
+</dd>
+    <dt><code>node</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node to insert into the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Bonsai_Dag_DirectedGraph_2_Insert_System_Int32_Bonsai_Dag_Node__0__1___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the node is already in the directed graph, it will be moved into the
+new index position. Any successor nodes which are not in the graph will
+also be added in depth-first order.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Insert_" data-uid="Bonsai.Dag.DirectedGraph`2.Insert*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Insert_System_Int32__0_" data-uid="Bonsai.Dag.DirectedGraph`2.Insert(System.Int32,`0)">
+  Insert(int, TNodeValue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L312"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and inserts a new node with the specified value into the
+directed graph at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node&lt;TNodeValue, TEdgeLabel&gt; Insert(int index, TNodeValue value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index at which the node should be inserted.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">TNodeValue</span></dt>
+    <dd><p>The value of the node label.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The created node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_InsertEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.InsertEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_InsertEdge_Bonsai_Dag_Node__0__1__System_Int32_Bonsai_Dag_Edge__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.InsertEdge(Bonsai.Dag.Node{`0,`1},System.Int32,Bonsai.Dag.Edge{`0,`1})">
+  InsertEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, int, Edge&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inserts a labeled outgoing edge of a source node at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, int edgeIndex, Edge&lt;TNodeValue, TEdgeLabel&gt; edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>edgeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index at which the edge should be inserted on the successor list
+of the <code class="paramref">from</code> node.</p>
+</dd>
+    <dt><code>edge</code> <a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The labeled outgoing edge that is to be inserted at the specified index on the successor
+list of the <code class="paramref">from</code> node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_InsertEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.InsertEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_InsertEdge_Bonsai_Dag_Node__0__1__System_Int32_Bonsai_Dag_Node__0__1___1_" data-uid="Bonsai.Dag.DirectedGraph`2.InsertEdge(Bonsai.Dag.Node{`0,`1},System.Int32,Bonsai.Dag.Node{`0,`1},`1)">
+  InsertEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, int, Node&lt;TNodeValue, TEdgeLabel&gt;, TEdgeLabel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and inserts a labeled outgoing edge of the source node at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Edge&lt;TNodeValue, TEdgeLabel&gt; InsertEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, int edgeIndex, Node&lt;TNodeValue, TEdgeLabel&gt; to, TEdgeLabel label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>edgeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index at which the edge should be inserted on the successor list
+of the <code class="paramref">from</code> node.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the target of the edge.</p>
+</dd>
+    <dt><code>label</code> <span class="xref">TEdgeLabel</span></dt>
+    <dd><p>The value of the edge label.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The created edge.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_InsertRange_" data-uid="Bonsai.Dag.DirectedGraph`2.InsertRange*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_InsertRange_System_Int32_System_Collections_Generic_IEnumerable_Bonsai_Dag_Node__0__1___" data-uid="Bonsai.Dag.DirectedGraph`2.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{Bonsai.Dag.Node{`0,`1}})">
+  InsertRange(int, IEnumerable&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L369"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inserts the nodes in a collection into the directed graph at the
+specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertRange(int index, IEnumerable&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt; collection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index at which the node collection should be inserted.</p>
+</dd>
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</dt>
+    <dd><p>The collection of nodes to insert into the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Bonsai_Dag_DirectedGraph_2_InsertRange_System_Int32_System_Collections_Generic_IEnumerable_Bonsai_Dag_Node__0__1____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If any of the nodes in the collection are already in the directed graph,
+they will be moved into the new index position. Any successor nodes which
+are not in the graph will also be added in depth-first order.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_Remove_" data-uid="Bonsai.Dag.DirectedGraph`2.Remove*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_Remove_Bonsai_Dag_Node__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.Remove(Bonsai.Dag.Node{`0,`1})">
+  Remove(Node&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified node from the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(Node&lt;TNodeValue, TEdgeLabel&gt; node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node to remove from the directed graph.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">node</code> is successfully removed;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+if <code class="paramref">node</code> was not found in the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_RemoveAt_" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveAt*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_RemoveAt_System_Int32_" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveAt(System.Int32)">
+  RemoveAt(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the node at the specified index of the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of the node to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_RemoveEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_RemoveEdge_Bonsai_Dag_Node__0__1__Bonsai_Dag_Edge__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveEdge(Bonsai.Dag.Node{`0,`1},Bonsai.Dag.Edge{`0,`1})">
+  RemoveEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, Edge&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L585"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified edge from the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, Edge&lt;TNodeValue, TEdgeLabel&gt; edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>edge</code> <a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The outgoing edge to remove from the directed graph.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">edge</code> is successfully removed;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+if <code class="paramref">edge</code> was not found in the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_RemoveRange_" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveRange*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_RemoveRange_System_Int32_System_Int32_" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveRange(System.Int32,System.Int32)">
+  RemoveRange(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a range of nodes from the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveRange(int index, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based starting index of the range of nodes to remove.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of nodes to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The <code class="paramref">index</code> and <code class="paramref">count</code> were out of bounds for
+the node list or <code class="paramref">count</code> is greater than the number of nodes
+from <code class="paramref">index</code> to the end of the node list.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_RemoveWhere_" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveWhere*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_RemoveWhere_System_Predicate_Bonsai_Dag_Node__0__1___" data-uid="Bonsai.Dag.DirectedGraph`2.RemoveWhere(System.Predicate{Bonsai.Dag.Node{`0,`1}})">
+  RemoveWhere(Predicate&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all nodes that match the conditions defined by the specified
+predicate from the directed graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RemoveWhere(Predicate&lt;Node&lt;TNodeValue, TEdgeLabel&gt;&gt; match)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>match</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;&gt;</dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate&lt;T&gt;</a> delegate that defines the conditions
+of the nodes to remove.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of nodes that were removed from the directed graph.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_SetEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.SetEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_SetEdge_Bonsai_Dag_Node__0__1__System_Int32_Bonsai_Dag_Edge__0__1__" data-uid="Bonsai.Dag.DirectedGraph`2.SetEdge(Bonsai.Dag.Node{`0,`1},System.Int32,Bonsai.Dag.Edge{`0,`1})">
+  SetEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, int, Edge&lt;TNodeValue, TEdgeLabel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces a labeled outgoing edge of a source node at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, int edgeIndex, Edge&lt;TNodeValue, TEdgeLabel&gt; edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>edgeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of the edge to replace on the successor list
+of the <code class="paramref">from</code> node.</p>
+</dd>
+    <dt><code>edge</code> <a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The labeled outgoing edge that is to be set at the specified index on the successor
+list of the <code class="paramref">from</code> node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Dag_DirectedGraph_2_SetEdge_" data-uid="Bonsai.Dag.DirectedGraph`2.SetEdge*"></a>
+
+  <h3 id="Bonsai_Dag_DirectedGraph_2_SetEdge_Bonsai_Dag_Node__0__1__System_Int32_Bonsai_Dag_Node__0__1___1_" data-uid="Bonsai.Dag.DirectedGraph`2.SetEdge(Bonsai.Dag.Node{`0,`1},System.Int32,Bonsai.Dag.Node{`0,`1},`1)">
+  SetEdge(Node&lt;TNodeValue, TEdgeLabel&gt;, int, Node&lt;TNodeValue, TEdgeLabel&gt;, TEdgeLabel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and replaces a labeled outgoing edge of the source node at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Edge&lt;TNodeValue, TEdgeLabel&gt; SetEdge(Node&lt;TNodeValue, TEdgeLabel&gt; from, int edgeIndex, Node&lt;TNodeValue, TEdgeLabel&gt; to, TEdgeLabel label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the source of the edge.</p>
+</dd>
+    <dt><code>edgeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of the edge to replace on the successor list
+of the <code class="paramref">from</code> node.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="Bonsai.Dag.Node-2.html">Node</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The node that is the target of the edge.</p>
+</dd>
+    <dt><code>label</code> <span class="xref">TEdgeLabel</span></dt>
+    <dd><p>The value of the edge label.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Bonsai.Dag.Edge-2.html">Edge</a>&lt;TNodeValue, TEdgeLabel&gt;</dt>
+    <dd><p>The created edge.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Dag/DirectedGraph.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Networking </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Networking ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/tutorials/networking.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="networking">Networking</h1>
+
+<p>Bonsai includes support for <a href="https://opensoundcontrol.stanford.edu/spec-1_0.html">Open Sound Control</a> (OSC), a flexible networking protocol for low-latency communication between different processes, potentially running in different devices over the network. The next exercises will show you how to leverage these primitives for connecting two Bonsai processes exchanging a variety of data. The final optional exercise shows how to leverage the OSC protocol to interface a Python script with a Bonsai workflow.</p>
+<h3 id="exercise-1-peer-to-peer-udp-communication"><strong>Exercise 1:</strong> Peer-to-peer UDP communication</h3>
+<p>We will start by implementing a direct peer-to-peer communication link between two processes on the same machine. This will allow us to send data between two known nodes in the network, or two independent Bonsai processes.</p>
+<p><img src="../images/osc-send-message.svg" alt="Send message"></p>
+<ul>
+<li>Setup the above workflow.</li>
+<li>Set the <code>Name</code> property of the <code>CreateUdpClient</code> source to <code>Emitter</code>.</li>
+<li>Set the <code>RemotePort</code> to 2342.</li>
+<li>Set the <code>Connection</code> property of the <code>SendMessage</code> sink to <code>Emitter</code>.</li>
+</ul>
+<p>Open a new Bonsai window and setup the following workflow:</p>
+<p><img src="../images/osc-receive-message.svg" alt="Receive message"></p>
+<ul>
+<li>Set the <code>Name</code> property of the <code>CreateUdpClient</code> source to <code>Receiver</code>.</li>
+<li>Set the <code>Port</code> property to 2342.</li>
+<li>Set the <code>Connection</code> property of the <code>ReceiveMessage</code> source to <code>Receiver</code>.</li>
+<li>Run the workflow and visualize the output of the <code>ReceiveMessage</code> source. Note the characters displayed in the <code>TypeTag</code>. Now change the <code>TypeTag</code> property of the <code>ReceiveMessage</code> source to <code>i</code>. This will make the source interpret the contents of the OSC message as a 32-bit integer. You can string multiple characters to describe complex messages.</li>
+<li>If you have access to two computers over a shared network, you can try to setup one of them to be the <code>Emitter</code> and the other to be the <code>Receiver</code>. In this case, make sure to set the <code>RemoteHostName</code> property of the <code>Emitter</code> to match the IP address of the receiver computer.</li>
+</ul>
+<h3 id="exercise-2-clientserver-tcp-communication"><strong>Exercise 2:</strong> Client/Server TCP communication</h3>
+<p>Next we will implement a responsive TCP server with support to accept multiple connections. This will allow us to share data between multiple unknown nodes in the network, where each receiver node just needs to know the IP address of the server and establish a connection to the data stream.</p>
+<p><img src="../images/osc-send-tcp.svg" alt="Send message"></p>
+<ul>
+<li>Setup the above workflow (identical to the previous exercise but using <code>CreateTcpServer</code>).</li>
+<li>Set the <code>Name</code> property of the <code>CreateTcpServer</code> source to <code>Emitter</code>.</li>
+<li>Set the <code>Port</code> property to 2342.</li>
+<li>Set the <code>Connection</code> property of the <code>SendMessage</code> sink to <code>Emitter</code>.</li>
+</ul>
+<p>Open a new Bonsai window and setup the following workflow:</p>
+<p><img src="../images/osc-receive-tcp.svg" alt="Receive message"></p>
+<ul>
+<li>Set the <code>Name</code> property of the <code>CreateTcpClient</code> source to <code>Receiver</code>.</li>
+<li>Set the <code>Port</code> property to 2342.</li>
+<li>Set the <code>Connection</code> property of the <code>ReceiveMessage</code> source to <code>Receiver</code>.</li>
+<li>Run the workflow and visualize the output of the <code>ReceiveMessage</code> source, optionally setting the <code>TypeTag</code> property to <code>i</code>. Try opening multiple copies of the receiver workflow and running them simultaneously. Verify that data is streamed to all instances successfully.</li>
+<li>If you have access to two or more computers over a shared network, you can try to set up multiple remote data listeners. In this case, make sure to set the <code>HostName</code> property of the <code>Receiver</code> node to match the IP address of the receiver computer.</li>
+</ul>
+<h3 id="exercise-3-streaming-image-data"><strong>Exercise 3:</strong> Streaming image data</h3>
+<p>It is possible to share multiple data streams of different types simultaneously through a single OSC connection. To do this, we need to specify different OSC addresses for our messages to allow clients to subscribe to the independent streams.</p>
+<p><img src="../images/osc-send-image.svg" alt="Send message"></p>
+<ul>
+<li>Start from the previous emitter workflow.</li>
+<li>Set the <code>Address</code> property of the <code>SendMessage</code> sink to <code>/cursor</code>.</li>
+<li>Add a <code>CameraCapture</code> source.</li>
+<li>Add a <code>ConvertToArray</code> transform to convert the image into an array of bytes.</li>
+<li>Add a new <code>SendMessage</code> node with the <code>Address</code> property set to <code>/image</code>.</li>
+<li>Ensure the <code>Connection</code> property of the new node is set to <code>Emitter</code>.</li>
+</ul>
+<p>Open a new Bonsai window and setup the following workflow:</p>
+<p><img src="../images/osc-receive-image.svg" alt="Receive message"></p>
+<ul>
+<li>Start from the previous receiver workflow.</li>
+<li>Set the <code>Address</code> property of the <code>ReceiveMessage</code> source to <code>/cursor</code>.</li>
+<li>Add a new <code>ReceiveMessage</code> source with the <code>Address</code> property set to <code>/image</code>.</li>
+<li>Run the emitter workflow and the receiver workflow and verify that you can receive both data streams.</li>
+<li>Set the <code>TypeTag</code> property on the new <code>ReceiveMessage</code> node to <code>b</code> for byte array.</li>
+<li>Add a <code>ConvertFromArray</code> transform following the <code>ReceiveMessage</code> source.</li>
+<li>Add a <code>Reshape</code> transform.</li>
+<li>Set the <code>Channels</code> property to 3 (color image) and the <code>Rows</code> property to 480 (or your camera image height).</li>
+<li>Add a <code>ConvertToImage</code> transform to interpret the resulting buffer as an image.</li>
+<li>Run both the emitter and the receiver workflow and verify you can successfully receive and decode both data streams. If you have access to two or more computers over a shared network, you can try to set up multiple remote data listeners, each listening to one or both data streams.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/tutorials/networking.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

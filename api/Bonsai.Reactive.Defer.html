@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Defer </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Defer ">
+      
+      <meta name="description" content="Represents an expression builder that creates a new observable sequence for each subscription using the encapsulated workflow.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/apidoc/Bonsai_Reactive_Defer.md/#L2">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Reactive.Defer">
+
+
+
+  <h1 id="Bonsai_Reactive_Defer" data-uid="Bonsai.Reactive.Defer" class="text-break">
+Class Defer  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Defer.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Reactive.html">Reactive</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an expression builder that creates a new observable sequence
+for each subscription using the encapsulated workflow.</p>
+</div>
+  <div class="markdown conceptual"><p><img src="../images/reactive-defer.svg" alt="Marble diagram"></p>
+<p>The <code>Defer</code> operator uses the nested workflow to specify the constructed sequence. All input sequences to the outer <code>Defer</code> node will be routed to the inner <a class="xref" href="Bonsai.Expressions.WorkflowInputBuilder.html">WorkflowInput</a> nodes, and all notifications emitted by the inner <a class="xref" href="Bonsai.Expressions.WorkflowOutputBuilder.html">WorkflowOutput</a> node will be emitted by the outer <code>Defer</code> node. Multiple subscriptions can be active simultaneously, in which case the nested workflow will run multiple times and is considered to be reentrant.</p>
+</div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Defer : WorkflowExpressionBuilder, IWorkflowExpressionBuilder, INamedElement, IPropertyMappingBuilder, IExpressionBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html">ExpressionBuilder</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html">WorkflowExpressionBuilder</a></div>
+      <div><span class="xref">Defer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Expressions.IWorkflowExpressionBuilder.html">IWorkflowExpressionBuilder</a></div>
+      <div><a class="xref" href="Bonsai.INamedElement.html">INamedElement</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.IPropertyMappingBuilder.html">IPropertyMappingBuilder</a></div>
+      <div><a class="xref" href="Bonsai.Expressions.IExpressionBuilder.html">IExpressionBuilder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html#Bonsai_Expressions_WorkflowExpressionBuilder_Name">WorkflowExpressionBuilder.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html#Bonsai_Expressions_WorkflowExpressionBuilder_Description">WorkflowExpressionBuilder.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html#Bonsai_Expressions_WorkflowExpressionBuilder_Workflow">WorkflowExpressionBuilder.Workflow</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html#Bonsai_Expressions_WorkflowExpressionBuilder_WorkflowDescriptor">WorkflowExpressionBuilder.WorkflowDescriptor</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html#Bonsai_Expressions_WorkflowExpressionBuilder_ArgumentRange">WorkflowExpressionBuilder.ArgumentRange</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.WorkflowExpressionBuilder.html#Bonsai_Expressions_WorkflowExpressionBuilder_BuildWorkflow_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__">WorkflowExpressionBuilder.BuildWorkflow(IEnumerable&lt;Expression&gt;, Expression, Func&lt;Expression, Expression&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_ToString">ExpressionBuilder.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_Unwrap_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.Unwrap(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetWorkflowElement_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.GetWorkflowElement(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetVisualizerElement_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.GetVisualizerElement(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetVisualizerMappings_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilder.GetVisualizerMappings(ExpressionBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_FromWorkflowElement_System_Object_Bonsai_ElementCategory_">ExpressionBuilder.FromWorkflowElement(object, ElementCategory)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetElementDisplayName_System_Type_">ExpressionBuilder.GetElementDisplayName(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilder.html#Bonsai_Expressions_ExpressionBuilder_GetElementDisplayName_System_Object_">ExpressionBuilder.GetElementDisplayName(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraphExtensions.html#Bonsai_Expressions_ExpressionBuilderGraphExtensions_AsInspectBuilder_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilderGraphExtensions.AsInspectBuilder(ExpressionBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraphExtensions.html#Bonsai_Expressions_ExpressionBuilderGraphExtensions_Build_Bonsai_Expressions_ExpressionBuilder_System_Linq_Expressions_Expression___">ExpressionBuilderGraphExtensions.Build(ExpressionBuilder, params Expression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraphExtensions.html#Bonsai_Expressions_ExpressionBuilderGraphExtensions_IsBuildDependency_Bonsai_Expressions_ExpressionBuilder_">ExpressionBuilderGraphExtensions.IsBuildDependency(ExpressionBuilder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Reactive_Defer__ctor_" data-uid="Bonsai.Reactive.Defer.#ctor*"></a>
+
+  <h3 id="Bonsai_Reactive_Defer__ctor" data-uid="Bonsai.Reactive.Defer.#ctor">
+  Defer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Defer.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Reactive.Defer.html">Defer</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Defer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Reactive_Defer__ctor_" data-uid="Bonsai.Reactive.Defer.#ctor*"></a>
+
+  <h3 id="Bonsai_Reactive_Defer__ctor_Bonsai_Expressions_ExpressionBuilderGraph_" data-uid="Bonsai.Reactive.Defer.#ctor(Bonsai.Expressions.ExpressionBuilderGraph)">
+  Defer(ExpressionBuilderGraph)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Defer.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Reactive.Defer.html">Defer</a> class
+with the specified expression builder workflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Defer(ExpressionBuilderGraph workflow)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workflow</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderGraph.html">ExpressionBuilderGraph</a></dt>
+    <dd><p>The expression builder workflow instance that will be used by this builder
+to generate the output expression tree.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Reactive_Defer_Build_" data-uid="Bonsai.Reactive.Defer.Build*"></a>
+
+  <h3 id="Bonsai_Reactive_Defer_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__" data-uid="Bonsai.Reactive.Defer.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})">
+  Build(IEnumerable&lt;Expression&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Defer.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a> node from a collection of input arguments.
+The result can be chained with other builders in a workflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Expression Build(IEnumerable&lt;Expression&gt; arguments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</dt>
+    <dd><p>A collection of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a> nodes that represents the input arguments.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a> tree node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Reactive/Defer.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

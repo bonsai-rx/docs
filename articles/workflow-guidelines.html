@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Workflow Design Guidelines </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Workflow Design Guidelines ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/articles/workflow-guidelines.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="workflow-guidelines">
+<h1 id="workflow-design-guidelines">Workflow Design Guidelines</h1>
+
+<p>This section offers guidelines and design patterns to consider when developing workflows for any reactive program.</p>
+<h2 id="workflow-organization">Workflow Organization</h2>
+<div class="do"><p>use <code>GroupWorkflow</code> nodes to separate independent functionality (e.g. acquisition, visualization and processing).</p>
+</div>
+<div class="avoid"><p>branching without merging.</p>
+</div>
+<h2 id="subject-declaration">Subject Declaration</h2>
+<p>Using subjects is one of the most important techniques for improving readability and managing the complexity of large workflows. Subjects make it possible to reduce the number of branches in the workflow and also allow abstraction over data sources and sinks so that you can easily replace different components. Finally, subjects are fundamental for managing and storing data inside nested operators.</p>
+<div class="do"><p>prefer using subjects over branches when sharing sequences across independent sections of the workflow.</p>
+</div>
+<div class="do"><p>use a <a class="xref" href="../api/Bonsai.Reactive.BehaviorSubject.html"><code>BehaviorSubject</code></a> to share global state which can be accessed by multiple consumers and modified by multiple producers.</p>
+</div>
+<div class="avoid"><p>using <a class="xref" href="../api/Bonsai.Expressions.MulticastSubject.html"><code>MulticastSubject</code></a> on variables which are not declared as <a class="xref" href="../api/Bonsai.Reactive.BehaviorSubject.html"><code>BehaviorSubject</code></a>. This will prevent accidental termination of the subject sequence if a producer terminates prematurely.</p>
+</div>
+<div class="consider"><p>using <a class="xref" href="subjects.html#source-subjects">source subjects</a> when sharing a sequence with one consumer where data is generated by zero or more producers.</p>
+</div>
+<div class="consider"><p>moving all subject declarations to the top of the workflow. This will make sure that subject initialization order is easily readable from top to bottom.</p>
+</div>
+<h2 id="nested-operators">Nested Operators</h2>
+<p>Several reactive operators require specification of a nested workflow, e.g. <a class="xref" href="../api/Bonsai.Reactive.SelectMany.html"><code>SelectMany</code></a> or <a class="xref" href="../api/Bonsai.Reactive.CreateObservable.html"><code>CreateObservable</code></a>. The operator itself will control when the nested workflow is initialized and subscribed to. If it is possible for a nested workflow to be executed multiple times, potentially in parallel, we call the operator <em>reentrant</em>. Some care is necessary to understand how to manage shared state and properties inside a reentrant nested operator.</p>
+<div class="do"><p>use an <a class="xref" href="../api/Bonsai.Reactive.AsyncSubject.html"><code>AsyncSubject</code></a> to share workflow input data inside a nested operator.</p>
+</div>
+<div class="avoid"><p>using <a class="xref" href="../api/Bonsai.Expressions.PropertyMappingBuilder.html"><code>PropertyMapping</code></a> nodes inside reentrant nested operators.</p>
+</div>
+<h2 id="property-initialization">Property Initialization</h2>
+<div class="donot"><p>branch a source sequence to share the same value across different <a class="xref" href="../api/Bonsai.Expressions.PropertyMappingBuilder.html"><code>PropertyMapping</code></a> nodes. This can introduce a race condition for operators that use property values at subscribe time.</p>
+</div>
+<p>Alternatively, you can either share the value using a subject, or branch after the <code>PropertyMapping</code> node (if both the value to share and the name of the property in each node are identical).</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/articles/workflow-guidelines.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

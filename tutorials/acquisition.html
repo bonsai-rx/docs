@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Acquisition and Tracking </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Acquisition and Tracking ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/tutorials/acquisition.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="acquisition-and-tracking">Acquisition and Tracking</h1>
+
+<h2 id="video-acquisition">Video Acquisition</h2>
+<p>Bonsai can be used to acquire and record data from many different devices. The exercises below will make you comfortable with the most common Bonsai data types. The first data type we will discuss is an image, which is represented as a 2D matrix of pixels. Each pixel represents either a brightness value in a grayscale image, or a BGR colour value in a colour image.</p>
+<h3 id="exercise-1-saving-a-video"><strong>Exercise 1:</strong> Saving a video</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-video.bonsai" alt="Saving a video"></p>
+</div>
+<ul>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.CameraCapture.html"><code>CameraCapture</code></a> source.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.VideoWriter.html"><code>VideoWriter</code></a> sink.</li>
+<li>Configure the <code>FileName</code> property of the <code>VideoWriter</code> operator with a file name ending in <code>.avi</code>.</li>
+<li>Run the workflow and check that it generates a valid video file.</li>
+</ul>
+<h3 id="exercise-2-saving-a-grayscale-video"><strong>Exercise 2:</strong> Saving a grayscale video</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-grayvideo.bonsai" alt="Saving a grayscale video"></p>
+</div>
+<ul>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.Grayscale.html"><code>Grayscale</code></a> transform between <code>CameraCapture</code> and <code>VideoWriter</code>.</li>
+<li>Run the workflow. The output should now be a grayscale movie.</li>
+<li>How would you modify the workflow to record <strong>both</strong> a colour and a grayscale movie?</li>
+</ul>
+<h2 id="audio-acquisition">Audio Acquisition</h2>
+<p>Audio data is captured at much higher temporal sampling frequencies than video. However, the data is typically buffered into chunks of multiple samples before being sent to the computer. Also, multi-channel data can be acquired simultaneously in the case of a stereo microphone, or high-density ephys probes. Such multi-sample, multi-channel data is typically represented as a 2D matrix, where rows represent channels, and columns represent time.</p>
+<h3 id="exercise-3-saving-a-wav-file"><strong>Exercise 3:</strong> Saving a WAV file</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-audio.bonsai" alt="Saving a WAV file"></p>
+</div>
+<ul>
+<li>Insert an <a class="xref" href="../api/Bonsai.Audio.AudioCapture.html"><code>AudioCapture</code></a> source.</li>
+<li>Insert an <a class="xref" href="../api/Bonsai.Audio.AudioWriter.html"><code>AudioWriter</code></a> sink.</li>
+<li>Configure the <code>FileName</code> property of the <code>AudioWriter</code> operator with a file name ending in <code>.wav</code>.</li>
+<li>Make sure that the <a class="xref" href="../api/Bonsai.Audio.AudioWriter.html#Bonsai_Audio_AudioWriter_SampleRate"><code>SampleRate</code></a> property of the <code>AudioWriter</code> matches the frequency of audio capture.</li>
+<li>Run the workflow for some seconds. Playback the file in your favorite media player to check that it is a valid audio file.</li>
+</ul>
+<h3 id="exercise-4-saving-raw-binary-waveform-data"><strong>Exercise 4:</strong> Saving raw binary waveform data</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-audiobinary.bonsai" alt="Saving raw binary waveform data"></p>
+</div>
+<ul>
+<li>Replace the <code>AudioWriter</code> operator with a <a class="xref" href="../api/Bonsai.Dsp.MatrixWriter.html"><code>MatrixWriter</code></a> sink.</li>
+<li>Configure the <code>Path</code> property of the <code>MatrixWriter</code> operator with a file name ending in <code>.bin</code>.</li>
+<li>Run the workflow for some seconds.</li>
+<li>Open the resulting binary file in MATLAB/Python/R and make a time series plot of the raw waveform samples.
+<ul>
+<li><strong>MATLAB:</strong> Use the <a href="https://www.mathworks.com/help/matlab/ref/fread.html"><code>fread</code></a> function to read the binary file. The source data must be set to <code>int16</code>.</li>
+<li><strong>Python:</strong> Use the <a href="https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html"><code>fromfile</code></a> in the <a href="https://numpy.org/install/"><code>numpy</code></a> package to read the binary file. The <code>dtype</code> option must be set to <code>np.int16</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="exercise-5-trigger-an-auditory-stimulus"><strong>Exercise 5:</strong> Trigger an auditory stimulus</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-audioplayback.bonsai" alt="Playback an audio file"></p>
+</div>
+<ul>
+<li>Insert an <a class="xref" href="../api/Bonsai.Audio.AudioReader.html"><code>AudioReader</code></a> source.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.Audio.AudioReader.html#Bonsai_Audio_AudioReader_FileName"><code>FileName</code></a> property to point to the audio file you recorded in <em>Exercise 3</em>.</li>
+<li>Insert an <a class="xref" href="../api/Bonsai.Audio.AudioPlayback.html"><code>AudioPlayback</code></a> sink.</li>
+<li>Run the workflow and check the sound is played correctly.</li>
+</ul>
+<div class="workflow"><p><img src="../workflows/acquisition-audiotrigger.bonsai" alt="Trigger an auditory stimulus"></p>
+</div>
+<ul>
+<li>Insert a <a class="xref" href="../api/Bonsai.Windows.Input.KeyDown.html"><code>KeyDown</code></a> source.</li>
+<li>Set the <a class="xref" href="../api/Bonsai.Audio.AudioReader.html#Bonsai_Audio_AudioReader_BufferLength"><code>BufferLength</code></a> property of the <code>AudioReader</code> to zero, so that all audio data is read into a single buffer.</li>
+<li>Combine the key press with the audio data using the <a class="xref" href="../api/Bonsai.Reactive.WithLatestFrom.html"><code>WithLatestFrom</code></a> combinator.</li>
+<li>Right-click the <code>WithLatestFrom</code> operator. Select the <code>Tuple</code> &gt; <code>Item2</code> member from the context menu.</li>
+<li>Move the <code>AudioPlayback</code> sink so that it follows the selected <code>Item2</code> member.</li>
+<li>Run the workflow and press a key. What happens if you press the key several times?</li>
+</ul>
+<h2 id="arduino-acquisition">Arduino Acquisition</h2>
+<p>In order to communicate and interact with an Arduino using Bonsai, you must program the microcontroller to send and receive binary data from the computer via the USB cable. Fortunately, the Arduino environment already comes with a standard implementation of an efficient binary protocol called <strong><a href="https://github.com/firmata/arduino">Firmata</a></strong> which can be used for serial communication with external applications such as Bonsai.</p>
+<h3 id="configure-arduino-for-real-time-communication">Configure Arduino for real-time communication</h3>
+<ul>
+<li>Open the <a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a>.</li>
+<li>Upload <code>StandardFirmata</code> to your Arduino. The code can be found in <code>File</code> &gt; <code>Examples</code> &gt; <code>Firmata</code>.</li>
+</ul>
+<h3 id="exercise-6-saving-analog-data"><strong>Exercise 6:</strong> Saving analog data</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-analog.bonsai" alt="Saving analog data"></p>
+</div>
+<ul>
+<li>Insert an <a class="xref" href="../api/Bonsai.Arduino.AnalogInput.html"><code>AnalogInput</code></a> source.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.Arduino.AnalogInput.html#Bonsai_Arduino_AnalogInput_PortName"><code>PortName</code></a> property to point to the correct serial port where the Arduino is connected.</li>
+<li>Run the workflow and visualize the output of the analog source. What do you see?</li>
+<li><strong>Optional:</strong> Connect a sensor to the analog input pin, e.g. a potentiometer or a button.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.IO.CsvWriter.html"><code>CsvWriter</code></a> sink. This operator records input data into a text file.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.IO.CsvWriter.html#Bonsai_IO_CsvWriter_FileName"><code>FileName</code></a> property of the <code>CsvWriter</code> operator with a file name ending in <code>.csv</code>.</li>
+<li>Run the workflow, record some interesting signal, and then open the result text data file.</li>
+</ul>
+<h3 id="exercise-7-control-an-led"><strong>Exercise 7:</strong> Control an LED</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-led.bonsai" alt="Control an LED"></p>
+</div>
+<ul>
+<li>Insert a <a class="xref" href="../api/Bonsai.Expressions.BooleanProperty.html"><code>Boolean</code></a> source.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Arduino.DigitalOutput.html"><code>DigitalOutput</code></a> sink.</li>
+<li>Set the <a class="xref" href="../api/Bonsai.Arduino.DigitalOutput.html#Bonsai_Arduino_DigitalOutput_Pin"><code>Pin</code></a> property of the <code>DigitalOutput</code> operator to 13.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.Arduino.DigitalOutput.html#Bonsai_Arduino_DigitalOutput_PortName"><code>PortName</code></a> property.</li>
+<li>Run the workflow and change the <code>Value</code> property of the <code>Boolean</code> operator.</li>
+<li><strong>Optional:</strong> Use your mouse to control the LED! Replace the <code>Boolean</code> operator by a <a class="xref" href="../api/Bonsai.Windows.Input.MouseMove.html"><code>MouseMove</code></a> source (hint: use <a class="xref" href="../api/Bonsai.Expressions.GreaterThanBuilder.html"><code>GreaterThan</code></a>, <a class="xref" href="../api/Bonsai.Expressions.LessThanBuilder.html"><code>LessThan</code></a>, or equivalent operators to connect one of the mouse axis to <code>DigitalOutput</code>).</li>
+</ul>
+<h3 id="exercise-8-control-a-servo-motor"><strong>Exercise 8:</strong> Control a servo motor</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-servo.bonsai" alt="Control a servo motor"></p>
+</div>
+<ul>
+<li>Insert a <a class="xref" href="../api/Bonsai.Reactive.Timer.html"><code>Timer</code></a> source. Set its <a class="xref" href="../api/Bonsai.Reactive.Timer.html#Bonsai_Reactive_Timer_Period"><code>Period</code></a> property to 500 ms.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Reactive.Take.html"><code>Take</code></a> operator. Set its <a class="xref" href="../api/Bonsai.Reactive.Take.html#Bonsai_Reactive_Take_Count"><code>Count</code></a> property to 10.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Dsp.Rescale.html"><code>Rescale</code></a> operator. Set its <a class="xref" href="../api/Bonsai.Dsp.Rescale.html#Bonsai_Dsp_Rescale_Max"><code>Max</code></a> property to 10, and its <a class="xref" href="../api/Bonsai.Dsp.Rescale.html#Bonsai_Dsp_Rescale_RangeMax"><code>RangeMax</code></a> property to 180.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Reactive.Repeat.html"><code>Repeat</code></a> operator.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Arduino.ServoOutput.html"><code>ServoOutput</code></a> sink.</li>
+<li>Set the <a class="xref" href="../api/Bonsai.Arduino.ServoOutput.html#Bonsai_Arduino_ServoOutput_Pin"><code>Pin</code></a> property of the <code>ServoOutput</code> operator to 9.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.Arduino.ServoOutput.html#Bonsai_Arduino_ServoOutput_PortName"><code>PortName</code></a> property.</li>
+<li>Connect a servo motor to the Arduino pin 9 and run the workflow. Can you explain the behaviour of the servo?</li>
+<li><strong>Optional:</strong> Make the servo sweep back and forth.</li>
+</ul>
+<h2 id="video-tracking">Video Tracking</h2>
+<p>Bonsai allows processing captured raw video data to extract real-time measures of behaviour or other derived quantities. The exercises below will introduce you to some of its online video processing capabilities.</p>
+<h3 id="exercise-9-segmentation-of-a-coloured-object"><strong>Exercise 9:</strong> Segmentation of a coloured object</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-segmentation1.bonsai" alt="Segmentation of a coloured object"></p>
+</div>
+<ul>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.CameraCapture.html"><code>CameraCapture</code></a> source.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.RangeThreshold.html"><code>RangeThreshold</code></a> transform.</li>
+<li>Open the visualizer for the <code>RangeThreshold</code> operator.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.Vision.RangeThreshold.html#Bonsai_Vision_RangeThreshold_Lower"><code>Lower</code></a> and <a class="xref" href="../api/Bonsai.Vision.RangeThreshold.html#Bonsai_Vision_RangeThreshold_Upper"><code>Upper</code></a> properties of the <code>RangeThreshold</code> to isolate your coloured object (hint: click the small arrow to the left of each property to expand their individual values).</li>
+</ul>
+<p>This method segments coloured objects by setting boundaries directly on the BGR colour space. This colour space is considered a poor choice for colour segmentation. Can you see why?</p>
+<div class="workflow"><p><img src="../workflows/acquisition-segmentation2.bonsai" alt="Segmentation of a coloured object"></p>
+</div>
+<ul>
+<li>Replace the <code>RangeThreshold</code> operator by a <a class="xref" href="../api/Bonsai.Vision.ConvertColor.html"><code>ConvertColor</code></a> transform. This node converts the image from the BGR colour space to the <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Hue-Saturation-Value (HSV) colour space</a>.</li>
+<li>Insert an <a class="xref" href="../api/Bonsai.Vision.HsvThreshold.html"><code>HsvThreshold</code></a> transform.</li>
+<li>Configure the <a class="xref" href="../api/Bonsai.Vision.HsvThreshold.html#Bonsai_Vision_HsvThreshold_Lower"><code>Lower</code></a> and <a class="xref" href="../api/Bonsai.Vision.HsvThreshold.html#Bonsai_Vision_HsvThreshold_Upper"><code>Upper</code></a> properties of the <code>HsvThreshold</code> to isolate the object.</li>
+<li>Test the resulting tracking under different illumination conditions.</li>
+</ul>
+<h3 id="exercise-10-real-time-position-tracking"><strong>Exercise 10:</strong> Real-time position tracking</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-tracking.bonsai" alt="Real-time position tracking"></p>
+</div>
+<ul>
+<li>Starting with the workflow from the previous exercise, insert a <a class="xref" href="../api/Bonsai.Vision.FindContours.html"><code>FindContours</code></a> transform. This operator traces the contours of all the objects in a black-and-white image. An <em>object</em> is defined as a region of connected white pixels.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.BinaryRegionAnalysis.html"><code>BinaryRegionAnalysis</code></a> transform. This node calculates the area, center of mass, and orientation for all the detected contours.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.LargestBinaryRegion.html"><code>LargestBinaryRegion</code></a> transform to extract the largest detected object in the image.</li>
+<li>Select the <code>ConnectedComponent</code> &gt; <code>Centroid</code> field of the largest binary region using the context menu.</li>
+<li>Record the position of the centroid using a <a class="xref" href="../api/Bonsai.IO.CsvWriter.html"><code>CsvWriter</code></a> sink.</li>
+<li><strong>Optional:</strong> Open the CSV file in Excel/Python/MATLAB/R and plot the trajectory of the object.</li>
+</ul>
+<h3 id="exercise-11-background-subtraction-and-motion-segmentation"><strong>Exercise 11:</strong> Background subtraction and motion segmentation</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-backsubtraction.bonsai" alt="Background subtraction"></p>
+</div>
+<ul>
+<li>Create a grayscale video workflow similar to <em>Exercise 2</em>.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Reactive.Skip.html"><code>Skip</code></a> operator. Set its <code>Count</code> property to 1.</li>
+<li>In a new branch, insert a <a class="xref" href="../api/Bonsai.Reactive.Take.html"><code>Take</code></a> operator. Set its <code>Count</code> property to 1.</li>
+<li>Combine the images from both branches using the <a class="xref" href="../api/Bonsai.Reactive.CombineLatest.html"><code>CombineLatest</code></a> combinator.</li>
+<li>Insert the <a class="xref" href="../api/Bonsai.Dsp.AbsoluteDifference.html"><code>AbsoluteDifference</code></a> transform after <code>CombineLatest</code>.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.Threshold.html"><code>Threshold</code></a> transform. Visualize the node output and adjust the <a class="xref" href="../api/Bonsai.Vision.Threshold.html#Bonsai_Vision_Threshold_ThresholdValue"><code>ThresholdValue</code></a> property.</li>
+</ul>
+<p><em>Describe in your own words what the above workflow is doing.</em></p>
+<div class="workflow"><p><img src="../workflows/acquisition-motionsegmentation.bonsai" alt="Motion segmentation"></p>
+</div>
+<ul>
+<li>Replace the <code>CombineLatest</code> operator with the <a class="xref" href="../api/Bonsai.Reactive.Zip.html"><code>Zip</code></a> combinator.</li>
+<li>Delete the <code>Take</code> operator.</li>
+</ul>
+<p><em>Describe in your own words what the above modified workflow is doing.</em></p>
+<h3 id="exercise-12-measuring-motion"><strong>Exercise 12:</strong> Measuring motion</h3>
+<div class="workflow"><p><img src="../workflows/acquisition-motion.bonsai" alt="Measuring motion"></p>
+</div>
+<ul>
+<li>Create a grayscale video stream similar to <em>Exercise 2</em>.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Vision.BackgroundSubtraction.html"><code>BackgroundSubtraction</code></a> transform. Set its <code>AdaptationRate</code> property to 1.</li>
+<li>Insert a <a class="xref" href="../api/Bonsai.Dsp.Sum.html"><code>Sum</code></a> operator. This operator will sum the values of all the pixels in the image.</li>
+<li>Run the workflow, point the camera at a moving object and visualize the output of the <code>Sum</code> operator. Compare small movements to big movements. What happens to the signal when the object holds perfectly still?</li>
+<li>Right-click the <code>Sum</code> operator. Select the <code>Scalar</code> &gt; <code>Val0</code> member from the context menu.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>Sum</code> operator sums the pixel values across all image colour channels. However, in the case of grayscale binary images, there is only one active channel and its sum is stored in the <a class="xref" href="https://horizongir.github.io/opencv.net/api/OpenCV.Net.Scalar.html#OpenCV_Net_Scalar_Val0"><code>Val0</code></a> field.</p>
+</div>
+<ul>
+<li>Record the motion of an object using a <a class="xref" href="../api/Bonsai.IO.CsvWriter.html"><code>CsvWriter</code></a> sink.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/tutorials/acquisition.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

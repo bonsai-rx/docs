@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UpdateSourceState </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UpdateSourceState ">
+      
+      <meta name="description" content="Provides an abstract base class for operators that update the state of specified audio sources.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Audio_UpdateSourceState.md&amp;value=---%0Auid%3A%20Bonsai.Audio.UpdateSourceState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Audio.UpdateSourceState">
+
+
+
+  <h1 id="Bonsai_Audio_UpdateSourceState" data-uid="Bonsai.Audio.UpdateSourceState" class="text-break">
+Class UpdateSourceState  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Audio.html">Audio</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Audio.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides an abstract base class for operators that update the state of
+specified audio sources.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class UpdateSourceState : Sink</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Bonsai.Combinator.html">Combinator</a></div>
+      <div><a class="xref" href="Bonsai.Sink.html">Sink</a></div>
+      <div><span class="xref">UpdateSourceState</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Bonsai.Audio.PauseSource.html">PauseSource</a></div>
+      <div><a class="xref" href="Bonsai.Audio.PlaySource.html">PlaySource</a></div>
+      <div><a class="xref" href="Bonsai.Audio.RewindSource.html">RewindSource</a></div>
+      <div><a class="xref" href="Bonsai.Audio.StopSource.html">StopSource</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Audio_UpdateSourceState_DeviceName_" data-uid="Bonsai.Audio.UpdateSourceState.DeviceName*"></a>
+
+  <h3 id="Bonsai_Audio_UpdateSourceState_DeviceName" data-uid="Bonsai.Audio.UpdateSourceState.DeviceName">
+  DeviceName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of the audio device used for playback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(PlaybackDeviceNameConverter))]
+public string DeviceName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Audio_UpdateSourceState_SourceName_" data-uid="Bonsai.Audio.UpdateSourceState.SourceName*"></a>
+
+  <h3 id="Bonsai_Audio_UpdateSourceState_SourceName" data-uid="Bonsai.Audio.UpdateSourceState.SourceName">
+  SourceName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of the audio source, or a comma-separated list
+of names if specifying multiple sources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(SourceNameArrayConverter))]
+public string[] SourceName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Audio_UpdateSourceState_Process_" data-uid="Bonsai.Audio.UpdateSourceState.Process*"></a>
+
+  <h3 id="Bonsai_Audio_UpdateSourceState_Process_System_IObservable_Bonsai_Audio_AudioSource____" data-uid="Bonsai.Audio.UpdateSourceState.Process(System.IObservable{Bonsai.Audio.AudioSource[]})">
+  Process(IObservable&lt;AudioSource[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the state of all the audio sources in an observable sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;AudioSource[]&gt; Process(IObservable&lt;AudioSource[]&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="Bonsai.Audio.AudioSource.html">AudioSource</a>[]&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="Bonsai.Audio.AudioSource.html">AudioSource</a> arrays containing all the audio sources
+whose state should be updated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="Bonsai.Audio.AudioSource.html">AudioSource</a>[]&gt;</dt>
+    <dd><p>An observable sequence that is identical to the <code class="paramref">source</code> sequence
+but where there is an additional side effect of updating the state of all the
+audio sources.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Bonsai_Audio_UpdateSourceState_Process_System_IObservable_Bonsai_Audio_AudioSource_____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <a class="xref" href="Bonsai.Audio.UpdateSourceState.html#Bonsai_Audio_UpdateSourceState_SourceName">SourceName</a> is not null or empty, this method behaves as
+<a class="xref" href="Bonsai.Audio.UpdateSourceState.html#Bonsai_Audio_UpdateSourceState_Process__1_System_IObservable___0__">Process&lt;TSource&gt;(IObservable&lt;TSource&gt;)</a>.</p>
+</div>
+
+
+
+
+  <a id="Bonsai_Audio_UpdateSourceState_Process_" data-uid="Bonsai.Audio.UpdateSourceState.Process*"></a>
+
+  <h3 id="Bonsai_Audio_UpdateSourceState_Process_System_IObservable_Bonsai_Audio_AudioSource__" data-uid="Bonsai.Audio.UpdateSourceState.Process(System.IObservable{Bonsai.Audio.AudioSource})">
+  Process(IObservable&lt;AudioSource&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the state of all the audio sources in an observable sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObservable&lt;AudioSource&gt; Process(IObservable&lt;AudioSource&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="Bonsai.Audio.AudioSource.html">AudioSource</a>&gt;</dt>
+    <dd><p>A sequence of <a class="xref" href="Bonsai.Audio.AudioSource.html">AudioSource</a> objects whose state should be updated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="Bonsai.Audio.AudioSource.html">AudioSource</a>&gt;</dt>
+    <dd><p>An observable sequence that is identical to the <code class="paramref">source</code> sequence
+but where there is an additional side effect of updating the state of each of the
+audio sources in the sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Bonsai_Audio_UpdateSourceState_Process_System_IObservable_Bonsai_Audio_AudioSource___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <a class="xref" href="Bonsai.Audio.UpdateSourceState.html#Bonsai_Audio_UpdateSourceState_SourceName">SourceName</a> is not null or empty, this method behaves as
+<a class="xref" href="Bonsai.Audio.UpdateSourceState.html#Bonsai_Audio_UpdateSourceState_Process__1_System_IObservable___0__">Process&lt;TSource&gt;(IObservable&lt;TSource&gt;)</a>.</p>
+</div>
+
+
+
+
+  <a id="Bonsai_Audio_UpdateSourceState_Process_" data-uid="Bonsai.Audio.UpdateSourceState.Process*"></a>
+
+  <h3 id="Bonsai_Audio_UpdateSourceState_Process__1_System_IObservable___0__" data-uid="Bonsai.Audio.UpdateSourceState.Process``1(System.IObservable{``0})">
+  Process&lt;TSource&gt;(IObservable&lt;TSource&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the state of the specified audio source whenever the source sequence
+emits a notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IObservable&lt;TSource&gt; Process&lt;TSource&gt;(IObservable&lt;TSource&gt; source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource&gt;</dt>
+    <dd><p>The sequence containing the notifications used to trigger the update of
+the audio source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;TSource&gt;</dt>
+    <dd><p>An observable sequence that is identical to the <code class="paramref">source</code> sequence
+but where there is an additional side effect of updating the state of the specified
+audio source whenever the sequence emits a notification.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSource</code></dt>
+    <dd><p>The type of the elements in the <code class="paramref">source</code> sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Audio/UpdateSourceState.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

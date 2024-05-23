@@ -1,0 +1,780 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Bonsai.Shaders </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Bonsai.Shaders ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Shaders">
+
+  <h1 id="Bonsai_Shaders" data-uid="Bonsai.Shaders" class="text-break">Namespace Bonsai.Shaders</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.AspectRatio.html">AspectRatio</a></dt>
+      <dd><p>Represents an operator that calculates the ratio of window viewport
+width to its height for each viewport size in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.BindTexture.html">BindTexture</a></dt>
+      <dd><p>Represents an operator that binds a buffer to the specified texture unit
+for each texture or notification in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Bounds.html">Bounds</a></dt>
+      <dd><p>Represents an axis-aligned bounding box for mesh vertices.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Camera.html">Camera</a></dt>
+      <dd><p>Represents a point of view from which to render a 3D scene.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ComputeProgram.html">ComputeProgram</a></dt>
+      <dd><p>Provides functionality for executing and updating the state of a compute
+shader program.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateAxisAngleRotation.html">CreateAxisAngleRotation</a></dt>
+      <dd><p>Represents an operator that creates a rotation matrix from an axis-angle
+representation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateCubemapCamera.html">CreateCubemapCamera</a></dt>
+      <dd><p>Represents an operator that generates a sequence of perspective camera
+objects which can be used to render a dynamic cubemap texture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateLookAt.html">CreateLookAt</a></dt>
+      <dd><p>Represents an operator that creates a view matrix specifying a camera
+looking at a target position.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix2.html">CreateMatrix2</a></dt>
+      <dd><p>Represents an operator that creates a 2x2 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix2x3.html">CreateMatrix2x3</a></dt>
+      <dd><p>Represents an operator that creates a 2x3 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix2x4.html">CreateMatrix2x4</a></dt>
+      <dd><p>Represents an operator that creates a 2x4 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix3.html">CreateMatrix3</a></dt>
+      <dd><p>Represents an operator that creates a 3x3 matrix containing 3D rotation
+and scale.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix3x2.html">CreateMatrix3x2</a></dt>
+      <dd><p>Represents an operator that creates a 3x2 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix3x4.html">CreateMatrix3x4</a></dt>
+      <dd><p>Represents an operator that creates a 3x4 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix4.html">CreateMatrix4</a></dt>
+      <dd><p>Represents an operator that creates a 4x4 matrix containing 3D rotation,
+scale, position and projection.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix4x2.html">CreateMatrix4x2</a></dt>
+      <dd><p>Represents an operator that creates a 4x2 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMatrix4x3.html">CreateMatrix4x3</a></dt>
+      <dd><p>Represents an operator that creates a 4x3 matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateMesh.html">CreateMesh</a></dt>
+      <dd><p>Represents an operator that creates a new mesh geometry for each vertex
+array data in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateOrthographic.html">CreateOrthographic</a></dt>
+      <dd><p>Represents an operator that creates an orthographic projection matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateOrthographicOffCenter.html">CreateOrthographicOffCenter</a></dt>
+      <dd><p>Represents an operator that creates an orthographic projection matrix
+from specified projection volume boundaries.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreatePerspectiveFieldOfView.html">CreatePerspectiveFieldOfView</a></dt>
+      <dd><p>Represents an operator that creates a perspective projection matrix
+from field of view parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreatePerspectiveOffCenter.html">CreatePerspectiveOffCenter</a></dt>
+      <dd><p>Represents an operator that creates a perspective projection matrix with
+the specified view frustum.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateQuaternionRotation.html">CreateQuaternionRotation</a></dt>
+      <dd><p>Represents an operator that creates a rotation matrix from a quaternion
+representation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateRotationX.html">CreateRotationX</a></dt>
+      <dd><p>Represents an operator that creates a rotation matrix for a rotation
+about the x-axis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateRotationY.html">CreateRotationY</a></dt>
+      <dd><p>Represents an operator that creates a rotation matrix for a rotation
+about the y-axis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateRotationZ.html">CreateRotationZ</a></dt>
+      <dd><p>Represents an operator that creates a rotation matrix for a rotation
+about the z-axis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateScale.html">CreateScale</a></dt>
+      <dd><p>Represents an operator that creates a scale matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateTransform.html">CreateTransform</a></dt>
+      <dd><p>Represents an operator that creates a model matrix specifying position,
+rotation and scale.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateTranslation.html">CreateTranslation</a></dt>
+      <dd><p>Represents an operator that creates a translation matrix.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateVector2.html">CreateVector2</a></dt>
+      <dd><p>Represents an operator that creates a 2D vector element.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateVector3.html">CreateVector3</a></dt>
+      <dd><p>Represents an operator that creates a 3D vector element.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateVector4.html">CreateVector4</a></dt>
+      <dd><p>Represents an operator that creates a 4D vector element.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.CreateWindow.html">CreateWindow</a></dt>
+      <dd><p>Represents an operator that creates the shader window with the specified
+display style and render settings.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Delay.html">Delay</a></dt>
+      <dd><p>Represents an operator that delays the notification of values in the
+sequence by the specified time interval, using the render loop scheduler.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DelaySubscription.html">DelaySubscription</a></dt>
+      <dd><p>Represents an operator that delays subscription to the observable sequence
+by the specified time interval, using the render loop scheduler.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DispatchCompute.html">DispatchCompute</a></dt>
+      <dd><p>Represents an operator that launches one or more compute shader work
+groups for each notification in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DispatchShaderQueue.html">DispatchShaderQueue</a></dt>
+      <dd><p>Represents an operator that immediately starts processing the specified
+shader work queue whenever the sequence emits a notification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DrawArrays.html">DrawArrays</a></dt>
+      <dd><p>Represents an operator that renders primitives using each of the array
+data in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DrawFramebuffer.html">DrawFramebuffer</a></dt>
+      <dd><p>Represents an operator that renders all currently stored draw commands
+to a framebuffer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DrawMesh.html">DrawMesh</a></dt>
+      <dd><p>Represents an operator that draws the specified mesh geometry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DrawMeshAggregate.html">DrawMeshAggregate</a></dt>
+      <dd><p>Represents an operator that aggregates the specified mesh geometry
+attributes into a single draw command.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DrawMeshInstanced.html">DrawMeshInstanced</a></dt>
+      <dd><p>Represents an operator that draws the specified mesh geometry using instanced
+rendering, where each array in the sequence stores the per-instance attributes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Effect.html">Effect</a></dt>
+      <dd><p>Provides an abstract base class for common functionality used in render
+effects specifying a vertex, geometry or fragment shader.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ExtractRotation.html">ExtractRotation</a></dt>
+      <dd><p>Represents an operator that returns the rotation component of every
+matrix in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ExtractScale.html">ExtractScale</a></dt>
+      <dd><p>Represents an operator that returns the scale component of every matrix
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ExtractTranslation.html">ExtractTranslation</a></dt>
+      <dd><p>Represents an operator that returns the translation component of every
+matrix in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ExtrinsicsTransform.html">ExtrinsicsTransform</a></dt>
+      <dd><p>Represents an operator that converts extrinsics rotation and translation
+vectors in the sequence into a transform matrix, and vice-versa.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.FrameEvent.html">FrameEvent</a></dt>
+      <dd><p>Represents an update or render frame event raised by the shader window.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.InstanceAttributeMapping.html">InstanceAttributeMapping</a></dt>
+      <dd><p>Represents the format of a per-instance defined input value to a
+vertex shader.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.InstanceAttributeMappingCollection.html">InstanceAttributeMappingCollection</a></dt>
+      <dd><p>Represents a collection of <a class="xref" href="Bonsai.Shaders.InstanceAttributeMapping.html">InstanceAttributeMapping</a> objects.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Invert.html">Invert</a></dt>
+      <dd><p>Represents an operator that converts every matrix in the sequence to
+its inverse.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.LatestOnRenderFrame.html">LatestOnRenderFrame</a></dt>
+      <dd><p>Represents an operator that replays the latest notification of the
+sequence at each render frame event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.LatestOnUpdateFrame.html">LatestOnUpdateFrame</a></dt>
+      <dd><p>Represents an operator that replays the latest notification of the
+sequence at each update frame event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.LoadImage.html">LoadImage</a></dt>
+      <dd><p>Represents an operator that loads a texture buffer from the specified image file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.LoadImageSequence.html">LoadImageSequence</a></dt>
+      <dd><p>Represents an operator that loads an image texture sequence from the
+specified movie file or image sequence pattern.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.LoadVideo.html">LoadVideo</a></dt>
+      <dd><p>Represents an operator that initializes a video texture which is
+dynamically updated from the specified movie file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Material.html">Material</a></dt>
+      <dd><p>Provides functionality for rendering geometry using a shaded material
+pass using the specified vertex, geometry or fragment shader.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.MatrixTransform.html">MatrixTransform</a></dt>
+      <dd><p>Provides an abstract base class for operators specifying cumulative matrix
+transform operations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Mesh.html">Mesh</a></dt>
+      <dd><p>Represents a collection of vertices and indices used to describe
+arbitrary geometry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.MeshBounds.html">MeshBounds</a></dt>
+      <dd><p>Represents an operator that retrieves the bounds of the specified mesh
+geometry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.MeshName.html">MeshName</a></dt>
+      <dd><p>Represents the properties of a mesh geometry which is part of an aggregate
+rendering operation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.MeshNameConverter.html">MeshNameConverter</a></dt>
+      <dd><p>Provides a type converter to convert a mesh name to and from other
+representations. It also provides a mechanism to find existing meshes
+which have been declared in the workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.MeshResources.html">MeshResources</a></dt>
+      <dd><p>Represents an operator that creates a collection of mesh resources to
+be loaded into the resource manager.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.NormalMatrix.html">NormalMatrix</a></dt>
+      <dd><p>Represents an operator that computes the normal matrix for each
+modelview matrix in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.PlayTextureSequence.html">PlayTextureSequence</a></dt>
+      <dd><p>Represents an operator that starts playing the frame sequence of a
+video texture or texture array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ReadPixels.html">ReadPixels</a></dt>
+      <dd><p>Represents an operator that reads a block of pixels from the framebuffer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RenderCubemap.html">RenderCubemap</a></dt>
+      <dd><p>Represents an operator that renders all currently stored draw commands
+to one of the cubemap textures. Each pass renders one face of the
+cubemap in the order +X, -X, +Y, -Y, +Z, -Z.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RenderCubemapTarget.html">RenderCubemapTarget</a></dt>
+      <dd><p>Represents an operator that renders all currently stored draw commands
+to a cubemap render target.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RenderFrame.html">RenderFrame</a></dt>
+      <dd><p>Represents an operator that generates a sequence of events produced
+whenever it is time to render a new frame.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RenderTexture.html">RenderTexture</a></dt>
+      <dd><p>Represents an operator that renders all currently stored draw commands
+to a texture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ResourceLoader.html">ResourceLoader</a></dt>
+      <dd><p>Provides the abstract base class for operators that load resources into
+the shader window resource manager.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RetrieveImage.html">RetrieveImage</a></dt>
+      <dd><p>Represents an operator that reads the pixel data from each texture in the
+sequence to an image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RotateAxisAngle.html">RotateAxisAngle</a></dt>
+      <dd><p>Represents an operator that applies a rotation around an arbitrary axis
+to every transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RotateQuaternion.html">RotateQuaternion</a></dt>
+      <dd><p>Represents an operator that applies a rotation specified by a quaternion
+to every transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RotateX.html">RotateX</a></dt>
+      <dd><p>Represents an operator that applies a rotation about the x-axis to every
+transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RotateY.html">RotateY</a></dt>
+      <dd><p>Represents an operator that applies a rotation about the y-axis to every
+transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.RotateZ.html">RotateZ</a></dt>
+      <dd><p>Represents an operator that applies a rotation about the z-axis to every
+transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.SampleOnRenderFrame.html">SampleOnRenderFrame</a></dt>
+      <dd><p>Represents an operator that samples notifications from the sequence
+whenever there is a new render frame event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.SampleOnUpdateFrame.html">SampleOnUpdateFrame</a></dt>
+      <dd><p>Represents an operator that samples notifications from the sequence
+whenever there is a new update frame event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Scale.html">Scale</a></dt>
+      <dd><p>Represents an operator that applies a scale factor along the specified
+axes to every transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Shader.html">Shader</a></dt>
+      <dd><p>Provides common functionality for executing and updating the state of
+compiled shader programs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ShaderException.html">ShaderException</a></dt>
+      <dd><p>Represents errors that occur when compiling or linking shader programs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ShaderManager.html">ShaderManager</a></dt>
+      <dd><p>Provides functionality for accessing shader window resources and
+scheduling actions on the main render loop.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ShaderNameConverter.html">ShaderNameConverter</a></dt>
+      <dd><p>Provides a type converter to convert a shader name to and from other
+representations. It also provides a mechanism to find existing shaders
+which have been declared in the workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ShaderResources.html">ShaderResources</a></dt>
+      <dd><p>Represents an operator that creates a collection of shader resources to
+be loaded into the resource manager.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ShaderWindow.html">ShaderWindow</a></dt>
+      <dd><p>Creates and renders a window using the specified resources and a programmable
+shader pipeline.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.StoreImage.html">StoreImage</a></dt>
+      <dd><p>Represents an operator that writes each image in the sequence to a
+texture object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.StoreImageSequence.html">StoreImageSequence</a></dt>
+      <dd><p>Represents an operator that writes a sequence of images to a texture array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Texture.html">Texture</a></dt>
+      <dd><p>Represents a texture object containing one or more images with the
+same image format.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.TextureArray.html">TextureArray</a></dt>
+      <dd><p>Represents an array of texture objects.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.TextureNameConverter.html">TextureNameConverter</a></dt>
+      <dd><p>Provides a type converter to convert a texture name to and from other
+representations. It also provides a mechanism to find existing textures
+which have been declared in the workflow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.TextureResources.html">TextureResources</a></dt>
+      <dd><p>Represents an operator that creates a collection of texture resources to
+be loaded into the resource manager.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Timer.html">Timer</a></dt>
+      <dd><p>Represents an operator that generates an observable sequence that
+periodically produces a value after the specified initial relative
+due time has elapsed, using the render loop timing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.TransformRelative.html">TransformRelative</a></dt>
+      <dd><p>Represents an operator that applies a model matrix transform specifying
+relative position, rotation and scale to every transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Translate.html">Translate</a></dt>
+      <dd><p>Represents an operator that applies a translation along the specified
+axes to every transform in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.Transpose.html">Transpose</a></dt>
+      <dd><p>Represents an operator that calculates the transpose of every matrix
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateClearColorState.html">UpdateClearColorState</a></dt>
+      <dd><p>Represents an operator that updates the clear color state of the
+shader window.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateFrame.html">UpdateFrame</a></dt>
+      <dd><p>Represents an operator that generates a sequence of events produced
+whenever it is time to update the render state.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateRenderState.html">UpdateRenderState</a></dt>
+      <dd><p>Represents an operator that updates the render state of the shader window.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateScissorState.html">UpdateScissorState</a></dt>
+      <dd><p>Represents an operator that updates the active scissor box in the shader
+window. Any fragments falling outside the scissor box will be discarded.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateTexture.html">UpdateTexture</a></dt>
+      <dd><p>Represents an operator that updates the pixel store of the specified
+texture target from a sequence of images.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateUniform.html">UpdateUniform</a></dt>
+      <dd><p>Represents an operator that updates the value of a uniform variable on the
+specified shader.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateVertexBuffer.html">UpdateVertexBuffer</a></dt>
+      <dd><p>Represents an operator that updates the vertex buffer data used by the
+specified mesh geometry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.UpdateViewportState.html">UpdateViewportState</a></dt>
+      <dd><p>Represents an operator that updates the active viewport in the shader window.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.VertexAttributeMapping.html">VertexAttributeMapping</a></dt>
+      <dd><p>Represents the format of a user-defined input value to a vertex shader.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.VertexAttributeMappingCollection.html">VertexAttributeMappingCollection</a></dt>
+      <dd><p>Represents a collection of <a class="xref" href="Bonsai.Shaders.VertexAttributeMapping.html">VertexAttributeMapping</a> objects.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.ViewportEffect.html">ViewportEffect</a></dt>
+      <dd><p>Provides functionality for rendering a fullscreen effect using a fragment
+shader pass.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.WarpPerspective.html">WarpPerspective</a></dt>
+      <dd><p>Represents an operator that creates a warp perspective transform matrix
+for planar projection mapping.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.WindowClosed.html">WindowClosed</a></dt>
+      <dd><p>Represents an operator that generates a sequence of events produced
+whenever the shader window is closed.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.DispatchParameters.html">DispatchParameters</a></dt>
+      <dd><p>Represents parameters used when launching compute shader work groups.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.TimeStep.html">TimeStep</a></dt>
+      <dd><p>Represents the amount of time elapsed since the last update.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.MatrixOrder.html">MatrixOrder</a></dt>
+      <dd><p>Specifies the transformation order for cumulative matrix transform operations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Shaders.QuadEffects.html">QuadEffects</a></dt>
+      <dd><p>Specifies available fullscreen quad rendering effects.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

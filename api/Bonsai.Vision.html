@@ -1,0 +1,798 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace Bonsai.Vision </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace Bonsai.Vision ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Vision">
+
+  <h1 id="Bonsai_Vision" data-uid="Bonsai.Vision" class="text-break">Namespace Bonsai.Vision</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.AdaptiveThreshold.html">AdaptiveThreshold</a></dt>
+      <dd><p>Represents an operator that applies an adaptive threshold to every grayscale
+image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.AffineTransform.html">AffineTransform</a></dt>
+      <dd><p>Represents an operator that creates an affine transformation matrix specified
+by a translation, rotation and scale.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ApproximatePolygon.html">ApproximatePolygon</a></dt>
+      <dd><p>Represents an operator that approximates each polygonal curve in the sequence
+with the specified precision.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.AverageBinaryRegion.html">AverageBinaryRegion</a></dt>
+      <dd><p>Represents an operator that computes the average binary region from
+each collection of connected components in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.BackgroundSubtraction.html">BackgroundSubtraction</a></dt>
+      <dd><p>Represents an operator that performs image segmentation of every frame in
+the sequence using an online estimation of the background.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.BinaryRegionAnalysis.html">BinaryRegionAnalysis</a></dt>
+      <dd><p>Represents an operator that computes image moments from polygonal contours
+or individual frames in the sequence to extract binary region properties.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.BinaryRegionExtremes.html">BinaryRegionExtremes</a></dt>
+      <dd><p>Represents an operator that computes the extremities, or endpoints, of each
+connected component in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CalibrateCameraChessboard.html">CalibrateCameraChessboard</a></dt>
+      <dd><p>Represents an operator that finds the camera intrinsic parameters from
+several views of a chessboard calibration pattern.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CameraCapture.html">CameraCapture</a></dt>
+      <dd><p>Represents an operator that generates a sequence of images acquired from
+the specified camera.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Canny.html">Canny</a></dt>
+      <dd><p>Represents an operator that applies the Canny algorithm for edge detection to each
+image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CapturePropertyAssignment.html">CapturePropertyAssignment</a></dt>
+      <dd><p>Represents a value that will be assigned to the specified camera or video
+file property upon initialization.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CapturePropertyCollection.html">CapturePropertyCollection</a></dt>
+      <dd><p>Represents a collection of property values that will be assigned
+to the specified camera or video file upon initialization.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Centroid.html">Centroid</a></dt>
+      <dd><p>Represents an operator that computes the centroid of each set of points,
+image moments, or polygonal contour in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ColorBalance.html">ColorBalance</a></dt>
+      <dd><p>Represents an operator that applies an independent scale to the color channels
+of every image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CompressionParameterAssignment.html">CompressionParameterAssignment</a></dt>
+      <dd><p>Provides an abstract base class for configuring various image
+compression parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CompressionParameterCollection.html">CompressionParameterCollection</a></dt>
+      <dd><p>Represents a collection of compression parameters used to encode individual
+images in the <a class="xref" href="Bonsai.Vision.EncodeImage.html">EncodeImage</a> operator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ConnectedComponent.html">ConnectedComponent</a></dt>
+      <dd><p>Represents a collection of measurements extracted from a cluster of
+connected pixels in an image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ConnectedComponentCollection.html">ConnectedComponentCollection</a></dt>
+      <dd><p>Represents a collection of connected components.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ContainsPoint.html">ContainsPoint</a></dt>
+      <dd><p>Represents an operator that determines whether each point in the sequence is
+contained inside a rectangle, contour, or other polygonal shape.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ContourConvexity.html">ContourConvexity</a></dt>
+      <dd><p>Provides the result of a convexity analysis of a polygonal contour,
+representing the deviations between each point in the contour and its
+convex hull.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ContourPoints.html">ContourPoints</a></dt>
+      <dd><p>Represents an operator that copies all points of each contour in the
+sequence to a new array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Contours.html">Contours</a></dt>
+      <dd><p>Provides a reference to a hierarchy of polygonal contours extracted
+from an image bitmap.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ConvertColor.html">ConvertColor</a></dt>
+      <dd><p>Represents an operator that converts pixels from one color space to another
+for all images in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ConvertToImage.html">ConvertToImage</a></dt>
+      <dd><p>Represents an operator that converts each array-like object in the sequence
+into an image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ConvexityDefects.html">ConvexityDefects</a></dt>
+      <dd><p>Represents an operator that finds the convexity defects of each contour
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CreateExtrinsics.html">CreateExtrinsics</a></dt>
+      <dd><p>Represents an operator that creates a set of parameters specifying
+the camera extrinsics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CreateIntrinsics.html">CreateIntrinsics</a></dt>
+      <dd><p>Represents an operator that creates a set of parameters specifying
+the camera intrinsics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CreatePoint.html">CreatePoint</a></dt>
+      <dd><p>Represents an operator that creates a 2D point with integer coordinates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CreatePoint2d.html">CreatePoint2d</a></dt>
+      <dd><p>Represents an operator that creates a 2D point with double-precision
+floating-point coordinates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CreatePoint2f.html">CreatePoint2f</a></dt>
+      <dd><p>Represents an operator that creates a 2D point with single-precision
+floating-point coordinates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CreatePoint3d.html">CreatePoint3d</a></dt>
+      <dd><p>Represents an operator that creates a 3D point with double-precision
+floating-point coordinates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Crop.html">Crop</a></dt>
+      <dd><p>Represents an operator that crops a rectangular subregion of each image
+in the sequence, without copying.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CropCenter.html">CropCenter</a></dt>
+      <dd><p>Represents an operator that crops rectangular regions with fixed size around
+the specified center for each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CropPolygon.html">CropPolygon</a></dt>
+      <dd><p>Represents an operator that crops a polygonal region of interest for each
+image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.DecodeImage.html">DecodeImage</a></dt>
+      <dd><p>Represents an operator that decodes an image from each byte buffer in
+the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.DistanceTransform.html">DistanceTransform</a></dt>
+      <dd><p>Represents an operator that calculates the distance to the closest zero pixel
+for all non-zero pixels of each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.DrawConnectedComponents.html">DrawConnectedComponents</a></dt>
+      <dd><p>Represents an operator that renders each set of connected components
+in the sequence as an image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.DrawContours.html">DrawContours</a></dt>
+      <dd><p>Represents an operator that renders each set of contours in the sequence
+as an image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.EncodeImage.html">EncodeImage</a></dt>
+      <dd><p>Represents an operator that encodes each image in the sequence into a byte
+buffer in memory using the specified format.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.EnumerateContours.html">EnumerateContours</a></dt>
+      <dd><p>Represents an operator that generates a sequence of all the contours at the
+same level of the hierarchy, for each contour in the input sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.EqualizeHistogram.html">EqualizeHistogram</a></dt>
+      <dd><p>Represents an operator that equalizes the histogram of every grayscale
+image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.FileCapture.html">FileCapture</a></dt>
+      <dd><p>Represents an operator that generates a sequence of images from the
+specified movie file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Filter2D.html">Filter2D</a></dt>
+      <dd><p>Represents an operator that convolves each image in the sequence with
+the specified kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.FindChessboardCorners.html">FindChessboardCorners</a></dt>
+      <dd><p>Represents an operator that finds the positions of internal corners for
+each chessboard image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.FindContours.html">FindContours</a></dt>
+      <dd><p>Represents an operator that finds the contours of connected components
+for each binary image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.FindCornerSubPix.html">FindCornerSubPix</a></dt>
+      <dd><p>Represents an operator that finds the sub-pixel accurate locations of
+each corner or radial saddle point in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Flip.html">Flip</a></dt>
+      <dd><p>Represents an operator that flips each image in the sequence around the
+vertical, horizontal or both axes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.GoodFeaturesToTrack.html">GoodFeaturesToTrack</a></dt>
+      <dd><p>Represents an operator that finds strong corner features for each image
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Grayscale.html">Grayscale</a></dt>
+      <dd><p>Represents an operator that converts each BGR color image in the
+sequence to grayscale.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.HaarCascade.html">HaarCascade</a></dt>
+      <dd><p>Represents an operator that detects objects on each image in the sequence
+using a pre-trained cascade of boosted Haar classifiers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.HoughCircles.html">HoughCircles</a></dt>
+      <dd><p>Represents an operator that finds circles on each grayscale image in the
+sequence using a Hough transform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.HoughLines.html">HoughLines</a></dt>
+      <dd><p>Represents an operator that finds lines on each binary image in the sequence
+using a probabilistic Hough transform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.HsvThreshold.html">HsvThreshold</a></dt>
+      <dd><p>Represents an operator that segments each HSV image in the sequence using
+the specified color range.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ImageHistogram.html">ImageHistogram</a></dt>
+      <dd><p>Represents an operator that computes the per-channel color histograms
+for each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ImageWriter.html">ImageWriter</a></dt>
+      <dd><p>Represents an operator that writes each image in the sequence to the
+specified stream.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.IntrinsicsTransform.html">IntrinsicsTransform</a></dt>
+      <dd><p>Provides an abstract base class for all operators requiring a specified set of
+camera intrinsics and distortion parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.IplImageHelper.html">IplImageHelper</a></dt>
+      <dd><p>Provides helper functions to create and manipulate the format of cached
+image buffers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.JpegQuality.html">JpegQuality</a></dt>
+      <dd><p>Provides a class for specifying the quality of image JPEG compression.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.KeyPointCollection.html">KeyPointCollection</a></dt>
+      <dd><p>Represents a collection of key points, or features, extracted from a single
+image frame.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.KeyPointOpticalFlow.html">KeyPointOpticalFlow</a></dt>
+      <dd><p>Represents a set of sparse correspondences between features detected in a
+reference image, and matching features detected in the current image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Laplace.html">Laplace</a></dt>
+      <dd><p>Represents an operator that calculates the Laplace transform of each image
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LargestBinaryRegion.html">LargestBinaryRegion</a></dt>
+      <dd><p>Represents an operator that finds the largest binary region from each
+collection of connected components in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LinearPolar.html">LinearPolar</a></dt>
+      <dd><p>Represents an operator that applies a forward or inverse linear-polar transform
+to each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LoadExtrinsics.html">LoadExtrinsics</a></dt>
+      <dd><p>Represents an operator that loads a set of camera extrinsics from a YML file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LoadImage.html">LoadImage</a></dt>
+      <dd><p>Represents an operator that loads an image from the specified file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LoadIntrinsics.html">LoadIntrinsics</a></dt>
+      <dd><p>Represents an operator that loads a set of camera intrinsics from a YML file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LogPolar.html">LogPolar</a></dt>
+      <dd><p>Represents an operator that applies a forward or inverse log-polar transform
+to each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Lut.html">Lut</a></dt>
+      <dd><p>Represents an operator that performs a look-up table transformation on all
+pixels of each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Mask.html">Mask</a></dt>
+      <dd><p>Represents an operator that sets all pixels which are not in the operation
+mask to a fixed value, for each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.MaskPolygon.html">MaskPolygon</a></dt>
+      <dd><p>Represents an operator that applies a polygonal mask to each image in
+the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.MergeBinaryRegions.html">MergeBinaryRegions</a></dt>
+      <dd><p>Represents an operator that merges connected component collections in the
+sequence into a single collection.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.MinimumEnclosingCircle.html">MinimumEnclosingCircle</a></dt>
+      <dd><p>Represents an operator that finds the parameters of the circle with minimal
+area enclosing each set of 2D points in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.MorphologicalOperator.html">MorphologicalOperator</a></dt>
+      <dd><p>Represents an operator that applies a morphological transformation kernel to
+each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Normalize.html">Normalize</a></dt>
+      <dd><p>Represents an operator that normalizes the range of values for each image
+in the sequence to be between zero and one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.OpticalFlow.html">OpticalFlow</a></dt>
+      <dd><p>Represents an operator that computes dense optical flow using Gunnar Farneback’s
+algorithm across all images in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.PngBiLevelCompression.html">PngBiLevelCompression</a></dt>
+      <dd><p>Provides a class for specifying whether PNG bi-level compression.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.PngCompressionLevel.html">PngCompressionLevel</a></dt>
+      <dd><p>Provides a class for specifying the PNG compression level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.PngCompressionStrategy.html">PngCompressionStrategy</a></dt>
+      <dd><p>Provides a class for specifying the PNG compression strategy.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.PolarTransform.html">PolarTransform</a></dt>
+      <dd><p>Provides an abstract base class for operators that apply a polar transform
+to each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.PxmBinaryFormat.html">PxmBinaryFormat</a></dt>
+      <dd><p>Provides a class for specifying a binary format flag for PPM, PGM or PBM.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.RangeThreshold.html">RangeThreshold</a></dt>
+      <dd><p>Represents an operator that tests which pixels lie within the specified
+range for each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.RegionActivity.html">RegionActivity</a></dt>
+      <dd><p>Represents information about activity detected inside a specified polygonal
+region of interest.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.RegionActivityCollection.html">RegionActivityCollection</a></dt>
+      <dd><p>Represents a collection of activity measurements corresponding to specific
+polygonal regions of interest.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Resize.html">Resize</a></dt>
+      <dd><p>Represents an operator that resizes each image in the sequence to the
+specified size.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ResizeCanvas.html">ResizeCanvas</a></dt>
+      <dd><p>Represents an operator that resizes the border around each image in the
+sequence without stretching the image.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.RoiActivity.html">RoiActivity</a></dt>
+      <dd><p>Represents an operator that calculates activation intensity inside specified
+regions of interest for each image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.RoiActivityDetected.html">RoiActivityDetected</a></dt>
+      <dd><p>Represents an operator that tests whether the activation intensity is above
+a given threshold for each specified region in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SaveExtrinsics.html">SaveExtrinsics</a></dt>
+      <dd><p>Represents an operator that writes a sequence of camera extrinsics to a YML file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SaveImage.html">SaveImage</a></dt>
+      <dd><p>Represents an operator that writes each image in the sequence to a file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SaveIntrinsics.html">SaveIntrinsics</a></dt>
+      <dd><p>Represents an operator that writes a sequence of camera intrinsics to a YML file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.ScalarHistogram.html">ScalarHistogram</a></dt>
+      <dd><p>Represents the per-channel histograms for all channels in a multi-channel array.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Skeletonization.html">Skeletonization</a></dt>
+      <dd><p>Represents an operator that extracts the topological skeleton of each
+image in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Smooth.html">Smooth</a></dt>
+      <dd><p>Represents an operator that applies a smoothing operator to each image
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Sobel.html">Sobel</a></dt>
+      <dd><p>Represents an operator that calculates the first, second, third or mixed
+image derivatives from the sequence using an extended Sobel operator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SolidColor.html">SolidColor</a></dt>
+      <dd><p>Represents an operator that generates a sequence with a single image
+where all pixels are set to the same color value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SolvePnP.html">SolvePnP</a></dt>
+      <dd><p>Represents an operator that computes a sequence of camera extrinsics from
+sets of 3D-2D point correspondences and the specified camera intrinsics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SortBinaryRegions.html">SortBinaryRegions</a></dt>
+      <dd><p>Represents an operator that sorts each collection of binary regions in the
+sequence by descending order of area.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SparseOpticalFlow.html">SparseOpticalFlow</a></dt>
+      <dd><p>Represents an operator that calculates the optical flow for each sparse
+feature set in the sequence, using the iterative Lucas-Kanade method.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.TakeBinaryRegions.html">TakeBinaryRegions</a></dt>
+      <dd><p>Represents an operator that takes the specified number of binary regions from
+each collection in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Threshold.html">Threshold</a></dt>
+      <dd><p>Represents an operator that applies a fixed threshold to each image
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Undistort.html">Undistort</a></dt>
+      <dd><p>Represents an operator that undistorts each image in the sequence using
+the specified camera intrinsics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.UndistortPoints.html">UndistortPoints</a></dt>
+      <dd><p>Represents an operator that undistorts each point coordinate in the sequence
+using the specified camera intrinsics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.VideoWriter.html">VideoWriter</a></dt>
+      <dd><p>Represents an operator that writes a sequence of images into a compressed AVI file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.VideoWriterDisposable.html">VideoWriterDisposable</a></dt>
+      <dd><p>Represents a disposable reference to a video writer resource.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.WarpAffine.html">WarpAffine</a></dt>
+      <dd><p>Represents an operator that applies an affine transformation to each image
+in the sequence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.WarpPerspective.html">WarpPerspective</a></dt>
+      <dd><p>Represents an operator that applies a perspective transformation to each
+image in the sequence.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CameraCalibration.html">CameraCalibration</a></dt>
+      <dd><p>Represents the result of a camera calibration algorithm, including
+the camera intrinsic parameters and an estimate of the re-projection
+error.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Circle.html">Circle</a></dt>
+      <dd><p>Represents the parameters of a circle.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Extrinsics.html">Extrinsics</a></dt>
+      <dd><p>Represents parameters that describe the camera extrinsic properties
+such as rotation and translation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.Intrinsics.html">Intrinsics</a></dt>
+      <dd><p>Represents parameters that describe the camera intrinsic properties
+such as the focal length or lens distortion.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.LineSegment.html">LineSegment</a></dt>
+      <dd><p>Represents the two endpoints of a line segment in pixel-accurate coordinates.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.CapturePosition.html">CapturePosition</a></dt>
+      <dd><p>Specifies the units of the file capture start position.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.FindExtremesMethod.html">FindExtremesMethod</a></dt>
+      <dd><p>Specifies the method used to compute extremities of connected components.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.PngCompression.html">PngCompression</a></dt>
+      <dd><p>Specifies the available PNG compression strategies.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Bonsai.Vision.SubtractionMethod.html">SubtractionMethod</a></dt>
+      <dd><p>Specifies the subtraction method used to isolate foreground pixels.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,755 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExpressionBuilderArgument </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExpressionBuilderArgument ">
+      
+      <meta name="description" content="Represents a workflow argument assignment. This class determines the index of a workflow connection and is used to specify the order of input connections to any given node.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Expressions_ExpressionBuilderArgument.md&amp;value=---%0Auid%3A%20Bonsai.Expressions.ExpressionBuilderArgument%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Expressions.ExpressionBuilderArgument">
+
+
+
+  <h1 id="Bonsai_Expressions_ExpressionBuilderArgument" data-uid="Bonsai.Expressions.ExpressionBuilderArgument" class="text-break">
+Class ExpressionBuilderArgument  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a workflow argument assignment. This class determines the index of a
+workflow connection and is used to specify the order of input connections to
+any given node.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(&quot;Bonsai.Design.ExpressionBuilderArgumentTypeConverter, Bonsai.Design&quot;)]
+public class ExpressionBuilderArgument : IEquatable&lt;ExpressionBuilderArgument&gt;, IComparable&lt;ExpressionBuilderArgument&gt;, IComparable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ExpressionBuilderArgument</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument__ctor_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.#ctor*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument__ctor" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.#ctor">
+  ExpressionBuilderArgument()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionBuilderArgument()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument__ctor_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.#ctor*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument__ctor_System_Int32_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.#ctor(System.Int32)">
+  ExpressionBuilderArgument(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> class with
+the specified argument index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionBuilderArgument(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of the input argument.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument__ctor_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.#ctor*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument__ctor_System_String_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.#ctor(System.String)">
+  ExpressionBuilderArgument(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> class with
+the specified argument name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionBuilderArgument(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the input argument. Arbitrary named arguments are not supported, so all
+names must start with the <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html#Bonsai_Expressions_ExpressionBuilderArgument_ArgumentNamePrefix">ArgumentNamePrefix</a> followed by the one-based
+argument index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_ArgumentNamePrefix" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.ArgumentNamePrefix">
+  ArgumentNamePrefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The prefix that starts every input argument name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ArgumentNamePrefix = &quot;Source&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_Index_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Index*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_Index" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Index">
+  Index
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the zero-based index of the input argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Index { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_Name_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Name*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_Name" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of the input argument. Arbitrary named arguments are not supported, so all
+names must start with the <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html#Bonsai_Expressions_ExpressionBuilderArgument_ArgumentNamePrefix">ArgumentNamePrefix</a> followed by the one-based
+argument index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_CompareTo_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.CompareTo*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_CompareTo_Bonsai_Expressions_ExpressionBuilderArgument_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.CompareTo(Bonsai.Expressions.ExpressionBuilderArgument)">
+  CompareTo(ExpressionBuilderArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares the current object with another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(ExpressionBuilderArgument other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A value that indicates the relative order of the objects being compared.
+Less than zero means this object is less than the <code class="paramref">other</code>
+parameter. Zero means this object is equal to <code class="paramref">other</code>.
+Greater than zero means this object is greater than <code class="paramref">other</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_Equals_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Equals*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_Equals_Bonsai_Expressions_ExpressionBuilderArgument_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Equals(Bonsai.Expressions.ExpressionBuilderArgument)">
+  Equals(ExpressionBuilderArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the specified argument is equal to the current argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ExpressionBuilderArgument other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The argument object to compare with the current argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified argument object is equal to the current argument;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_Equals_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Equals*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_Equals_System_Object_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a value indicating whether this instance is equal to a specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>An object to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> is an instance of <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a>
+and its index equals the index value of this instance; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_GetHashCode_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.GetHashCode*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_GetHashCode" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 32-bit signed integer hash code.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_ToString_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.ToString*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_ToString" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_op_Equality_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_Equality*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_op_Equality_Bonsai_Expressions_ExpressionBuilderArgument_Bonsai_Expressions_ExpressionBuilderArgument_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_Equality(Bonsai.Expressions.ExpressionBuilderArgument,Bonsai.Expressions.ExpressionBuilderArgument)">
+  operator ==(ExpressionBuilderArgument, ExpressionBuilderArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether two <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> instances are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(ExpressionBuilderArgument left, ExpressionBuilderArgument right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> instance on the left of the equality operator.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> instance on the right of the equality operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">left</code> and <code class="paramref">right</code> have equal index;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_op_GreaterThan_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_GreaterThan*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_op_GreaterThan_Bonsai_Expressions_ExpressionBuilderArgument_Bonsai_Expressions_ExpressionBuilderArgument_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_GreaterThan(Bonsai.Expressions.ExpressionBuilderArgument,Bonsai.Expressions.ExpressionBuilderArgument)">
+  operator &gt;(ExpressionBuilderArgument, ExpressionBuilderArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether an <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> object is greater than
+another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(ExpressionBuilderArgument left, ExpressionBuilderArgument right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> object on the left of the greater than operator.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> object on the right of the greater than operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">left</code> has an index greater than <code class="paramref">right</code>;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_op_Inequality_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_Inequality*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_op_Inequality_Bonsai_Expressions_ExpressionBuilderArgument_Bonsai_Expressions_ExpressionBuilderArgument_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_Inequality(Bonsai.Expressions.ExpressionBuilderArgument,Bonsai.Expressions.ExpressionBuilderArgument)">
+  operator !=(ExpressionBuilderArgument, ExpressionBuilderArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether two <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> instances are different.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(ExpressionBuilderArgument left, ExpressionBuilderArgument right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> instance on the left of the inequality operator.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> instance on the right of the inequality operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">left</code> and <code class="paramref">right</code> differ in index;
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if <code class="paramref">left</code> and <code class="paramref">right</code> are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Expressions_ExpressionBuilderArgument_op_LessThan_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_LessThan*"></a>
+
+  <h3 id="Bonsai_Expressions_ExpressionBuilderArgument_op_LessThan_Bonsai_Expressions_ExpressionBuilderArgument_Bonsai_Expressions_ExpressionBuilderArgument_" data-uid="Bonsai.Expressions.ExpressionBuilderArgument.op_LessThan(Bonsai.Expressions.ExpressionBuilderArgument,Bonsai.Expressions.ExpressionBuilderArgument)">
+  operator &lt;(ExpressionBuilderArgument, ExpressionBuilderArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests whether an <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> object is less than
+another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(ExpressionBuilderArgument left, ExpressionBuilderArgument right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> object on the left of the less than operator.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a></dt>
+    <dd><p>The <a class="xref" href="Bonsai.Expressions.ExpressionBuilderArgument.html">ExpressionBuilderArgument</a> object on the right of the less than operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">left</code> has an index smaller than <code class="paramref">right</code>;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Core/Expressions/ExpressionBuilderArgument.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

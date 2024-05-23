@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>State Machines </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="State Machines ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/tutorials/state-machines.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="state-machines-tutorial">
+<h1 id="state-machines">State Machines</h1>
+
+<p>When designing operant behaviour assays in systems neuroscience, it is useful to describe the task as a sequence of states the system goes through (e.g. stimulus on, stimulus off, reward, inter-trial interval, etc). Progression through these states is driven by events, which can be either internal or external to the system (e.g. button press, timeout, stimulus offset, movement onset). It is common to describe the interplay between states and events in the form of a finite-state machine diagram, or graph, where nodes are states, and arrows are events.</p>
+<p>For example, a simple reaction time task where the subject needs to press a button as fast as possible following a stimulus is described in the following diagram:</p>
+<div class="diagram"><p><img src="../images/reactiontime-task.svg" alt="State Machine Diagram"></p>
+</div>
+<p>The task begins with an inter-trial interval (<code>ITI</code>), followed by stimulus presentation (<code>ON</code>). After stimulus onset, advancement to the next state can happen only when the subject presses the button (<code>success</code>) or a timeout elapses (<code>miss</code>). Depending on which event is triggered first, the task advances either to the <code>Reward</code> state, or <code>Fail</code> state. At the end, the task goes back to the beginning of the ITI state for the next trial.</p>
+<p>The exercises below will show you how to translate the above diagram of states and events into an equivalent Bonsai workflow, which can be easily adapted and modified to describe many different operant behaviour tasks.</p>
+<h3 id="exercise-1-declaring-and-logging-external-hardware-events"><strong>Exercise 1:</strong> Declaring and logging external hardware events</h3>
+<p>In this worksheet, we will be using an Arduino or a camera as an interface to detect external behaviour events. For experimental purposes, it is very helpful to record and timestamp <em>all</em> of these events, independently of which state the task is in.</p>
+<p><img src="../images/statemachine-logging.svg" alt="Logging digital sensor"></p>
+<ul>
+<li>Connect a digital sensor (e.g. beam-break, button, TTL) into Arduino pin 8.</li>
+<li>Insert a <code>DigitalInput</code> source and set it to Arduino pin 8.</li>
+<li>Insert a <code>PublishSubject</code> operator and set its <code>Name</code> property to <code>Response</code>.</li>
+<li>Insert a <code>Timestamp</code> operator.</li>
+<li>Insert a <code>CsvWriter</code> sink and configure its <code>FileName</code> property with a file name ending in <code>.csv</code>.</li>
+<li>Run the workflow and activate the digital sensor a couple of times. Stop the workflow and confirm that the events were successfully timestamped and logged in the <code>.csv</code> file.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In order to avoid hardware side-effects, it is highly recommended to declare all hardware connections at the top-level of the workflow, and interface all trial logic using subject variables. This will have the added benefit of allowing for very easy and centralized replacement of the rig hardware: as long as the new inputs and configurations are compatible with the logical subjects, no code inside the task logic will have to be changed at all.</p>
+</div>
+<ul>
+<li>Right-click the <code>DigitalInput</code> source, select <code>Create Source (bool)</code> &gt; <code>BehaviorSubject</code>, and set its <code>Name</code> property to <code>Led</code>.</li>
+<li>Insert a <code>DigitalOutput</code> sink and set it to Arduino pin 13.</li>
+</ul>
+<h3 id="exercise-2-inter-trial-interval-and-stimulus-presentation"><strong>Exercise 2:</strong> Inter-trial interval and stimulus presentation</h3>
+<p>Translating a state machine diagram into a Bonsai workflow begins by identifying the initial state of the task (i.e. the beginning of each trial). It is often convenient to consider the inter-trial interval period as the initial state, followed by stimulus presentation.</p>
+<p><img src="../images/statemachine-stimulus.svg" alt="Stimulus presentation"></p>
+<ul>
+<li>Insert a <code>Timer</code> source and set its <code>DueTime</code> property to be about 3 seconds.</li>
+<li>Insert a <code>Sink</code> operator and set its <code>Name</code> property to <code>StimOn</code>.</li>
+<li>Double-click on the <code>Sink</code> node to open up its internal specification.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>Sink</code> operator allows you to specify arbitrary processing side-effects without affecting the original flow of events. It is often used to trigger and control stimulus presentation in response to events in the task. Inside the nested specification, <code>Source1</code> represents input events arriving at the sink. In the specific case of <code>Sink</code> operators, the <code>WorkflowOutput</code> node can be safely ignored.</p>
+</div>
+<p><strong><code>StimOn</code></strong>:
+<img src="../images/statemachine-stimulus-led.svg" alt="Stimulus LED control"></p>
+<ul>
+<li>Insert a <code>Boolean</code> operator following <code>Source1</code> and set its <code>Value</code> property to <code>True</code>.</li>
+<li>Find and right-click the <code>Led</code> subject in the toolbox and select the option <code>Multicast</code>.</li>
+<li>Run the workflow a couple of times and verify that the sequence of events is progressing correctly.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Opening a new connection to the Arduino can take several seconds due to the way the Firmata protocol is implemented. This may introduce a slight delay in starting the task. This delay is only present at the start of execution and will not affect the behavior of the state machine.</p>
+</div>
+<p><img src="../images/statemachine-stimulus-repeat.svg" alt="Repeat stimulus presentation"></p>
+<ul>
+<li>In the main top-level workflow, insert a <code>Delay</code> operator and set its <code>DueTime</code> property to a couple of seconds.</li>
+<li>Copy the <code>StimOn</code> operator and insert it after the <code>Delay</code> (you can either copy-paste or recreate it from scratch).</li>
+<li>Rename the new operator to <code>StimOff</code> and double-click it to open up its internal representation.</li>
+<li>Set the <code>Value</code> property of the <code>Boolean</code> operator to <code>False</code>.</li>
+<li>Run the workflow a couple of times. Is it behaving as you would expect?</li>
+<li>Insert a <code>Repeat</code> operator after the <code>StimOff</code>.</li>
+<li>Run the worklow. Can you describe in your own words what is happening?</li>
+<li><strong>Optional:</strong> Draw a marble diagram for <code>Timer</code>, <code>StimOn</code>, <code>Delay</code>, and <code>Repeat</code>.</li>
+</ul>
+<h3 id="exercise-3-driving-state-transitions-with-external-behaviour-events"><strong>Exercise 3:</strong> Driving state transitions with external behaviour events</h3>
+<p><img src="../images/statemachine-stimulus-response.svg" alt="Stimulus response"></p>
+<ul>
+<li>Delete the <code>Delay</code> operator.</li>
+<li>Insert a <code>SelectMany</code> operator after <code>StimOn</code>, and set its <code>Name</code> property to <code>Response</code>.</li>
+<li>Double-click on the <code>SelectMany</code> node to open up its internal specification.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>SelectMany</code> operator is used here to create a new state for every input event. <code>Source1</code> represents the input event that created the state, and <code>WorkflowOutput</code> will be used to report the end result from the state (e.g. whether the response was a success or failure).</p>
+</div>
+<p><strong><code>Response</code></strong>:
+<img src="../images/statemachine-stimulus-response-input.svg" alt="Stimulus response input control"></p>
+<ul>
+<li>Subscribe to the <code>Response</code> subject in the toolbox.</li>
+<li>Insert a <code>Boolean</code> operator and set its <code>Value</code> property to <code>True</code>.</li>
+<li>Insert a <code>Take</code> operator and set its <code>Count</code> property to 1.</li>
+<li>Delete the <code>Source1</code> operator.</li>
+<li>Connect the <code>Boolean</code> operator to <code>WorkflowOutput</code>.</li>
+<li>Run the workflow a couple of times and validate the state machine is responding to the button press.</li>
+</ul>
+<h3 id="exercise-4-timeout-and-choice"><strong>Exercise 4:</strong> Timeout and choice</h3>
+<p><strong><code>Response</code></strong>:
+<img src="../images/statemachine-stimulus-response-timeout.svg" alt="Stimulus response timeout control"></p>
+<ul>
+<li>Inside the <code>Response</code> node, insert a <code>Timer</code> source and set its <code>DueTime</code> property to be about 1 second.</li>
+<li>Insert a <code>Boolean</code> operator and set its <code>Value</code> property to <code>False</code>.</li>
+<li>Join both <code>Boolean</code> operators with a <code>Merge</code> combinator.</li>
+<li>Connect the output of <code>Take</code> to <code>WorkflowOutput</code>.</li>
+<li>Run the workflow a couple of times, opening the visualizer of the <code>Response</code> node.</li>
+</ul>
+<p><em>Describe in your own words what the above modified workflow is doing.</em></p>
+<h3 id="exercise-5-specifying-conditional-task-outcomes"><strong>Exercise 5:</strong> Specifying conditional task outcomes</h3>
+<p><img src="../images/statemachine-stimulus-response-outcomes.svg" alt="Stimulus response outcomes"></p>
+<ul>
+<li>Insert a <code>Condition</code> operator after the <code>StimOff</code> node, and set its <code>Name</code> property to <code>Success</code>.</li>
+<li>In a new branch from <code>StimOff</code>, insert another <code>Condition</code>, and set its <code>Name</code> property to <code>Miss</code>.</li>
+<li>Double-click on the <code>Condition</code> operator to open up its internal specification.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>Condition</code> operator allows you to specify arbitrary rules for accepting or rejecting inputs. Only inputs which pass the filter specified inside the <code>Condition</code> are allowed to proceed. It is often used to represent choice points in the task. Inside the nested specification, <code>Source1</code> represents input events to be tested. The <code>WorkflowOutput</code> node always needs to be specified with a <code>bool</code> input, the result of whether the input is accepted (<code>True</code>) or rejected (<code>False</code>). Usually you can use operators such as <code>Equal</code>,<code>NotEqual</code>,<code>GreaterThan</code>, etc for specifying such tests.</p>
+</div>
+<p><strong><code>Miss</code></strong>:
+<img src="../images/statemachine-stimulus-response-miss-condition.svg" alt="Stimulus response miss condition"></p>
+<ul>
+<li>Insert a <code>BitwiseNot</code> operator after <code>Source1</code>.</li>
+</ul>
+<p><em>Why did we not need to specify anything for the <code>Success</code> condition?</em></p>
+<ul>
+<li>In the top-level workflow, insert a <code>SelectMany</code> operator after the <code>Success</code> condition and change its <code>Name</code> property to <code>Reward</code>.</li>
+<li>Inside the <code>Reward</code> node you can specify your own logic to signal the trial was successful. For example, you can make the LED blink three times in rapid succession:</li>
+</ul>
+<p><strong><code>Reward</code></strong>: <img src="../images/statemachine-stimulus-response-outcomes-reward.svg" alt="Stimulus response reward outcome"></p>
+<ul>
+<li>Insert a <code>Timer</code> node and set both the <code>DueTime</code> and the <code>Period</code> properties to 100ms.</li>
+<li>Insert a <code>Mod</code> operator and set the <code>Value</code> property to 2.</li>
+<li>Insert the <code>Equal</code> operator and leave its <code>Value</code> property at 0.</li>
+<li>Find and right-click the <code>Led</code> subject in the toolbox and select the option <code>Multicast</code>.</li>
+<li>Insert a <code>Take</code> operator and set the <code>Count</code> property to 6.</li>
+<li>Insert the <code>Last</code> operator.</li>
+</ul>
+<p><em>Try out your state machine and check whether you understand the behavior of the reward signal.</em></p>
+<ul>
+<li><p>Copy the <code>Reward</code> node, paste it after the <code>Miss</code> condition, and change its <code>Name</code> property to <code>Fail</code>.</p>
+</li>
+<li><p><strong>Optional</strong>: Modify the <code>Fail</code> state in some way to signal a different trial outcome (e.g. make the LED blink more times, or move a motor).</p>
+</li>
+<li><p>In the top-level workflow, insert a <code>Merge</code> operator and connect to it the outputs of both conditional branches and before the <code>Repeat</code> node.</p>
+</li>
+</ul>
+<p><em>Try out your state machine and introduce variations to the task behavior and conditions.</em></p>
+<h3 id="exercise-6-gono-go-task"><strong>Exercise 6:</strong> Go/No-Go task</h3>
+<p>Implement the following trial structure for a Go/No-Go task.</p>
+<p><img src="../images/go-nogo-task.svg" alt="Go/No-Go Task"></p>
+<ul>
+<li>Trials should be sampled from a uniform distribution using the <code>Numerics</code> package (install from <code>Tools</code> &gt; <code>Manage Packages</code>).</li>
+<li>Response events should be based on a button press, and reject events on a timeout.</li>
+<li>Make sure to implement different visual or auditory feedback for either the cue or reward/failure states.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To sample values from a discrete uniform distribution, you can use the following workflow: <img src="../images/samplediscreteuniform.svg" alt="Stimulus response reward outcome"></p>
+</div>
+<ul>
+<li>Record a timestamped chronological log of trial types and rewards into a CSV file using a <code>BehaviorSubject</code>.</li>
+</ul>
+<h3 id="exercise-7-conditioned-place-preference"><strong>Exercise 7:</strong> Conditioned place preference</h3>
+<p>Implement the following trial structure for conditioned place preference. <code>enter</code> and <code>leave</code> events should be triggered in real-time from the camera, by tracking an object moving in or out of a region of interest (ROI). <code>Reward</code> should be triggered once upon entering the ROI, and not repeat again until the object exits the ROI and the ITI has elapsed.</p>
+<p><img src="../images/placepreference.svg" alt="Conditioned Place Preference"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>There are several ways to implement ROI activation, so feel free to explore different ideas. Consider using either <code>Crop</code>, <code>RoiActivity</code>, or <code>ContainsPoint</code> as part of different strategies to implement the <code>enter</code> and <code>leave</code> events.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/tutorials/state-machines.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

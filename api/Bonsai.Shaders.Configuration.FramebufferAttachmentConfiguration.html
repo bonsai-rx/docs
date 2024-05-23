@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FramebufferAttachmentConfiguration </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FramebufferAttachmentConfiguration ">
+      
+      <meta name="description" content="Represents a configuration object specifying the texture to attach in a framebuffer attachment slot for render to texture shader passes.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/new/main/apidoc/new?filename=Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration.md&amp;value=---%0Auid%3A%20Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration">
+
+
+
+  <h1 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration" class="text-break">
+Class FramebufferAttachmentConfiguration  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Bonsai.html">Bonsai</a>.<a class="xref" href="Bonsai.Shaders.html">Shaders</a>.<a class="xref" href="Bonsai.Shaders.Configuration.html">Configuration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Bonsai.Shaders.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a configuration object specifying the texture to attach in a
+framebuffer attachment slot for render to texture shader passes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FramebufferAttachmentConfiguration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FramebufferAttachmentConfiguration</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration__ctor_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.#ctor*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration__ctor" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.#ctor">
+  FramebufferAttachmentConfiguration()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.html">FramebufferAttachmentConfiguration</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FramebufferAttachmentConfiguration()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Attachment_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Attachment*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Attachment" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Attachment">
+  Attachment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the framebuffer attachment slot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FramebufferAttachment Attachment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.Graphics.OpenGL4.FramebufferAttachment.html">FramebufferAttachment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_ClearColor_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.ClearColor*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_ClearColor" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.ClearColor">
+  ClearColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the color used to clear the framebuffer before rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color ClearColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.color">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_ClearColorHtml_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.ClearColorHtml*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_ClearColorHtml" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.ClearColorHtml">
+  ClearColorHtml
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets an HTML representation of the clear color value for serialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public string ClearColorHtml { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_ClearMask_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.ClearMask*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_ClearMask" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.ClearMask">
+  ClearMask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying which buffers to clear before rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClearBufferMask ClearMask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.Graphics.OpenGL4.ClearBufferMask.html">ClearBufferMask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Format_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Format*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Format" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Format">
+  Format
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the pixel format of the framebuffer
+texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat Format { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.Graphics.OpenGL4.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Height_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Height*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Height" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the height of the framebuffer texture attachment. If no value
+is specified, the height of the render window will be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Height { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_InternalFormat_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.InternalFormat*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_InternalFormat" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.InternalFormat">
+  InternalFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the internal pixel format of the
+framebuffer texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelInternalFormat InternalFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.Graphics.OpenGL4.PixelInternalFormat.html">PixelInternalFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_TextureName_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.TextureName*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_TextureName" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.TextureName">
+  TextureName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of the texture to attach to the framebuffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(TextureNameConverter))]
+public string TextureName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Type_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Type*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Type" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value specifying the pixel type of the framebuffer
+texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelType Type { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://horizongir.github.io/opentk/api/OpenTK.Graphics.OpenGL4.PixelType.html">PixelType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Width_" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Width*"></a>
+
+  <h3 id="Bonsai_Shaders_Configuration_FramebufferAttachmentConfiguration_Width" data-uid="Bonsai.Shaders.Configuration.FramebufferAttachmentConfiguration.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the width of the framebuffer texture attachment. If no value
+is specified, the width of the render window will be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Width { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/bonsai/blob/main/Bonsai.Shaders/Configuration/FramebufferAttachmentConfiguration.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
