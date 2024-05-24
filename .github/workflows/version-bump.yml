@@ -1,0 +1,93 @@
+# This workflow bumps the submodule version used for a particular project
+# In the case of Bonsai being updated, this also updates the installation page with the latest version info
+name: Update documented project version
+run-name: Update `${{github.event.inputs.project}}` to `${{github.event.inputs.version}}`
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: "The name of the project to be updated (IE: a folder name within the src directory)"
+        required: true
+      version:
+        description: "The target version to update to (IE: a Git tag in the project)"
+        required: true
+      project-fork-url:
+        description: "Git URL of the project for testing in forks"
+        default: ""
+concurrency:
+  group: version-bump
+permissions:
+  # Required to trigger GitHub Pages deployment
+  actions: write
+  # Required to push changes
+  contents: write
+jobs:
+  update:
+    name: Update ${{github.event.inputs.project}} to ${{github.event.inputs.version}}
+    runs-on: ubuntu-latest
+    env:
+      PROJECT: ${{github.event.inputs.project}}
+      VERSION: ${{github.event.inputs.version}}
+    steps:
+      # ----------------------------------------------------------------------- Checkout
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ----------------------------------------------------------------------- Override the submodule URL
+      # This is to support testing release automation in forks, it is disabled for the canonical docs repo
+      - name: Override ${{github.event.inputs.project}}'s submodule URL
+        if: vars.IS_CANONICAL_DOCS_REPO != 'true' && github.event.inputs.project-fork-url != ''
+        run: git config --local --add "submodule.src/$PROJECT.url" "$FORK_URL"
+        env:
+          FORK_URL: ${{github.event.inputs.project-fork-url}}
+
+      # ----------------------------------------------------------------------- Update the submodule
+      - name: Clone ${{github.event.inputs.project}} submodule
+        run: git submodule update --init "src/$PROJECT/"
+      - name: Update ${{github.event.inputs.project}} submodule
+        working-directory: src/${{github.event.inputs.project}}/
+        run: git checkout "refs/tags/$VERSION"
+      - name: Stage ${{github.event.inputs.project}} submodule
+        run: git add "src/$PROJECT/"
+
+      # ----------------------------------------------------------------------- Update the installation page
+      - name: Setup Python 3.11
+        if: github.event.inputs.project == 'bonsai'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Update Bonsai version info
+        if: github.event.inputs.project == 'bonsai'
+        run: |
+          python .github/workflows/update-bonsai-version-info.py
+          git add articles/installation.md
+        env:
+          workflow_dispatch_version: ${{github.event.inputs.version}}
+          is_canonical_docs_repo: ${{vars.IS_CANONICAL_DOCS_REPO}}
+          project_fork_url: ${{github.event.inputs.project-fork-url}}
+
+      # ----------------------------------------------------------------------- Commit changes
+      # Skip the rest of the job if there aren't any changes to commit
+      # (IE: the submodule was already the relevant version)
+      - name: Check if update was necessary
+        id: pre-commit-check
+        run: |
+          (git diff-index --cached --exit-code HEAD \
+            && python .github/workflows/gha.py print_notice "Version bump was no-op, no changes to commit.") \
+            || python .github/workflows/gha.py set_output continue true
+      - name: Commit changes
+        if: steps.pre-commit-check.outputs.continue == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update \`$PROJECT\` to \`$VERSION\`"
+      - name: Push changes
+        if: steps.pre-commit-check.outputs.continue == 'true'
+        run: git push
+      # The above push will not actually trigger a deployment as actions performed using temporary GitHub Actions tokens
+      # do not trigger events in order to avoid unintentional recursion. As such we manually trigger deployment.
+      - name: Trigger GitHub Pages deployment
+        if: steps.pre-commit-check.outputs.continue == 'true'
+        run: gh workflow run build.yml
+        env:
+          GH_TOKEN: ${{github.token}}
