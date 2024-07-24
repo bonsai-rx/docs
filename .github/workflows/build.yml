@@ -38,4 +38,5 @@ jobs:
         uses: actions/upload-pages-artifact@v3
 
       - name: Deploy to GitHub Pages
+        continue-on-error: ${{vars.IS_CANONICAL_DOCS_REPO != 'true'}}
         uses: actions/deploy-pages@v4
