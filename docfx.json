@@ -75,6 +75,11 @@
         "apiSpecFolder": "apidoc"
       }
     },
+    "sitemap": {
+      "baseUrl": "https://bonsai-rx.org/docs",
+      "priority": 0.5,
+      "changefreq": "monthly"
+    },
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
