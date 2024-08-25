@@ -17,6 +17,12 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <style>
+      @media (prefers-color-scheme: dark) {
+      path[style*="stroke:#000000"] {stroke: white !important;}
+      path[style*="fill:#000000"] {fill: white !important;}     
+      g[style*="fill:#000000"] {fill: white !important;}} 
+   </style>
   <defs
      id="defs2">
     <g
@@ -580,7 +586,8 @@
          inkscape:connector-curvature="0" />
       <g
          transform="matrix(0.99801501,0,0,0.99801501,-16.240002,95.21806)"
-         id="g73">
+         id="g73"
+         style="fill:#000000">
         <path
            id="use39"
            d="m 37.327621,-48.929141 c -0.587796,0.388543 -0.926526,0.597758 -1.912827,0.597758 -1.434621,0 -2.331258,-1.494396 -2.331258,-2.929016 0,-1.354919 0.826899,-2.919053 2.351183,-2.919053 0.707347,0 1.155666,0.169365 1.703611,0.518057 l 0.139477,-0.816937 c -0.428393,-0.209215 -1.195516,-0.338729 -1.833125,-0.338729 -1.843089,0 -3.257784,1.554172 -3.257784,3.646326 0,1.574097 1.185554,3.486924 3.257784,3.486924 0.916562,0 1.295143,-0.159402 1.942714,-0.557908 z" />
