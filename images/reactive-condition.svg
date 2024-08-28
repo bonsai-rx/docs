@@ -5,6 +5,7 @@
     @media (prefers-color-scheme: dark) {
     path[stroke="#000"] {stroke: white !important;}
     path[fill="#000"] {fill: white !important;}
+    path[fill="#fff"] {fill: #212529 !important;}
     g[id="text"] path, g[id="arrowheads"], path[id="g0-106"] {fill: white !important;}}
 </style>
 <defs>

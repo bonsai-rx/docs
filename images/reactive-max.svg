@@ -73,6 +73,7 @@
 <g transform='matrix(1 0 0 1 88.5206 35.55513)'>
 <use x='31.529363' y='-27.31362' xlink:href='#g0-106'/>
 </g>
+<g id="arrowheads">
 <path d='M-39.9336-53.6016V-38.7109' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
 <path d='M-37.60155-43.91403L-39.933584-38.414031L-42.26952-43.91403Z'/>
 <path d='M-37.60155-43.91403L-39.933584-38.414031L-42.26952-43.91403Z' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
@@ -100,5 +101,6 @@
 <path d='M121.6406-3.5586V-16.7227' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
 <path d='M123.97627-8.76172L121.640336-3.261718L119.3044-8.76172Z'/>
 <path d='M123.97627-8.76172L121.640336-3.261718L119.3044-8.76172Z' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+</g>
 </g>
 </svg>

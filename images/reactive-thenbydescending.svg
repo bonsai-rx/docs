@@ -245,6 +245,7 @@
 <g transform='matrix(1 0 0 1 82.8516 71.7798)'>
 <use x='31.529363' y='10.490659' xlink:href='#g0-106'/>
 </g>
+<g id="arrowheads">
 <path d='M-11.5859-48.9141L-11.5898-35.5508' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
 <path d='M-9.250028-40.753948L-11.589875-35.253948L-13.921904-40.757853Z'/>
 <path d='M-9.250028-40.753948L-11.589875-35.253948L-13.921904-40.757853Z' stroke='#000' fill='none' stroke-width='.398492' stroke-miterlimit='10'/>
@@ -281,5 +282,6 @@
 <path d='M115.9727 70.4688V55.7227' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
 <path d='M118.30856 65.26559L115.972626 70.769496L113.63669 65.26559Z'/>
 <path d='M118.30856 65.26559L115.972626 70.769496L113.63669 65.26559Z' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+</g>
 </g>
 </svg>

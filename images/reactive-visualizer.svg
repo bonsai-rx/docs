@@ -75,9 +75,11 @@
 <g transform='matrix(1 0 0 1 -35.6449 44.3319)'>
 <use x='106.643211' y='-74.270892' xlink:href='#g4-17'/>
 </g>
+<g id="arrowheads">
 <path d='M18.78122-21.371046H32.14452' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
 <path d='M26.94139-23.70698L32.441389-21.371046L26.94139-19.03511Z'/>
 <path d='M26.94139-23.70698L32.441389-21.371046L26.94139-19.03511Z' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+</g>
 <g transform='matrix(1 0 0 1 -74.3037 41.8413)'>
 <use x='174.755071' y='-60.377634' xlink:href='#g2-103'/>
 </g>

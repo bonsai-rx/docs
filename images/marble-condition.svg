@@ -21,6 +21,7 @@
       @media (prefers-color-scheme: dark) {
       path[style*="stroke:#000000"] {stroke: white !important;}
       path[style*="fill:#000000"] {fill: white !important;}     
+      path[style*="fill:#ffffff"] {fill: #212529 !important;}   
       g[style*="fill:#000000"] {fill: white !important;}} 
    </style>
   <defs
