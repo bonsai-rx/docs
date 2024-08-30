@@ -32,6 +32,8 @@ jobs:
       # ----------------------------------------------------------------------- Checkout
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ssh-key: ${{secrets.CI_DEPLOYMENT_KEY}}
 
       # ----------------------------------------------------------------------- Override the submodule URL
       # This is to support testing release automation in forks, it is disabled for the canonical docs repo
@@ -84,10 +86,3 @@ jobs:
       - name: Push changes
         if: steps.pre-commit-check.outputs.continue == 'true'
         run: git push
-      # The above push will not actually trigger a deployment as actions performed using temporary GitHub Actions tokens
-      # do not trigger events in order to avoid unintentional recursion. As such we manually trigger deployment.
-      - name: Trigger GitHub Pages deployment
-        if: steps.pre-commit-check.outputs.continue == 'true'
-        run: gh workflow run build.yml
-        env:
-          GH_TOKEN: ${{github.token}}
