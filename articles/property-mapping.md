@@ -9,7 +9,9 @@ Each Bonsai operator exposes a set of configuration properties that allow you to
 
 As an example, imagine you wanted to continuously playback a sound WAV file to the speakers at a specified volume level. You might design a workflow that looks like the following:
 
-![WAV file playback](~/images/language-wavplayback.svg)
+:::workflow
+![WAV file playback](~/workflows/language-wavplayback.bonsai)
+:::
 
 Using the [`ConvertScale`](xref:Bonsai.Dsp.ConvertScale) operator you could set the volume manually by changing its [`Scale`](xref:Bonsai.Dsp.ConvertScale.Scale) parameter.
 
@@ -17,7 +19,9 @@ Now consider a variation of this workflow where the playback volume needs to be 
 
 A simple way to compute the desired scale value would be to rescale the X coordinate of mouse movements to a range between zero and one:
 
-![Rescaled mouse position](~/images/language-mouserescale.svg)
+:::workflow
+![Rescaled mouse position](~/workflows/language-mouserescale.bonsai)
+:::
 
 However, how would you now connect the sequence of scale values computed from the mouse position to changes in the [`Scale`](xref:Bonsai.Dsp.ConvertScale.Scale) property of the [`ConvertScale`](xref:Bonsai.Dsp.ConvertScale) node?
 
@@ -43,7 +47,9 @@ After an operator property has been externalized, you can connect any sequence w
 
 Now every time the source sequence emits a new notification, the mapping operator will react by changing the target property to the incoming value.
 
-![Rescale WAV playback with mouse position](~/images/language-wavplayback-mapping.svg)
+:::workflow
+![Rescale WAV playback with mouse position](~/workflows/language-mouserescale.bonsai)
+:::
 
 [!include[PropertyMapping](~/articles/expressions-propertymapping.md)]
 
