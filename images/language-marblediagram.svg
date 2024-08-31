@@ -17,6 +17,12 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <style>
+      @media (prefers-color-scheme: dark) {
+      path[style*="stroke:#000000"] {stroke: #eee !important;}
+      path[style*="fill:#000000"] {fill: #eee !important;}     
+      g[style*="fill:#000000"] {fill: #eee !important;}} 
+   </style>
   <defs
      id="defs2">
     <g

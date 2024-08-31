@@ -16,6 +16,10 @@
    id="svg4596"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="source.svg">
+   <style>
+      @media (prefers-color-scheme: dark) {
+      text { fill: #eee !important; }} 
+   </style>
   <defs
      id="defs4590">
     <clipPath
