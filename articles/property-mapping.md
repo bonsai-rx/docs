@@ -48,7 +48,7 @@ After an operator property has been externalized, you can connect any sequence w
 Now every time the source sequence emits a new notification, the mapping operator will react by changing the target property to the incoming value.
 
 :::workflow
-![Rescale WAV playback with mouse position](~/workflows/language-mouserescale.bonsai)
+![Rescale WAV playback with mouse position](~/workflows/language-wavplayback-mapping.bonsai)
 :::
 
 [!include[PropertyMapping](~/articles/expressions-propertymapping.md)]
