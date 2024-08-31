@@ -3,10 +3,10 @@
 <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='425.192834pt' height='235.273751pt' viewBox='-146.287854 -143.03458 425.192834 235.273751'>
 <style>
     @media (prefers-color-scheme: dark) {
-    path[stroke="#000"] {stroke: white !important;}
-    path[fill="#000"] {fill: white !important;}
+    path[stroke="#000"] {stroke: #eee !important;}
+    path[fill="#000"] {fill: #eee !important;}
     path[fill="#fff"] {fill: #212529 !important;}
-    g[id="text"] path, g[id="arrowheads"], path[id="g1-106"] {fill: white !important;}
+    g[id="text"] path, g[id="arrowheads"], path[id="g1-106"] {fill: #eee !important;}
     g[id="subscribe-text"] {fill: #eb008a !important;}
     g[id="subscribe-arrows"] path {stroke: #eb008a !important;}}
 </style>

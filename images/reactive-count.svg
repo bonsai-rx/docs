@@ -3,9 +3,9 @@
 <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='425.192834pt' height='169.718123pt' viewBox='-146.287854 -143.034729 425.192834 169.718123'>
 <style>
     @media (prefers-color-scheme: dark) {
-    path[stroke="#000"] {stroke: white !important;}
-    path[fill="#000"] {fill: white !important;}
-    g[id="text"] path, g[id="arrowheads"], path[id="g0-106"] {fill: white !important;}}
+    path[stroke="#000"] {stroke: #eee !important;}
+    path[fill="#000"] {fill: #eee !important;}
+    g[id="text"] path, g[id="arrowheads"], path[id="g0-106"] {fill: #eee !important;}}
 </style>
 <defs>
 <path id='g5-49' d='M1.982565-3.16812C1.982565-3.317559 1.967621-3.317559 1.803238-3.317559C1.449564-2.998755 .896638-2.998755 .797011-2.998755H.712329V-2.779577H.797011C.911582-2.779577 1.235367-2.794521 1.524284-2.919054V-.428394C1.524284-.273973 1.524284-.219178 .996264-.219178H.747198V0C1.021171-.019925 1.464508-.019925 1.753425-.019925S2.485679-.019925 2.759651 0V-.219178H2.510585C1.982565-.219178 1.982565-.273973 1.982565-.428394V-3.16812Z'/>

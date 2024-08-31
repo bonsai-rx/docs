@@ -3,9 +3,9 @@
 <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='425.192834pt' height='210.66224pt' viewBox='-146.287854 -143.034729 425.192834 210.66224'>
 <style>
     @media (prefers-color-scheme: dark) {
-    path[stroke="#000"] {stroke: white !important;}
-    path[fill="#000"] {fill: white !important;}
-    g[id="text"] path, g[id="arrowheads"], path[id="g0-106"] {fill: white !important;}}
+    path[stroke="#000"] {stroke: #eee !important;}
+    path[fill="#000"] {fill: #eee !important;}
+    g[id="text"] path, g[id="arrowheads"], path[id="g0-106"] {fill: #eee !important;}}
 </style>
 <defs>
 <path id='g7-80' d='M4.194271 5.32005L.657534 9.693649C.577833 9.793275 .56787 9.8132 .56787 9.853051C.56787 9.96264 .657534 9.96264 .836862 9.96264H9.09589L9.952677 7.481943H9.703611C9.454545 8.229141 8.787049 8.836862 7.940224 9.125778C7.780822 9.175592 7.0934 9.414695 5.628892 9.414695H1.39477L4.851806 5.140722C4.921544 5.051059 4.941469 5.021171 4.941469 4.98132S4.931507 4.931507 4.871731 4.841843L1.633873 .398506H5.579078C6.714819 .398506 9.006227 .468244 9.703611 2.331258H9.952677L9.09589 0H.836862C.56787 0 .557908 .009963 .557908 .318804L4.194271 5.32005Z'/>
