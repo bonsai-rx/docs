@@ -29,11 +29,18 @@ The following set of exercises are to be developed in a single workflow, so do n
 
 Implement the common BonVision render pipeline shown below. The `Draw` operator should be implemented as a `PublishSubject`.
 
-![BonVision render loop](~/images/bonvision-render.svg)
+:::workflow
+![BonVision render loop](~/workflows/bonvision-render.bonsai)
+:::
 
 Next we will create the workflow that will initialize and update the state of the RDK across frames. To do this, we will use a custom operator implemented in C#.
 
-![Random dot kinematogram](~/images/bonvision-rdk-script.svg)
+:::workflow
+![Random dot kinematogram](~/workflows/bonvision-rdk-script.bonsai)
+:::
+
+> [!WARNING]
+> Save the workflow before adding the `CSharpTransform` operator or you might run into this [issue](https://github.com/bonsai-rx/bonsai/issues/1834).
 
 - Set the `Name` property of the `BehaviorSubject` to `DotField`.
 - Double-click the `CSharpTransform` operator and follow the instructions to generate a new script file. When prompted, name the script `RandomDotKinematogram`.
@@ -88,7 +95,9 @@ This small script simply generates a field of random dots uniformly distributed 
 
 To visualize the dot field we are generating, we can use the `DrawCircleArray` operator from BonVision.
 
-![Draw kinematogram](~/images/bonvision-rdk-draw.svg)
+:::workflow
+![Draw kinematogram](~/workflows/bonvision-rdk-draw.bonsai)
+:::
 
 Make sure to set the `PositionData` property to match the name of the `BehaviorSubject` we defined in the previous step (i.e. `DotField`).
 
