@@ -9,7 +9,9 @@ Bonsai includes support for [Open Sound Control](https://opensoundcontrol.stanfo
 
 We will start by implementing a direct peer-to-peer communication link between two processes on the same machine. This will allow us to send data between two known nodes in the network, or two independent Bonsai processes.
 
-![Send message](~/images/osc-send-message.svg)
+:::workflow
+![Send message](~/workflows/osc-send-message.bonsai)
+:::
 
 - Setup the above workflow.
 - Set the `Name` property of the `CreateUdpClient` source to `Emitter`.
@@ -18,7 +20,9 @@ We will start by implementing a direct peer-to-peer communication link between t
 
 Open a new Bonsai window and setup the following workflow:
 
-![Receive message](~/images/osc-receive-message.svg)
+:::workflow
+![Receive message](~/workflows/osc-receive-message.bonsai)
+:::
 
 - Set the `Name` property of the `CreateUdpClient` source to `Receiver`.
 - Set the `Port` property to 2342.
@@ -30,7 +34,9 @@ Open a new Bonsai window and setup the following workflow:
 
 Next we will implement a responsive TCP server with support to accept multiple connections. This will allow us to share data between multiple unknown nodes in the network, where each receiver node just needs to know the IP address of the server and establish a connection to the data stream.
 
-![Send message](~/images/osc-send-tcp.svg)
+:::workflow
+![Send TCP message](~/workflows/osc-send-tcp.bonsai)
+:::
 
 - Setup the above workflow (identical to the previous exercise but using `CreateTcpServer`).
 - Set the `Name` property of the `CreateTcpServer` source to `Emitter`.
@@ -39,7 +45,9 @@ Next we will implement a responsive TCP server with support to accept multiple c
 
 Open a new Bonsai window and setup the following workflow:
 
-![Receive message](~/images/osc-receive-tcp.svg)
+:::workflow
+![Receive TCP message](~/workflows/osc-receive-tcp.bonsai)
+:::
 
 - Set the `Name` property of the `CreateTcpClient` source to `Receiver`.
 - Set the `Port` property to 2342.
@@ -51,7 +59,9 @@ Open a new Bonsai window and setup the following workflow:
 
 It is possible to share multiple data streams of different types simultaneously through a single OSC connection. To do this, we need to specify different OSC addresses for our messages to allow clients to subscribe to the independent streams.
 
-![Send message](~/images/osc-send-image.svg)
+:::workflow
+![Send image](~/workflows/osc-send-image.bonsai)
+:::
 
 - Start from the previous emitter workflow.
 - Set the `Address` property of the `SendMessage` sink to `/cursor`.
@@ -62,7 +72,9 @@ It is possible to share multiple data streams of different types simultaneously 
 
 Open a new Bonsai window and setup the following workflow:
 
-![Receive message](~/images/osc-receive-image.svg)
+:::workflow
+![Receive image](~/workflows/osc-receive-image.bonsai)
+:::
 
 - Start from the previous receiver workflow.
 - Set the `Address` property of the `ReceiveMessage` source to `/cursor`.
