@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.5"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:p1="clr-namespace:OpenCV.Net;assembly=OpenCV.Net"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:CameraCapture">
+          <cv:Index>0</cv:Index>
+          <cv:CaptureProperties />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>SubjectSink</Name>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject" TypeArguments="p1:IplImage">
+        <rx:Name>SubjectSource</rx:Name>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.5"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="rx:AsyncSubject" />
+      <Expression xsi:type="rx:BehaviorSubject" />
+      <Expression xsi:type="rx:PublishSubject" />
+      <Expression xsi:type="rx:ReplaySubject">
+        <rx:BufferSize xsi:nil="true" />
+      </Expression>
+      <Expression xsi:type="rx:ResourceSubject" />
+      <Expression xsi:type="SubscribeSubject" />
+      <Expression xsi:type="MulticastSubject" />
+    </Nodes>
+    <Edges />
+  </Workflow>
+</WorkflowBuilder>

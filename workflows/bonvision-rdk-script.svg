@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"[
+<!ENTITY E3 'stroke:rgb(169,169,169);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:2;stroke-linejoin:miter;'><!ENTITY E1 'stroke:rgb(169,169,169);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:1;stroke-linejoin:miter;'><!ENTITY E12 'matrix(1.00 0.00 0.00 1.00 84.00 4.00 ) '><!ENTITY E4 'matrix(1.00 0.00 0.00 1.00 164.00 4.00 ) '><!ENTITY E15 'stroke:rgb(255,255,255);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:2;stroke-linejoin:miter;'><!ENTITY E19 'matrix(1.00 0.00 0.00 1.00 4.00 4.00 ) '><!ENTITY E10 'matrix(1.00 0.00 0.00 1.00 0.00 0.00 ) '>
+]>
+<svg width="213.4455" height="66.65038" id="SvgGdi_output" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>text { fill: #000; } @media (prefers-color-scheme: dark) { text { fill: #eee; } }</style>
+  <rect id="background" height="100.00%" style="fill:none;" width="100.00%" y="0.00" x="0.00" />
+  <g style="shape-rendering:auto;" id="root_group">
+    <line y1="19.00" style="stroke:rgb(169,169,169);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:1;stroke-linejoin:miter;" id="2" x2="160.00" y2="19.00" x1="118.00" />
+    <line y1="19.00" style="stroke:rgb(169,169,169);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:1;stroke-linejoin:miter;" id="3" x2="80.00" y2="19.00" x1="38.00" />
+    <path style="stroke:rgb(169,169,169);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:2;stroke-linejoin:miter;" transform="matrix(1.00 0.00 0.00 1.00 164.00 4.00 ) " id="37" d="M 10.158 33.2 C 3.4054 31.7591 -1.861 26.4692 -3.271 19.71 " />
+    <ellipse id="38" cy="15.00" cx="15.00" transform="matrix(1.00 0.00 0.00 1.00 164.00 4.00 ) " rx="15.00" ry="15.00" style="stroke:none;opacity:1;fill:rgb(155,91,179);" />
+    <path transform="matrix(1.00 0.00 0.00 1.00 164.00 4.00 ) " id="42" style="stroke:none;fill-rule:evenodd;opacity:1;fill:rgb(255,255,255);" d="M 11.656 8.2 11.99975 8.7 16.31225 14.7937 11.65605 21.4187 11.28105 21.9187 14.74985 21.9187 14.8436 21.7624 17.9998 17.0124 18.46855 17.7 21.15605 21.7624 21.2498 21.9187 24.7498 21.9187 24.40605 21.4187 19.65605 14.6687 24.06225 8.699997 24.406 8.199997 20.9998 8.199997 20.90605 8.324997 18.68725 11.4187 C 18.46251 11.7285 18.22333 12.1062 17.9685 12.4812 17.77046 12.1547 17.58677 11.8424 17.31225 11.4187 L 15.28105 8.356197 15.1873 8.199997 11.6561 8.199997 z " />
+    <ellipse id="43" cy="12.78" cx="8.79" transform="matrix(1.00 0.00 0.00 1.00 164.00 4.00 ) " rx="3.00" ry="3.00" style="stroke:none;opacity:1;fill:rgb(255,255,255);" />
+    <text id="44" transform="matrix(1.00 0.00 0.00 1.00 0.00 0.00 ) " x="164.00px" y="39.00px" style="stroke:none;clip-path:url(#46_text_clipper);font-family:Microsoft Sans Serif;font-size:8.25pt;opacity:1;">
+      <tspan dy="8.25pt" id="48">Behavior</tspan>
+    </text>
+    <text id="50" transform="matrix(1.00 0.00 0.00 1.00 0.00 0.00 ) " x="164.00px" y="51.45px" style="stroke:none;clip-path:url(#52_text_clipper);font-family:Microsoft Sans Serif;font-size:8.25pt;opacity:1;">
+      <tspan dy="8.25pt" id="54">Subject</tspan>
+    </text>
+    <ellipse id="58" cy="15.00" cx="15.00" transform="matrix(1.00 0.00 0.00 1.00 84.00 4.00 ) " rx="15.00" ry="15.00" style="stroke:none;opacity:1;fill:rgb(68,154,223);" />
+    <path style="stroke:rgb(255,255,255);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:2;stroke-linejoin:miter;" transform="matrix(1.00 0.00 0.00 1.00 84.00 4.00 ) " id="61" d="M 13.573 17.119 24.488 17.119 M 14.399 13.0536 25.364 13.0536 M 20.3075 20.4411 22.9414 9.814099 M 16.2015 20.2941 18.7757 9.755098 M 11.8164 18.6957 C 9.494298 20.2654 5.970598 18.96895 5.206498 16.2785 4.254117 13.6444 6.364398 10.539 9.166198 10.46 10.08344 10.39904 11.0168 10.63191 11.7978 11.1166 " />
+    <text id="62" transform="matrix(1.00 0.00 0.00 1.00 0.00 0.00 ) " x="84.00px" y="39.00px" style="stroke:none;clip-path:url(#64_text_clipper);font-family:Microsoft Sans Serif;font-size:8.25pt;opacity:1;">
+      <tspan dy="8.25pt" id="66">RandomDot</tspan>
+    </text>
+    <text id="68" transform="matrix(1.00 0.00 0.00 1.00 0.00 0.00 ) " x="84.00px" y="51.45px" style="stroke:none;clip-path:url(#70_text_clipper);font-family:Microsoft Sans Serif;font-size:8.25pt;opacity:1;">
+      <tspan dy="8.25pt" id="72">Kinematogram</tspan>
+    </text>
+    <path style="stroke:rgb(169,169,169);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:2;stroke-linejoin:miter;" transform="matrix(1.00 0.00 0.00 1.00 4.00 4.00 ) " id="77" d="M 31.179 5.2 C 34.9985 11.0918 34.9814 18.682 31.13552 24.557 " />
+    <ellipse id="78" cy="15.00" cx="15.00" transform="matrix(1.00 0.00 0.00 1.00 4.00 4.00 ) " rx="15.00" ry="15.00" style="stroke:none;opacity:1;fill:rgb(91,178,126);" />
+    <path style="stroke:rgb(255,255,255);fill:none;stroke-linecap:butt;stroke-miterlimit:9;opacity:1;stroke-width:2;stroke-linejoin:miter;" transform="matrix(1.00 0.00 0.00 1.00 4.00 4.00 ) " id="81" d="M 15.011 14.916 15.15146 23.9388 M 23.14376 10.5618 15.01096 14.9158 6.97086 10.5618 M 6.924747 10.5618 15.15145 5.893101 23.14375 10.5618 23.14375 19.2433 15.15145 23.9386 6.924747 19.2433 z " />
+    <text id="82" transform="matrix(1.00 0.00 0.00 1.00 0.00 0.00 ) " x="4.00px" y="39.00px" style="stroke:none;clip-path:url(#84_text_clipper);font-family:Microsoft Sans Serif;font-size:8.25pt;opacity:1;">
+      <tspan dy="8.25pt" id="86">UpdateFrame</tspan>
+    </text>
+  </g>
+  <defs id="clips_hatches_and_gradients">
+    <clipPath id="46_text_clipper">
+      <rect x="164.00" y="39.00" width="48.45" height="27.65" id="47" />
+    </clipPath>
+    <clipPath id="52_text_clipper">
+      <rect x="164.00" y="51.45" width="48.45" height="27.65" id="53" />
+    </clipPath>
+    <clipPath id="64_text_clipper">
+      <rect x="84.00" y="39.00" width="77.40" height="27.65" id="65" />
+    </clipPath>
+    <clipPath id="70_text_clipper">
+      <rect x="84.00" y="51.45" width="77.40" height="27.65" id="71" />
+    </clipPath>
+    <clipPath id="84_text_clipper">
+      <rect x="4.00" y="39.00" width="72.93" height="13.83" id="85" />
+    </clipPath>
+  </defs>
+</svg>

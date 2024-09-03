@@ -33,7 +33,9 @@ In this case we can see from the diagram that the [`Condition`](xref:Bonsai.Reac
 
 The Bonsai language uses a graphical representation called a *workflow* to describe complex combinations of operations on observable sequences.
 
-![Example workflow](~/images/language-sampleframe.svg)
+:::workflow
+![Example workflow](~/workflows/language-sampleframe.bonsai)
+:::
 
 In a workflow, each node represents an operator defining an observable sequence. Nodes can be connected to other nodes, from left to right. Each connection indicates that the downstream operator on the right subscribes, or "listens", to the notifications of the upstream operator on the left.
 

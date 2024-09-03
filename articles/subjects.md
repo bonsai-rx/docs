@@ -9,7 +9,9 @@ Subjects are a special type of operator that allows reusing and sharing of obser
 
 Most subjects will be given a name. You can subscribe to a named subject from anywhere in the workflow using the [`SubscribeSubject`](#subscribesubject) operator, making subjects very useful to organize complex workflows into modular components that can be easily replaced. The following example demonstrates how to separate logging of a sequence of images using a [`PublishSubject`](#publishsubject).
 
-![Example of using subjects to share observable sequences](~/images/language-subjects.svg)
+:::workflow
+![Example of using subjects to share observable sequences](~/workflows/language-subjects.bonsai)
+:::
 
 Finally, subjects also allow you to control the [temperature](xref:observables#temperature) of the shared sequence. You can convert a sequence from *cold* to *hot* using [`PublishSubject`](#publishsubject) or from *hot* to *cold* using [`ReplaySubject`](#replaysubject).
 
@@ -25,7 +27,9 @@ Similarly, if node groups are used to define [higher-order observable sequences]
 
 Anonymous branch points in the workflow implicitly define a [`PublishSubject`](#publishsubject) with no name. All branches are first subscribed to the subject prior to subscribing to the common source sequence, so there is a guarantee that every value will be delivered to all branches, assuming immediate subscription.
 
-![Example of using branching to share observable sequences](~/images/language-subjects-branching.svg)
+:::workflow
+![Example of using branching to share observable sequences](~/workflows/language-subjects-branching.bonsai)
+:::
 
 > [!Warning]
 > Dangling branches operate independently from each other, and from the subscription to the source sequence. If one branch terminates and resubscribes to the source (e.g. using the [`Repeat`](xref:Bonsai.Reactive.Repeat) operator) while other branches keep going, this will not reinitialize the shared subscription to the source. If such behavior is of interest, you will need to merge all branches together and implement the cancellation and resubscription logic downstream of the merge point.
@@ -34,7 +38,9 @@ Anonymous branch points in the workflow implicitly define a [`PublishSubject`](#
 
 Subjects can be declared either as a sink from an existing observable sequence, or as a source. Source subjects do not have a pre-existing input sequence from which values are generated, but rather they are setup to redirect inputs from multiple writers into one reader, for example for logging or control purposes.
 
-![Example of declaring a subject as a sink or a source](~/images/language-subject-declaration.svg)
+:::workflow
+![Example of declaring a subject as a sink or a source](~/workflows/language-subject-declaration.bonsai)
+:::
 
 If subjects are created as a source, the type of the subject needs to be declared explicitly on creation. This is done by selecting the source sequence in the workflow whose type we would like to share, and using the right-click context menu.
 
@@ -46,7 +52,9 @@ If subjects are created as a source, the type of the subject needs to be declare
 
 Below are listed all different subject types, each represented visually by a unique icon.
 
-![Visual indication of subject types](~/images/language-subject-types.svg)
+:::workflow
+![Visual indication of subject types](~/workflows/language-subject-types.bonsai)
+:::
 
 The last two operators, [`SubscribeSubject`](#subscribesubject) and [`MulticastSubject`](#multicastsubject), are used to access existing declared subjects for reading and writing, respectively. This is visually indicated by the `*` in the operator icon. Their behavior will be determined by the type of subject they are accessing.
 

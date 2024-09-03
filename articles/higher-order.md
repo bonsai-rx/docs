@@ -9,7 +9,9 @@ When building simple reactive programs, it is usually enough to place a source f
 
 However, sometimes you may need to build systems that deal with an unknown number of sources. For example, imagine you wanted to create a workflow to merge together several video files. If you knew beforehand how many files you will need to combine and where they are exactly located, you might use the [`Concat`](xref:Bonsai.Reactive.Concat) operator to design a workflow like the following:
 
-![Concatenate video files using first order operators](~/images/concatfile-firstorder.svg)
+:::workflow
+![Concatenate video files using first order operators](~/workflows/concatfile-firstorder.bonsai)
+:::
 
 But what if you did not know beforehand how many video files you will need to combine, and you wanted to merge all these videos without having to manually place a source node for every file?
 

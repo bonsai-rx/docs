@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.5"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:al="clr-namespace:Bonsai.Audio;assembly=Bonsai.Audio"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:AudioReader">
+          <al:BufferLength>10</al:BufferLength>
+          <al:SampleRate>0</al:SampleRate>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:MouseMove" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>X</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Rescale">
+          <dsp:Min>0</dsp:Min>
+          <dsp:Max>1</dsp:Max>
+          <dsp:RangeMin>0</dsp:RangeMin>
+          <dsp:RangeMax>1</dsp:RangeMax>
+          <dsp:RescaleType>Linear</dsp:RescaleType>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="Scale" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:ConvertScale">
+          <dsp:Depth xsi:nil="true" />
+          <dsp:Scale>1</dsp:Scale>
+          <dsp:Shift>0</dsp:Shift>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="al:AudioPlayback">
+          <al:SampleRate>44100</al:SampleRate>
+          <al:State>Playing</al:State>
+        </Combinator>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="5" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source2" />
+      <Edge From="5" To="6" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
