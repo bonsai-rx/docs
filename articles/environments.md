@@ -13,36 +13,40 @@ Bonsai addresses these problems by supporting the creation of reproducible packa
 
 ## Creating an environment
 
-The key to creating and updating environments is the `Bonsai.config` file, which keeps a record of all currently installed dependencies for a specific Bonsai setup. You can find this file in the same location of the Bonsai executable (`Bonsai.exe`). Anytime you install or update a package, Bonsai will automatically modify the config file.
+```ps
+dotnet new install Bonsai.Templates
+```
+Navigate to the folder where you want to create a new Bonsai environment.
+
+```ps
+dotnet new bonsaienv
+```
+This creates by default a bonsai environment in your current directory with a `.bonsai` folder and runs a powershell script to install any dependencies for a minimal Bonsai installation.
+
+You can supply additional options to change the default settings. The following command for instance will create a new folder `project1` containing a bonsai environment folder named `env`.
+
+```ps
+dotnet new bonsaienv -o project1 -n .env
+```
+
+## Updating environments
+
+To install new packages in this environment, simply open the local `Bonsai.exe` and install the packages you need.
+
+The key to updating environments is the `Bonsai.config` file, which keeps a record of all currently installed dependencies for a specific Bonsai setup. You can find this file in the same location of the Bonsai executable (`Bonsai.exe`). Anytime you install or update a package, Bonsai will automatically modify the config file.
 
 The contents of the `Bonsai.config` file are compared with the current state of the `Packages` folder when Bonsai starts. If there are any missing packages the Bonsai bootstrapper will download them automatically to recover the expected state of the installation folder.
 
-The easiest way to create a self-contained Bonsai environment is then to download the portable version of Bonsai and install the packages which are necessary for a specific project. For example, to share a project that depends on the [`Vision`](xref:Bonsai.Vision) package:
+## Packaging and Deploying environments
 
-1. Start by downloading the [latest Bonsai portable release](https://github.com/bonsai-rx/bonsai/releases/latest/download/Bonsai.zip).
-2. After extracting all the files from the `Bonsai.zip` file, your folder will look like this:
+If there is an existing Bonsai.config and/or NuGet.config in the folder, these will be used as part of the environment reconstruction process. In this case, it is enough to navigate to the folder where `Bonsai.config` is and simply run:
 
-![Portable Bonsai release](~/images/environments-portablerelease.png)
+```ps1
+dotnet new bonsaienv
+```
 
-3. Run `Bonsai.exe`. During this first run, Bonsai will bootstrap the core dependencies and create an initial `Bonsai.config` file.
-4. Install the **Bonsai - Vision** package using the [`Package Manager`](xref:packages). The `Bonsai.config` file will be modified to specify this package as a new dependency. Any additional dependencies which might be needed for the package to run will also be added.
-5. Close Bonsai.
+You can now move the new `.bonsai` folder to where you want to setup a new bonsai environment. When we run `Bonsai.exe` for the first time, the bootstrapper will attempt to download and resolve all core dependencies.
 
-## Deploying your environment
-
-Now that you have a `Bonsai.config` file with all the dependencies needed to run your project, how can you reproduce this installation elsewhere? As we saw in the previous step, when we run `Bonsai.exe` for the first time, the bootstrapper will attempt to download and resolve all core dependencies.
-
-However, if a `Bonsai.config` file is found inside the executable folder, the bootstrapper will also resolve those dependencies at startup time. We can test this by doing the following:
-
-1. Create a new folder and repeat steps 1. and 2. from the previous section.
-2. This time, before running `Bonsai.exe`, copy your `Bonsai.config` into the folder:
-
-![Unziped Bonsai release with config](~/images/environments-bonsaiconfig.png)
-
-2. Run `Bonsai.exe`.
-3. Add a node that depends on the Vision package (e.g. [`CameraCapture`](xref:Bonsai.Vision.CameraCapture)) to verify that the package has been successfully installed.
-
-The new folder is now a copy of your previous environment.
 
 ## Adding local dependencies
 
