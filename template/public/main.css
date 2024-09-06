@@ -19,3 +19,11 @@
 .donot > p::before {
   content: "❌ DO NOT ";
 }
+
+[data-bs-theme=dark] #logo {
+  content:url("../logo-dark.svg");
+}
+
+[data-bs-theme=light] #logo {
+  content:url("../logo.svg");
+}
