@@ -9,6 +9,8 @@ This repo contains the technical reference manual for the Bonsai visual programm
 
 Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects, and deployed using Github Actions on Github Pages.
 
+We welcome all contributions! For more information please refer to our [Contribution Guide](https://bonsai-rx.org/contribute/).
+
 # Quick start guide for contributing to documentation
 
 These instructions apply to repos that already have a DocFx website created.

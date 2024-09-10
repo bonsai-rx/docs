@@ -33,6 +33,10 @@
       href: scripting-extensions.md
     - name: Creating a Package
       href: create-package.md
+    - name: Documentation With Docfx
+      href: package-documentation.md
+    - name: Documentation Style Guide
+      href: documentation-style-guide.md
 - name: Design Guidelines
   href: design-guidelines.md
   items:
