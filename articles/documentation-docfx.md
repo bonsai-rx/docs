@@ -1,7 +1,6 @@
 # Documentation With Docfx
-Effective documentation plays a crucial role in driving the adoption and usage of custom packages. Clear, well-organized documentation helps users understand package functionality, integrate it into their workflows, and troubleshoot issues. 
 
-For packages published by the Bonsai Foundation, we use [docfx](https://dotnet.github.io/docfx/index.html), a static site generator for .NET projects, to automatically generate and publish documentation online. As we have integrated and extended `docfx` to facilitate key Bonsai features, we encourage using `docfx` for consistency and support within the Bonsai Ecosystem. 
+Effective online documentation plays a crucial role in driving the adoption and usage of custom packages. For packages published by the Bonsai Foundation, we use [docfx](https://dotnet.github.io/docfx/index.html), a static site generator for .NET projects, to automatically generate and publish documentation online. As we have integrated and extended `docfx` to facilitate key Bonsai features, we encourage package developers to use `docfx` for consistency and support within the Bonsai Ecosystem. 
 
 The following article will go into how to create a `docfx` website for your package. For documentation style guidelines, check out the [Documentation Style Guide](./documentation-style-guide.md).
 
@@ -130,7 +129,7 @@ Finally, exclude `filter.yml` from being included in the building of content.
     "filter.yml"
 ]
 ```
-2) Add the `overwrite` attribute to enable [individual operator articles]((./documentation-style-guide.md)) stored in the `apidocs` folder to be included in articles and API docs.
+2) Add the `overwrite` attribute to enable [individual operator articles](./documentation-style-guide.md) stored in the `apidocs` folder to be included in articles and API docs.
 
 ```yml
 "build": {

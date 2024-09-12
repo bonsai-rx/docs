@@ -22,8 +22,8 @@ These instructions apply to repos that already have a docfx website created.
 ```powershell
 dotnet tool restore
 ```
-4. In a Windows Powershell, use the command `dotnet docfx docfx.json --serve` to generate a local preview of the documentation website as you are making changes.
-5. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the `main` branch of the original repo.
-6. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with `main` will be approved and the contribution will be published.
+5. In a Windows Powershell, use the command `dotnet docfx docfx.json --serve` to generate a local preview of the documentation website as you are making changes.
+6. When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the `main` branch of the original repo.
+7. Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with `main` will be approved and the contribution will be published.
 
 For more info, check out the [Documentation with docfx](https://bonsai-rx.org/docs/articles/documentation-docfx.html) and [Documentation Style Guide](https://bonsai-rx.org/docs/articles/documentation-style-guide.html) articles.

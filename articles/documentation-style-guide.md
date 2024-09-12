@@ -1,15 +1,21 @@
 # Documentation Style Guide
 
-## Article Organization
+Clear, well-organized documentation helps users understand package functionality, integrate it into their workflows, and troubleshoot effectively.
 
-The navigation bar at the top of the DocFX website should have 2-3 links to the main pages of the website.
+Through our experience documenting Bonsai, we've established several best practices for presenting information, which are outlined here alongside practical methods for implementation in [docfx](./documentation-docfx.md). This document is intended as a living resource, open to feedback and continuous improvement, rather than a static guide. Click on the `Edit this page` button or raise an issue on the [bonsai-docs](https://github.com/bonsai-rx/docs/issues) repository if you have a suggestion.
 
-* Manual - hosts documentation that explains the basic functions of the various operators in the package.
-* Reference - generated automatically by DocFX from XML comments in the Bonsai package source code.
-* Tutorials - optional page that would have examples or tutorials for various applications.
+## Article organization
 
+In general, we have found that three types of articles, organized into distinct website sections, are sufficient to address the needs of most users and their learning styles.
 
-To construct the navigation bar, edit the `docs/toc.yml` file to reflect the location and name of the various pages.
+* Manual - hosts documentation that explains the basic workflow of the package or functions of the various operators.
+* Reference - hosts technical documentation for each operator, generated automatically by DocFX from XML comments in source code or supplemented with individual operator articles.
+* Tutorials - hosts examples or tutorials for various applications. This section is optional, but valuable for more complicated applications or packages which require operators from other packages for their execution.
+
+To construct these 3 sections:
+
+1) Ensure that the `docs` folder has a `articles` and `tutorials` folder. The `api` folder is automatically generated.
+2) For the navigation bar at the top of the website, edit the `docs/toc.yml` file to reflect the location and name of the various folders.
 
 ```yml
 - name: Manual
@@ -17,64 +23,79 @@ To construct the navigation bar, edit the `docs/toc.yml` file to reflect the loc
 - name: Reference
   href: api/
 - name: Tutorials
-  href: articles/tutorials/
+  href: tutorials/
 ```
-
-### Table of contents
-For the `Manual` and `Tutorials` pages of the website, the table of contents is built from a `toc.yml` file located in the respective folders. The table of contents for the API page is generated automatically.
-
-Getting started/Landing page - the first page of the docs website will be an `index.md` file that is located in the `docs` folder. This typically includes a description of what the package does, installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the `articles/toc.yml` file, the getting started page should be listed as shown. This step is omitted from the tutorials `toc.yml`.
+3) Add articles in markdown format to the `Manual` and `Tutorials` folder 
+4) Add a toc.yml file to the `Manual` and `Tutorials` folder to generate the table of contents for that section. The `API` toc.yml is generated automatically.
+Here is a sample `articles/toc.yml` with a flattened table of content layout (all articles will be visible in the TOC)
 
 ```yml
-- href: ../index.md
-```
-
-> [!NOTE]  
-> Article names can be omitted as they will be taken from the first `Heading 1` element in the article.
-
-For the rest of the articles, they can be added to the articles folder and referred to as follows.
-Article filenames should be simple and reflect either the article title or operator name (if the article is about a specific operator).
-
-```yml
-- href: ../index.md
-- href: lds-overview.md
-```
-
-To organise articles into different sections, simply include a name before the links to the articles that you want to group together. 
-
-```yml
-- href: ../index.md
-- name: LinearDynamicalSystems
-- href: lds-overview.md
+- href: ../index.md                         # Website Getting Started page that points to docs/index.md. Omit for tutorials/toc.yml
+- name: LinearDynamicalSystems              # Group Heading (Optional)
+- href: lds-overview.md                     # Article filename
 - href: lds-installation-guide-windows.md
 - href: lds-installation-guide-linux.md
 ```
 
-> [!NOTE]
-> While there is another method of grouping articles together that makes a nested table of contents, we prefer this method as it expands the table of contents so that users can see all the articles at once and get to them quicker.
+Here is a same `toc.yml` but this time with a nested table of content layout (articles will only be visible when group headings are clicked)
 
-### Individual Bonsai operator articles
-Where possible, documentation should be written for individual Bonsai operators and embedded in the `Manual` articles. The advantage of this approach is that documentation for individual operators will be appended to the automatically generated `Reference` API docs. In addition, they will also show up in the Bonsai editor when users right click on individual operators to `View Help`.
+```yml
+- href: ../index.md                         
+- name: LinearDynamicalSystems              
+  items:
+  - href: lds-overview.md                    
+  - href: lds-installation-guide-windows.md
+  - href: lds-installation-guide-linux.md
+```
+> [!TIP]
+> Article filenames should be simple and reflect either the article title or operator name. Titles can be omitted as they will be taken from the first `Heading 1` element.
 
-For example, to create documentation for a `PredictPoses` operator that will be included in a `Network Inference` article for the `Bonsai.Sleap` package:
+### Manual articles
 
-1) Create a `Bonsai_Sleap_PredictPoses.md` article and place it in the `docs\apidoc` folder. In the markdown file, assign a UID that follows the namespace.operator format.
+For the `Manual` section we typically see these elements:
+
+- Getting Started/Landing page - This typically includes a description of what the package does, how to install the package and funding/acknowledgements. 
+- Installation Instructions - If a package requires external dependencies or additional configuration it would be helpful to dedicate an extra page to this.
+- Workflow Overview - Best illustrated with a flowchart or a basic workflow container 
+
+Beyond that, there are many possible ways to organise the rest of the manual articles depending on the type of package that is being supported. However one approach that we recommend regardless, is to try and write articles for each individual operator. This approach has several advantages:
+
+- individual operator articles can be integrated into the automatically generated `Reference` documentation using docfx's `overwrite` function, allowing for supplemental content like images and workflows.
+- These articles can also be combined into larger conceptual guides, providing organizational flexibility.
+- Writing individual operator articles ensures complete coverage of all operators.
+
+Creating an individual operator article requires some 
+For example, to create an individual operator article for a `PredictPoses` operator that will be included in a "Network Inference" `Manual` article as well as 
+as in the automatically generated `Reference` doc:
+
+1) **Create the Operator Article** - `Bonsai_Sleap_PredictPoses.md` article and place it in the `docs\apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the namespace.operator format. 
 
 ```yml
 ---
 uid: Bonsai.Sleap.PredictPoses
 ---
-
 Write content here.
 ```
 
 2) Create a `Network-Inference.md` article and place it in the `docs\articles` folder. In the markdown file, include a reference to the individual operator.md file.
 
-```yml
+```markdown
+Other 
 [!include[Title](~/apidoc/Bonsai_Sleap_PredictPoses.md)]
 ```
 > [!NOTE]  
 > The title is optional.
+
+### Reference articles
+
+A unique 
+
+The advantage of this approach is that documentation for individual operators will be appended to the automatically generated `Reference` API docs. In addition, they will also show up in the Bonsai editor when users right click on individual operators to `View Help`.
+
+
+
+
+
 
 ### Tutorials/Examples Submodule
 For packages with extensive tutorials, a separate repository can be created and imported as a submodule.
@@ -87,7 +108,7 @@ git submodule add https://github.com/bonsai-rx/machinelearning-examples
 In addition, the `docfx.json` file needs to be modified.
 For an example of how to setup a Tutorial submodule, refer to https://github.com/bonsai-rx/machinelearning and its submodule https://github.com/bonsai-rx/machinelearning-examples.
 
-## Contributor Style Guide 
+## Article Style Guide 
 
 > [!NOTE]  
 > When working on an article, first check [the main documentation](https://bonsai-rx.org/docs/) to see what written material might already exist for that topic that could possibly be used as a reference.
