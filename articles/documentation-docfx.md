@@ -258,7 +258,7 @@ If you are running the local preview `dotnet docfx docfx.json --serve` and not s
 
 1) Make sure that any changes you have made in your code editor are saved.
 2) Hard refresh pages in the browser using either Ctrl+Shift+R and Ctrl+F5 or clear the cache to avoid cache issues.
-3) As a last resort - check that the content updates online by [publishing your website] (#publishing-to-github-pages).
+3) As a last resort - check that the content updates online by [publishing your website](#publishing-to-github-pages).
 
 ### Differences between local and online builds
 
