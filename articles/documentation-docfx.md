@@ -229,7 +229,10 @@ Once you are satisfied with the website, publish to [Github Pages](https://docs.
 3) Commit your edits and push them online.
 4) Under the `Actions` tab of your github repo, trigger the `Build docs` workflow manually with the `Run workflow` button on the branch you commited your edits to. This will build the docs site on the `gh-pages` branch.
 5) Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
-7) The URL for the site can be found in your `Pages` section of your repo settings.
+7) The URL for the site can be found in your `Pages` section of your repository settings.
+
+> [!NOTE]
+> To ensure that the Bonsai Editor can link to the `Reference` documentation for operators, make sure that the `PackageProjectURL` in either the `.csproj` file or the `Directory.Build.props` file points to the URL for the documentation website.
 
 ## Version control cleanup
 To keep your online Github repository clean, you can use .gitignore files to ignore files that are generated for documentation that do not need to be version controlled. Add each item as a separate line to the appropriate .gitignore file in each location.
@@ -253,7 +256,7 @@ To write documentation for [new packages or releases](https://bonsai-rx.org/docs
 
 1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free).
 2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
-3) In Visual Studio, open `src/PackageName.sln` in the repo.
+3) In Visual Studio, open `src/PackageName.sln` in the repository.
 4) Press F5 to open the Bonsai editor with the new package added. 
 5) From here, you can make Bonsai workflows and save them as per normal.
 

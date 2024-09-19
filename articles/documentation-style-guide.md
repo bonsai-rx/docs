@@ -74,7 +74,7 @@ One approach that we recommend is to try and write articles for each individual 
 Creating an individual operator article requires some additional steps.
 For example, to create an individual operator article for a `PredictPoses` operator that will be included in a "Network Inference" `Manual` article as well as in the automatically generated `Reference` doc:
 
-1) Create the `Bonsai_Sleap_PredictPoses.md` article and place it in the `docs\apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the namespace.operator format. 
+1) Create the `Bonsai_Sleap_PredictPoses.md` article and place it in the `docs/apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the namespace.operator format. 
 
 ```yml
 ---
@@ -83,11 +83,11 @@ uid: Bonsai.Sleap.PredictPoses
 Write content here.
 ```
 
-2) Create a `Network-Inference.md` article and place it in the `docs\articles` folder. In the markdown file, include a reference to the individual operator.md file.
+2) Create a `Network-Inference.md` article and place it in the `docs/articles` folder. In the markdown file, include a reference to the individual operator.md file.
 
 ```markdown
 Other 
-[!include[Title](~/apidoc/Bonsai_Sleap_PredictPoses.md)]
+[!include[Title](../apidoc/Bonsai_Sleap_PredictPoses.md)]
 ```
 > [!NOTE]  
 > The title is optional.
@@ -125,6 +125,23 @@ When writing articles, please follow the [MSDN writing tips](https://learn.micro
 - Keep article and section titles short and succinct so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation)
 - Reuse operator names, properties, and descriptions in the articles and titles (do not use synonyms) so that readers may more easily follow and refer to them.
 - Use the imperative style i.e. "Link hardware triggers" rather than "Linking hardware triggers".
+
+### Linking content 
+When linking to content (either images, or other articles, or workflow containers) use relative paths in this format:
+
+**Example:**
+
+For content in the same folder:
+
+```markdown
+./content.md
+```
+
+For content in a different folder, use `../` to navigate up to the parent folder, and then specify the folder with the content like this:
+
+```markdown
+../images/bonsai-screenshot.svg
+```
 
 ### Cross-references and highlights
 
@@ -219,7 +236,7 @@ To include a figure or image in an article:
 **Example:**
 
 ```markdown
-!['Editor Gallery'](~/images/editor-gallery.png){width=500}
+!['Editor Gallery'](../images/editor-gallery.png){width=500}
 ```
 
 ### Diagrams and Charts
@@ -280,7 +297,7 @@ Highlight properties to change for a particular application by representing them
 |  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.   |
 
 ### Code snippets
-Use code blocks to highlight code to run. Enable [language specific highlighting]() by adding a language identifier at the beginning.
+Use code blocks to highlight code to run. Enable [language specific highlighting](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) by adding a language identifier at the beginning.
 
 **Example:**
 ````markdown
@@ -292,7 +309,7 @@ dotnet tool install --local docfx --version 2.75.3
 
 ### Alerts
 
-Use alerts to alert users to important information. Only use either the `Note` or `Warning` alerts as they do not conflict with the formatting for property names.
+Use alerts to alert users to important information. Only use either the `Note` or `Warning` alerts as the color scheme does not conflict with the formatting for property names.
 
 **Example:**
 ```markdown
