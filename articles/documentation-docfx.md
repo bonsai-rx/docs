@@ -9,11 +9,12 @@ The following article will go into how to create a `docfx` website for your pack
 
 ## Repository organization
 For effective long term maintenance of documentation across different repositories, package repositories should be organised according to this standardized folder structure before setting up `docfx`: 
+
 ```
 .
 ├── .bonsai/                 # Local Bonsai Environment (see note below) 
 ├── .github/workflows/       # Github Actions Folder (see note below) 
-│   └── build.yml
+│   └── docs.yml
 ├── docs/                    # Folder to setup docfx
 └── src/
     └── Bonsai.PackageName/  # Project files here
@@ -27,11 +28,12 @@ dotnet new install Bonsai.Templates
 dotnet new bonsaienv
 ```
 
-- `.github/workflows/` - The docfx website is published to [Github Pages](https://pages.github.com/) using a [Github Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) recipe named [build.yml](https://github.com/bonsai-rx/docs/blob/main/.github/workflows/build.yml).  Download `build.yml` and place it in this folder.
+- `.github/workflows/` - The docfx website is published to [Github Pages](https://pages.github.com/) using a [Github Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow called `docs.yml`. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend `Bonsai.PackageName` to point to your package source code in `docs.yml`.
 
 ## Setting up docfx
 
 1) Setup a local installation of `docfx` in your package repository with the following commands (executed in the root directory):
+
 ```powershell
 dotnet new tool-manifest 
 dotnet tool install --local docfx 
@@ -88,21 +90,29 @@ Before proceeding further into configuring the `docfx` website, the `docs` folde
 ```powershell
 git submodule add https://github.com/bonsai-rx/docfx-tools bonsai
 ```
-If the `bonsai` folder doesnt contain any files, run 
+If you cloned the repository and the `bonsai` folder does not contain any files:
 
 ```powershell
 git submodule update --init
 ```
-- `template/` - this custom CSS template patches in docfx-tools and adds a github link to the top right of the navigation bar. Download the [template folder](https://github.com/bonsai-rx/machinelearning/tree/main/docs/template) and amend the github link in `main.css` to your repository.
 
-- `build.ps1` - this custom script exports bonsai workflow as images the workflow container. Download the [file](https://github.com/bonsai-rx/pulsepal/blob/main/docs/build.ps1) and amend the line that specifies the package name and source location.
+To update the submodule to the latest commit:
+```powershell
+git submodule update --remote
+```
+
+- `template/` - this custom CSS template patches in docfx-tools and adds a github link to the top right of the navigation bar. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the github link in `main.css` to your repository.
+
+- `build.ps1` - this custom script exports bonsai workflow as images the workflow container. Download the file from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the line that specifies the package name and source location.
+
+- `logo.svg` and `favicon.ico` - for official Bonsai packages these can be downloaded from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository.
 
 
 ### Configuring docfx
 
 The `docfx.json` file in the `docs` folder hosts the configuration options for the website and needs to be modified to fully utilize the features availiable. If in doubt, refer to a Bonsai package repository that has been recently updated (for instance https://bonsai-rx.org/machinelearning/) or the [docfx documentation](https://dotnet.github.io/docfx/) for more information. These steps are listed in order of appearance in `docfx.json`.
 
-1) Add a `filter` attribute to [filter](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) obsolete operators in the package. Sometimes in the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
+1) Add a `filter` attribute to [filter](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) obsolete operators in the package. In the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
 
 ```yml
 "metadata": [
@@ -121,17 +131,23 @@ apiRules:
       uid: System.ObsoleteAttribute
 ```
 
-Finally, exclude `filter.yml` from being included in the building of content.
+2) Exclude these files from being included in the building of content to avoid duplicate errors.
 
-```yml
-"exclude": [
-    "_site/**",
-    "filter.yml"
-]
+```json
+"build": {
+    "content": [
+        "exclude": [
+            "_site/**",
+            "filter.yml",
+            "apidoc/**"
+        ]
+    ]
+}
 ```
-2) Add the `overwrite` attribute to enable [individual operator articles](./documentation-style-guide.md) stored in the `apidocs` folder to be included in articles and API docs.
 
-```yml
+3) Add the `overwrite` attribute to enable [individual operator articles](./documentation-style-guide.md) stored in the `apidocs` folder to be included in articles and API docs.
+
+```json
 "build": {
     "overwrite": [
       {
@@ -147,9 +163,9 @@ Finally, exclude `filter.yml` from being included in the building of content.
 }
 ```
 
-3) Modify the `resource` attribute to include files that need to be imported.
+4) Modify the `resource` attribute to include files that need to be imported.
 
-```yml
+```json
 "resource": {
     "files": [
         "logo.svg",
@@ -160,9 +176,9 @@ Finally, exclude `filter.yml` from being included in the building of content.
 }
 ```
 
-4) Modify the `template` attribute to use the modern template and apply the `docfx-tools` custom templates to enable workflow containers.
+5) Modify the `template` attribute to use the modern template and apply the `docfx-tools` custom templates to enable workflow containers.
 
-```yml
+```json
 "template": [
     "default",
     "modern",
@@ -171,24 +187,19 @@ Finally, exclude `filter.yml` from being included in the building of content.
 ]
 ```
 
-5) Modify the `globalMetadata` attribute to change package name, add the `_gitContribute` attribute with a github repository link, and add the `_appFooter` attribute and description.
+6) Modify the `globalMetadata` attribute to change package name and add the `_appFooter` attribute and description.
 
-```yml
+```json
 "globalMetadata": {
     "_appName": "Bonsai - PackageName",
     "_appTitle": "Bonsai.PackageName",
-    "_appFooter": "&copy; 2024 Bonsai Foundation CIC and Contributors. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a>",
-    "_gitContribute": {
-        "repo": "https://github.com/bonsai-rx/PackageName",
-        "branch": "main",
-        "apiSpecFolder": "apidoc"
-    }
+    "_appFooter": "&copy; 2024 Bonsai Foundation CIC and Contributors. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a>"
 }
 ```
 
-6) Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(DocFX markdown processor) extensions for additional markdown functionality. 
+7) Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(DocFX markdown processor) extensions for additional markdown functionality. 
 
-```yml
+```json
 "build": {
     "markdownEngineProperties": {
         "markdigExtensions": [
@@ -199,9 +210,9 @@ Finally, exclude `filter.yml` from being included in the building of content.
 }
 ```
 
-7) Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with docfx documentation, add their `xrefmap.yml` here as well.
+8) Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with docfx documentation, add their `xrefmap.yml` here as well.
 
-```yml
+```json
 "build": {
     "xref": [
         "https://bonsai-rx.org/docs/xrefmap.yml",
@@ -211,21 +222,22 @@ Finally, exclude `filter.yml` from being included in the building of content.
 
 ## Publishing to Github Pages
 
-Once you are satisfied with the website, publish to github pages.
+Once you are satisfied with the website, publish to [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site). A Github Actions workflow has already been created, make sure `docs.yml` is in the `.github/workflows` [folder](#repository-organization).
 
 1) Setup a new branch called `gh-pages` on your fork of the repository.
 2) Go to your repo settings -> `Pages` -> `Build and deployment` - under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
-3) Commit your edits and push to the `main` branch of your repo fork. 
-4) Under the `Actions` tab of your github repo, trigger the `Build docs` workflow manually with the `Run workflow` button. This will build the docs site on the `gh-pages` branch.
+3) Commit your edits and push them online.
+4) Under the `Actions` tab of your github repo, trigger the `Build docs` workflow manually with the `Run workflow` button on the branch you commited your edits to. This will build the docs site on the `gh-pages` branch.
 5) Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
 7) The URL for the site can be found in your `Pages` section of your repo settings.
 
 ## Version control cleanup
 To keep your online Github repository clean, you can use .gitignore files to ignore files that are generated for documentation that do not need to be version controlled. Add each item as a separate line to the appropriate .gitignore file in each location.
+
 ```
 .
 ├── .bonsai/
-│   └── .gitignore           # Packages, *.exe, *.exe.settings, *exe.old (local environment files regenerated by Setup.cmd)
+│   └── .gitignore           # Packages, *.exe, *.exe.settings, *.exe.old (local environment files regenerated by Setup.cmd)
 └── docs/
     ├── api/
     │   └── .gitignore       # *.yml, .manifest (docfx automatically generated files)

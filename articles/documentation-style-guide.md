@@ -25,9 +25,9 @@ To construct these 3 sections:
 - name: Tutorials
   href: tutorials/
 ```
-3) Add articles in markdown format to the `Manual` and `Tutorials` folder 
+3) Add articles in markdown format to the `Manual` and `Tutorials` folder.
 4) Add a toc.yml file to the `Manual` and `Tutorials` folder to generate the table of contents for that section. The `API` toc.yml is generated automatically.
-Here is a sample `articles/toc.yml` with a flattened table of content layout (all articles will be visible in the TOC)
+Here is a sample `articles/toc.yml` with a flattened table of content layout (all articles will be visible in the TOC). This works best for most websites which do not have a lot of articles.
 
 ```yml
 - href: ../index.md                         # Website Getting Started page that points to docs/index.md. Omit for tutorials/toc.yml
@@ -36,8 +36,13 @@ Here is a sample `articles/toc.yml` with a flattened table of content layout (al
 - href: lds-installation-guide-windows.md
 - href: lds-installation-guide-linux.md
 ```
+> [!TIP]
+> Setting up the link to the `Getting Started` page in this way avoids having to create a separate, redundant landing page.
 
-Here is a same `toc.yml` but this time with a nested table of content layout (articles will only be visible when group headings are clicked)
+> [!TIP]
+> Article filenames should be simple and reflect either the article title or operator name. Titles can be omitted as they will be taken from the first `Heading 1` element.
+
+Here is a same `toc.yml` but this time with a nested table of content layout (articles will only be visible when group headings are clicked). 
 
 ```yml
 - href: ../index.md                         
@@ -47,16 +52,14 @@ Here is a same `toc.yml` but this time with a nested table of content layout (ar
   - href: lds-installation-guide-windows.md
   - href: lds-installation-guide-linux.md
 ```
-> [!TIP]
-> Article filenames should be simple and reflect either the article title or operator name. Titles can be omitted as they will be taken from the first `Heading 1` element.
 
 ### Manual section
 
 For the `Manual` section we typically see these elements:
 
-- Getting Started/Landing page - This typically includes a description of what the package does, how to install the package and funding/acknowledgements. 
+- Getting Started/Landing page - This typically includes a description of what the package does, how to install the package and funding/acknowledgements. This belongs in `docs/index.md`.
 - Installation Instructions - If a package requires external dependencies or additional configuration it would be helpful to dedicate an extra page to this.
-- Workflow Overview - Best illustrated with a flowchart or a basic workflow container 
+- Workflow/Conceptual Overview - Best illustrated with a flowchart or a basic workflow container. 
 
 Beyond that, there are many possible ways to organise the rest of the manual articles depending on the type of package that is being supported. 
 
@@ -100,6 +103,7 @@ At present, we understand that the default template for the `Reference` page is 
 
 ### Tutorials section
 
+For the tutorials section, we suggest creating individual pages for various applications where the package is likely to be used. For each application, guide learners through the workflow step by step, organizing it into separate exercises with clear objectives and visible results. This structure makes the content more accessible and manageable for learners, especially for complex workflows.
 
 #### Submodule
 For packages with extensive tutorials, multimedia and other large files, a separate repository can be created and imported as a submodule.
@@ -109,6 +113,7 @@ A tutorial submodule can be added with the following command in the `docs` direc
 ```powershell
 git submodule add https://github.com/bonsai-rx/machinelearning-examples
 ```
+
 In addition, the `docfx.json` file needs to be modified to import the relevant resources. For an example of how to setup a Tutorial submodule, refer to the [Bonsai Machine Learning Package](https://github.com/bonsai-rx/machinelearning) package and its submodule [Machine Learning Examples](https://github.com/bonsai-rx/machinelearning-examples).
 
 ## Article formatting guide 
@@ -132,6 +137,7 @@ To create a hyperlink in markdown use the following syntax:
 ```markdown
 [docfx](https://dotnet.github.io/docfx/)
 ```
+
 To link to an article within the same website, use relative links to the markdown file:
 
 ```markdown
@@ -173,21 +179,28 @@ You can also link to operators in other packages if their [xrefmap](./documentat
 
 ### Bonsai workflows
 
-To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName_workflowName`. 
+To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName-workflowName`. 
 Add the `.bonsai` file to the `workflows` folder in the repository. In the text of the article that includes/references this example workflow, add a workflow container.
 
 **Example:**
 
-Assuming you want to include `custom-pulse-train_send-custom-waveform.bonsai`: 
+Assuming you want to include `CustomPulseTrain-SendCustomWaveform.bonsai`: 
 
 ```markdown
 :::workflow
-![Send Custom Waveform](../workflows/custom-pulse-train_send-custom-waveform.bonsai)
+![Send Custom Waveform](../workflows/CustomPulseTrain-SendCustomWaveform.bonsai)
 :::
 ```
 
-Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. 
-If any of the nodes are greyed out in the SVG images when published, then additional packages need to be installed in the [local bonsai environment](./documentation-docfx.md#repository-organization).
+Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule and requires the `build.ps1`(./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
+
+To generate the images locally for the `docfx` local preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the package src):
+
+```powershell
+./build.ps1
+```
+
+If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment.
 
 Simply open `bonsai.exe` in the `.bonsai` folder, go to the package manager and install the package.
 
