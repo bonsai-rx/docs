@@ -103,7 +103,7 @@ git submodule update --remote
 
 - `template/` - this custom CSS template patches in docfx-tools and adds a github link to the top right of the navigation bar. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the github link in `main.css` to your repository.
 
-- `build.ps1` - this custom script exports bonsai workflow as images the workflow container. Download the file from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the line that specifies the package name and source location.
+- `build.ps1` - this custom script exports Bonsai workflow images using `docfx-tools` and then calls the docfx build process. Download the file from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the line that specifies the package name and source location.
 
 - `logo.svg` and `favicon.ico` - for official Bonsai packages these can be downloaded from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository.
 

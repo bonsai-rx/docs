@@ -209,7 +209,7 @@ Assuming you want to include `CustomPulseTrain-SendCustomWaveform.bonsai`:
 :::
 ```
 
-Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule and requires the `build.ps1`(./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
+Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule and requires the [build.ps1](./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
 
 To generate the images locally for the `docfx` local preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the package src):
 
