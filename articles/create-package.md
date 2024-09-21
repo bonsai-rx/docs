@@ -96,6 +96,10 @@ The Bonsai language can be extended with custom packages, which are installed an
     }
     ```
 
+> [!TIP]
+> Use [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) to document your code. 
+> Check out the [Documentation with docfx](./documentation-docfx.md) article for information on how to use [docfx](https://dotnet.github.io/docfx/index.html) to automatically generate documentation for your package online.
+
 ## Publishing a package project
 
 1. Double-click the name of the project in the Visual Studio Solution Explorer to open up the package metadata.
