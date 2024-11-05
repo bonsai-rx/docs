@@ -9,17 +9,14 @@ When designing operant behaviour assays in systems neuroscience, it is useful to
 For example, a simple reaction time task where the subject needs to press a button as fast as possible following a stimulus is described in the following diagram:
 
 ```mermaid
-flowchart LR
-    id1((ITI))
-    id2((ON))
-    id3((Reward))
-    id4((Fail))
-    id1 -->|elapsed| id2 --> |success| id3
-    id2 --> |miss| id4
-    id3 --> id1
-    id4 --> id1
-    %% invisible link to prevent intersecting lines
-    id3 ~~~ id4
+stateDiagram-v2
+    direction LR
+    [*] --> ITI
+    ITI --> ON: elapsed
+    ON --> Reward: hit
+    ON --> Fail: miss
+    Reward --> [*]
+    Fail --> [*]
 ```
 
 The task begins with an inter-trial interval (`ITI`), followed by stimulus presentation (`ON`). After stimulus onset, advancement to the next state can happen only when the subject presses the button (`success`) or a timeout elapses (`miss`). Depending on which event is triggered first, the task advances either to the `Reward` state, or `Fail` state. At the end, the task goes back to the beginning of the ITI state for the next trial.
@@ -157,22 +154,18 @@ _Try out your state machine and introduce variations to the task behavior and co
 Implement the following trial structure for a Go/No-Go task.
 
 ```mermaid
-flowchart LR
-    id1((ITI))
-    id2((Go))
-    id3((No-Go))
-    id4(Hit)
-    id5(Miss)
-    id6(False Alarm)
-    id7(Correct Reject)
-    id1-. 50% .-> id2  
-    id1-. 50% .-> id3 
-    id2 --> id4
-    id2 --> id5
-    id3 --> id6
-    id3 --> id7
-    classDef noFillStyle fill:transparent, stroke-width:0px
-    class id4,id5,id6,id7 noFillStyle
+stateDiagram-v2
+    direction LR
+    NoGo: No-Go
+    FalseAlarm: False<br>Alarm
+    CorrectReject: Correct<br>Reject
+    [*] --> ITI
+    ITI --> Go: 50%
+    ITI --> NoGo: 50%
+    Go --> Hit
+    Go --> Miss
+    NoGo --> FalseAlarm
+    NoGo --> CorrectReject
 ```
 
 - Trials should be sampled from a uniform distribution using the `Numerics` package (install from `Tools` > `Manage Packages`).
@@ -189,12 +182,11 @@ flowchart LR
 Implement the following trial structure for conditioned place preference. `enter` and `leave` events should be triggered in real-time from the camera, by tracking an object moving in or out of a region of interest (ROI). `Reward` should be triggered once upon entering the ROI, and not repeat again until the object exits the ROI and the ITI has elapsed.
 
 ```mermaid
-flowchart LR
-    id1((ITI))
-    id2((Ready))
-    id3((Reward))
-    id3 --> |leave| id1
-    id1 --> |elapsed| id2 --> |enter| id3
+stateDiagram-v2
+    direction LR
+    ITI --> Ready: elapsed
+    Ready --> Reward: enter
+    Reward --> ITI: leave
 ```
 
 > [!Tip]

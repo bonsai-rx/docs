@@ -5,6 +5,7 @@
     @media (prefers-color-scheme: dark) {
     path[stroke="#000"] {stroke: #eee !important;}
     path[fill="#000"] {fill: #eee !important;}
+    path[fill="#fff"] {fill: #212529 !important;}
     g[id="text"] path, g[id="arrowheads"], path[id="g1-106"] {fill: #eee !important;}
     g[id="subscribe-text"] {fill: #eb008a !important;}
     g[id="subscribe-arrows"] path {stroke: #eb008a !important;}}
@@ -91,7 +92,7 @@
 <g transform='matrix(1 0 0 1 82.8516 53.2309)'>
 <use x='31.529363' y='-75.168345' xlink:href='#g1-106'/>
 </g>
-<path d='M-67.882801 18.8281H130.5428V-1.5547H-67.882801Z' fill='none'/>
+<path d='M-67.882801 18.8281H130.5428V-1.5547H-67.882801Z' fill='#fff'/>
 <path d='M-67.882801 18.82812H130.5428V-1.55468H-67.882801Z' stroke='#000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
 <g transform='matrix(1 0 0 1 -19.6959 53.2309)'>
 <use x='31.529363' y='-42.104331' xlink:href='#g2-71'/>
