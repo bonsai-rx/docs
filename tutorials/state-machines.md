@@ -8,9 +8,16 @@ When designing operant behaviour assays in systems neuroscience, it is useful to
 
 For example, a simple reaction time task where the subject needs to press a button as fast as possible following a stimulus is described in the following diagram:
 
-:::diagram
-![State Machine Diagram](~/images/reactiontime-task.svg)
-:::
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> ITI
+    ITI --> ON: elapsed
+    ON --> Reward: hit
+    ON --> Fail: miss
+    Reward --> [*]
+    Fail --> [*]
+```
 
 The task begins with an inter-trial interval (`ITI`), followed by stimulus presentation (`ON`). After stimulus onset, advancement to the next state can happen only when the subject presses the button (`success`) or a timeout elapses (`miss`). Depending on which event is triggered first, the task advances either to the `Reward` state, or `Fail` state. At the end, the task goes back to the beginning of the ITI state for the next trial.
 
@@ -146,7 +153,20 @@ _Try out your state machine and introduce variations to the task behavior and co
 
 Implement the following trial structure for a Go/No-Go task.
 
-![Go/No-Go Task](~/images/go-nogo-task.svg)
+```mermaid
+stateDiagram-v2
+    direction LR
+    NoGo: No-Go
+    FalseAlarm: False<br>Alarm
+    CorrectReject: Correct<br>Reject
+    [*] --> ITI
+    ITI --> Go: 50%
+    ITI --> NoGo: 50%
+    Go --> Hit
+    Go --> Miss
+    NoGo --> FalseAlarm
+    NoGo --> CorrectReject
+```
 
 - Trials should be sampled from a uniform distribution using the `Numerics` package (install from `Tools` > `Manage Packages`).
 - Response events should be based on a button press, and reject events on a timeout.
@@ -161,7 +181,13 @@ Implement the following trial structure for a Go/No-Go task.
 
 Implement the following trial structure for conditioned place preference. `enter` and `leave` events should be triggered in real-time from the camera, by tracking an object moving in or out of a region of interest (ROI). `Reward` should be triggered once upon entering the ROI, and not repeat again until the object exits the ROI and the ITI has elapsed.
 
-![Conditioned Place Preference](~/images/placepreference.svg)
+```mermaid
+stateDiagram-v2
+    direction LR
+    ITI --> Ready: elapsed
+    Ready --> Reward: enter
+    Reward --> ITI: leave
+```
 
 > [!Tip]
 > There are several ways to implement ROI activation, so feel free to explore different ideas. Consider using either `Crop`, `RoiActivity`, or `ContainsPoint` as part of different strategies to implement the `enter` and `leave` events.

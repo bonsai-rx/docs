@@ -19,6 +19,10 @@
    inkscape:export-filename="C:\Projects\Bonsai.Packages\Externals\Bonsai\BonsaiSource16.png"
    inkscape:export-xdpi="1.4082111"
    inkscape:export-ydpi="1.4082111">
+   <style>
+      @media (prefers-color-scheme: dark) {
+      text { fill: #eee !important; }} 
+   </style>
   <defs
      id="defs4">
     <inkscape:perspective
