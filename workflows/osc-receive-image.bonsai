@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.5"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:osc="clr-namespace:Bonsai.Osc;assembly=Bonsai.Osc"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="osc:CreateTcpClient">
+          <osc:Name>Receiver</osc:Name>
+          <osc:Port>2342</osc:Port>
+          <osc:NoDelay>false</osc:NoDelay>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="osc:ReceiveMessage">
+        <osc:Address>/cursor</osc:Address>
+        <osc:TypeTag>i</osc:TypeTag>
+        <osc:Connection>Receiver</osc:Connection>
+      </Expression>
+      <Expression xsi:type="osc:ReceiveMessage">
+        <osc:Address>/image</osc:Address>
+        <osc:TypeTag>b</osc:TypeTag>
+        <osc:Connection>Receiver</osc:Connection>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:ConvertFromArray">
+          <dsp:Size>
+            <dsp:Width>0</dsp:Width>
+            <dsp:Height>0</dsp:Height>
+          </dsp:Size>
+          <dsp:Depth xsi:nil="true" />
+          <dsp:Channels xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Reshape">
+          <dsp:Channels>3</dsp:Channels>
+          <dsp:Rows>480</dsp:Rows>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:ConvertToImage" />
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
