@@ -9,7 +9,7 @@ Through our experience documenting Bonsai, we've established several best practi
 In general, we have converged on three types of articles, organized into distinct website sections, to address the needs of most people and their different learning styles.
 
 * Manual - hosts documentation that explains the basic workflow of the package or functions of the various operators.
-* Reference - hosts technical documentation for each operator, generated automatically by DocFX from XML comments in source code or supplemented with individual operator articles.
+* Reference - hosts technical documentation for each operator, generated automatically by `docfx` from XML comments in source code or supplemented with individual operator articles.
 * Tutorials - hosts examples or tutorials for various applications. This section is optional, but valuable for more complicated applications or packages which require operators from other packages for their execution.
 
 To construct these 3 sections:
@@ -67,7 +67,7 @@ Beyond that, there are many possible ways to organize the rest of the manual art
 
 One approach that we recommend is to try and write articles for each individual operator. This approach has several advantages:
 
-- Individual operator articles can be integrated into the automatically generated `Reference` documentation using docfx's `overwrite` function, allowing for supplemental content like images and workflows.
+- Individual operator articles can be integrated into the automatically generated `Reference` documentation by using the `overwrite` feature in `docfx`, allowing for supplemental content like images and workflows.
 - These articles can also be combined into larger conceptual `Manual` articles, providing organizational flexibility.
 - Writing individual operator articles ensures complete coverage of all operators.
 
@@ -118,7 +118,7 @@ In addition, the `docfx.json` file needs to be modified to import the relevant r
 
 ## Article formatting guide 
 
-In docfx, articles are written in [Markdown](https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet) and rendered with the [Markdig](https://github.com/xoofx/markdig) parsing engine. Refer to these links for more information on how to format content in markdown.
+In `docfx`, articles are written in [Markdown](https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet) and rendered with the [Markdig](https://github.com/xoofx/markdig) parsing engine. Refer to these links for more information on how to format content in markdown.
 
 When writing articles, please follow the [MSDN writing tips](https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips). In particular:
 
@@ -175,7 +175,7 @@ Highlight folders, filenames, package names, functions, actions, editor/website 
 
 ### Standard formatting for operators and operator properties
 
-When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in DocFX](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
+When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in docfx](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
 
 For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To reference this you need to specify the full path to it including namespace, operator name, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. 
 

@@ -28,7 +28,7 @@ dotnet new install Bonsai.Templates
 dotnet new bonsaienv
 ```
 
-- `.github/workflows/` - The docfx website is published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow called `docs.yml`. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend `Bonsai.PackageName` to point to your package source code in `docs.yml`.
+- `.github/workflows/` - The `docfx` website is published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow called `docs.yml`. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend `Bonsai.PackageName` to point to your package source code in `docs.yml`.
 
 ## Setting up docfx
 
@@ -39,7 +39,7 @@ dotnet new tool-manifest
 dotnet tool install --local docfx 
 ```
 
-2) Navigate to the `docs` folder and initialise a new docfx website with the following command.
+2) Navigate to the `docs` folder and initialize a new `docfx` website with the following command.
 
 ```powershell
 dotnet docfx init 
@@ -101,9 +101,9 @@ To update the submodule to the latest commit:
 git submodule update --remote
 ```
 
-- `template/` - this custom CSS template patches in docfx-tools and adds a github link to the top right of the navigation bar. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the github link in `main.css` to your repository.
+- `template/` - this custom CSS template patches in `docfx-tools` and adds a GitHub link to the top right of the navigation bar. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the GitHub link in `main.css` to your repository.
 
-- `build.ps1` - this custom script exports Bonsai workflow images using `docfx-tools` and then calls the docfx build process. Download the file from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the line that specifies the package name and source location.
+- `build.ps1` - this custom script exports Bonsai workflow images using `docfx-tools` and then calls the `docfx` build process. Download the file from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the line that specifies the package name and source location.
 
 - `logo.svg` and `favicon.ico` - for official Bonsai packages these can be downloaded from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository.
 
@@ -145,7 +145,7 @@ apiRules:
 }
 ```
 
-3) Add the `overwrite` attribute to enable [individual operator articles](./documentation-style-guide.md) stored in the `apidocs` folder to be included in articles and API docs.
+3) Add the `overwrite` attribute to enable [individual operator articles](./documentation-style-guide.md) stored in the `apidoc` folder to be included in articles and API docs.
 
 ```json
 "build": {
@@ -197,7 +197,7 @@ apiRules:
 }
 ```
 
-7) Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(DocFX markdown processor) extensions for additional markdown functionality. 
+7) Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(docfx markdown processor) extensions for additional markdown functionality. 
 
 ```json
 "build": {
@@ -210,7 +210,7 @@ apiRules:
 }
 ```
 
-8) Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with docfx documentation, add their `xrefmap.yml` here as well.
+8) Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with `docfx` documentation, add their `xrefmap.yml` here as well.
 
 ```json
 "build": {
@@ -277,7 +277,7 @@ If you are running the local preview `dotnet docfx --serve` and not seeing chang
 
 ### Differences between local and online builds
 
-If there are discrepancies between local and online builds and they persist, this could indicate a docfx version conflict. The online build process uses a local installation of `docfx` but it is also possible to install `docfx` globally (which we do not recommend). To check if this is the cause of the discrepancy:
+If there are discrepancies between local and online builds and they persist, this could indicate a `docfx` version conflict. The online build process uses a local installation of `docfx` but it is also possible to install `docfx` globally (which we do not recommend). To check if this is the cause of the discrepancy:
 
 Make sure to run this command which uses the local installation of `docfx`
 ```powershell
@@ -290,7 +290,7 @@ docfx --serve
 ```
 The `.config` folder in the root directory contains `docfx` local version info if you need to check it.
 
-If you wish to update the local installation of docfx run this command in the root directory:
+If you wish to update the local installation of `docfx` run this command in the root directory:
 
 ```powershell
 dotnet tool update docfx

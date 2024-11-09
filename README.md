@@ -13,7 +13,7 @@ We welcome all contributions! For more information please refer to our [Contribu
 
 # Quick start guide for contributing to documentation
 
-These instructions apply to repos that already have a docfx website created.
+These instructions apply to repos that already have a `docfx` website created.
 
 1. Fork the repository you want to contribute documentation to. 
 2. Ensure that you are working off the `main` branch in your fork and create a descriptively named branch for each article/issue that you want to work on.
