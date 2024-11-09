@@ -2,18 +2,18 @@
 
 Effective online documentation plays a crucial role in driving the adoption and usage of custom packages. For packages published by the Bonsai Foundation, we use [docfx](https://dotnet.github.io/docfx/index.html), a static site generator for .NET projects, to automatically generate and publish documentation online. As we have integrated and extended `docfx` to facilitate key Bonsai features, we encourage package developers to use `docfx` for consistency and support within the Bonsai Ecosystem. 
 
-The following article will go into how to create a `docfx` website for your package. For documentation style guidelines, check out the [Documentation Style Guide](./documentation-style-guide.md).
+The following article will go into detail on how to create a `docfx` website for your package. For documentation style guidelines, check out the [Documentation Style Guide](./documentation-style-guide.md).
 
 > [!TIP]
 > We recommend using a code editor with an integrated terminal like [Visual Studio Code](https://code.visualstudio.com/) to follow along with these instructions.
 
 ## Repository organization
-For effective long term maintenance of documentation across different repositories, package repositories should be organised according to this standardized folder structure before setting up `docfx`: 
+For effective long term maintenance of documentation, package repositories should be organized according to the following standard folder structure before setting up `docfx`: 
 
 ```
 .
 ├── .bonsai/                 # Local Bonsai Environment (see note below) 
-├── .github/workflows/       # Github Actions Folder (see note below) 
+├── .github/workflows/       # GitHub Actions Folder (see note below) 
 │   └── docs.yml
 ├── docs/                    # Folder to setup docfx
 └── src/
@@ -21,14 +21,14 @@ For effective long term maintenance of documentation across different repositori
 ... 
 ```
 
-- `.bonsai/` - A local Bonsai [environment](https://bonsai-rx.org/docs/articles/environments.html) is required for a script that exports Bonsai workflow images. To create one run these following commands:
+- `.bonsai/` - A local Bonsai [environment](https://bonsai-rx.org/docs/articles/environments.html) is required to run the script that exports Bonsai workflow images. To create one, run the following commands:
 
 ```powershell
 dotnet new install Bonsai.Templates
 dotnet new bonsaienv
 ```
 
-- `.github/workflows/` - The docfx website is published to [Github Pages](https://pages.github.com/) using a [Github Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow called `docs.yml`. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend `Bonsai.PackageName` to point to your package source code in `docs.yml`.
+- `.github/workflows/` - The docfx website is published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow called `docs.yml`. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend `Bonsai.PackageName` to point to your package source code in `docs.yml`.
 
 ## Setting up docfx
 
@@ -59,12 +59,12 @@ Enable PDF? [y/n] (y): n
 Congrats! You now have a minimal `docfx` website. Run the following command to generate a local preview of the website, and verify that API documentation for your package has been generated successfully:
 
 ```powershell
-dotnet docfx docfx.json --serve
+dotnet docfx --serve
 ```
 
 ### Docfx folder organization
 
-Before proceeding further into configuring the `docfx` website, the `docs` folder should be organised according to this layout for effective long term maintenance. 
+Before proceeding further into configuring the `docfx` website, the `docs` folder should be organized according to the following layout to facilitate long term maintenance. 
 
 ```
 .
@@ -78,14 +78,14 @@ Before proceeding further into configuring the `docfx` website, the `docs` folde
 │       ├── main.css
 │       └── main.js
 ├── tutorial/                # Place "Tutorials" section articles here (see style guide)   
-├── workflow/                # Place .bonsai workflow files here for image export
+├── workflows/                # Place .bonsai workflow files here for image export
 ├── build.ps1                # Bonsai workflow image export script (see note below)
 ├── logo.svg                 # Website logo
 └── favicon.ico              # Website bookmark logo
 ...
 ```
 
-- `bonsai/` - this folder is where we place a submodule that we have created called [docfx-tools](https://github.com/bonsai-rx/docfx-tools). This submodule contains scripts for automating image export from `Bonsai` workflows (if you want to include them in your article) and adds a CSS template for `Bonsai` workflow containers (these containers allow users to easily copy workflows into the `Bonsai` editor). To add it, run this command in the `docs` folder:
+- `bonsai/` - this folder is where we initialize the submodule referencing [docfx-tools](https://github.com/bonsai-rx/docfx-tools). This submodule contains scripts for automating image export from `Bonsai` workflows (if you want to include them in your article) and adds a CSS template for `Bonsai` workflow containers (these containers allow users to easily copy workflows into the `Bonsai` editor). To create this submodule, run this command in the `docs` folder:
 
 ```powershell
 git submodule add https://github.com/bonsai-rx/docfx-tools bonsai
@@ -110,7 +110,7 @@ git submodule update --remote
 
 ### Configuring docfx
 
-The `docfx.json` file in the `docs` folder hosts the configuration options for the website and needs to be modified to fully utilize the features availiable. If in doubt, refer to a Bonsai package repository that has been recently updated (for instance https://bonsai-rx.org/machinelearning/) or the [docfx documentation](https://dotnet.github.io/docfx/) for more information. These steps are listed in order of appearance in `docfx.json`.
+The `docfx.json` file in the `docs` folder hosts the configuration options for the website and needs to be modified to fully utilize the available features. If in doubt, refer to a Bonsai package repository that has been recently updated (for instance https://bonsai-rx.org/machinelearning/) or the [docfx documentation](https://dotnet.github.io/docfx/) for more information. These steps are listed in order of appearance in `docfx.json`.
 
 1) Add a `filter` attribute to [filter](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) obsolete operators in the package. In the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
 
@@ -131,7 +131,7 @@ apiRules:
       uid: System.ObsoleteAttribute
 ```
 
-2) Exclude these files from being included in the building of content to avoid duplicate errors.
+2) Exclude these files from content to avoid duplicate errors.
 
 ```json
 "build": {
@@ -220,22 +220,22 @@ apiRules:
 }
 ```
 
-## Publishing to Github Pages
+## Publishing to GitHub Pages
 
-Once you are satisfied with the website, publish to [Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site). A Github Actions workflow has already been created, make sure `docs.yml` is in the `.github/workflows` [folder](#repository-organization).
+Once you are satisfied with the website, publish to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site). A GitHub Actions workflow should already be in place if you follow the standard folder structure. Make sure `docs.yml` is in the `.github/workflows` [folder](#repository-organization).
 
 1) Setup a new branch called `gh-pages` on your fork of the repository.
-2) Go to your repo settings -> `Pages` -> `Build and deployment` - under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
+2) Go to your repo settings > `Pages` > `Build and deployment` > under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
 3) Commit your edits and push them online.
-4) Under the `Actions` tab of your github repo, trigger the `Build docs` workflow manually with the `Run workflow` button on the branch you commited your edits to. This will build the docs site on the `gh-pages` branch.
+4) Under the `Actions` tab of your GitHub repo, trigger the `Build docs` workflow manually with the `Run workflow` button on the branch you committed your edits to. This will build the docs site on the `gh-pages` branch.
 5) Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
-7) The URL for the site can be found in your `Pages` section of your repository settings.
+7) The URL for the site can be found in the `Pages` section of your repository settings.
 
 > [!NOTE]
-> To ensure that the Bonsai Editor can link to the `Reference` documentation for operators, make sure that the `PackageProjectURL` in either the `.csproj` file or the `Directory.Build.props` file points to the URL for the documentation website.
+> To ensure that the Bonsai Editor can link to the reference documentation for package operators, make sure that the `PackageProjectUrl` in either the `.csproj` file or the `Directory.Build.props` file points to the URL for the documentation website.
 
 ## Version control cleanup
-To keep your online Github repository clean, you can use .gitignore files to ignore files that are generated for documentation that do not need to be version controlled. Add each item as a separate line to the appropriate .gitignore file in each location.
+To keep your online GitHub repository clean, you can use `.gitignore` files to ignore files or documentation which are automatically generated and do not need to be version controlled. Add each item as a separate line to the appropriate `.gitignore` file in each location.
 
 ```
 .
@@ -252,9 +252,9 @@ To keep your online Github repository clean, you can use .gitignore files to ign
 
 ## Testing unpublished packages
 
-To write documentation for [new packages or releases](https://bonsai-rx.org/docs/articles/create-package.html) that have not been published to the community, test them in Visual Studio. 
+To write documentation for [new packages or releases](https://bonsai-rx.org/docs/articles/create-package.html) that have not yet been published to the community, it is good practice to start by writing test workflows in Visual Studio.
 
-1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free).
+1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free for open-source projects).
 2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
 3) In Visual Studio, open `src/PackageName.sln` in the repository.
 4) Press F5 to open the Bonsai editor with the new package added. 
@@ -269,10 +269,10 @@ These are usually due to folders not being in the right place, check the directo
 
 ### Docfx local preview not updating 
 
-If you are running the local preview `dotnet docfx docfx.json --serve` and not seeing changes:
+If you are running the local preview `dotnet docfx --serve` and not seeing changes:
 
 1) Make sure that any changes you have made in your code editor are saved.
-2) Hard refresh pages in the browser using either Ctrl+Shift+R and Ctrl+F5 or clear the cache to avoid cache issues.
+2) Hard refresh pages in the browser using either `Ctrl`+`Shift`+`R` and `Ctrl`+`F5` or clear the cache to avoid cache issues.
 3) As a last resort - check that the content updates online by [publishing your website](#publishing-to-github-pages).
 
 ### Differences between local and online builds
@@ -281,12 +281,12 @@ If there are discrepancies between local and online builds and they persist, thi
 
 Make sure to run this command which uses the local installation of `docfx`
 ```powershell
-dotnet docfx docfx.json --serve
+dotnet docfx --serve
 ```
 
 Instead of this command which uses the global installation of `docfx`.
 ```powershell
-docfx docfx.json --serve
+docfx --serve
 ```
 The `.config` folder in the root directory contains `docfx` local version info if you need to check it.
 

@@ -1,12 +1,12 @@
 # Documentation Style Guide
 
-Clear, well-organized documentation helps users understand package functionality, integrate it into their workflows, and troubleshoot effectively.
+Clear, well-organized documentation helps everyone understand package functionality, integrate it into their workflows, and troubleshoot effectively.
 
 Through our experience documenting Bonsai, we've established several best practices for presenting information, which are outlined here alongside practical methods for implementation in [docfx](./documentation-docfx.md). This document is intended as a living resource, open to feedback and continuous improvement, rather than a static guide. Click on the `Edit this page` button or raise an issue on the [bonsai-docs](https://github.com/bonsai-rx/docs/issues) repository if you have a suggestion.
 
 ## Article organization
 
-In general, we have found that three types of articles, organized into distinct website sections, are sufficient to address the needs of most users and their learning styles.
+In general, we have converged on three types of articles, organized into distinct website sections, to address the needs of most people and their different learning styles.
 
 * Manual - hosts documentation that explains the basic workflow of the package or functions of the various operators.
 * Reference - hosts technical documentation for each operator, generated automatically by DocFX from XML comments in source code or supplemented with individual operator articles.
@@ -14,7 +14,7 @@ In general, we have found that three types of articles, organized into distinct 
 
 To construct these 3 sections:
 
-1) Ensure that the `docs` folder has a `articles` and `tutorials` folder. The `api` folder is automatically generated.
+1) Ensure that the `docs` folder has an `articles` and `tutorials` folder. The `api` folder is automatically generated.
 2) For the navigation bar at the top of the website, edit the `docs/toc.yml` file to reflect the location and name of the various folders.
 
 ```yml
@@ -58,16 +58,16 @@ Here is a same `toc.yml` but this time with a nested table of content layout (ar
 For the `Manual` section we typically see these elements:
 
 - Getting Started/Landing page - This typically includes a description of what the package does, how to install the package and funding/acknowledgements. This belongs in `docs/index.md`.
-- Installation Instructions - If a package requires external dependencies or additional configuration it would be helpful to dedicate an extra page to this.
+- Installation Instructions - If a package requires external dependencies or additional configuration it can be helpful to dedicate an extra page to this.
 - Workflow/Conceptual Overview - Best illustrated with a flowchart or a basic workflow container. 
 
-Beyond that, there are many possible ways to organise the rest of the manual articles depending on the type of package that is being supported. 
+Beyond that, there are many possible ways to organize the rest of the manual articles depending on the type of package that is being described. 
 
 #### Individual operator articles
 
 One approach that we recommend is to try and write articles for each individual operator. This approach has several advantages:
 
-- individual operator articles can be integrated into the automatically generated `Reference` documentation using docfx's `overwrite` function, allowing for supplemental content like images and workflows.
+- Individual operator articles can be integrated into the automatically generated `Reference` documentation using docfx's `overwrite` function, allowing for supplemental content like images and workflows.
 - These articles can also be combined into larger conceptual `Manual` articles, providing organizational flexibility.
 - Writing individual operator articles ensures complete coverage of all operators.
 
@@ -94,16 +94,16 @@ Other
 
 ### Reference section
 
-As mentioned the `Reference` section of the website is auto-generated from [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in the code. A unique feature we have integrated into the Bonsai Editor is that when users when users right click on individual operators they will be shown the `Reference` page for that operator. For many users, this might be the most obvious entry point to the package documentation. Thus it is essential that developers ensure that:
+As mentioned the `Reference` section of the website is auto-generated from [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in the code. We have integrated into the Bonsai Editor the ability to right-click on individual operators and select `View Help`. This will bring up and load the `Reference` page for that operator in the editor itself. For most people, this might be the most obvious entry point to the package documentation. Thus it is essential that developers ensure that:
 
 1) XML documentation comments are clear, simple and helpful.
 2) Where appropriate, supplement additional information (basic workflow, images, long-form content) with an individual operator article using the `overwrite` function detailed in the previous section.
 
-At present, we understand that the default template for the `Reference` page is a little too technically oriented, and somewhat confusing for Bonsai users to navigate. We are in the midst of revamping the template to cater to a broader audience and will update this section when it becomes availiable.
+At present, we understand that the default template for the `Reference` page is a little too technical, and somewhat confusing to navigate. We are in the midst of revamping the template to cater to a broader audience and will update this section when it becomes available.
 
 ### Tutorials section
 
-For the tutorials section, we suggest creating individual pages for various applications where the package is likely to be used. For each application, guide learners through the workflow step by step, organizing it into separate exercises with clear objectives and visible results. This structure makes the content more accessible and manageable for learners, especially for complex workflows.
+For the tutorials section, we suggest creating individual pages for various applications where the package is likely to be used. For each application, try to guide learners through the workflow step by step, organizing it into separate exercises with clear objectives and visible results. This structure makes the content more accessible and manageable, especially for complex workflows.
 
 #### Submodule
 For packages with extensive tutorials, multimedia and other large files, a separate repository can be created and imported as a submodule.
@@ -111,7 +111,7 @@ For packages with extensive tutorials, multimedia and other large files, a separ
 A tutorial submodule can be added with the following command in the `docs` directory:
 
 ```powershell
-git submodule add https://github.com/bonsai-rx/machinelearning-examples
+git submodule add https://github.com/bonsai-rx/package-examples
 ```
 
 In addition, the `docfx.json` file needs to be modified to import the relevant resources. For an example of how to setup a Tutorial submodule, refer to the [Bonsai Machine Learning Package](https://github.com/bonsai-rx/machinelearning) package and its submodule [Machine Learning Examples](https://github.com/bonsai-rx/machinelearning-examples).
@@ -122,11 +122,11 @@ In docfx, articles are written in [Markdown](https://dotnet.github.io/docfx/docs
 
 When writing articles, please follow the [MSDN writing tips](https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips). In particular:
 
-- Keep article and section titles short and succinct so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation)
+- Keep article and section titles short and succinct so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation).
 - Reuse operator names, properties, and descriptions in the articles and titles (do not use synonyms) so that readers may more easily follow and refer to them.
 - Use the imperative style i.e. "Link hardware triggers" rather than "Linking hardware triggers".
 
-### Linking content 
+### Content links 
 When linking to content (either images, or other articles, or workflow containers) use relative paths in this format:
 
 **Example:**
@@ -145,7 +145,7 @@ For content in a different folder, use `../` to navigate up to the parent folder
 
 ### Cross-references and highlights
 
-When working on an article, first check [the main documentation](https://bonsai-rx.org/docs/) to see what written material might already exist that could be linked if it would be helpful and to avoid duplication. Link resources like websites for external libraries for users to explore for more information.
+When working on an article, first check [the main documentation](https://bonsai-rx.org/docs/) to see what written material might already exist that could be linked if it would be helpful and to avoid duplication. Link resources like websites for external libraries which may be useful to explore for more information.
 
 **Example:**
 
@@ -196,7 +196,7 @@ You can also link to operators in other packages if their [xrefmap](./documentat
 
 ### Bonsai workflows
 
-To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName-workflowName`. 
+To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName-workflowName.bonsai`. 
 Add the `.bonsai` file to the `workflows` folder in the repository. In the text of the article that includes/references this example workflow, add a workflow container.
 
 **Example:**
@@ -209,7 +209,7 @@ Assuming you want to include `CustomPulseTrain-SendCustomWaveform.bonsai`:
 :::
 ```
 
-Workflow images are automatically exported as SVGs by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule and requires the [build.ps1](./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
+Workflow images are automatically exported as SVG files by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule and requires the [build.ps1](./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
 
 To generate the images locally for the `docfx` local preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the package src):
 
