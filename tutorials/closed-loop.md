@@ -178,7 +178,7 @@ def process(value):
 - In a new branch, create a video tracking pipeline using `ConvertColor`, `HsvThreshold`, and the `Centroid` operator to directly compute the centre of mass of a colored object.
 - Insert a `Negate` transform. This will make the X and Y coordinates of the centroid negative.
 
-We now want to map our negative centroid to the `Translation` property of `AffineTransform`, so that we dynamically translate each frame using the negative position of the object. You can do this by using [property mapping operators](http://bonsai-rx.org/docs/property-mapping){:target="\_blank"}.
+We now want to map our negative centroid to the `Translation` property of `AffineTransform`, so that we dynamically translate each frame using the negative position of the object. You can do this by using [property mapping operators](../articles/property-mapping.md).
 
 - Insert an `InputMapping` operator.
 - Connect the `InputMapping` to the `AffineTransform` operator.
