@@ -21,7 +21,7 @@ For effective long term maintenance of documentation, package repositories shoul
 ... 
 ```
 
-- `.bonsai/` - A local Bonsai [environment](https://bonsai-rx.org/docs/articles/environments.html) is required to run the script that exports Bonsai workflow images. To create one, run the following commands:
+- `.bonsai/` - A local Bonsai [environment](./environments.md) is required to run the script that exports Bonsai workflow images. To create one, run the following commands:
 
 ```powershell
 dotnet new install Bonsai.Templates
@@ -252,12 +252,12 @@ To keep your online GitHub repository clean, you can use `.gitignore` files to i
 
 ## Testing unpublished packages
 
-To write documentation for [new packages or releases](https://bonsai-rx.org/docs/articles/create-package.html) that have not yet been published to the community, it is good practice to start by writing test workflows in Visual Studio.
+To write documentation for [new packages or releases](./create-package.md) that have not yet been published to the community, it is good practice to start by writing test workflows in Visual Studio.
 
 1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free for open-source projects).
 2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
 3) In Visual Studio, open `src/PackageName.sln` in the repository.
-4) Press F5 to open the Bonsai editor with the new package added. 
+4) Press F5 to open the Bonsai editor with the new package added.
 5) From here, you can make Bonsai workflows and save them as per normal.
 
 

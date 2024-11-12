@@ -145,7 +145,7 @@ For content in a different folder, use `../` to navigate up to the parent folder
 
 ### Cross-references and highlights
 
-When working on an article, first check [the main documentation](https://bonsai-rx.org/docs/) to see what written material might already exist that could be linked if it would be helpful and to avoid duplication. Link resources like websites for external libraries which may be useful to explore for more information.
+When working on an article, first check [the main documentation](../index.md) and confirm whether written material already exists that could be linked to avoid duplication. Also include links to resources like websites for external libraries which may be useful to explore for more information.
 
 **Example:**
 
