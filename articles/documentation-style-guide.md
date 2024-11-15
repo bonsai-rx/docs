@@ -1,8 +1,6 @@
 # Documentation Style Guide
 
-Clear, well-organized documentation helps everyone understand package functionality, integrate it into their workflows, and troubleshoot effectively.
-
-Through our experience documenting Bonsai, we've established several best practices for presenting information, which are outlined here alongside practical methods for implementation in [docfx](./documentation-docfx.md). This document is intended as a living resource, open to feedback and continuous improvement, rather than a static guide. Click on the `Edit this page` button or raise an issue on the [bonsai-docs](https://github.com/bonsai-rx/docs/issues) repository if you have a suggestion.
+Through our experience documenting Bonsai, we have established a set of recommended practices for presenting information, which are outlined here alongside practical methods for implementation in [docfx](./documentation-docfx.md). This document is intended as a living resource, open to feedback and continuous improvement, rather than a static guide. Click on the `Edit this page` button or raise an issue on the [bonsai-docs](https://github.com/bonsai-rx/docs/issues) repository if you have a suggestion.
 
 ## Article organization
 
@@ -12,7 +10,7 @@ In general, we have converged on three types of articles, organized into distinc
 * Reference - hosts technical documentation for each operator, generated automatically by `docfx` from XML comments in source code or supplemented with individual operator articles.
 * Tutorials - hosts examples or tutorials for various applications. This section is optional, but valuable for more complicated applications or packages which require operators from other packages for their execution.
 
-To construct these 3 sections:
+To construct these sections:
 
 1) Ensure that the `docs` folder has an `articles` and `tutorials` folder. The `api` folder is automatically generated.
 2) For the navigation bar at the top of the website, edit the `docs/toc.yml` file to reflect the location and name of the various folders.
@@ -26,7 +24,7 @@ To construct these 3 sections:
   href: tutorials/
 ```
 3) Add articles in markdown format to the `Manual` and `Tutorials` folder.
-4) Add a toc.yml file to the `Manual` and `Tutorials` folder to generate the table of contents for that section. The `API` toc.yml is generated automatically.
+4) Add a toc.yml file to the `Manual` and `Tutorials` folder to generate the table of contents for that section. The `Reference` toc.yml is generated automatically.
 Here is a sample `articles/toc.yml` with a flattened table of content layout (all articles will be visible in the TOC). This works best for most websites which do not have a lot of articles.
 
 ```yml
@@ -72,24 +70,25 @@ One approach that we recommend is to try and write articles for each individual 
 - Writing individual operator articles ensures complete coverage of all operators.
 
 Creating an individual operator article requires some additional steps.
-For example, to create an individual operator article for a `PredictPoses` operator that will be included in a "Network Inference" `Manual` article as well as in the automatically generated `Reference` doc:
+For example, to create an individual operator article for a `Timer` operator to be included in a `Manual` article as well as in the automatically generated `Reference` docs:
 
-1) Create the `Bonsai_Sleap_PredictPoses.md` article and place it in the `docs/apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the namespace.operator format. 
+1) Create the `Bonsai_Reactive_Timer.md` article and place it in the `docs/apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the namespace.operator format. 
 
 ```yml
 ---
-uid: Bonsai.Sleap.PredictPoses
+uid: Bonsai.Reactive.Timer
 ---
 Write content here.
 ```
 
-2) Create a `Network-Inference.md` article and place it in the `docs/articles` folder. In the markdown file, include a reference to the individual operator.md file.
+1) Create a new article markdown file and place it in the `docs/articles` folder. In this markdown file, include a reference to the individual operator.md file.
 
 ```markdown
-Other 
-[!include[Title](../apidoc/Bonsai_Sleap_PredictPoses.md)]
+Some documentation content.
+
+[!include[Title](../apidoc/Bonsai_Reactive_Timer.md)]
 ```
-> [!NOTE]  
+> [!NOTE]
 > The title is optional.
 
 ### Reference section
@@ -105,10 +104,10 @@ At present, we understand that the default template for the `Reference` page is 
 
 For the tutorials section, we suggest creating individual pages for various applications where the package is likely to be used. For each application, try to guide learners through the workflow step by step, organizing it into separate exercises with clear objectives and visible results. This structure makes the content more accessible and manageable, especially for complex workflows.
 
-#### Submodule
+#### Submodules
 For packages with extensive tutorials, multimedia and other large files, a separate repository can be created and imported as a submodule.
 
-A tutorial submodule can be added with the following command in the `docs` directory:
+A tutorial or example submodule can be added with the following command in the `docs` directory:
 
 ```powershell
 git submodule add https://github.com/bonsai-rx/package-examples
@@ -217,13 +216,11 @@ To generate the images locally for the `docfx` local preview, navigate to the `d
 ./build.ps1
 ```
 
-If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment.
-
-Simply open `bonsai.exe` in the `.bonsai` folder, go to the package manager and install the package.
+If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment by using the package manager in the local bootstrapper `Bonsai.exe`.
 
 ### Figures
 
-> [!NOTE]  
+> [!NOTE]
 > Avoid images/screenshots when possible as they do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
 
 To include a figure or image in an article: 

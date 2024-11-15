@@ -1,6 +1,6 @@
 # Documentation With Docfx
 
-Effective online documentation plays a crucial role in driving the adoption and usage of custom packages. For packages published by the Bonsai Foundation, we use [docfx](https://dotnet.github.io/docfx/index.html), a static site generator for .NET projects, to automatically generate and publish documentation online. As we have integrated and extended `docfx` to facilitate key Bonsai features, we encourage package developers to use `docfx` for consistency and support within the Bonsai Ecosystem. 
+Documentation plays a crucial role in helping everyone adopt and use custom packages. For packages published by the Bonsai Foundation, we use [docfx](https://dotnet.github.io/docfx/index.html), a static site generator for .NET projects, to automatically generate and publish documentation pages. As we have integrated and extended `docfx` with specific Bonsai documentation features, we encourage package developers to use `docfx` to ensure a consistent and integrated experience across the Bonsai community.
 
 The following article will go into detail on how to create a `docfx` website for your package. For documentation style guidelines, check out the [Documentation Style Guide](./documentation-style-guide.md).
 
@@ -8,7 +8,7 @@ The following article will go into detail on how to create a `docfx` website for
 > We recommend using a code editor with an integrated terminal like [Visual Studio Code](https://code.visualstudio.com/) to follow along with these instructions.
 
 ## Repository organization
-For effective long term maintenance of documentation, package repositories should be organized according to the following standard folder structure before setting up `docfx`: 
+To help long term maintenance of documentation, we recommend package repositories to be organized according to the following standard folder structure before setting up `docfx`:
 
 ```
 .
@@ -18,7 +18,7 @@ For effective long term maintenance of documentation, package repositories shoul
 ├── docs/                    # Folder to setup docfx
 └── src/
     └── Bonsai.PackageName/  # Project files here
-... 
+...
 ```
 
 - `.bonsai/` - A local Bonsai [environment](./environments.md) is required to run the script that exports Bonsai workflow images. To create one, run the following commands:
@@ -35,14 +35,14 @@ dotnet new bonsaienv
 1) Setup a local installation of `docfx` in your package repository with the following commands (executed in the root directory):
 
 ```powershell
-dotnet new tool-manifest 
-dotnet tool install --local docfx 
+dotnet new tool-manifest
+dotnet tool install --local docfx
 ```
 
 2) Navigate to the `docs` folder and initialize a new `docfx` website with the following command.
 
 ```powershell
-dotnet docfx init 
+dotnet docfx init
 ```
 
 3) Select these options for the new website.
@@ -56,7 +56,7 @@ Enable site search? [y/n] (y): y
 Enable PDF? [y/n] (y): n
 ```
 
-Congrats! You now have a minimal `docfx` website. Run the following command to generate a local preview of the website, and verify that API documentation for your package has been generated successfully:
+You should now have a minimal `docfx` website. Run the following command to generate a local preview of the website, and verify that API documentation for your package has been generated successfully:
 
 ```powershell
 dotnet docfx --serve
@@ -64,7 +64,7 @@ dotnet docfx --serve
 
 ### Docfx folder organization
 
-Before proceeding further into configuring the `docfx` website, the `docs` folder should be organized according to the following layout to facilitate long term maintenance. 
+The documentation guides assume the `docs` folder is organized according to the following layout:
 
 ```
 .
@@ -77,8 +77,8 @@ Before proceeding further into configuring the `docfx` website, the `docs` folde
 │   └── public/
 │       ├── main.css
 │       └── main.js
-├── tutorial/                # Place "Tutorials" section articles here (see style guide)   
-├── workflows/                # Place .bonsai workflow files here for image export
+├── tutorials/               # Place "Tutorials" section articles here (see style guide)
+├── workflows/               # Place .bonsai workflow files here for image export
 ├── build.ps1                # Bonsai workflow image export script (see note below)
 ├── logo.svg                 # Website logo
 └── favicon.ico              # Website bookmark logo
@@ -295,6 +295,3 @@ If you wish to update the local installation of `docfx` run this command in the 
 ```powershell
 dotnet tool update docfx
 ```
-
-
-
