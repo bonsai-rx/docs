@@ -28,24 +28,24 @@ dotnet new install Bonsai.Templates
 dotnet new bonsaienv
 ```
 
-- `.github/workflows/` - The `docfx` website is published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow called `docs.yml`. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend `Bonsai.PackageName` to point to your package source code in `docs.yml`.
+- `.github/workflows/` - The `docfx` website is often automatically published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow specified in the `docs.yml` file. Unfortunately these workflows tend to be very project specific and we do not yet have a standardized pipeline. For a minimal example and inspiration you can check [the workflow for this repository](https://github.com/bonsai-rx/docs/blob/main/.github/workflows/build.yml).
 
-## Setting up docfx
+## Setup docfx
 
-1) Setup a local installation of `docfx` in your package repository with the following commands (executed in the root directory):
+You can setup a local installation of `docfx` directly in your package repository with the following commands (executed in the root directory):
 
 ```powershell
 dotnet new tool-manifest
 dotnet tool install --local docfx
 ```
 
-2) Navigate to the `docs` folder and initialize a new `docfx` website with the following command.
+Then navigate to the `docs` folder and initialize a new `docfx` website with the following command:
 
 ```powershell
 dotnet docfx init
 ```
 
-3) Select these options for the new website.
+We recommend the following options for new websites (make sure to match the name to your package):
 
 ```powershell
 Name (mysite): Bonsai - Package Name
@@ -101,18 +101,46 @@ To update the submodule to the latest commit:
 git submodule update --remote
 ```
 
-- `template/` - this custom CSS template patches in `docfx-tools` and adds a GitHub link to the top right of the navigation bar. Download this folder from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the GitHub link in `main.css` to your repository.
+- `template/` - the files in this `docfx` template extend the base template in `docfx-tools`. Below are templates for `main.css` and `main.js` which add a GitHub link to the top right of the navigation bar and include all styles for workflow containers.
 
-- `build.ps1` - this custom script exports Bonsai workflow images using `docfx-tools` and then calls the `docfx` build process. Download the file from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository and amend the line that specifies the package name and source location.
+###### main.css
+```css
+@import "workflow.css";
+```
+
+###### main.js
+```js
+import WorkflowContainer from "./workflow.js"
+
+export default {
+    defaultTheme: 'auto',
+    iconLinks: [{
+        icon: 'github',
+        href: 'https://github.com/org-name/PackageName',
+        title: 'GitHub'
+    }],
+    start: () => {
+        WorkflowContainer.init();
+    }
+}
+```
+
+- `build.ps1` - this custom script exports Bonsai workflow images using `docfx-tools` and then calls the `docfx` build process. Make sure to change the line to point to your package output location:
+
+```powershell
+.\bonsai\modules\Export-Image.ps1 "..\src\Bonsai.PackageName\bin\Release\net462"
+dotnet docfx @args
+```
 
 - `logo.svg` and `favicon.ico` - for official Bonsai packages these can be downloaded from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository.
 
 
 ### Configuring docfx
 
-The `docfx.json` file in the `docs` folder hosts the configuration options for the website and needs to be modified to fully utilize the available features. If in doubt, refer to a Bonsai package repository that has been recently updated (for instance https://bonsai-rx.org/machinelearning/) or the [docfx documentation](https://dotnet.github.io/docfx/) for more information. These steps are listed in order of appearance in `docfx.json`.
+The `docfx.json` file in the `docs` folder specifies the configuration options for the website and needs to be modified to make use of all available features. If in doubt, refer to a Bonsai package repository that has been recently updated, e.g. [bonsai-rx/machinelearning](https://bonsai-rx.org/machinelearning/), or the [docfx documentation](https://dotnet.github.io/docfx/) for more information. These steps are listed in order of appearance in `docfx.json`.
 
-1) Add a `filter` attribute to [filter](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) obsolete operators in the package. In the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
+#### Hide obsolete operators
+Add a [`filter`](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) attribute to hide obsolete operators from the package docs. In the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
 
 ```yml
 "metadata": [
@@ -122,7 +150,7 @@ The `docfx.json` file in the `docs` folder hosts the configuration options for t
 ]
 ```
 
-Make a file called `filter.yml` with the following lines and place in the `docs` directory. You can also specify other [uids](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) here.
+Make a file called `filter.yml` with the following lines and place it in the `docs` directory. You can also specify other [uids](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) here.
 
 ```yml
 apiRules:
@@ -131,7 +159,7 @@ apiRules:
       uid: System.ObsoleteAttribute
 ```
 
-2) Exclude these files from content to avoid duplicate errors.
+Exclude these files from content to avoid duplicate errors.
 
 ```json
 "build": {
@@ -145,7 +173,8 @@ apiRules:
 }
 ```
 
-3) Add the `overwrite` attribute to enable [individual operator articles](./documentation-style-guide.md) stored in the `apidoc` folder to be included in articles and API docs.
+#### Enable operator articles
+Add the `overwrite` attribute to ensure [individual operator articles](./documentation-style-guide.md) stored in the `apidoc` folder are included in both articles and API docs.
 
 ```json
 "build": {
@@ -163,7 +192,8 @@ apiRules:
 }
 ```
 
-4) Modify the `resource` attribute to include files that need to be imported.
+#### Add resource files
+Modify the `resource` attribute to include files that need to be imported.
 
 ```json
 "resource": {
@@ -176,7 +206,8 @@ apiRules:
 }
 ```
 
-5) Modify the `template` attribute to use the modern template and apply the `docfx-tools` custom templates to enable workflow containers.
+#### Apply modern template
+Modify the `template` attribute to use the modern template and apply the `docfx-tools` custom templates to enable workflow containers.
 
 ```json
 "template": [
@@ -187,7 +218,8 @@ apiRules:
 ]
 ```
 
-6) Modify the `globalMetadata` attribute to change package name and add the `_appFooter` attribute and description.
+#### Update global metadata
+Modify the `globalMetadata` attribute to change package name and add the `_appFooter` attribute and description.
 
 ```json
 "globalMetadata": {
@@ -197,7 +229,8 @@ apiRules:
 }
 ```
 
-7) Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(docfx markdown processor) extensions for additional markdown functionality. 
+#### Enable custom extensions and xref
+Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(docfx markdown processor) extensions for additional markdown functionality. 
 
 ```json
 "build": {
@@ -210,7 +243,7 @@ apiRules:
 }
 ```
 
-8) Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with `docfx` documentation, add their `xrefmap.yml` here as well.
+Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with `docfx` documentation, add their `xrefmap.yml` here as well.
 
 ```json
 "build": {
@@ -224,12 +257,12 @@ apiRules:
 
 Once you are satisfied with the website, publish to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site). A GitHub Actions workflow should already be in place if you follow the standard folder structure. Make sure `docs.yml` is in the `.github/workflows` [folder](#repository-organization).
 
-1) Setup a new branch called `gh-pages` on your fork of the repository.
-2) Go to your repo settings > `Pages` > `Build and deployment` > under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
-3) Commit your edits and push them online.
-4) Under the `Actions` tab of your GitHub repo, trigger the `Build docs` workflow manually with the `Run workflow` button on the branch you committed your edits to. This will build the docs site on the `gh-pages` branch.
-5) Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
-7) The URL for the site can be found in the `Pages` section of your repository settings.
+1. Setup a new branch called `gh-pages` on your fork of the repository.
+2. Go to your repo settings > `Pages` > `Build and deployment` > under `Source` select `Deploy from a branch` and make sure `gh-pages` is selected.
+3. Commit your edits and push them online.
+4. Under the `Actions` tab of your GitHub repo, trigger the `Build docs` workflow manually with the `Run workflow` button on the branch you committed your edits to. This will build the docs site on the `gh-pages` branch.
+5. Once the `Build docs` workflow has been completed, the `pages-build-deployment` workflow will run and publish your forked repo automatically.
+7. The URL for the site can be found in the `Pages` section of your repository settings.
 
 > [!NOTE]
 > To ensure that the Bonsai Editor can link to the reference documentation for package operators, make sure that the `PackageProjectUrl` in either the `.csproj` file or the `Directory.Build.props` file points to the URL for the documentation website.
@@ -250,32 +283,32 @@ To keep your online GitHub repository clean, you can use `.gitignore` files to i
 ...
 ```
 
-## Testing unpublished packages
+## Creating example workflows
 
 To write documentation for [new packages or releases](./create-package.md) that have not yet been published to the community, it is good practice to start by writing test workflows in Visual Studio.
 
-1) Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free for open-source projects).
-2) Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
-3) In Visual Studio, open `src/PackageName.sln` in the repository.
-4) Press F5 to open the Bonsai editor with the new package added.
-5) From here, you can make Bonsai workflows and save them as per normal.
+1. Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free for open-source projects).
+2. Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
+3. In Visual Studio, open `src/PackageName.sln` in the repository.
+4. Press F5 to open the Bonsai editor with the new package added.
+5. From here, you can make Bonsai workflows and save them to the `workflows` folder as examples.
 
 
 ## Troubleshooting
 
-### File not found errors
+#### File not found errors
 
-These are usually due to folders not being in the right place, check the directory trees above or a repository that has been recently updated (for instance https://bonsai-rx.org/machinelearning/) for reference. Also pay attention to any scripts/css files that require modification of the package name/link/source location.
+These are usually due to folders not being in the right place. Check the directory trees above or a repository that has been recently updated, e.g. [bonsai-rx/machinelearning](https://bonsai-rx.org/machinelearning/), for reference. Also pay attention to any scripts or CSS files that require modification to the package name or link/source location.
 
-### Docfx local preview not updating 
+#### Docfx local preview not updating 
 
 If you are running the local preview `dotnet docfx --serve` and not seeing changes:
 
-1) Make sure that any changes you have made in your code editor are saved.
-2) Hard refresh pages in the browser using either `Ctrl`+`Shift`+`R` and `Ctrl`+`F5` or clear the cache to avoid cache issues.
-3) As a last resort - check that the content updates online by [publishing your website](#publishing-to-github-pages).
+1. Make sure that any changes you have made in your code editor are saved.
+2. Hard refresh pages in the browser using either `Ctrl`+`Shift`+`R` and `Ctrl`+`F5` or clear the cache to avoid cache issues.
+3. As a last resort - check that the content updates online by [publishing your website](#publishing-to-github-pages).
 
-### Differences between local and online builds
+#### Differences between local and online builds
 
 If there are discrepancies between local and online builds and they persist, this could indicate a `docfx` version conflict. The online build process uses a local installation of `docfx` but it is also possible to install `docfx` globally (which we do not recommend). To check if this is the cause of the discrepancy:
 

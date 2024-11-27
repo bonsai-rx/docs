@@ -6,14 +6,14 @@ Through our experience documenting Bonsai, we have established a set of recommen
 
 In general, we have converged on three types of articles, organized into distinct website sections, to address the needs of most people and their different learning styles.
 
-* Manual - hosts documentation that explains the basic workflow of the package or functions of the various operators.
-* Reference - hosts technical documentation for each operator, generated automatically by `docfx` from XML comments in source code or supplemented with individual operator articles.
-* Tutorials - hosts examples or tutorials for various applications. This section is optional, but valuable for more complicated applications or packages which require operators from other packages for their execution.
+* `Manual` - articles explaining the core concepts of the package and functions of its various operators.
+* `Reference` - technical documentation for each operator, generated automatically by `docfx` from XML comments in source code or supplemented with individual operator articles.
+* `Tutorials` - examples or tutorials about using the package. This section is optional, but valuable for more complex applications or when packages interoperate deeply with other packages.
 
 To construct these sections:
 
-1) Ensure that the `docs` folder has an `articles` and `tutorials` folder. The `api` folder is automatically generated.
-2) For the navigation bar at the top of the website, edit the `docs/toc.yml` file to reflect the location and name of the various folders.
+1. Ensure that the `docs` folder has an `articles` and `tutorials` folder. The `api` folder is automatically generated.
+2. For the navigation bar at the top of the website, edit the `docs/toc.yml` file to reflect the location and name of the different folders.
 
 ```yml
 - name: Manual
@@ -23,9 +23,9 @@ To construct these sections:
 - name: Tutorials
   href: tutorials/
 ```
-3) Add articles in markdown format to the `Manual` and `Tutorials` folder.
-4) Add a toc.yml file to the `Manual` and `Tutorials` folder to generate the table of contents for that section. The `Reference` toc.yml is generated automatically.
-Here is a sample `articles/toc.yml` with a flattened table of content layout (all articles will be visible in the TOC). This works best for most websites which do not have a lot of articles.
+3. Add articles in markdown format to the `Manual` and `Tutorials` folder.
+4. Add a `toc.yml` file to the `Manual` and `Tutorials` folder to generate the table of contents for that section. The `toc.yml` for the `Reference` section is generated automatically.
+Below is a sample `articles/toc.yml` with a flattened table of content layout (all articles will be visible in the TOC). This works best for websites which do not have a lot of articles.
 
 ```yml
 - href: ../index.md                         # Website Getting Started page that points to docs/index.md. Omit for tutorials/toc.yml
@@ -40,7 +40,7 @@ Here is a sample `articles/toc.yml` with a flattened table of content layout (al
 > [!TIP]
 > Article filenames should be simple and reflect either the article title or operator name. Titles can be omitted as they will be taken from the first `Heading 1` element.
 
-Here is a same `toc.yml` but this time with a nested table of content layout (articles will only be visible when group headings are clicked). 
+Here is the same `toc.yml` but this time with a nested table of content layout (articles will only be visible when group headings are clicked).
 
 ```yml
 - href: ../index.md                         
@@ -53,13 +53,13 @@ Here is a same `toc.yml` but this time with a nested table of content layout (ar
 
 ### Manual section
 
-For the `Manual` section we typically see these elements:
+For the `Manual` section we typically include the following elements:
 
-- Getting Started/Landing page - This typically includes a description of what the package does, how to install the package and funding/acknowledgements. This belongs in `docs/index.md`.
-- Installation Instructions - If a package requires external dependencies or additional configuration it can be helpful to dedicate an extra page to this.
-- Workflow/Conceptual Overview - Best illustrated with a flowchart or a basic workflow container. 
+- **Getting Started/Landing page** - This includes a description of what the package does, how to install the package, and any funding/acknowledgements. This belongs in `docs/index.md`.
+- **Installation Instructions** - If a package requires external dependencies or additional configuration it can be helpful to dedicate an extra page to this.
+- **Workflow/Conceptual Overview** - Best supported by an accompanying flowchart or example workflow. 
 
-Beyond that, there are many possible ways to organize the rest of the manual articles depending on the type of package that is being described. 
+Beyond that, there are many possible ways to organize the rest of the manual articles depending on the type of package that is being described.
 
 #### Individual operator articles
 
@@ -70,9 +70,9 @@ One approach that we recommend is to try and write articles for each individual 
 - Writing individual operator articles ensures complete coverage of all operators.
 
 Creating an individual operator article requires some additional steps.
-For example, to create an individual operator article for a `Timer` operator to be included in a `Manual` article as well as in the automatically generated `Reference` docs:
+For example, to create an individual article for a `Timer` operator to be included in both a `Manual` article as well as in the automatically generated `Reference` docs:
 
-1) Create the `Bonsai_Reactive_Timer.md` article and place it in the `docs/apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the namespace.operator format. 
+1. Create the `Bonsai_Reactive_Timer.md` article and place it in the `docs/apidoc` folder. To utilize the `overwrite` function, in the markdown file, assign a UID that follows the `namespace.operator` format. 
 
 ```yml
 ---
@@ -80,8 +80,7 @@ uid: Bonsai.Reactive.Timer
 ---
 Write content here.
 ```
-
-1) Create a new article markdown file and place it in the `docs/articles` folder. In this markdown file, include a reference to the individual operator.md file.
+2. Create a new article markdown file and place it in the `docs/articles` folder. In this markdown file, include a reference to the individual operator `.md` file.
 
 ```markdown
 Some documentation content.
@@ -93,12 +92,12 @@ Some documentation content.
 
 ### Reference section
 
-As mentioned the `Reference` section of the website is auto-generated from [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in the code. We have integrated into the Bonsai Editor the ability to right-click on individual operators and select `View Help`. This will bring up and load the `Reference` page for that operator in the editor itself. For most people, this might be the most obvious entry point to the package documentation. Thus it is essential that developers ensure that:
+The `Reference` section of the website is auto-generated from [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in the code. We have integrated into the Bonsai Editor the ability to right-click on individual operators and select `View Help`. This will bring up and load the `Reference` page for that operator in the editor itself. For most people, this might be the most obvious entry point to the package documentation. Thus it is essential that developers ensure that:
 
-1) XML documentation comments are clear, simple and helpful.
-2) Where appropriate, supplement additional information (basic workflow, images, long-form content) with an individual operator article using the `overwrite` function detailed in the previous section.
+1. XML documentation comments are clear, simple and helpful.
+2. Where appropriate, supplement the reference article with additional information (basic workflow, images, long-form content) by using the `overwrite` function detailed in the previous section.
 
-At present, we understand that the default template for the `Reference` page is a little too technical, and somewhat confusing to navigate. We are in the midst of revamping the template to cater to a broader audience and will update this section when it becomes available.
+At present, we understand that the default layout for the `Reference` page is a little too technical, and somewhat confusing to navigate. We are currently in the process of revamping the template to cater to a broader audience and will update this section when it becomes available.
 
 ### Tutorials section
 
@@ -119,7 +118,7 @@ In addition, the `docfx.json` file needs to be modified to import the relevant r
 
 In `docfx`, articles are written in [Markdown](https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet) and rendered with the [Markdig](https://github.com/xoofx/markdig) parsing engine. Refer to these links for more information on how to format content in markdown.
 
-When writing articles, please follow the [MSDN writing tips](https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips). In particular:
+When writing articles, we highly recommend following the [MSDN writing tips](https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips). In particular:
 
 - Keep article and section titles short and succinct so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation).
 - Reuse operator names, properties, and descriptions in the articles and titles (do not use synonyms) so that readers may more easily follow and refer to them.
@@ -144,7 +143,7 @@ For content in a different folder, use `../` to navigate up to the parent folder
 
 ### Cross-references and highlights
 
-When working on an article, first check [the main documentation](../index.md) and confirm whether written material already exists that could be linked to avoid duplication. Also include links to resources like websites for external libraries which may be useful to explore for more information.
+When working on an article, first check [the main Bonsai documentation](../index.md) and confirm whether written material already exists that could be linked to avoid duplication. Also include links to resources like websites for external libraries which may be useful to explore for more information.
 
 **Example:**
 
@@ -176,7 +175,7 @@ Highlight folders, filenames, package names, functions, actions, editor/website 
 
 When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in docfx](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
 
-For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To reference this you need to specify the full path to it including namespace, operator name, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit F12. 
+For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To create a reference to this node you need to specify the fully qualified name of the operator, including its namespace, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the fully qualified name for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit `F12`. 
 
 When referring to operator properties, simply place the operator property name inside a pair of backticks (`` `Operator_property_name` ``). 
 
@@ -196,7 +195,7 @@ You can also link to operators in other packages if their [xrefmap](./documentat
 ### Bonsai workflows
 
 To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName-workflowName.bonsai`. 
-Add the `.bonsai` file to the `workflows` folder in the repository. In the text of the article that includes/references this example workflow, add a workflow container.
+Add the `.bonsai` file to the `workflows` folder in the repository. In the text of the article that includes/references this example workflow, add a workflow custom container.
 
 **Example:**
 
@@ -208,7 +207,7 @@ Assuming you want to include `CustomPulseTrain-SendCustomWaveform.bonsai`:
 :::
 ```
 
-Workflow images are automatically exported as SVG files by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule and requires the [build.ps1](./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
+Workflow images are automatically exported as SVG files by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. The steps below require an existing [build.ps1](./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
 
 To generate the images locally for the `docfx` local preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the package src):
 
@@ -216,19 +215,19 @@ To generate the images locally for the `docfx` local preview, navigate to the `d
 ./build.ps1
 ```
 
-If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment by using the package manager in the local bootstrapper `Bonsai.exe`.
+If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment by using the package manager.
 
 ### Figures
 
 > [!NOTE]
-> Avoid images/screenshots when possible as they do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
+> Avoid images/screenshots as much as possible possible as they often do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
 
 To include a figure or image in an article: 
 
-1) Save your figure or image as a `.svg` file, naming the file using the pattern `[article filename]-[figure name].svg`.
-2) Add the figure/image to the `images` folder in the repo.
-3) Reference the figure in the article with the following code.
-4) (Optional) For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a `width` attribute on the img element directly like follows.
+1. Save your figure or image as a `.svg` or `.png` file, naming the file using the pattern `[article filename]-[figure name].svg`.
+2. Add the figure/image to the `images` folder in the repo.
+3. Reference the figure in the article with the following code.
+4. (Optional) For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a `width` attribute directly on the `img` element as in the example below.
 
 **Example:**
 
@@ -238,7 +237,7 @@ To include a figure or image in an article:
 
 ### Diagrams and Charts
 
-Use [Mermaid](https://mermaid.js.org/) graphs to visualize flowcharts or pipelines.
+Consider using [Mermaid](https://mermaid.js.org/) graphs to describe and visualize flowcharts or pipelines.
 
 **Example:**
 
@@ -306,7 +305,7 @@ dotnet tool install --local docfx --version 2.75.3
 
 ### Alerts
 
-Use alerts to alert users to important information. Only use either the `Note` or `Warning` alerts as the color scheme does not conflict with the formatting for property names.
+Use alerts to highlight the awareness of important information. Prefer the `Note` and `Warning` alerts as the color scheme does not conflict with the formatting for property names.
 
 **Example:**
 ```markdown
@@ -325,4 +324,3 @@ Use alerts to alert users to important information. Only use either the `Note` o
 ### Final Polishing Steps
 
 Delete redundant blank rows in between lines and at the end of the articles. This improves code readability for future contributors.
-
