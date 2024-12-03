@@ -10,7 +10,10 @@
             "**/bin/**",
             "**/obj/**",
             "**/**.Tests/**",
+            "**/Bonsai.csproj",
+            "**/Bonsai32.csproj",
             "**/Bonsai.NuGet**/**",
+            "**/Bonsai.Player**/**",
             "**/Bonsai.Configuration/**",
             "**/Bonsai.StarterPack**/**",
             "**/Bonsai.Templates/**"
