@@ -28,7 +28,7 @@ dotnet new install Bonsai.Templates
 dotnet new bonsaienv
 ```
 
-- `.github/workflows/` - The `docfx` website is often automatically published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow specified in the `docs.yml` file. Unfortunately these workflows tend to be very project specific and we do not yet have a standardized pipeline. For a minimal example and inspiration you can check [the workflow for this repository](https://github.com/bonsai-rx/docs/blob/main/.github/workflows/build.yml).
+- `.github/workflows/` - The `docfx` website is often automatically published to [GitHub Pages](https://pages.github.com/) using a [GitHub Actions](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions) workflow specified in the `docs.yml` file. Unfortunately these workflows tend to be very project specific and we do not yet have a standardized pipeline. For a minimal example and inspiration you can check the workflow on a package repository that has been recently updated, e.g. [bonsai-rx/zeromq](https://github.com/bonsai-rx/zeromq/blob/main/.github/workflows/docs.yml).
 
 ## Setup docfx
 
