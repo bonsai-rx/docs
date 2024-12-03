@@ -8,7 +8,7 @@ In general, we have converged on three types of articles, organized into distinc
 
 * `Manual` - articles explaining the core concepts of the package and functions of its various operators.
 * `Reference` - technical documentation for each operator, generated automatically by `docfx` from XML comments in source code or supplemented with individual operator articles.
-* `Tutorials` - examples or tutorials about using the package. This section is optional, but valuable for more complex applications or when packages interoperate deeply with other packages.
+* `Tutorials` - examples or tutorials about using the package. This section is optional, but valuable when examples require extensive integration with other packages.
 
 To construct these sections:
 
