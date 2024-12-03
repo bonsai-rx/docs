@@ -85,7 +85,7 @@ The documentation guides assume the `docs` folder is organized according to the 
 ...
 ```
 
-- `bonsai/` - this folder is where we initialize the submodule referencing [docfx-tools](https://github.com/bonsai-rx/docfx-tools). This submodule contains scripts for automating image export from `Bonsai` workflows (if you want to include them in your article) and adds a CSS template for `Bonsai` workflow containers (these containers allow users to easily copy workflows into the `Bonsai` editor). To create this submodule, run this command in the `docs` folder:
+- `bonsai/` - this folder is where we initialize the submodule referencing [docfx-tools](https://github.com/bonsai-rx/docfx-tools). This submodule contains scripts for automating image export from `Bonsai` workflows (if you want to include them in your article) and also common infrastructure for [workflow containers](#creating-example-workflows). To create this submodule, run this command in the `docs` folder:
 
 ```powershell
 git submodule add https://github.com/bonsai-rx/docfx-tools bonsai
@@ -285,13 +285,25 @@ To keep your online GitHub repository clean, you can use `.gitignore` files to i
 
 ## Creating example workflows
 
-To write documentation for [new packages or releases](./create-package.md) that have not yet been published to the community, it is good practice to start by writing test workflows in Visual Studio.
+To include an example workflow in an article of the documentation, first create the example workflow using the [local bonsai environment](#repository-organization) and save it as `articleFileName-workflowName.bonsai` into the `workflows` folder. In the text of the article that references this example workflow, add a workflow custom container.
 
-1. Install [Visual Studio](https://www.visualstudio.com/) (the community edition can be installed for free for open-source projects).
-2. Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the "Install Bonsai VS Extensions" shortcut and run it.
-3. In Visual Studio, open `src/PackageName.sln` in the repository.
-4. Press F5 to open the Bonsai editor with the new package added.
-5. From here, you can make Bonsai workflows and save them to the `workflows` folder as examples.
+For example, assuming you want to include `CustomPulseTrain-SendCustomWaveform.bonsai`: 
+
+```markdown
+:::workflow
+![Send Custom Waveform](../workflows/CustomPulseTrain-SendCustomWaveform.bonsai)
+:::
+```
+
+Workflow images are automatically exported as SVG files by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. The steps below require an existing [build.ps1](#docfx-folder-organization) file and a [local bonsai environment](#repository-organization). 
+
+To generate the images locally for the `docfx` preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the correct package folder in `src`):
+
+```powershell
+./build.ps1
+```
+
+If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment by using the package manager.
 
 
 ## Troubleshooting

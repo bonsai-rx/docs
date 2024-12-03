@@ -194,28 +194,7 @@ You can also link to operators in other packages if their [xrefmap](./documentat
 
 ### Bonsai workflows
 
-To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as `articleFileName-workflowName.bonsai`. 
-Add the `.bonsai` file to the `workflows` folder in the repository. In the text of the article that includes/references this example workflow, add a workflow custom container.
-
-**Example:**
-
-Assuming you want to include `CustomPulseTrain-SendCustomWaveform.bonsai`: 
-
-```markdown
-:::workflow
-![Send Custom Waveform](../workflows/CustomPulseTrain-SendCustomWaveform.bonsai)
-:::
-```
-
-Workflow images are automatically exported as SVG files by the [docfx-tools](https://github.com/bonsai-rx/docfx-tools) submodule. The steps below require an existing [build.ps1](./documentation-docfx.md#docfx-folder-organization) file and a [local bonsai environment](./documentation-docfx.md#repository-organization). 
-
-To generate the images locally for the `docfx` local preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the package src):
-
-```powershell
-./build.ps1
-```
-
-If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment by using the package manager.
+To include example workflows in an article always consider using [custom workflow containers](./documentation-docfx.md#creating-example-workflows) as this makes it possible to copy workflows directly from the documentation into the editor.
 
 ### Figures
 
