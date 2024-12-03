@@ -199,7 +199,7 @@ To include example workflows in an article always consider using [custom workflo
 ### Figures
 
 > [!NOTE]
-> Avoid images/screenshots as much as possible possible as they often do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
+> Avoid images/screenshots as much as possible as they often do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.
 
 To include a figure or image in an article: 
 
