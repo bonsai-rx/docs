@@ -1,9 +1,8 @@
 ---
 uid: installation
-title: "Installing Bonsai"
 ---
 
-# Installing Bonsai
+# Install Bonsai
 
 The Bonsai editor is currently designed to work with the .NET Framework on Windows desktop operating systems, version 7 or later. The easiest way to get started with Bonsai is by downloading the latest installer.
 

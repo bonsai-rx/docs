@@ -1,9 +1,8 @@
 ---
 uid: create-package
-title: "Creating a Package"
 ---
 
-# Creating a Package
+# Create a Package
 
 The Bonsai language can be extended with custom packages, which are installed and shared using [NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget). Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment. The Bonsai installer includes project templates that make it easier to create your own package project. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.
 

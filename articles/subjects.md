@@ -1,6 +1,5 @@
 ---
 uid: subjects
-title: "Subjects" 
 ---
 
 # Subjects

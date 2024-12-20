@@ -1,15 +1,14 @@
 ---
 uid: environments
-title: "Environments"
 ---
 
-# Bonsai Environments
+# Environments
 
-By default, Bonsai is installed system-wide and can be used to run any workflow. However, as projects grow, it is common to have to install new packages to access specific functionality, or update the version of existing packages to get the latest bug fixes and patches.
+By default, `Bonsai` is installed system-wide and can be used to run any workflow. However, as projects grow, it is common to have to install new packages to access specific functionality, or update the version of existing packages to get the latest bug fixes and patches.
 
 If you have many projects, you might notice that older projects require specific obsolete package versions which are not compatible with newer projects, resulting in setups that break when the system-wide installation gets updated since only one version of the package can be installed at any one time.
 
-Bonsai addresses these problems by supporting the creation of reproducible package environments. An environment is a self-contained, portable, installation of Bonsai that records a *snapshot* of all the packages required to run the workflows in your project. This makes it much easier to share a project with other people, or keep track of multiple separate projects in our local machine, and be assured you always have everything you need in the right place.
+`Bonsai` addresses these problems by supporting the creation of reproducible package environments. An environment is a self-contained, portable, installation of `Bonsai` that records a *snapshot* of all the packages required to run the workflows in your project. This makes it much easier to share a project with other people, or keep track of multiple separate projects in your local machine, and be assured you always have everything you need in the right place.
 
 ## Environment Basics
 The key to creating and updating environments is the `Bonsai.config` file, which keeps a record of all currently installed dependencies for a specific Bonsai setup. You can find this file in the same location of the Bonsai executable (`Bonsai.exe`). Anytime you install or update a package, Bonsai will automatically modify the config file.

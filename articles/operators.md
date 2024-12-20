@@ -1,6 +1,5 @@
 ---
 uid: operators
-title: "Operators"
 ---
 
 # Operators

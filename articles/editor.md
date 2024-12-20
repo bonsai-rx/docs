@@ -1,6 +1,5 @@
 ---
 uid: editor
-title: "Workflow Editor"
 ---
 
 # Workflow Editor

@@ -1,6 +1,5 @@
 ---
 uid: packages
-title: "Package Manager"
 ---
 
 # Package Manager

@@ -1,6 +1,5 @@
 ---
 uid: property-mapping
-title: "Property Mapping"
 ---
 
 # Property Mapping

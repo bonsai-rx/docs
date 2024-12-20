@@ -1,6 +1,5 @@
 ---
 uid: higher-order
-title: "Higher-Order Operators"
 ---
 
 # Higher-Order Operators

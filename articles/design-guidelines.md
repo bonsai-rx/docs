@@ -1,6 +1,5 @@
 ---
 uid: design-guidelines
-title: "Design Guidelines" 
 ---
 
 # Design Guidelines

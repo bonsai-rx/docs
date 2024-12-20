@@ -1,9 +1,8 @@
 ---
 uid: workflow-guidelines
-title: "Workflow Design Guidelines" 
 ---
 
-# Workflow Design Guidelines
+# Workflow Guidelines
 
 This section offers guidelines and design patterns to consider when developing workflows for any reactive program.
 
