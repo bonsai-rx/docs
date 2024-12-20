@@ -1,6 +1,5 @@
 ---
 uid: gallery
-title: "Bonsai Gallery"
 ---
 
 # Bonsai Gallery

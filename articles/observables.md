@@ -1,6 +1,5 @@
 ---
 uid: observables
-title: "Observables"
 ---
 
 # Observables

@@ -1,11 +1,10 @@
 ---
 uid: cli
-title: "Command Line Interface"
 ---
 
-# Command Line Interface (CLI)
+# Command Line Interface
 
-The Bonsai command-line interface makes it possible to interface with Bonsai directly from the operating system terminal. Using the CLI you can open files, set workflow properties, change the editor scale, run a workflow in application mode, or even export a workflow as a bitmap or vector graphics file.
+The Bonsai command line interface (CLI) makes it possible to interface with Bonsai directly from the operating system terminal. Using the CLI you can open files, set workflow properties, change the editor scale, run a workflow in application mode, or even export a workflow as a bitmap or vector graphics file.
 
 ## Quick Start
 

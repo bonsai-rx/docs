@@ -1,6 +1,5 @@
 ---
 uid: scripting-extensions
-title: "Scripting Extensions"
 ---
 
 # Scripting Extensions

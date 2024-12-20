@@ -1,46 +1,21 @@
-- name: Getting Started
-  href: installation.md
-  items:
-    - name: Installing Bonsai
-      href: installation.md
-    - name: Package Manager
-      href: packages.md
-    - name: Workflow Editor
-      href: editor.md
-    - name: Bonsai Gallery
-      href: gallery.md
-    - name: Environments
-      href: environments.md
+- name: Get Started
+- href: installation.md
+- href: packages.md
+- href: editor.md
+- href: gallery.md
+- href: environments.md
 - name: Language Guide
-  href: observables.md
-  items:
-    - name: Observables
-      href: observables.md
-    - name: Operators
-      href: operators.md
-    - name: Property Mapping
-      href: property-mapping.md
-    - name: Higher-Order Operators
-      href: higher-order.md
-    - name: Subjects
-      href: subjects.md
-- name: Extending Bonsai
-  href: cli.md
-  items:
-    - name: Command Line Interface
-      href: cli.md
-    - name: Scripting Extensions
-      href: scripting-extensions.md
-    - name: Creating a Package
-      href: create-package.md
-    - name: Documentation With Docfx
-      href: documentation-docfx.md
-    - name: Documentation Style Guide
-      href: documentation-style-guide.md
-- name: Design Guidelines
-  href: design-guidelines.md
-  items:
-    - name: Overview
-      href: design-guidelines.md
-    - name: Workflow Design Guidelines
-      href: workflow-guidelines.md
+- href: observables.md
+- href: operators.md
+- href: property-mapping.md
+- href: higher-order.md
+- href: subjects.md
+- name: Extend Bonsai
+- href: cli.md
+- href: scripting-extensions.md
+- href: create-package.md
+- href: documentation-docfx.md
+- href: documentation-style-guide.md
+- name: Guidelines
+- href: design-guidelines.md
+- href: workflow-guidelines.md
