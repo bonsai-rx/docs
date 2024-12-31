@@ -23,7 +23,8 @@
       "dest": "api",
       "filter": "filter.yml",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "enumSortOrder": "declaringOrder"
     }
   ],
   "build": {
