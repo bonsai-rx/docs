@@ -22,8 +22,6 @@
       ],
       "dest": "api",
       "filter": "filter.yml",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false,
       "enumSortOrder": "declaringOrder",
       "memberLayout": "separatePages"
     }
