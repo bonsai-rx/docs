@@ -105,7 +105,7 @@ The Bonsai language can be extended with custom packages, which are installed an
 
     ![Inspecting the package metadata](~/images/extensions-packagemetadata.png)
 
-2. Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to `Title`, `Description`, `Authors`, `Copyright`, `PackageProjectUrl`, `PackageLicenseExpression`, `PackageIcon` and `PackageTags` to make sure that they correctly describe your project. Make sure that `Version` is correctly assigned in every new release to avoid problems during package updates. In order to make your project discoverable online through the Bonsai package manager, include a new field called `PackageType` and specify both `Dependency` and `BonsaiLibrary` as package types.
+2. Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to `Title`, `Description`, `Authors`, `Copyright`, `PackageProjectUrl`, `PackageLicenseExpression`, `PackageIcon` and `PackageTags` to make sure that they correctly describe your project. Make sure that `Version` is correctly assigned in every new release to avoid problems during package updates. In order to make your project discoverable through the Bonsai package manager, make sure to include the `PackageType` field and specify both `Dependency` and `BonsaiLibrary` as package types.
 
     > [!Tip]
     > Use version suffixes for sharing prerelease versions for testing, e.g. `0.1.0-alpha`. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox "Include prerelease" is checked.
@@ -118,4 +118,4 @@ The Bonsai language can be extended with custom packages, which are installed an
     > If you have your custom package installed in the same editor used to debug the source code, Bonsai will prefer the installed package over the compiled source code library. In this case, either uninstall the package, or use a local Bonsai installation.
 
     > [!Note]
-    > If you would like to share the package with the broader Bonsai community, consider publishing it to [**NuGet**](https://www.nuget.org/packages/manage/upload) by creating a `NuGet` account and uploading the `.nupkg` file. Ensure that the `PackageType` field is properly defined before submission.
+    > If you would like to share the package with the broader Bonsai community, consider publishing it to [**NuGet**](https://www.nuget.org/packages/manage/upload) by creating a `NuGet` account and uploading the `.nupkg` file. Ensure the `PackageType` field is properly defined before submission.
