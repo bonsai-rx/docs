@@ -119,3 +119,9 @@ new(
 ```
 
 The example above projects the two unnamed items of a tuple into a new data object with an `X` and a `Y` property.
+
+> [!Note]
+> Dynamic data classes are uniquely identified by their specification. If two data object initializers use matching property names with identical types declared in the same order, then the two expressions will be resolved to the same data object type. This allows type inference to work on reactive operators which require matching types in all the input sequences, e.g. [`Merge`](xref:Bonsai.Reactive.Merge).
+
+> [!Warning]
+> Dynamic data classes do not have a predictable type signature and therefore cannot currently be serialized in the workflow file, nor be used in custom scripting extensions.
