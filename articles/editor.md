@@ -103,86 +103,32 @@ Most properties can be configured simply by changing the text value in the corre
 > [!Note]
 > Some operators have even more specialized editor windows such as camera configuration dialogs or media player controls. If such property pages exist for the currently selected operator, the small `Property Pages` button (<img src="~/images/propertypages.png" />) above the property grid will become active.
 
-## Commands and Shortcuts
+## Actions and Shortcuts
 
-Below is a summary of the most used commands and shortcuts in the workflow editor:
+Below is a summary of the most used action and shortcuts in the workflow editor:
 
-### Running the workflow
-
-* Click the arrow `Start` button
-* Press `F5`
-
-### Stopping the workflow
-
-* Click the square `Stop` button
-* Press `Shift`+`F5`
-
-### Insert an operator after the selected node
-
-* Right-click the operator name and select the `Insert After` option
-* Drag-and-drop the operator from the toolbox to the worflow
-* Double-click the operator name in the toolbox
-* Press the `Enter` key while the operator is selected in the toolbox
-* Copy another node (`Ctrl`+`C`) and paste in the toolbox (`Ctrl`+`V`)
-
-### Insert an operator before the selected node
-
-* Right-click the operator name and select the `Insert Before` option
-* Hold the `Shift` key together with any of the above commands (e.g., `Shift`+`Enter`)
-
-### Insert an operator as a new branch of the selected node
-
-* Right-click the operator name and select the `Create Branch` option
-* Hold the `Alt` key together with any of the above commands (e.g., `Ctrl`+`Alt`+`V`)
-
-### Create a connection between two operators
-
-* Right-click the source node, select the `Create Connection` option and left-click on the target node
-* Drag the source node and drop it on the target node
-
-### Remove a connection between two operators
-
-* Right-click the source node, select the `Remove Connection` option and left-click on the target node
-* While holding the `Shift` key, drag the source node and drop it on the target node
-
-### Selecting multiple nodes
-
-* Click an empty space in the workflow panel and drag a box around the nodes to be selected
-* While holding the `Shift` key, press the arrow keys to select a string of nodes around the currently selected node
-* Hold the `Ctrl` key and click on a node to add/remove it from the current selection
+| Action | Point-and-click | Keyboard Shortcuts/Modifiers |
+| ------------- | --------------- | ------------- |
+| Run the workflow | In the `Toolbar` Panel:<br>Click the arrow `Start` button | `F5`  |
+| Stop the workflow | In the `Toolbar` Panel:<br>Click the square `Stop` button | `Shift`+`F5`|
+| Insert an operator | In the `Toolbox` panel, choose any of these options: <li>Select the operator, drag-and-drop to the `Workflow` panel</li><li>Right-click the operator,  select either of the `Insert` options</li><li>Double-click the operator</li> <br> By default the operator will be placed after a node that is selected in the `Workflow` panel. If a connection can be formed, the two nodes will be connected. <br><br>To insert the operator before a selected node, hold down the `Shift` key together with any of the above actions. | Insert after: `Enter` <br> Insert before: `Shift`+`Enter` |
+| Remove an operator | In the `Workflow` panel:<br>Right-click the operator,  select `Remove` | `Delete` |
+| Copy-paste an operator | In the `Workflow` panel: <br>Right-click the operator, select `Copy`. Right click another node or anywhere else in the panel, select `Paste`. |Copy: `Ctrl`+`C` <br> Paste after: `Ctrl`+`V`<br> Paste before: `Shift`+`Ctrl`+`V`| 
+| Create a branch | In the `Toolbox` panel: <br> With a node already selected in the `Workflow` panel,  right-click the operator and select the `Create Branch` option. | Use `Alt` with any of the existing shortcuts eg. `Alt`+ `Ctrl` + `V`| 
+| Create a connection | In the `Workflow` panel: <li> Right-click the source node, select the `Create Connection` option and left-click on the target node <li> Drag the source node and drop it on the target node | N.A. | 
+| Remove a connection | In the `Workflow` panel: <br> Right-click the source node, select the `Remove Connection` option and left-click on the target node  | Hold down `Shift` while dragging the source node to the target node.| 
+| Select multiple nodes | In the `Workflow` panel: <br> Click on an empty space and drag a box around the nodes to be selected. | <li> While holding the `Shift` key, navigate around the nodes to be selected with the arrow keys.<li>Hold down `Ctrl` while clicking on a node to add/remove it from the current selection.|
+| Open type visualizer | In the `Workflow` panel: <li> Double-click on the target node  <li>Right-click on the target node and select a visualizer from the `Show Visualizer` dropdown <br><br> This action is only availiable when the workflow is running. | Press `Enter` while the target node is selected.|  
+| Group operators | In the `Workflow` panel: <br> Right-click on a multi-node selection and select a group type from the `Group` dropdown | Select all the nodes to group and press `Ctrl`+`G` to create a nested workflow. |  
+| Open operator editor or group workflow | In the `Workflow` panel: <li> When workflow is not running - double-click.<li>When workflow is running - `Ctrl` + double-click. | When workflow is not running:<br>`Enter`<br>When workflow is running:`Ctrl`+`Enter` |  
+| Ungroup node group | In the `Workflow` panel: <br> Right-click on the group node and select the `Ungroup` option | `Ctrl`+`Shift`+`G` |  
+| Open context menu| In the `Workflow` panel: <br> Right-click any node, multi-node selection or empty space. | `Shift`+`F10` |  
 
 > [!Note]
 > Many operations can be performed on multi-node selections (e.g., delete, create connections, create a node group, etc.).
 
-### Open the type visualizer for an operator
-
-* Double-click on the target node while the workflow is running
-* Right-click on the target node and select a visualizer from the `Show Visualizer` dropdown 
-* Press `Enter` while the target node is selected
-
-### Grouping operators into a node group
-
-* Select all the nodes to group and press `Ctrl`+`G` to create a nested workflow
-* Right-click on a multi-node selection and select a group type from the `Group` dropdown context menu
-
 > [!Note]
 > You can change the type of an existing group simply by right-clicking on the group node and selecting a different type from the `Group` dropdown.
-
-### Open a node group or the default editor for an operator
-
-* Double-click on the target node while the workflow is not running
-* If the workflow is running, hold the `Ctrl` key while double-clicking on the target node
-* Press `Ctrl`+`Enter` while the target node is selected
-
-### Ungrouping a node group
-
-* Right-click on the group node and select the `Ungroup` option from the context menu
-* Press `Ctrl`+`Shift`+`G`
-
-### Open context menu
-
-* Right-click any node, multi-node selection or empty space in the workflow panel
-* Press `Shift`+`F10`
 
 > [!Note]
 > Depending on what is currently selected, the context menu may show different available actions.
