@@ -78,6 +78,17 @@ If you leave one or more visualizers open when you stop the workflow, the editor
 > [!Tip]
 > Many visualizers allow you to access more detailed information or advanced configuration parameters by right-clicking on the visualizer window.
 
+### Annotations
+
+As workflows become more complex, it can be helpful to add labels, comments, or detailed instructions. Bonsai provides a unique [`Annotation`](xref:Bonsai.Expressions.AnnotationBuilder) operator that can be placed on its own or attached to individual nodes and workflow sections. Annotations can be written in plain text or in [Markdown](https://www.markdownguide.org/), a simple formatting language that makes it easy to add rich content such as [headings, lists, links and images](https://www.markdownguide.org/basic-syntax/). 
+
+![Annotations](../images/editor-annotation.png)
+
+To use annotations, search for the [`Annotation`](xref:Bonsai.Expressions.AnnotationBuilder) operator in the toolbox and add it to the workflow. You can rename the annotation in the property grid. To open the text editor, right-click the operator and select `Show Default Editor`. Double-click the operator to view the formatted annotation. Like other operators, annotations are part of the workflow and are saved in the `.bonsai` file.
+
+> [!Warning]
+> Images are not saved in the `.bonsai` file. To ensure accessibility when linking images, consider keeping them in the same folder as the workflow.
+
 ### Workflow Extensions
 
 You can create and save workflow extensions by selecting one or more nodes and clicking the `Save Workflow As...` button in the context menu.
