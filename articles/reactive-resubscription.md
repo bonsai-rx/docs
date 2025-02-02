@@ -1,5 +1,5 @@
 > [!Tip]
-> The subscription side-effects (e.g. opening a file, initializing hardware connections) of all upstream operators will be repeated upon termination and resubscription to the source sequence. Sometimes this may be undesirable. For example logging side-effects introduced by [**Sink**](xref:operators#sink) nodes may create extra files on each subscription. To shield operators from these effects, consider moving affected operators downstream from the resubscription operator, or moving the resubscription operator itself further upstream.
+> The subscription side-effects (e.g. opening a file, initializing hardware connections) of all upstream operators will be repeated upon termination and resubscription to the source sequence. Sometimes this may be undesirable. For example logging side-effects introduced by [`Sink`](xref:operators#sink) nodes may create extra files on each subscription. To shield operators from these effects, consider moving affected operators downstream from the resubscription operator, or moving the resubscription operator itself further upstream.
 
 > [!Caution]
 > All resubscription operators should be applied with care to anonymous branch points in the workflow, since dangling branches operate independently from each other, and from the subscription to the source sequence. For more details, see @subjects#branching-subjects.

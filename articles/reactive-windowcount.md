@@ -10,4 +10,4 @@ title: WindowCount
 If no skip value is provided, the windows will be strictly non-overlapping, with a new window beginning when the previous window ends. If the skip value is less than the specified number of elements, windows will be overlapping, with a new window created every `Skip` notifications. Finally, if the skip value is greater than the specified number of elements, there will be a gap between each window where elements from the source sequence will be dropped.
 
 > [!Note]
-> You can manipulate and schedule each of the windows downstream using other higher-order operators such as [**Merge**](xref:Bonsai.Reactive.Merge), [**Concat**](xref:Bonsai.Reactive.Concat) or [**Switch**](xref:Bonsai.Reactive.Switch).
+> You can manipulate and schedule each of the windows downstream using other higher-order operators such as [`Merge`](xref:Bonsai.Reactive.Merge), [`Concat`](xref:Bonsai.Reactive.Concat) or [`Switch`](xref:Bonsai.Reactive.Switch).

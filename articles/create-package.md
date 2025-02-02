@@ -118,4 +118,4 @@ The Bonsai language can be extended with custom packages, which are installed an
     > If you have your custom package installed in the same editor used to debug the source code, Bonsai will prefer the installed package over the compiled source code library. In this case, either uninstall the package, or use a local Bonsai installation.
 
     > [!Note]
-    > If you would like to share the package with the broader Bonsai community, consider publishing it to [**NuGet**](https://www.nuget.org/packages/manage/upload) by creating a `NuGet` account and uploading the `.nupkg` file. Ensure the `PackageType` field is properly defined before submission.
+    > If you would like to share the package with the broader Bonsai community, consider publishing it to [NuGet](https://www.nuget.org/packages/manage/upload) by creating a NuGet account and uploading the `.nupkg` file. Ensure the `PackageType` field is properly defined before submission.
