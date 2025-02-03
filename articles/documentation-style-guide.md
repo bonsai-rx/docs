@@ -173,9 +173,11 @@ Highlight folders, filenames, package names, functions, actions, editor/website 
 
 ### Standard formatting for operators and operator properties
 
-When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (`` `Operator_name` ``). Link the name to the relevant documentation in the code base, using the [markdown syntax for xref in docfx](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html). 
+When referring to operators (also known as nodes in Bonsai), use [reference style links](https://www.markdownguide.org/basic-syntax/#reference-style-links) in combination with a [xref](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html).
 
-For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To create a reference to this node you need to specify the fully qualified name of the operator, including its namespace, like so: `xref:Bonsai.Arduino.DigitalOutput`. To find out the fully qualified name for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit `F12`. 
+For example, the `DigitalOutput` node is part of the `Bonsai.Arduino` namespace/package. To create a reference link to this node, you need to specify a reference name along with an `xref` containing the fully qualified name of the operator, including its namespace, like so: ```[`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput```. The reference style links can be included anywhere in the article. Wherever you would reference the operator, simply use the reference name, by enclosing the operator name in a pair of backticks and square brackets, like this: ``[`DigitalOutput`]``.
+
+To find out the fully qualified name for any node, right-click on the operator of interest in Bonsai and select the option "Go to Definition" or hit `F12`. 
 
 When referring to operator properties, simply place the operator property name inside a pair of backticks (`` `Operator_property_name` ``). 
 
@@ -183,12 +185,19 @@ When referring to operator properties, simply place the operator property name i
 
 ```markdown
 ### **Exercise 7:** Control an LED
-- Insert a [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) source.
-- Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
-- Set the `Pin` property of the [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
+- Insert a [`Boolean`] source.
+- Insert a [`DigitalOutput`] sink.
+- Set the `Pin` property of the [`DigitalOutput`] operator to 13.
 - Configure the `PortName` property.
-- Run the workflow and change the `Value` property of the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator.
+- Run the workflow and change the `Value` property of the [`Boolean`] operator.
+
+<!--Reference Style Links -->
+[`Boolean`]: xref:Bonsai.Expressions.BooleanProperty
+[`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput
 ```
+
+> [!NOTE]
+> The reference name does not need to match the operators `xref`. For example, ``[`Annotation`]: xref:Bonsai.Expressions.AnnotationBuilder``.
 
 You can also link to operators in other packages if their [xrefmap](./documentation-docfx.md#configuring-docfx) is included in `docfx.json`.
 
