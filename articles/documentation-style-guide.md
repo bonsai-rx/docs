@@ -197,7 +197,7 @@ When referring to operator properties, simply place the operator property name i
 ```
 
 > [!NOTE]
-> The reference name does not need to match the operators `xref`. For example, ``[`Annotation`]: xref:Bonsai.Expressions.AnnotationBuilder``.
+> The reference name does not need to match the operators fully qualified name in the `xref`.
 
 You can also link to operators in other packages if their [xrefmap](./documentation-docfx.md#configuring-docfx) is included in `docfx.json`.
 
