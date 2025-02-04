@@ -9,7 +9,7 @@ Local extensions can be used to augment the functionality of workflows with new 
 Scripting extensions are more commonly used to develop small project-specific functionality, but can also be easily shared with others by simply copying individual scripts.
 
 > [!Tip]
-> If you are interested in developing extensions to be reused across several different projects, consider [**creating a package**](xref:create-package) instead.
+> If you are interested in developing extensions to be reused across several different projects, consider [creating a package](xref:create-package) instead.
 
 ## Pre-requisites
 

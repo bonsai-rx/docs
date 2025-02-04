@@ -63,7 +63,7 @@ Application mode is useful for batch processing, interop with other languages an
 > ```cmd
 > bonsai workflow.bonsai --no-editor > output.txt
 > ```
-> Values can be written to the standard output using the [**WriteLine**](xref:Bonsai.IO.WriteLine) operator.
+> Values can be written to the standard output using the [`WriteLine`](xref:Bonsai.IO.WriteLine) operator.
 
 ## Passing parameter values to workflows
 

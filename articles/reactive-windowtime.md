@@ -10,4 +10,4 @@ The `WindowTime` operator groups the notifications of the source sequence into n
 If no `TimeShift` is provided, the windows will be strictly non-overlapping, with a new window beginning when the previous window ends. If `TimeShift` is smaller than `TimeSpan`, windows will be overlapping, with a new buffer created every `TimeShift` interval. Finally, if `TimeShift` is larger than `TimeSpan`, there will be a time gap between each window where elements from the source sequence may be dropped.
 
 > [!Note]
-> You can manipulate and schedule each of the windows downstream using other higher-order operators such as [**Merge**](xref:Bonsai.Reactive.Merge), [**Concat**](xref:Bonsai.Reactive.Concat) or [**Switch**](xref:Bonsai.Reactive.Switch).
+> You can manipulate and schedule each of the windows downstream using other higher-order operators such as [`Merge`](xref:Bonsai.Reactive.Merge), [`Concat`](xref:Bonsai.Reactive.Concat) or [`Switch`](xref:Bonsai.Reactive.Switch).

@@ -10,7 +10,7 @@ If no format string is specified, the default [ToString](xref:System.Object.ToSt
 ### Examples
 
 > [!Note]
-> Below you can find various applications of the `Format` operator. For more formatting examples and a comprehensive list of supported format strings for different data types, see the extended discussion section of the [**String.Format**](xref:System.String.Format*) method.
+> Below you can find various applications of the `Format` operator. For more formatting examples and a comprehensive list of supported format strings for different data types, see the extended discussion section of the [`String.Format`](xref:System.String.Format*) method.
 
 #### Insert a string
 
