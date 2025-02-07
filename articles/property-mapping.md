@@ -12,7 +12,7 @@ As an example, imagine you wanted to continuously playback a sound WAV file to t
 ![WAV file playback](~/workflows/language-wavplayback.bonsai)
 :::
 
-Using the [`ConvertScale`](xref:Bonsai.Dsp.ConvertScale) operator you could set the volume manually by changing its [`Scale`](xref:Bonsai.Dsp.ConvertScale.Scale) parameter.
+Using the [`ConvertScale`] operator you could set the volume manually by changing its `Scale` parameter.
 
 Now consider a variation of this workflow where the playback volume needs to be modulated continuously depending on some other variable, for example the horizontal position of the mouse cursor as it moves across the screen.
 
@@ -22,7 +22,7 @@ A simple way to compute the desired scale value would be to rescale the X coordi
 ![Rescaled mouse position](~/workflows/language-mouserescale.bonsai)
 :::
 
-However, how would you now connect the sequence of scale values computed from the mouse position to changes in the [`Scale`](xref:Bonsai.Dsp.ConvertScale.Scale) property of the [`ConvertScale`](xref:Bonsai.Dsp.ConvertScale) node?
+However, how would you now connect the sequence of scale values computed from the mouse position to changes in the `Scale` property of the [`ConvertScale`] node?
 
 Property mapping operators allow you to do exactly this. They are operators that take a single input sequence and react to notifications from that sequence by changing the values of the specified properties in the *subsequent* node. There are three types of property mapping operators, described below.
 
@@ -34,7 +34,7 @@ Property mapping operators allow you to do exactly this. They are operators that
 
 ## Externalized properties
 
-The [ExternalizedMapping](xref:Bonsai.Expressions.ExternalizedMappingBuilder) operator allows you to create externalized properties. The easiest way to initialize the mapping is from the right-click context menu when a single node is selected. Selecting a property from this menu will create or update the externalized mapping node. Multiple properties can be externalized from the same node.
+The [`ExternalizedMapping`](xref:Bonsai.Expressions.ExternalizedMappingBuilder) operator allows you to create externalized properties. The easiest way to initialize the mapping is from the right-click context menu when a single node is selected. Selecting a property from this menu will create or update the externalized mapping node. Multiple properties can be externalized from the same node.
 
 ![Externalized property](~/images/language-externalizedproperty.png)
 
@@ -63,3 +63,6 @@ Sometimes you need to synchronize property updates with the data flow, i.e. you 
 For example, imagine a transform operator which is converting a source sequence from one format to another, where the format specification is given by a set of operator properties. You may need the target format to change dynamically from time to time, but you may also need to guarantee that parts of the format specification do not change while the operator was converting some other input. The [`InputMapping`](xref:Bonsai.Expressions.InputMappingBuilder) operator allows you to do this by synchronizing property updates with input notifications.
 
 [!include[InputMapping](~/articles/expressions-inputmapping.md)]
+
+<!-- Reference-style links -->
+[`ConvertScale`]: xref:Bonsai.Dsp.ConvertScale
