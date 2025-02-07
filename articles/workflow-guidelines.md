@@ -9,7 +9,7 @@ This section offers guidelines and design patterns to consider when developing w
 ## Workflow Organization
 
 :::do
-use `GroupWorkflow` nodes to separate independent functionality (e.g. acquisition, visualization and processing).
+use [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) nodes to separate independent functionality (e.g. acquisition, visualization and processing).
 :::
 
 :::avoid
@@ -25,11 +25,11 @@ prefer using subjects over branches when sharing sequences across independent se
 :::
 
 :::do
-use a [`BehaviorSubject`](xref:Bonsai.Reactive.BehaviorSubject) to share global state which can be accessed by multiple consumers and modified by multiple producers.
+use a [`BehaviorSubject`] to share global state which can be accessed by multiple consumers and modified by multiple producers.
 ::: 
 
 :::avoid
-using [`MulticastSubject`](xref:Bonsai.Expressions.MulticastSubject) on variables which are not declared as [`BehaviorSubject`](xref:Bonsai.Reactive.BehaviorSubject). This will prevent accidental termination of the subject sequence if a producer terminates prematurely.
+using [`MulticastSubject`](xref:Bonsai.Expressions.MulticastSubject) on variables which are not declared as [`BehaviorSubject`]. This will prevent accidental termination of the subject sequence if a producer terminates prematurely.
 :::
 
 :::consider
@@ -49,13 +49,17 @@ use an [`AsyncSubject`](xref:Bonsai.Reactive.AsyncSubject) to share workflow inp
 :::
 
 :::avoid
-using [`PropertyMapping`](xref:Bonsai.Expressions.PropertyMappingBuilder) nodes inside reentrant nested operators.
+using [`PropertyMapping`] nodes inside reentrant nested operators.
 :::
 
 ## Property Initialization
 
 :::donot
-branch a source sequence to share the same value across different [`PropertyMapping`](xref:Bonsai.Expressions.PropertyMappingBuilder) nodes. This can introduce a race condition for operators that use property values at subscribe time.
+branch a source sequence to share the same value across different [`PropertyMapping`] nodes. This can introduce a race condition for operators that use property values at subscribe time.
 :::
 
-Alternatively, you can either share the value using a subject, or branch after the `PropertyMapping` node (if both the value to share and the name of the property in each node are identical).
+Alternatively, you can either share the value using a subject, or branch after the [`PropertyMapping`] node (if both the value to share and the name of the property in each node are identical).
+
+<!-- Reference-style links -->
+[`BehaviorSubject`]: xref:Bonsai.Reactive.BehaviorSubject
+[`PropertyMapping`]: xref:Bonsai.Expressions.PropertyMappingBuilder
