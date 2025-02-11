@@ -40,10 +40,10 @@ Next we will create the workflow that will initialize and update the state of th
 :::
 
 > [!WARNING]
-> Save the workflow before adding the [`CSharpTransform`] operator or you might run into this [issue](https://github.com/bonsai-rx/bonsai/issues/1834).
+> Save the workflow before adding the `CSharpTransform` operator or you might run into this [issue](https://github.com/bonsai-rx/bonsai/issues/1834).
 
 - Set the `Name` property of the [`BehaviorSubject`] to `DotField`.
-- Double-click the [`CSharpTransform`] operator and follow the instructions to generate a new script file. When prompted, name the script `RandomDotKinematogram`.
+- Double-click the `CSharpTransform` operator and follow the instructions to generate a new script file. When prompted, name the script `RandomDotKinematogram`.
 - When inside the Visual Studio Code project, look for a pop-up in the bottom-right corner asking about "Reload Extensions". Click the button as soon as it shows up. If you miss the chance you can also click on the small bell on the bottom-right corner of the VS Code window (in the status bar). This will load all necessary dependencies for the script into Visual Studio Code so it can assist you in writing the C# script.
 
 The output type for our script observable sequence should be a `Vector2[]` representing an array of all the positions of the dots to draw in each frame. To get started, you can copy the below infrastructure into the script you have created to initialize a random dot field.
@@ -335,7 +335,6 @@ Finally, we want to make sure only a specified proportion of the dots are moving
 
 <!-- Reference-style links -->
 [`BehaviorSubject`]: xref:Bonsai.Reactive.BehaviorSubject
-[`CSharpTransform`]: xref:Bonsai.Editor.Scripting.CSharpTransform
 [`PublishSubject`]: xref:Bonsai.Reactive.PublishSubject
 
 [`DrawCircleArray`]: https://bonvision.github.io/
