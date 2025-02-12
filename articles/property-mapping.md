@@ -34,7 +34,7 @@ Property mapping operators allow you to do exactly this. They are operators that
 
 ## Externalized properties
 
-The [`ExternalizedMapping`](xref:Bonsai.Expressions.ExternalizedMappingBuilder) operator allows you to create externalized properties. The easiest way to initialize the mapping is from the right-click context menu when a single node is selected. Selecting a property from this menu will create or update the externalized mapping node. Multiple properties can be externalized from the same node.
+The [`ExternalizedMapping`] operator allows you to create externalized properties. The easiest way to initialize the mapping is from the right-click context menu when a single node is selected. Selecting a property from this menu will create or update the externalized mapping node. Multiple properties can be externalized from the same node.
 
 ![Externalized property](~/images/language-externalizedproperty.png)
 
@@ -42,7 +42,7 @@ The [`ExternalizedMapping`](xref:Bonsai.Expressions.ExternalizedMappingBuilder) 
 
 ## Mapping a sequence to a property
 
-After an operator property has been externalized, you can connect any sequence which is compatible with the data type of the property to the mapping node. When a connection to a source sequence is established, the externalized property will be promoted to a [`PropertyMapping`](xref:Bonsai.Expressions.PropertyMappingBuilder) operator.
+After an operator property has been externalized, you can connect any sequence which is compatible with the data type of the property to the mapping node. When a connection to a source sequence is established, the externalized property will be promoted to a [`PropertyMapping`] operator.
 
 Now every time the source sequence emits a new notification, the mapping operator will react by changing the target property to the incoming value.
 
@@ -60,9 +60,12 @@ Now every time the source sequence emits a new notification, the mapping operato
 
 Sometimes you need to synchronize property updates with the data flow, i.e. you do not want the property mapping operator to change the property values outside of notifications emitted by the source sequence.
 
-For example, imagine a transform operator which is converting a source sequence from one format to another, where the format specification is given by a set of operator properties. You may need the target format to change dynamically from time to time, but you may also need to guarantee that parts of the format specification do not change while the operator was converting some other input. The [`InputMapping`](xref:Bonsai.Expressions.InputMappingBuilder) operator allows you to do this by synchronizing property updates with input notifications.
+For example, imagine a transform operator which is converting a source sequence from one format to another, where the format specification is given by a set of operator properties. You may need the target format to change dynamically from time to time, but you may also need to guarantee that parts of the format specification do not change while the operator was converting some other input. The [`InputMapping`] operator allows you to do this by synchronizing property updates with input notifications.
 
 [!include[InputMapping](~/articles/expressions-inputmapping.md)]
 
 <!-- Reference-style links -->
 [`ConvertScale`]: xref:Bonsai.Dsp.ConvertScale
+[`ExternalizedMapping`]: xref:Bonsai.Expressions.ExternalizedMappingBuilder
+[`InputMapping`]: xref:Bonsai.Expressions.InputMappingBuilder
+[`PropertyMapping`]: xref:Bonsai.Expressions.PropertyMappingBuilder

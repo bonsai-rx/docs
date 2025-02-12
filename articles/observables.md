@@ -26,7 +26,7 @@ In reactive programming, we compose operations on sequences (generation, filteri
 
 Arrows entering the box indicate that the operator is receiving notifications from the observable sequence that it is subscribed to. Arrows leaving the box show items that are emitted by the operator itself. If no `subscribe` arrow is explicitly indicated in the diagram, it is assumed to be placed at the start of the source sequence.
 
-In this case we can see from the diagram that the [`Condition`](xref:Bonsai.Reactive.Condition) operator is filtering the input notifications from the source sequence: only notifications with a specific shape are sent out in the result sequence.
+In this case we can see from the diagram that the [`Condition`] operator is filtering the input notifications from the source sequence: only notifications with a specific shape are sent out in the result sequence.
 
 ## Bonsai Workflows
 
@@ -67,7 +67,7 @@ A video file also generates a sequence of images, but in contrast to the camera,
 
 Understanding the *temperature* of an observable sequence is particularly important when that sequence is shared between multiple operators. It can help to understand whether those operators will see the same data items, and what the effect of subscribing to the shared sequence at different times is going to be.
 
-It is also possible to change the temperature of observable sequences using reactive operators. The [`Replay`](xref:Bonsai.Reactive.Replay) operator can be used to subscribe to the camera and start recording all incoming images. Every time a downstream observer subscribes to the result sequence, it will then replay all images on-demand, even if they subscribe late. The originally *hot* sequence has been turned into a *cold* observable by the replay behaviour.
+It is also possible to change the temperature of observable sequences using reactive operators. The [`Replay`] operator can be used to subscribe to the camera and start recording all incoming images. Every time a downstream observer subscribes to the result sequence, it will then replay all images on-demand, even if they subscribe late. The originally *hot* sequence has been turned into a *cold* observable by the replay behaviour.
 
 <img alt="Replay operator" src="~/images/reactive-replay.svg" style="max-height:250px;padding:1em 0" />
 
@@ -78,6 +78,8 @@ Conversely, the [`Publish`](xref:Bonsai.Reactive.Publish) operator can be used t
 In the Bonsai visual language, whenever two operators receive data from the same source, i.e. whenever there are branches in the workflow, subscriptions use the `Publish` behaviour. This means that the default sharing behaviour of Bonsai sequences is *hot*. It is possible to change this by using specialized sharing operators, called [Subjects](xref:subjects).
 
 <!-- Reference-style links -->
-[`Sample`]: xref:Bonsai.Reactive.Sample
+[`Condition`]: xref:Bonsai.Reactive.Condition
 [`Grayscale`]: xref:Bonsai.Vision.Grayscale
 [`KeyDown`]: xref:Bonsai.Windows.Input.KeyDown
+[`Replay`]: xref:Bonsai.Reactive.Replay
+[`Sample`]: xref:Bonsai.Reactive.Sample
