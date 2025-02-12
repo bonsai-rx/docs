@@ -109,7 +109,7 @@ To implement the `TestGrating` state, we want to reuse our previous `RandomOrien
 ![BonVision render test grating](~/workflows/bonvision-render-testgrating.bonsai)
 :::
 
-- Insert a new `RandomOrientationGrating` operator from the toolbox and combine it with the input by using the `Zip` combinator. This will generate a pair where the first value is the random angle from the first reference grating, and the second value is the random angle for this test grating.
+- Insert a new `RandomOrientationGrating` operator from the toolbox and combine it with the input by using the [`Zip`] combinator. This will generate a pair where the first value is the random angle from the first reference grating, and the second value is the random angle for this test grating.
 
 _Run the workflow and validate the random angle pairs are distinct and valid from trial to trial._
 

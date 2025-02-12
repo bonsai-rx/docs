@@ -48,7 +48,7 @@ The most useful action to learn your way around the `Workflow` panel is right-cl
 If only one node is selected, the `Output` menu item will display the type of the elements emitted by that operator sequence.
 
 > [!Tip]
-> If the output of an operator is a complex type, you can inspect its public data members. Clicking on any of the sub-items will automatically place a new [`MemberSelector`](xref:Bonsai.Expressions.MemberSelectorBuilder) operator to pick the specified data member from the output of the node.
+> If the output of an operator is a complex type, you can inspect its public data members. Clicking on any of the sub-items will automatically place a new [`MemberSelector`] operator to pick the specified data member from the output of the node.
 
 The context menu also allows you to externalize public properties of the operator as explicit nodes in the workflow using the `Externalize Property` drop-down menu. Once a property is externalized, you can connect other nodes in the workflow to it so you can change the value of the property dynamically (see the [Property Mapping](xref:property-mapping) section for more information).
 
@@ -94,7 +94,7 @@ All included workflow extensions are read-only, meaning that you cannot change t
 
 ## Properties
 
-Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the [`Timer`](xref:Bonsai.Reactive.Timer) operator exposes the period between generated values, whereas an image [`Threshold`](xref:Bonsai.Vision.Threshold) exposes the brightness cutoff value applied to individual pixels).
+Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the [`Timer`] operator exposes the period between generated values, whereas an image [`Threshold`] exposes the brightness cutoff value applied to individual pixels).
 
 The `Properties` panel will display all the configuration properties which are available for the currently selected operator. A summary description of the currently selected property can be found in the textbox at the bottom of the panel. Similarly, a description of the behaviour of the currently selected operator itself is shown at the top of the panel.
 
@@ -188,5 +188,8 @@ Below is a summary of the most used commands and shortcuts in the workflow edito
 > Depending on what is currently selected, the context menu may show different available actions.
 
 <!-- Reference-style links -->
-[`IncludeWorkflow`]: xref:Bonsai.Expressions.IncludeWorkflowBuilder
 [`GroupWorkflow`]: xref:Bonsai.Expressions.GroupWorkflowBuilder
+[`IncludeWorkflow`]: xref:Bonsai.Expressions.IncludeWorkflowBuilder
+[`MemberSelector`]: xref:Bonsai.Expressions.MemberSelectorBuilder
+[`Threshold`]: xref:Bonsai.Vision.Threshold
+[`Timer`]: xref:Bonsai.Reactive.Timer

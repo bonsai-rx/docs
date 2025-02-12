@@ -9,7 +9,7 @@ This section offers guidelines and design patterns to consider when developing w
 ## Workflow Organization
 
 :::do
-use [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) nodes to separate independent functionality (e.g. acquisition, visualization and processing).
+use [`GroupWorkflow`] nodes to separate independent functionality (e.g. acquisition, visualization and processing).
 :::
 
 :::avoid
@@ -29,7 +29,7 @@ use a [`BehaviorSubject`] to share global state which can be accessed by multipl
 ::: 
 
 :::avoid
-using [`MulticastSubject`](xref:Bonsai.Expressions.MulticastSubject) on variables which are not declared as [`BehaviorSubject`]. This will prevent accidental termination of the subject sequence if a producer terminates prematurely.
+using [`MulticastSubject`] on variables which are not declared as [`BehaviorSubject`]. This will prevent accidental termination of the subject sequence if a producer terminates prematurely.
 :::
 
 :::consider
@@ -42,10 +42,10 @@ moving all subject declarations to the top of the workflow. This will make sure 
 
 ## Nested Operators
 
-Several reactive operators require specification of a nested workflow, e.g. [`SelectMany`](xref:Bonsai.Reactive.SelectMany) or [`CreateObservable`](xref:Bonsai.Reactive.CreateObservable). The operator itself will control when the nested workflow is initialized and subscribed to. If it is possible for a nested workflow to be executed multiple times, potentially in parallel, we call the operator *reentrant*. Some care is necessary to understand how to manage shared state and properties inside a reentrant nested operator.
+Several reactive operators require specification of a nested workflow, e.g. [`SelectMany`] or [`CreateObservable`]. The operator itself will control when the nested workflow is initialized and subscribed to. If it is possible for a nested workflow to be executed multiple times, potentially in parallel, we call the operator *reentrant*. Some care is necessary to understand how to manage shared state and properties inside a reentrant nested operator.
 
 :::do
-use an [`AsyncSubject`](xref:Bonsai.Reactive.AsyncSubject) to share workflow input data inside a nested operator.
+use an [`AsyncSubject`] to share workflow input data inside a nested operator.
 :::
 
 :::avoid
@@ -61,5 +61,10 @@ branch a source sequence to share the same value across different [`PropertyMapp
 Alternatively, you can either share the value using a subject, or branch after the [`PropertyMapping`] node (if both the value to share and the name of the property in each node are identical).
 
 <!-- Reference-style links -->
+[`AsyncSubject`]: xref:Bonsai.Reactive.AsyncSubject
 [`BehaviorSubject`]: xref:Bonsai.Reactive.BehaviorSubject
+[`CreateObservable`]: xref:Bonsai.Reactive.CreateObservable
+[`GroupWorkflow`]: xref:Bonsai.Expressions.GroupWorkflowBuilder
+[`MulticastSubject`]: xref:Bonsai.Expressions.MulticastSubject
 [`PropertyMapping`]: xref:Bonsai.Expressions.PropertyMappingBuilder
+[`SelectMany`]: xref:Bonsai.Reactive.SelectMany

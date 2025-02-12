@@ -61,6 +61,6 @@ This behaviour is described by the following marble diagram:
 
 <!-- Reference-style links -->
 [`Concat`]: xref:Bonsai.Reactive.Concat
+[`CreateObservable`]: xref:Bonsai.Reactive.CreateObservable
 [`EnumerateFiles`]: xref:Bonsai.IO.EnumerateFiles
 [`FileCapture`]: xref:Bonsai.Vision.FileCapture
-[`CreateObservable`]: xref:Bonsai.Reactive.CreateObservable
