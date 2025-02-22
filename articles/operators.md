@@ -62,3 +62,211 @@ Because the output sequence of a sink is exactly the same as the input sequence,
 Although a lot can be done with the right sequence of sources, transforms and sinks, there are many other operators which allow you to express more complex combinations of observables. These operators are grouped together under the `Combinator` category, but their behaviour can be extremely diverse.
 
 Combinators can be used to merge data from multiple sources; control when observable sequences start and stop; or even to create entirely new sequences dynamically. Together, they provide an incredibly flexible toolkit to manipulate asynchronous data streams.
+
+## Core Reactive Operators
+
+Bonsai includes a set of core reactive operators that are commonly used across workflows. To locate them, search for `Reactive` in the [`Toolbox Panel`](./editor.md#toolbox). The tables below categorize these operators and provide brief descriptions of their functionality.
+
+### Single-Sequence Operators
+
+# [Quantitative](#tab/quantitative-operators)
+
+Operators that generate or extract numerical values from a sequence.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`Accumulate`](xref:Bonsai.Reactive.Accumulate) | Computes the cumulative sum of a sequence |
+| [`Average`](xref:Bonsai.Reactive.Average) | Computes the numerical average of a sequence |
+| [`Count`](xref:Bonsai.Reactive.Count) | Count the number of elements in a sequence |
+| [`ElementIndex`](xref:Bonsai.Reactive.ElementIndex) | Extracts the zero-based index of elements in a sequence |
+| [`Max`](xref:Bonsai.Reactive.Max) | Computes the maximum element in a sequence |
+| [`MaxBy`](xref:Bonsai.Reactive.MaxBy) | Computes the element with the maximum key value in a sequence |
+| [`Min`](xref:Bonsai.Reactive.Min) | Computes the minimum element in a sequence |
+| [`MinBy`](xref:Bonsai.Reactive.MinBy) | Computes the element with the minimum key value in a sequence |
+| [`Range`](xref:Bonsai.Reactive.Range) | Generates a sequence of integer numbers within a specified range |
+| [`Sum`](xref:Bonsai.Reactive.Sum) | Computes the sum of a sequence |
+
+> [!NOTE]
+> Some of these operators have package-specific variants especially designed to handle unique data types (for instance, [`Dsp.Average`](xref:Bonsai.Dsp.Average)). 
+
+> [!NOTE]
+> More quantitative operators are available in the `Numerics` package.
+
+# [Temporal](#tab/temporal-operators)
+
+Operators that use timing information to generate, manipulate, and sample sequences.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`CombineTimestamp`](xref:Bonsai.Reactive.CombineTimestamp) | Converts element-timestamp pairs of a sequence into proper timestamped elements |
+| [`Delay`](xref:Bonsai.Reactive.Delay) | Delays the notifications of a sequence by the specified time interval |
+| [`DelaySubscription`](xref:Bonsai.Reactive.DelaySubscription) | Time-shifts the sequence by delaying the subscription by the specified time interval |
+| [`GateInterval`](xref:Bonsai.Reactive.GateInterval) | Allows a single element from the first sequence to pass through every time the specified time interval elapses |
+| [`SampleInterval`](xref:Bonsai.Reactive.SampleInterval) | Samples the latest element from the sequence whenever the specified time interval elapses |
+| [`Throttle`](xref:Bonsai.Reactive.Throttle) | Ignores elements from a sequence which are followed by another element before the specified duration elapses |
+| [`Timer`](xref:Bonsai.Reactive.Timer) | Generates a sequence that periodically produces a value after the specified initial relative due time has elapsed |
+| [`TimeInterval`](xref:Bonsai.Reactive.TimeInterval) | Records the time interval between consecutive elements produced by a sequence |
+| [`Timestamp`](xref:Bonsai.Reactive.Timestamp) | Records the timestamp for each element produced by a sequence |
+
+# [Loop](#tab/loop-operators)
+
+Operators that rerun sequences.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`Repeat`](xref:Bonsai.Reactive.Repeat) | Repeats a sequence indefinitely |
+| [`RepeatCount`](xref:Bonsai.Reactive.RepeatCount) | Repeats a sequence a specified number of times |
+
+# [Filter](#tab/filter-operators)
+
+Operators that filter or select elements from a sequence.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`Condition`](xref:Bonsai.Reactive.Condition) | Filters the elements of a sequence according to a condition specified by the encapsulated workflow |
+| [`Distinct`](xref:Bonsai.Reactive.Distinct) | Returns a sequence containing only distinct elements |
+| [`DistinctBy`](xref:Bonsai.Reactive.DistinctBy) | Returns a sequence containing only elements which are distinct according to the specified key |
+| [`DistinctUntilChanged`](xref:Bonsai.Reactive.DistinctUntilChanged) | Returns a sequence containing only distinct contiguous elements |
+| [`DistinctUntilChangedBy`](xref:Bonsai.Reactive.DistinctUntilChangedBy) | Returns a sequence containing only distinct contiguous elements according to the specified key |
+| [`First`](xref:Bonsai.Reactive.First) |  Returns the first element of a sequence |
+| [`FirstOrDefault`](xref:Bonsai.Reactive.FirstOrDefault) | Returns the first element of a sequence, or a default value if no such element exists |
+| [`IgnoreElements`](xref:Bonsai.Reactive.IgnoreElements) | Ignores all elements in a sequence leaving only the termination messages |
+| [`Last`](xref:Bonsai.Reactive.Last) | Returns the last element of a sequence |
+| [`LastOrDefault`](xref:Bonsai.Reactive.LastOrDefault) | Returns the last element of a sequence, or a default value if no such element exists |
+| [`Skip`](xref:Bonsai.Reactive.Skip) | Bypasses the specified number of elements at the start of a sequence and returns the remaining elements |
+| [`SkipLast`](xref:Bonsai.Reactive.SkipLast) | Bypasses the specified number of elements at the end of a sequence |
+| [`SkipWhile`](xref:Bonsai.Reactive.SkipWhile) | Bypasses elements in a sequence as long as the condition specified by the encapsulated workflow is true |
+| [`Slice`](xref:Bonsai.Reactive.Slice) | Extracts a range of elements from a sequence |
+| [`Take`](xref:Bonsai.Reactive.Take) | Returns the specified number of contiguous elements from the start of a sequence |
+| [`TakeLast`](xref:Bonsai.Reactive.TakeLast) | Returns a specified number of contiguous elements from the end of a sequence |
+| [`TakeWhile`](xref:Bonsai.Reactive.TakeWhile) | Returns elements from a sequence as long as the condition specified by the encapsulated workflow is true |
+
+# [Group](#tab/group-operators)
+
+Operators that group elements of a sequence into collections or new sequences.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`BufferCount`](xref:Bonsai.Reactive.BufferCount) | Projects each element of the sequence into zero or more buffers based on element count information |
+| [`BufferTime`](xref:Bonsai.Reactive.BufferTime) | Projects each element of the sequence into zero or more buffers based on timing information |
+| [`GroupBy`](xref:Bonsai.Reactive.GroupBy) | Creates new sequences by grouping the elements of a sequence according to the specified key |
+| [`WindowCount`](xref:Bonsai.Reactive.WindowCount) | Projects each element of a sequence into zero or more windows based on element count information | 
+| [`WindowTime`](xref:Bonsai.Reactive.WindowTime) | Projects each element of a sequence into zero or more windows based on timing information |
+
+# [Sort](#tab/sort-operators)
+
+Operators that sort elements within each collection of a sequence.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`OrderBy`](xref:Bonsai.Reactive.OrderBy) | Sorts the elements of all the collections in a sequence in ascending order according to the specified key | 
+| [`OrderByDescending`](xref:Bonsai.Reactive.OrderByDescending) | Sorts the elements of all the collections in a sequence in descending order according to the specified key |
+| [`ThenBy`](xref:Bonsai.Reactive.ThenBy) | Applies an additional ascending sort to ordered collections produced by any of the sorting operators |
+| [`ThenByDescending`](xref:Bonsai.Reactive.ThenByDescending) | Applies an additional descending sort to ordered collections produced by any of the sorting operators |
+
+# [Create](#tab/create-operators)
+
+Operators that generate new sequences based on an encapsulated workflow.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`CreateObservable`](xref:Bonsai.Reactive.CreateObservable) | Creates higher-order sequences specified by the encapsulated workflow |
+| [`Defer`](xref:Bonsai.Reactive.Defer) | Creates a new sequence for each subscription using the encapsulated workflow |
+| [`SelectMany`](xref:Bonsai.Reactive.SelectMany) | Merges higher-order sequences generated from the encapsulated workflow |
+| [`Scan`](xref:Bonsai.Reactive.Scan) | Accumulates the values of a sequence using the encapsulated workflow |
+
+# [Convert](#tab/convert-operators)
+
+Operators that transform sequences into various object types.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`ToArray`](xref:Bonsai.Reactive.ToArray) | Creates an array containing every element in the sequence |
+| [`ToDictionary`](xref:Bonsai.Reactive.ToDictionary) | Creates a dictionary from a sequence according to the specified key and element selector |
+| [`ToList`](xref:Bonsai.Reactive.ToList) | Creates a list containing every element in the sequence |
+| [`ToLookup`](xref:Bonsai.Reactive.ToLookup) | Creates a lookup from a sequence according to the specified key and element selector |
+
+> [!NOTE]
+> These operators convert whole sequences into different types. For element-wise type conversion, check out the [ExpressionTransform](xref:Bonsai.Reactive.ToArray) operator.
+
+# [Subjects](#tab/subject-operators)
+
+Operators that allow reusing and sharing of sequences. See the [subjects](./subjects.md) article for more information.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`AsyncSubject`](xref:Bonsai.Reactive.AsyncSubject) | Broadcasts the last value of a sequence to all subscribed and future observers using a shared subject |
+| [`BehaviorSubject`](xref:Bonsai.Reactive.BehaviorSubject) | Broadcasts the latest value of a sequence to all subscribed and future observers using a shared subject |
+| [`PublishSubject`](xref:Bonsai.Reactive.PublishSubject) |  Broadcasts the values of a sequence to multiple subscribers using a shared subject |
+| [`ReplaySubject`](xref:Bonsai.Reactive.ReplaySubject) | Replays the values of a sequence to all subscribed and future observers using a shared subject |
+| [`ResourceSubject`](xref:Bonsai.Reactive.ResourceSubject) | Stores and broadcasts the last disposable value of a sequence to all subscribed and future observers |
+
+# [Exception](#tab/exception-operators)
+
+Operators that check sequences for errors and manage exceptions.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`IsEmpty`](xref:Bonsai.Reactive.IsEmpty) | Checks if a sequence is empty |
+| [`Materialize`](xref:Bonsai.Reactive.Materialize) | Materializes the implicit notifications of a sequence as explicit notification values for debugging/logging purposes |
+| [`Dematerialize`](xref:Bonsai.Reactive.Dematerialize) | Dematerializes the explicit notification values of a sequence as implicit notifications |
+| [`Retry`](xref:Bonsai.Reactive.Retry) | Repeats a sequence until it successfully terminates |
+| [`RetryCount`](xref:Bonsai.Reactive.RetryCount) | Repeats a sequence the specified number of times or until it successfully terminates |
+| [`Timeout`](xref:Bonsai.Reactive.Timeout) | Raises an error if the next element is not received within the specified timeout duration from the previous element |
+
+---
+
+### Multi-Sequence Operators
+
+# [Sample](#tab/multi-sample-operators)
+
+Operators that use notifications from one sequence to select elements from another.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`Gate`](xref:Bonsai.Reactive.Gate) | Allows a single element from the first sequence to pass through every time a second sequence emits a notification |
+| [`Sample`](xref:Bonsai.Reactive.Sample) | Samples elements from the first sequence whenever the second sequence emits a notification. |
+| [`SkipUntil`](xref:Bonsai.Reactive.SkipUntil) | Returns the elements from the first sequence only after the second sequence emits a notification |
+| [`SubscribeWhen`](xref:Bonsai.Reactive.SubscribeWhen) | Subscribes to the first sequence only after the second sequence emits a notification |
+| [`TakeUntil`](xref:Bonsai.Reactive.TakeUntil) | Returns elements from the first sequence only until the second sequence emits a notification |
+
+# [Group](#tab/multi-group-operators)
+
+Operators that use notifications from one sequence to group elements from another sequence into collections or new sequences.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) | Projects elements of the first sequence into zero or more buffers created when the second sequence emits a notification |
+| [`Window`](xref:Bonsai.Reactive.Window) | Projects the first sequence into zero or more windows with boundaries defined by the second sequence |
+| [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) | Projects elements of the first sequence into zero or more windows created when the second sequence emits a notification |
+
+# [Select](#tab/multi-select-operators)
+
+Operators that select which elements from multiple sequences to propagate.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`Amb`](xref:Bonsai.Reactive.Amb) | Propagates the sequence that issues notifications first |
+| [`Switch`](xref:Bonsai.Reactive.Switch) | Transforms a sequence of sequences into a sequence of values produced only from the most recent sequence |
+
+# [Combine](#tab/multi-combine-operators)
+
+Operators that merge, concatenate, or pair values from multiple sequences.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) | Combines values from the source sequences whenever any of the sequences produces an element |
+| [`Concat`](xref:Bonsai.Reactive.Concat) | Concatenates any number of sequences as long as the previous sequence terminated successfully |
+| [`Merge`](xref:Bonsai.Reactive.Merge) | Merges any number of sequences into a single sequence |
+| [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) | Combines the latest values from the source sequences only when the first sequence produces an element |
+| [`Zip`](xref:Bonsai.Reactive.Zip) | Combines values from the source sequences whenever all of the sequences have produced an element |
+
+# [Exception](#tab/multi-exception-operators)
+
+Operators that check multiple sequences for errors and manage exceptions.
+
+| Name | Description | 
+| ---- | ----------- |
+| [`SequenceEqual`](xref:Bonsai.Reactive.SequenceEqual) | Determines whether two sequences are equal by comparing the elements pairwise |
+| [`Catch`](xref:Bonsai.Reactive.Catch) | Continues a sequence that is terminated by an exception with the next sequence |
+| [`OnErrorResumeNext`](xref:Bonsai.Reactive.OnErrorResumeNext) | Concatenates any number of sequences even if any of the sequences terminates exceptionally |
