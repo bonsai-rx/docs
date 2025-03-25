@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.8.5"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>None</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT0S</rx:DueTime>
+          <rx:Period>PT1S</rx:Period>
         </Combinator>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:TimeInterval" />
+      <Expression xsi:type="Mod">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int64">
+          <Value>4</Value>
+        </Operand>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Interval.TotalMilliseconds</Selector>
-      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:WindowCount">
           <rx:Count>3</rx:Count>
-          <rx:Skip>3</rx:Skip>
+          <rx:Skip xsi:nil="true" />
         </Combinator>
       </Expression>
       <Expression xsi:type="rx:SelectMany">

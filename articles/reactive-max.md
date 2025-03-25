@@ -8,7 +8,7 @@ title: Max
 The `Max` operator collects all the values from the source sequence and emits a single value representing the largest of all values. The single result value is emitted only when the source sequence terminates successfully.
 
 ### Example
-Use `Max` to report the minimum value (such as the interval between key presses) at the end of the sequence.
+Use `Max` to report the maximum value at the end of the sequence.
 
 :::workflow
 ![Minimum](../workflows/reactive-max-example.bonsai)
