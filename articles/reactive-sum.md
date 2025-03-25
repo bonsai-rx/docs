@@ -8,7 +8,7 @@ title: Sum
 The `Sum` operator collects all the numbers from the source sequence and emits a single value representing the sum of all numbers. The single result value is emitted only when the source sequence terminates successfully.
 
 ### Example
-Use `Sum` to report the total value (such as mouse wheel displacement) at the end of a sequence.
+Use `Sum` to report the total value at the end of a sequence.
 
 :::workflow
 ![Total value](../workflows/reactive-sum-example.bonsai)

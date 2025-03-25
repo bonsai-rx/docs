@@ -8,7 +8,7 @@ title: Accumulate
 The `Accumulate` operator returns the current value of the cumulative sum each time the source sequence emits a notification. The result sequence terminates successfully when the source sequence terminates successfully.
 
 ### Example
-Use `Accumulate` to continuously track a value (such as mouse wheel displacement) by adding up the changes over time in a sequence.
+Use `Accumulate` to continuously track a value by adding up the changes over time in a sequence.
 
 :::workflow
 ![Track value](../workflows/reactive-accumulate-example.bonsai)
