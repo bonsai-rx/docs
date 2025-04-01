@@ -6,18 +6,31 @@
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT1S</rx:Period>
-        </Combinator>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>NoisySignal</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Timer">
+                <rx:DueTime>PT0S</rx:DueTime>
+                <rx:Period>PT1S</rx:Period>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Mod">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int64">
+                <Value>4</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="rx:Accumulate" />
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
-      <Expression xsi:type="Mod">
-        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int64">
-          <Value>4</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="rx:Accumulate" />
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:WindowCount">
           <rx:Count>3</rx:Count>
@@ -45,8 +58,6 @@
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
-      <Edge From="2" To="3" Label="Source1" />
-      <Edge From="3" To="4" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
