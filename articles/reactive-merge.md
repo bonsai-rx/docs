@@ -16,3 +16,13 @@ The resulting sequence will terminate successfully only when all source sequence
 ![Higher order](~/images/reactive-mergewindow.svg)
 
 The higher-order variant is useful to combine notifications from multiple event sources running in parallel, for example when waiting for the first event from multiple input conditionals, or when logging data from multiple sources to the same file.
+
+### Example
+Use `Merge` to merge two or more sequences together.
+
+:::workflow
+![Merge Sequences](../workflows/reactive-merge-example.bonsai)
+:::
+
+### Alternative
+Use [`Sum`](xref:Bonsai.Reactive.Sum) instead to yield a single value at the end of a sequence.
