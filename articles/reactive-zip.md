@@ -7,10 +7,34 @@ title: Zip
 
 `Zip` combines the items from each sequence in strict sequential order. It will combine the first item emitted by sequence #1 with the first item emitted by sequence #2; then the second item emitted by sequence #1 with the second item emitted by sequence #2, and so forth, regardless of the timing of arrival of the values. It will only emit as many values as the number of values in the shortest sequence.
 
-`Zip` can be useful to combine separate processing branches from a single source into a composite result, or when pairing events which are logically related even though they might arrive far apart in time, e.g. request/response pairs from a server, or pairing camera frames with frame trigger event onsets.
-
 > [!Warning]
 > `Zip` will continuously store unpaired values from all source sequences, with no limit to the buffer size. This means that if one source sequence produces a much larger number of values than the other sequences, memory usage will continue to grow unbounded. In general, `Zip` should be used only when there is a known fixed relationship between number of elements in each of the source sequences.
+
+### Example
+
+Use `Zip` to combine the output of two or more sequences together in strict sequential order.
+
+:::workflow
+![Zip Example](../workflows/reactive-zip-example.bonsai)
+:::
+
+### Practical Application
+
+Use `Zip` to combine separate processing branches from a single source into a composite result.
+
+:::workflow
+![Zip Application ProcessingBranches](../workflows/reactive-zip-application-processingbranches.bonsai)
+:::
+
+Use `Zip` to pair events which are logically related even though they might arrive far apart in time (e.g. request/response pairs from a server, or pairing camera frames with frame trigger event onsets).
+
+:::workflow
+![Zip Application CameraTTL](../workflows/reactive-zip-application-cameraTTL.bonsai)
+:::
+
+### Alternative
+
+Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) or [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) to combine sequences when their relationship is not well defined.
 
 ### Higher-order operator
 

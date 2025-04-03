@@ -9,6 +9,26 @@ The `Concat` operator allows you to combine the output of multiple sequences of 
 
 The resulting sequence will terminate successfully when the last source sequence has terminated successfully, or exceptionally as soon as any sequence produces an error.
 
+### Example
+
+Use `Concat` to sequentially combine the outputs of multiple sequences.
+
+:::workflow
+![Concat Example](../workflows/reactive-concat-example.bonsai)
+:::
+
+### Practical Application
+
+Use `Concat` to create a stimulus sequence by combining multiple preloaded or defined sequences.
+
+:::workflow
+![Concat Application Stimuli](../workflows/reactive-concat-application-stimuli.bonsai)
+:::
+
+### Alternative
+
+Use [`Merge`](xref:Bonsai.Reactive.Merge) if you want to combine sequences in parallel online.
+
 ### Higher-order operator
 
 `Concat` also works as a higher-order operator, so it can take as input a sequence of observable sequences. In this case, it will subscribe to the first source sequence and start passing along all emitted values. As soon as that sequence terminates, it will subscribe to the next received sequence, either immediately if it arrived before termination of the first sequence, or as soon as a new observable sequence is emitted.

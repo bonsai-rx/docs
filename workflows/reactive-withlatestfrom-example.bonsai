@@ -8,17 +8,17 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT1S</rx:Period>
+          <rx:Period>PT2S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT1S</rx:Period>
+          <rx:DueTime>PT1S</rx:DueTime>
+          <rx:Period>PT2S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
+        <Combinator xsi:type="rx:WithLatestFrom" />
       </Expression>
     </Nodes>
     <Edges>

@@ -7,10 +7,32 @@ title: CombineLatest
 
 `CombineLatest` combines the values from each sequence which are closest in time. Whenever any of the source sequences emits a value (as long as all source sequences have emitted at least one value), `CombineLatest` takes the most recently emitted values from all other sequences and creates the combined result. `CombineLatest` will continue to emit values as long as at least one source sequence remains active (i.e. without terminating).
 
-`CombineLatest` can be useful to temporally correlate separate sources (e.g. frames from different cameras, or the closest frame to a key press). It can also be useful when combining a sequence containing a single reference value with a possibly infinite sequence of values to be associated with the reference (e.g. subtracting a background from every frame).
+### Example
+
+Use `CombineLatest` to combine multiple sources in time.
+
+:::workflow
+![CombineLatest Example](../workflows/reactive-combinelatest-example.bonsai)
+:::
 
 > [!Warning]
-> Because `CombineLatest` emits a combined value whenever *any* of the source sequences emits a new value, the number of values emitted by `CombineLatest` is approximately the sum of the number of values in each sequence. If you need to discard redundant values you can filter the output, e.g. using [`Sample`](xref:Bonsai.Reactive.Sample) to use one of the source sequences as a master driver.
+> As `CombineLatest` emits a combined value whenever *any* of the source sequences emits a new value, the number of values emitted by `CombineLatest` is approximately the sum of the number of values in each sequence. If you want to use only one of the source sequences as a master driver and discard redundant values, consider using [`Sample`](xref:Bonsai.Reactive.Sample).
+
+:::workflow
+![CombineLatest Example with Sample](../workflows/reactive-combinelatest-example-sample.bonsai)
+:::
+
+### Practical Application
+
+Use `CombineLatest` to combine multiple sources (e.g. frames from different cameras). 
+
+:::workflow
+![CombineLatest Application Synchronize Video](../workflows/reactive-combinelatest-application-synchronizevideo.bonsai)
+:::
+
+### Alternative
+
+Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) if you only need to combine two sources and want to discard redundant values.
 
 ### Higher-order operator
 
