@@ -8,13 +8,19 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT2S</rx:Period>
+          <rx:Period>PT3S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT1S</rx:DueTime>
-          <rx:Period>PT2S</rx:Period>
+          <rx:Period>PT3S</rx:Period>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT2S</rx:DueTime>
+          <rx:Period>PT3S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -22,8 +28,9 @@
       </Expression>
     </Nodes>
     <Edges>
-      <Edge From="0" To="2" Label="Source1" />
-      <Edge From="1" To="2" Label="Source2" />
+      <Edge From="0" To="3" Label="Source1" />
+      <Edge From="1" To="3" Label="Source2" />
+      <Edge From="2" To="3" Label="Source3" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
