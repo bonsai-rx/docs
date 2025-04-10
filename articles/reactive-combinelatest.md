@@ -7,7 +7,7 @@ title: CombineLatest
 
 `CombineLatest` combines the values from each sequence which are closest in time. Whenever any of the source sequences emits a value (as long as all source sequences have emitted at least one value), `CombineLatest` takes the most recently emitted values from all other sequences and creates the combined result. `CombineLatest` will continue to emit values as long as at least one source sequence remains active (i.e. without terminating).
 
-### Example
+### Examples
 
 Use `CombineLatest` to combine multiple sources in time.
 
@@ -22,7 +22,7 @@ Use `CombineLatest` to combine multiple sources in time.
 ![CombineLatest Example with Sample](../workflows/reactive-combinelatest-example-sample.bonsai)
 :::
 
-### Practical Application
+#### Video Synchronization
 
 Use `CombineLatest` to combine multiple sources (e.g. frames from different cameras). 
 

@@ -7,7 +7,7 @@ title: WithLatestFrom
 
 The behavior of `WithLatestFrom` is very similar to [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest), but while `CombineLatest` emits a combined value whenever any of the source sequences emits a value, `WithLatestFrom` only emits the combination when the first sequence emits a value (as long as the second sequence has emitted at least one value). 
 
-### Example
+### Examples
 
 Use `WithLatestFrom` to combine two sources in time.
 
@@ -15,13 +15,15 @@ Use `WithLatestFrom` to combine two sources in time.
 ![WithLatestFrom Example](../workflows/reactive-withlatestfrom-example.bonsai)
 :::
 
-### Practical Application
+#### Video Synchronization
 
 Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine two sources (e.g. frames from different cameras, or the closest frame to a key press).
 
 :::workflow
 ![WithLatestFrom Application SynchronizeVideo](../workflows/reactive-withlatestfrom-application-synchronizevideo.bonsai)
 :::
+
+#### Background Subtraction
 
 Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine a source with a reference value for post-processing (e.g. background subtraction).
 
