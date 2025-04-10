@@ -17,7 +17,7 @@ Use `Merge` to combine the output of two or more sequences together into a singl
 ![Merge Example](../workflows/reactive-merge-example.bonsai)
 :::
 
-### Practical Application
+#### Input Aggregation
 
 Use `Merge` to combine responses generated from processing different inputs (e.g. button presses).
 

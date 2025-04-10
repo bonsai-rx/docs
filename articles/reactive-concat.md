@@ -9,7 +9,7 @@ The `Concat` operator allows you to combine the output of multiple sequences of 
 
 The resulting sequence will terminate successfully when the last source sequence has terminated successfully, or exceptionally as soon as any sequence produces an error.
 
-### Example
+### Examples
 
 Use `Concat` to sequentially combine the outputs of multiple sequences.
 
@@ -17,7 +17,7 @@ Use `Concat` to sequentially combine the outputs of multiple sequences.
 ![Concat Example](../workflows/reactive-concat-example.bonsai)
 :::
 
-### Practical Application
+#### Stimulus Composition
 
 Use `Concat` to create a stimulus sequence by combining multiple preloaded or defined sequences.
 
