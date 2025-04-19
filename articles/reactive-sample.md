@@ -9,3 +9,15 @@ title: Sample
 
 > [!Note]
 > If the sampler sequence completes successfully, the termination event will be used to sample the latest element from the source sequence, if it exists.
+
+### Example
+
+Use `Sample` to extract elements from a source sequence based on triggers from another sequence.
+
+:::workflow
+![Sample Example](../workflows/reactive-sample-example.bonsai)
+:::
+
+### Alternative
+
+Use [`Zip`](xref:Bonsai.Reactive.Zip) to extract elements from a source sequence where all elements are available up front.

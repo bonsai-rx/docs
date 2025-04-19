@@ -36,7 +36,7 @@ Use `Zip` to pair events which are logically related even though they might arri
 
 #### Sample Preloaded Sequences
 
-Use `Zip` to "sample" from sequences where all elements are available immediately.
+Use `Zip` to "sample" from a source sequence where all elements are available up front, using a time- or event-based trigger sequence.
 
 :::workflow
 ![Zip Application Sample](../workflows/reactive-zip-application-sample.bonsai)
