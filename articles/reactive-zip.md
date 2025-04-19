@@ -18,7 +18,7 @@ Use `Zip` to combine the output of two or more sequences together in strict sequ
 ![Zip Example](../workflows/reactive-zip-example.bonsai)
 :::
 
-### Practical Application
+#### Combine Processing Results
 
 Use `Zip` to combine separate processing branches from a single source into a composite result.
 
@@ -26,11 +26,24 @@ Use `Zip` to combine separate processing branches from a single source into a co
 ![Zip Application ProcessingBranches](../workflows/reactive-zip-application-processingbranches.bonsai)
 :::
 
+#### Combine Related Events
+
 Use `Zip` to pair events which are logically related even though they might arrive far apart in time (e.g. request/response pairs from a server, or pairing camera frames with frame trigger event onsets).
 
 :::workflow
 ![Zip Application CameraTTL](../workflows/reactive-zip-application-cameraTTL.bonsai)
 :::
+
+#### Sample Preloaded Sequences
+
+Use `Zip` to "sample" from sequences where all elements are available immediately.
+
+:::workflow
+![Zip Application Sample](../workflows/reactive-zip-application-sample.bonsai)
+:::
+
+> [!Warning]
+> This approach is best suited for text- or numeric-based sequences as `Zip` will buffer all available elements with no limit to buffer size.
 
 ### Alternative
 
