@@ -33,7 +33,7 @@ Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine a source 
 
 ### Alternative
 
-Use [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) if:
+Use [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) to combine sequences if:
 - You have more than two sources
 - Need a [higher-order](http://localhost:8080/articles/higher-order.html) operator
 - Need to keep all the values from all the sources
