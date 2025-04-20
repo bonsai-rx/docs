@@ -18,7 +18,7 @@
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Sample" />
+        <Combinator xsi:type="rx:Gate" />
       </Expression>
     </Nodes>
     <Edges>
