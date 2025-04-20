@@ -17,4 +17,4 @@ Use `Accumulate` to continuously update a value by adding up the changes over ti
 
 ### Alternative
 
-Use [`Sum`](xref:Bonsai.Reactive.Sum) instead to yield a single value at the end of a sequence.
+Use [`Sum`](xref:Bonsai.Reactive.Sum) instead to yield a single accumulated value at the end of a sequence.

@@ -27,7 +27,7 @@ Use `Merge` to combine responses generated from processing different inputs (e.g
 
 ### Alternative
 
-Use [`Zip`](xref:Bonsai.Reactive.Zip), [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) or [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) if you want to keep the output separate.
+Use [`Zip`](xref:Bonsai.Reactive.Zip), [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) or [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) if you want to combine sequences but keep the output separate.
 
 Use [`Concat`](xref:Bonsai.Reactive.Concat) if you want to combine sequences sequentially.
 

@@ -20,4 +20,6 @@ Use `Sample` to extract elements from a source sequence based on triggers from a
 
 ### Alternative
 
+Use [`SampleInterval`](xref:Bonsai.Reactive.SampleInterval) to extract elements based on time.
+
 Use [`Zip`](xref:Bonsai.Reactive.Zip) to extract elements from a source sequence where all elements are available up front.
