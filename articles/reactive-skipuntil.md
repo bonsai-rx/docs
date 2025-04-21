@@ -5,7 +5,7 @@ title: SkipUntil
 
 ![Marble diagram](~/images/reactive-skipuntil.svg)
 
-`SkipUntil` modifies the source sequence so that all elements are ignored until the second sequence produces a notification. At that time, `SkipUntil` will start emitting all remaining elements from the source sequence. 
+`SkipUntil` modifies the source sequence so that all elements are ignored until the second sequence produces a notification. At that time, `SkipUntil` will start emitting all remaining elements from the source sequence. `SkipUntil` is often used to create a dynamic start condition for an infinite sequence.
 
 If the source sequence terminates before the second sequence produces a value, `SkipUntil` will terminate without emitting any elements.
 
