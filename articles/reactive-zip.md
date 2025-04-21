@@ -10,7 +10,7 @@ title: Zip
 > [!Warning]
 > `Zip` will continuously store unpaired values from all source sequences, with no limit to the buffer size. This means that if one source sequence produces a much larger number of values than the other sequences, memory usage will continue to grow unbounded. In general, `Zip` should be used only when there is a known fixed relationship between number of elements in each of the source sequences.
 
-### Example
+### Examples
 
 Use `Zip` to combine the output of two or more sequences together in strict sequential order.
 
