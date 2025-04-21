@@ -11,7 +11,7 @@ If the source sequence terminates before the second sequence produces a value, `
 
 ### Examples
 
-Use `SkipUntil` to create a dynamic start condition for an infinite sequence.
+Use `SkipUntil` to skip elements from an active sequence.
 
 :::workflow
 ![SkipUntil Example](../workflows/reactive-skipuntil-example.bonsai)
@@ -33,4 +33,4 @@ Use `SkipUntil` to start video recording when a trigger is sent (e.g. key press)
 Use [`SubscribeWhen`](xref:Bonsai.Reactive.SubscribeWhen) to control the start of subscription.
 
 > [!Warning]
-> Although often both `SubscribeWhen` and `SkipUntil` result in a similar sequence, `SkipUntil` will always immediately subscribe to the source sequence. This means that any initialization side-effects will be evaluated immediately. For *hot* sequences (e.g. camera) this might be advantageous, since any initialization costs are paid upfront, and new values are immediately ready to be consumed after the trigger. However, for *cold* sequences (e.g. video) this might lead to loss of data from the start of the sequence. For more about the difference between *hot* and *cold* sequences, see the section on [temperature](xref:observables#temperature).
+> Although `SubscribeWhen` and `SkipUntil` often produce a similar sequence, `SkipUntil` always subscribes to the source sequence immediately. This means that any initialization side-effects will be evaluated immediately. For *hot* sequences (e.g. camera) this might be advantageous, since any initialization costs are paid upfront, and new values are immediately ready to be consumed after the trigger. However, for *cold* sequences (e.g. video) this might lead to loss of data from the start of the sequence. For more about the difference between *hot* and *cold* sequences, see the section on [temperature](xref:observables#temperature).
