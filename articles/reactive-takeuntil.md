@@ -11,7 +11,7 @@ If the source sequence terminates before the second sequence produces a value, `
 
 ### Examples
 
-Use `TakeUntil` to create a dynamic stop condition for an infinite sequence.
+Use `TakeUntil` to stop taking elements from an active sequence.
 
 :::workflow
 ![TakeUntil Example](../workflows/reactive-takeuntil-example.bonsai)
