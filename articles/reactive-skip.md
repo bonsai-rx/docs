@@ -15,7 +15,7 @@ Use `Skip` to remove the specified number of elements from the start of the sequ
 ![Skip Example](../workflows/reactive-skip-example.bonsai)
 :::
 
-#### Skip Video Frames
+#### Discard Startup Elements 
 
 Use `Skip` to ignore frames from the start of a camera capture sequence (e.g. unstable frames due to auto-exposure adaptation).
 
