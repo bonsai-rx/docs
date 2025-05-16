@@ -5,10 +5,22 @@ title: FirstOrDefault
 
 ![Marble diagram](~/images/reactive-firstordefault.svg)
 
-If the sequence has no elements, `FirstOrDefault` will emit a default value before terminating successfully.
+If the sequence has no elements, `FirstOrDefault` will emit a [default](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/default-values) value before terminating successfully.
 
 > [!Tip]
 > If you are interested in finding the first element that meets some criteria, consider using the [`Condition`](xref:Bonsai.Reactive.Condition) operator before `FirstOrDefault`.
+
+### Example
+
+Use `FirstOrDefault` to retrieve the first element of a sequence or a default value if the sequence is empty.
+
+:::workflow
+![FirstOrDefault Example](../workflows/reactive-firstordefault-example.bonsai)
+:::
+
+### Alternative
+
+Use [`Take`](xref:Bonsai.Reactive.Take) to retrieve one or more elements from the start of the sequence.
 
 > [!Warning]
 > There are subtle but important differences between using the `FirstOrDefault` operator and [`Take(1)`](xref:Bonsai.Reactive.Take):

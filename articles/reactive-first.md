@@ -26,3 +26,5 @@ Use [`Take`](xref:Bonsai.Reactive.Take) to retrieve one or more elements from th
 > There are subtle but important differences between using the `First` operator and [`Take(1)`](xref:Bonsai.Reactive.Take):
 >   - When the source sequence has no elements, [`Take(1)`](xref:Bonsai.Reactive.Take) will complete successfully, while `First` will throw an error.
 >   - When the source sequence emits the first element, [`Take(1)`](xref:Bonsai.Reactive.Take) will immediately cancel the subscription to the source sequence before emitting the notification. `First`, on the other hand, will emit the notification and only afterwards cancel the subscription to the source sequence.
+
+Use [`FirstOrDefault`](xref:Bonsai.Reactive.FirstOrDefault) to retrieve the first element or return a default element if the sequence is empty.

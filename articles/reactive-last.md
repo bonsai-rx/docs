@@ -21,3 +21,5 @@ Use [`TakeLast`](xref:Bonsai.Reactive.TakeLast) to retrieve one or more elements
 
 > [!Warning]
 > There is a subtle but important difference between the `Last` operator and [`TakeLast(1)`](xref:Bonsai.Reactive.TakeLast). [`TakeLast(1)`](xref:Bonsai.Reactive.TakeLast)  will complete successfully when the source sequence has no elements.
+
+Use [`LastOrDefault`](xref:Bonsai.Reactive.LastOrDefault) to retrieve the last element or return a default element if the sequence is empty.
