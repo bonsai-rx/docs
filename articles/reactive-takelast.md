@@ -11,7 +11,7 @@ Because of this buffering behavior, `TakeLast` will always modify the behavior o
 
 ### Example
 
-Use `TakeLast` to retrieve one or more elements from the start of a sequence.
+Use `TakeLast` to retrieve one or more elements from the end of a sequence.
 
 :::workflow
 ![TakeLast Example](../workflows/reactive-takelast-example.bonsai)
