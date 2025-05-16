@@ -9,3 +9,15 @@ The `SkipLast` operator modifies the source sequence to remove the specified num
 
 > [!Tip]
 > `SkipLast` can often be used when you need to impose a delay in the source sequence using number of elements, rather than a time interval.
+
+### Example
+
+Use `SkipLast` to remove the specified number of elements from the end of the sequence.
+
+:::workflow
+![SkipLast Example](../workflows/reactive-skiplast-example.bonsai)
+:::
+
+### Alternative
+
+Use [`Delay`](xref:Bonsai.Reactive.Delay) to impose a delay in the source sequence using a time interval.
