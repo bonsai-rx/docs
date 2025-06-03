@@ -11,16 +11,16 @@ Synchronizing behaviour and other experimental events with stimulation or record
 ![Synching Video](~/workflows/synching-camera.bonsai)
 :::
 
-- Insert a `CameraCapture` source and set it to index 0.
-- Insert another `CameraCapture` source and set it to index 1.
-- Combine both sources using a `WithLatestFrom` combinator.
-- Insert a `Concat (Dsp)` operator and set its `Axis` property to 1.
-- Insert a `VideoWriter` sink and record a small segment of video.
+- Insert a [`CameraCapture`] source and set it to index 0.
+- Insert another [`CameraCapture`] source and set it to index 1.
+- Combine both sources using a [`WithLatestFrom`] combinator.
+- Insert a [`Concat (Dsp)`] operator and set its `Axis` property to 1.
+- Insert a [`VideoWriter`] sink and record a small segment of video.
 
 _How would you test the synchronization between the two video streams?_
 
 > [!Note]
-> You can use the `FileCapture` source to inspect the video frame by frame by setting the `Playing` property to `False`. After setting the `FileName` property to match your recorded video, run the workflow, open the source visualizer, and then right-clicking on top of the video frame to open up the seek bar at the bottom. You can use the arrow keys to move forward and back on individual frames.
+> You can use the [`FileCapture`] source to inspect the video frame by frame by setting the `Playing` property to `False`. After setting the `FileName` property to match your recorded video, run the workflow, open the source visualizer, and then right-clicking on top of the video frame to open up the seek bar at the bottom. You can use the arrow keys to move forward and back on individual frames.
 
 ## Reaction Time
 
@@ -44,7 +44,7 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 ![Create Arduino](~/workflows/reactiontime-arduino.bonsai)
 :::
 
-- To configure the Arduino analog sampling rate, insert a `CreateArduino` source.
+- To configure the Arduino analog sampling rate, insert a [`CreateArduino`] source.
 - Configure the `PortName` to the Arduino port where the microcontroller is connected.
 - Configure the `SamplingInterval` property to 10 ms.
 
@@ -52,14 +52,14 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 ![Reaction Time Stimulus](~/workflows/reactiontime-stimulus.bonsai)
 :::
 
-- Insert a `Timer` source and set its `DueTime` property to 1 second.
-- Insert a `Boolean` source and set its `Value` property to `True`.
-- Insert a `DigitalOutput` sink and set its `Pin` property to the Arduino pin where the LED is connected.
+- Insert a [`Timer`] source and set its `DueTime` property to 1 second.
+- Insert a [`Boolean`] source and set its `Value` property to `True`.
+- Insert a [`DigitalOutput`] sink and set its `Pin` property to the Arduino pin where the LED is connected.
 - Configure the `PortName` to the Arduino port where the microcontroller is connected.
-- Insert a `Delay` operator and set its `DueTime` property to 200 milliseconds.
-- Insert a `Boolean` source and set its `Value` property to `False`.
-- Insert a `DigitalOutput` sink configured to the same `Pin` and `PortName`.
-- Insert a `Repeat` operator.
+- Insert a [`Delay`] operator and set its `DueTime` property to 200 milliseconds.
+- Insert a [`Boolean`] source and set its `Value` property to `False`.
+- Insert a [`DigitalOutput`] sink configured to the same `Pin` and `PortName`.
+- Insert a [`Repeat`] operator.
 
 ### **Exercise 3:** Measuring reaction time
 
@@ -67,13 +67,13 @@ We will start by using a fixed-interval blinking LED as our stimulus.
 ![Reaction Time Measurement](~/workflows/reactiontime-measurement.bonsai)
 :::
 
-- Insert an `AnalogInput` source.
+- Insert an [`AnalogInput`] source.
 - Set the `Pin` property to the analog pin number where the duplicate LED wire is connected.
-- Insert a second `AnalogInput` source.
+- Insert a second [`AnalogInput`] source.
 - Set the `Pin` property to the analog pin number where the button is connected.
-- Connect both inputs to a `Zip` operator.
-- Insert a `CsvWriter` sink and configure the `FileName` property.
-- Insert a `RollingGraph` visualizer and set its `Capacity` property to 1000.
+- Connect both inputs to a [`Zip`] operator.
+- Insert a [`CsvWriter`] sink and configure the `FileName` property.
+- Insert a [`RollingGraph`] visualizer and set its `Capacity` property to 1000.
 - Run the workflow, and verify that both the stimulus and the button are correctly recorded.
 
 ### **Exercise 4:** Synchronizing video with a visual stimulus
@@ -84,35 +84,35 @@ To analyze movement dynamics in the reaction time task, you will need to align i
 ![Synching LED](~/workflows/synching-led.bonsai)
 :::
 
-- Starting from the workflow in the previous exercise, insert a `CameraCapture` source and position the camera such that you can see clearly both the LED and the computer keyboard.
-- Insert a `VideoWriter` sink and configure the `FileName` with a path ending in `.avi`.
-- Insert a `Crop` transform and set the `RegionOfInterest` property to a small area around the LED.
-- Insert a `Grayscale` transform.
-- Insert a `Sum (Dsp)` transform. This operator will sum the brightness values of all the pixels in the input image.
+- Starting from the workflow in the previous exercise, insert a [`CameraCapture`] source and position the camera such that you can see clearly both the LED and the computer keyboard.
+- Insert a [`VideoWriter`] sink and configure the `FileName` with a path ending in `.avi`.
+- Insert a [`Crop`] transform and set the `RegionOfInterest` property to a small area around the LED.
+- Insert a [`Grayscale`] transform.
+- Insert a [`Sum (Dsp)`] transform. This operator will sum the brightness values of all the pixels in the input image.
 - Select the `Scalar` > `Val0` field from the right-click context menu.
-- Record the output in a text file using a `CsvWriter` sink.
+- Record the output in a text file using a [`CsvWriter`] sink.
 - Open both the text file containing the Arduino data, and the text file containing video data, and verify that you have detected an equal number of stimulus in both files. What can you conclude from these two pieces of data?
 - **Optional:** Open the raw video file and find the exact frame where the stimulus came on. If you compare different trials you might notice that the brightness of the LED in that first frame across two different trials is different. Why is that?
 
 ### **Exercise 5:** Trigger a visual stimulus using a button
 
-To make our task more interesting, we will now trigger the stimulus manually using a button press and learn more about `SelectMany` along the way!
+To make our task more interesting, we will now trigger the stimulus manually using a button press and learn more about [`SelectMany`] along the way!
 
 :::workflow
 ![Triggered Stimulus Outer](~/workflows/reactiontime-triggerstimulus.bonsai)
 :::
 
 - Connect a new push button component into one of the Arduino digital inputs.
-- Insert a `DigitalInput` source and set its `Pin` property to the Arduino pin where the new button is connected.
+- Insert a [`DigitalInput`] source and set its `Pin` property to the Arduino pin where the new button is connected.
 - Configure the `PortName` to the Arduino port where the microcontroller is connected.
-- Insert a `Condition` operator.
-- Insert a `SelectMany` operator and move the stimulus generation logic inside the nested node:
+- Insert a [`Condition`] operator.
+- Insert a [`SelectMany`] operator and move the stimulus generation logic inside the nested node:
 
 :::workflow
 ![Triggered Stimulus Inner](~/workflows/reactiontime-triggerstimulus-inner.bonsai)
 :::
 
-_Why do we need to remove the `Repeat` operator?_
+_Why do we need to remove the [`Repeat`] operator?_
 
 - Ask a friend to test your reaction time!
 - **Optional:** In the current workflow, what happens if you press the stimulus button twice in succession? Can you fix the current behaviour by using one of the higher-order operators?
@@ -123,14 +123,14 @@ _Why do we need to remove the `Repeat` operator?_
 ![Triggered Video Outer](~/workflows/reactiontime-triggervideo.bonsai)
 :::
 
-- Starting from the previous workflow, insert another `AnalogInput` source with the `Pin` property set to the button press pin number.
-- Insert a `GreaterThan` operator.
-- Insert a `DistinctUntilChanged` operator.
-- Insert a `Condition` operator.
-- In a new branch coming off the `VideoWriter`, insert a `Delay` operator.
-- Set the `DueTime` property of the `Delay` operator to 1 second.
-- Insert a `TriggeredWindow` operator, and set its `Count` property to 100.
-- Insert a `SelectMany` operator and inside the nested node create the below workflow:
+- Starting from the previous workflow, insert another [`AnalogInput`] source with the `Pin` property set to the button press pin number.
+- Insert a [`GreaterThan`] operator.
+- Insert a [`DistinctUntilChanged`] operator.
+- Insert a [`Condition`] operator.
+- In a new branch coming off the [`VideoWriter`], insert a [`Delay`] operator.
+- Set the `DueTime` property of the [`Delay`] operator to 1 second.
+- Insert a [`WindowTrigger`] operator, and set its `Count` property to 100.
+- Insert a [`SelectMany`] operator and inside the nested node create the below workflow:
 
 :::workflow
 ![Triggered Video Inner](~/workflows/reactiontime-triggervideo-inner.bonsai)
@@ -139,3 +139,29 @@ _Why do we need to remove the `Repeat` operator?_
 - Run the workflow and record a few videos triggered on the button press.
 - Inspect the videos frame by frame and check whether the response LED comes ON at exactly the same frame number across different trials.
 - If it does not, why would this happen? And how would you fix it?
+
+<!-- Reference-style links -->
+[`AnalogInput`]: xref:Bonsai.Arduino.AnalogInput
+[`Boolean`]: xref:Bonsai.Expressions.BooleanProperty
+[`CameraCapture`]: xref:Bonsai.Vision.CameraCapture
+[`Concat (Dsp)`]: xref:Bonsai.Dsp.Concat
+[`Condition`]: xref:Bonsai.Reactive.Condition
+[`CreateArduino`]: xref:Bonsai.Arduino.CreateArduino
+[`Crop`]: xref:Bonsai.Vision.Crop
+[`CsvWriter`]: xref:Bonsai.IO.CsvWriter
+[`Delay`]: xref:Bonsai.Reactive.Delay
+[`DigitalInput`]: xref:Bonsai.Arduino.DigitalInput
+[`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput
+[`DistinctUntilChanged`]: xref:Bonsai.Reactive.DistinctUntilChanged
+[`FileCapture`]: xref:Bonsai.Vision.FileCapture
+[`Grayscale`]: xref:Bonsai.Vision.Grayscale
+[`GreaterThan`]: xref:Bonsai.Expressions.GreaterThanBuilder
+[`Repeat`]: xref:Bonsai.Reactive.Repeat
+[`RollingGraph`]: xref:Bonsai.Design.Visualizers.RollingGraphBuilder
+[`SelectMany`]: xref:Bonsai.Reactive.SelectMany
+[`Sum (Dsp)`]: xref:Bonsai.Dsp.Sum
+[`Timer`]: xref:Bonsai.Reactive.Timer
+[`VideoWriter`]: xref:Bonsai.Vision.VideoWriter
+[`WindowTrigger`]: xref:Bonsai.Reactive.WindowTrigger
+[`WithLatestFrom`]: xref:Bonsai.Reactive.WithLatestFrom
+[`Zip`]: xref:Bonsai.Reactive.Zip
