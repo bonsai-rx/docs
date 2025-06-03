@@ -13,4 +13,6 @@ The latest stable release is: **2.9.0**
 [<i class="fa fa-download"></i> Download Portable (.zip)](https://github.com/bonsai-rx/bonsai/releases/download/2.9.0/Bonsai.zip){class="btn btn-warning"}
 <!-- [/RELEASE_INFO] -->
 
+[Release Notes](https://github.com/bonsai-rx/bonsai/releases?q=prerelease%3Afalse)
+
 The installer will make sure that .NET and any other required system dependencies for running Bonsai are correctly setup in your computer.
