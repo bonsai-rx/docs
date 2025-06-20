@@ -26,7 +26,7 @@ The easiest way to create a self-contained Bonsai environment is to download the
 1. Start by downloading the [latest Bonsai portable release](https://github.com/bonsai-rx/bonsai/releases/latest/download/Bonsai.zip).
 2. After extracting all the files from the `Bonsai.zip` file, your folder will look like this:
 
-![Portable Bonsai release](~/images/environments-portablerelease.png)
+![Portable Bonsai release](~/images/environments-portablerelease.png){width=150}
 
 3. Run `Bonsai.exe`. During this first run, Bonsai will bootstrap the core dependencies and create an initial `Bonsai.config` file.
 4. Install the **Bonsai - Vision** package using the [`Package Manager`](xref:packages). The `Bonsai.config` file will be modified to specify this package as a new dependency. Any additional dependencies which might be needed for the package to run will also be added.
@@ -104,7 +104,7 @@ Similar to `Bonsai.config` the `NuGet.config` file will be used as part of the b
 To keep track of environments, all that is needed are these four files from the [template method](#template-method)
 
 - `Setup.ps1`
-- `Setup.cmd`.
+- `Setup.cmd`
 - `NuGet.config`
 - `Bonsai.config`
 
