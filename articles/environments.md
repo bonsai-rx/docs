@@ -94,10 +94,8 @@ You can also use relative paths if you want to keep package sources relative to 
 Similar to `Bonsai.config` the `NuGet.config` file will be used as part of the bootstrapper process when `Bonsai.exe` starts.
 
 ## Version Control
-To keep track of environments, all that is needed are these four files from the [template method](#template-method)
+To keep track of environments, all that is needed are these two files.
 
-- `Setup.ps1`
-- `Setup.cmd`
 - `NuGet.config`
 - `Bonsai.config`
 
