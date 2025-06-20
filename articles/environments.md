@@ -77,9 +77,6 @@ For example, to add a new package source named `LocalPackages` pointing to the D
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <packageSources>
-    <add key="Gallery" value="Gallery" />
-    <add key="Bonsai Packages" value="https://www.myget.org/F/bonsai/api/v3/index.json" />
-    <add key="Community Packages" value="https://www.myget.org/F/bonsai-community/api/v3/index.json" />
     <add key="LocalPackages" value="C:\Users\BonsaiUser\Desktop"/>
   </packageSources>
 </configuration>
