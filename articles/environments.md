@@ -11,6 +11,7 @@ If you have many projects, you might notice that older projects require specific
 `Bonsai` addresses these problems by supporting the creation of reproducible package environments. An environment is a self-contained, portable, installation of `Bonsai` that records a *snapshot* of all the packages required to run the workflows in your project. This makes it much easier to share a project with other people, or keep track of multiple separate projects in your local machine, and be assured you always have everything you need in the right place.
 
 ## Environment Basics
+
 The key to creating and updating environments is the `Bonsai.config` file, which keeps a record of all currently installed dependencies for a specific Bonsai setup. You can find this file in the same location of the Bonsai executable (`Bonsai.exe`). Anytime you install or update a package, Bonsai will automatically modify the config file.
 
 The contents of the `Bonsai.config` file are compared with the current state of the `Packages` folder when Bonsai starts. If there are any missing packages the Bonsai bootstrapper will download them automatically to recover the expected state of the installation folder.
@@ -18,6 +19,7 @@ The contents of the `Bonsai.config` file are compared with the current state of 
 There is a second configuration file located next to the `Bonsai.config` file called `NuGet.config`. This file stores a list of all the remote, and local, NuGet package sources where the [`Package Manager`](xref:packages) should look for new packages. While this file needs to be included in the environment, most users do not need to modify it.
 
 ## Portable Method
+
 > [!TIP]
 > We recommend this approach for the casual user.
 
@@ -46,7 +48,7 @@ We have also provided a command-line tool for "one-click" deployment which insta
 
 1. Download the [Bonsai installer](https://bonsai-rx.org/docs/articles/installation.html).
 2. When running the installer, ensure that **Add to PATH (requires shell restart)** is selected within **Options**.
-3. Navigate to the folder where you want to create a new Bonsai environment and run this command. 
+3. Navigate to the folder where you want to create a new Bonsai environment and run this command.
 
 ```cmd
 bonsai --init
@@ -66,6 +68,7 @@ bonsai --no-editor
 ```
 
 ## Adding Local Dependencies
+
 > [!TIP] 
 > For [new package](xref:create-package) developers, you may need to install local NuGet packages as dependencies during testing.
 
@@ -94,6 +97,7 @@ You can also use relative paths if you want to keep package sources relative to 
 Similar to `Bonsai.config` the `NuGet.config` file will be used as part of the bootstrapper process when `Bonsai.exe` starts.
 
 ## Version Control
+
 To keep track of environments, all that is needed are these two files.
 
 - `NuGet.config`
