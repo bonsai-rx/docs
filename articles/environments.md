@@ -34,40 +34,36 @@ The easiest way to create a self-contained Bonsai environment is to download the
 
 You now have a local Bonsai environment folder that you can keep separate for experiments or share with anyone else who needs it. Alternatively, once you have a modified `Bonsai.config` file, you can also simply copy the `Bonsai.config` file into a new portable installation, and the Bonsai bootstrapper will download and resolve the missing or inconsistent packages.
 
-## Template Method
+## Command-Line Method
+
 > [!TIP]
 > We recommend this approach for users who need to deploy and maintain multiple environments. This approach assumes familiarity with the command-line.
 
-We have also provided a command-line tool for "one-click" deployment which installs packages automatically and streamlines the process for creating new environments.
+> [!NOTE]
+> This method supersedes the older template method as its functionality is now integrated into the Bonsai bootstrapper.
 
-1. Install [`.NET SDK`](https://dotnet.microsoft.com/en-us/download). 
-2. Install `Bonsai.Templates` with the following command.
-```cmd
-dotnet new install Bonsai.Templates
-```
+We have also provided a command-line tool for "one-click" deployment which installs packages automatically and streamlines the process for creating and restoring environments.
+
+1. Download the [Bonsai installer](https://bonsai-rx.org/docs/articles/installation.html).
+2. When running the installer, ensure that **Add to PATH (requires shell restart)** is selected within **Options**.
 3. Navigate to the folder where you want to create a new Bonsai environment and run this command. 
-```cmd
-dotnet new bonsaienv
-```
-This creates by default a `.bonsai` folder with a minimal bonsai environment in your current directory. It will also prompt to run a powershell script to install any packages based on `Bonsai.config`. Before running the powershell script, you can replace the `Bonsai.config` file with a modified version or run the powershell script after by navigating to the `.bonsai` folder and running:
 
 ```cmd
-./Setup.cmd
+bonsai --init
 ```
-4. You can supply additional options to change the default settings. The following command for instance will create a new folder `project1` containing a bonsai environment folder named `env`.
-```cmd
-dotnet new bonsaienv -o project1 -n .env
-```
-To install new packages in this environment, simply open the local `Bonsai.exe` and install the packages you need.
 
-To share this environment with others, all you need are these 4 files.
+This command creates a `.bonsai` local environment folder in your current directory and will also install any core dependencies. To install new packages in this environment, open the `Bonsai.exe` located in this folder and install the packages you need.
 
-- `Setup.ps1`
-- `Setup.cmd`.
+To share this environment with others, all you need are these two files.
+
 - `NuGet.config`
 - `Bonsai.config`
 
-Other users will be able to easily install your current Bonsai dependencies by running the `Setup.cmd` file.
+To restore the environment, navigate to the folder containing these files and run this command. 
+
+```cmd
+bonsai --no-editor
+```
 
 ## Adding Local Dependencies
 > [!TIP] 
