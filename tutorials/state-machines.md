@@ -32,17 +32,17 @@ In this worksheet, we will be using an Arduino or a camera as an interface to de
 :::
 
 - Connect a digital sensor (e.g. beam-break, button, TTL) into Arduino pin 8.
-- Insert a `DigitalInput` source and set it to Arduino pin 8.
-- Insert a `PublishSubject` operator and set its `Name` property to `Response`.
-- Insert a `Timestamp` operator.
-- Insert a `CsvWriter` sink and configure its `FileName` property with a file name ending in `.csv`.
+- Insert a [`DigitalInput`] source and set it to Arduino pin 8.
+- Insert a [`PublishSubject`] operator and set its `Name` property to `Response`.
+- Insert a [`Timestamp`] operator.
+- Insert a [`CsvWriter`] sink and configure its `FileName` property with a file name ending in `.csv`.
 - Run the workflow and activate the digital sensor a couple of times. Stop the workflow and confirm that the events were successfully timestamped and logged in the `.csv` file.
 
 > [!Note]
 > In order to avoid hardware side-effects, it is highly recommended to declare all hardware connections at the top-level of the workflow, and interface all trial logic using subject variables. This will have the added benefit of allowing for very easy and centralized replacement of the rig hardware: as long as the new inputs and configurations are compatible with the logical subjects, no code inside the task logic will have to be changed at all.
 
-- Right-click the `DigitalInput` source, select `Create Source (bool)` > `BehaviorSubject`, and set its `Name` property to `Led`.
-- Insert a `DigitalOutput` sink and set it to Arduino pin 13.
+- Right-click the [`DigitalInput`] source, select `Create Source (bool)` > [`BehaviorSubject`], and set its `Name` property to `Led`.
+- Insert a [`DigitalOutput`] sink and set it to Arduino pin 13.
 
 ### **Exercise 2:** Inter-trial interval and stimulus presentation
 
@@ -52,19 +52,19 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 ![Stimulus presentation](~/workflows/statemachine-stimulus.bonsai)
 :::
 
-- Insert a `Timer` source and set its `DueTime` property to be about 3 seconds.
-- Insert a `Sink` operator and set its `Name` property to `StimOn`.
-- Double-click on the `Sink` node to open up its internal specification.
+- Insert a [`Timer`] source and set its `DueTime` property to be about 3 seconds.
+- Insert a [`Sink`] operator and set its `Name` property to `StimOn`.
+- Double-click on the [`Sink`] node to open up its internal specification.
 
 > [!Note]
-> The `Sink` operator allows you to specify arbitrary processing side-effects without affecting the original flow of events. It is often used to trigger and control stimulus presentation in response to events in the task. Inside the nested specification, `Source1` represents input events arriving at the sink. In the specific case of `Sink` operators, the `WorkflowOutput` node can be safely ignored.
+> The [`Sink`] operator allows you to specify arbitrary processing side-effects without affecting the original flow of events. It is often used to trigger and control stimulus presentation in response to events in the task. Inside the nested specification, `Source1` represents input events arriving at the sink. In the specific case of [`Sink`] operators, the [`WorkflowOutput`] node can be safely ignored.
 
 **`StimOn`**:
 :::workflow
 ![Stimulus LED control](~/workflows/statemachine-stimulus-led.bonsai)
 :::
 
-- Insert a `Boolean` operator following `Source1` and set its `Value` property to `True`.
+- Insert a [`Boolean`] operator following `Source1` and set its `Value` property to `True`.
 - Find and right-click the `Led` subject in the toolbox and select the option `Multicast`.
 - Run the workflow a couple of times and verify that the sequence of events is progressing correctly.
 
@@ -75,14 +75,14 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 ![Repeat stimulus presentation](~/workflows/statemachine-stimulus-repeat.bonsai)
 :::
 
-- In the main top-level workflow, insert a `Delay` operator and set its `DueTime` property to a couple of seconds.
-- Copy the `StimOn` operator and insert it after the `Delay` (you can either copy-paste or recreate it from scratch).
+- In the main top-level workflow, insert a [`Delay`] operator and set its `DueTime` property to a couple of seconds.
+- Copy the `StimOn` operator and insert it after the [`Delay`] (you can either copy-paste or recreate it from scratch).
 - Rename the new operator to `StimOff` and double-click it to open up its internal representation.
-- Set the `Value` property of the `Boolean` operator to `False`.
+- Set the `Value` property of the [`Boolean`] operator to `False`.
 - Run the workflow a couple of times. Is it behaving as you would expect?
-- Insert a `Repeat` operator after the `StimOff`.
+- Insert a [`Repeat`] operator after the `StimOff`.
 - Run the worklow. Can you describe in your own words what is happening?
-- **Optional:** Draw a marble diagram for `Timer`, `StimOn`, `Delay`, and `Repeat`.
+- **Optional:** Draw a marble diagram for [`Timer`], `StimOn`, [`Delay`], and [`Repeat`].
 
 ### **Exercise 3:** Driving state transitions with external behaviour events
 
@@ -90,12 +90,12 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 ![Stimulus response](~/workflows/statemachine-stimulus-response.bonsai)
 :::
 
-- Delete the `Delay` operator.
-- Insert a `SelectMany` operator after `StimOn`, and set its `Name` property to `Response`.
-- Double-click on the `SelectMany` node to open up its internal specification.
+- Delete the [`Delay`] operator.
+- Insert a [`SelectMany`] operator after `StimOn`, and set its `Name` property to `Response`.
+- Double-click on the [`SelectMany`] node to open up its internal specification.
 
 > [!Note]
-> The `SelectMany` operator is used here to create a new state for every input event. `Source1` represents the input event that created the state, and `WorkflowOutput` will be used to report the end result from the state (e.g. whether the response was a success or failure).
+> The [`SelectMany`] operator is used here to create a new state for every input event. `Source1` represents the input event that created the state, and [`WorkflowOutput`] will be used to report the end result from the state (e.g. whether the response was a success or failure).
 
 **`Response`**:
 :::workflow
@@ -103,10 +103,10 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 :::
 
 - Subscribe to the `Response` subject in the toolbox.
-- Insert a `Boolean` operator and set its `Value` property to `True`.
-- Insert a `Take` operator and set its `Count` property to 1.
+- Insert a [`Boolean`] operator and set its `Value` property to `True`.
+- Insert a [`Take`] operator and set its `Count` property to 1.
 - Delete the `Source1` operator.
-- Connect the `Boolean` operator to `WorkflowOutput`.
+- Connect the [`Boolean`] operator to [`WorkflowOutput`].
 - Run the workflow a couple of times and validate the state machine is responding to the button press.
 
 ### **Exercise 4:** Timeout and choice
@@ -116,10 +116,10 @@ Translating a state machine diagram into a Bonsai workflow begins by identifying
 ![Stimulus response timeout control](~/workflows/statemachine-stimulus-response-timeout.bonsai)
 :::
 
-- Inside the `Response` node, insert a `Timer` source and set its `DueTime` property to be about 1 second.
-- Insert a `Boolean` operator and set its `Value` property to `False`.
-- Join both `Boolean` operators with a `Merge` combinator.
-- Connect the output of `Take` to `WorkflowOutput`.
+- Inside the `Response` node, insert a [`Timer`] source and set its `DueTime` property to be about 1 second.
+- Insert a [`Boolean`] operator and set its `Value` property to `False`.
+- Join both [`Boolean`] operators with a [`Merge`] combinator.
+- Connect the output of [`Take`] to [`WorkflowOutput`].
 - Run the workflow a couple of times, opening the visualizer of the `Response` node.
 
 _Describe in your own words what the above modified workflow is doing._
@@ -130,23 +130,23 @@ _Describe in your own words what the above modified workflow is doing._
 ![Stimulus response outcomes](~/workflows/statemachine-stimulus-response-outcomes.bonsai)
 :::
 
-- Insert a `Condition` operator after the `StimOff` node, and set its `Name` property to `Success`.
-- In a new branch from `StimOff`, insert another `Condition`, and set its `Name` property to `Miss`.
-- Double-click on the `Condition` operator to open up its internal specification.
+- Insert a [`Condition`] operator after the `StimOff` node, and set its `Name` property to `Success`.
+- In a new branch from `StimOff`, insert another [`Condition`], and set its `Name` property to `Miss`.
+- Double-click on the [`Condition`] operator to open up its internal specification.
 
 > [!Note]
-> The `Condition` operator allows you to specify arbitrary rules for accepting or rejecting inputs. Only inputs which pass the filter specified inside the `Condition` are allowed to proceed. It is often used to represent choice points in the task. Inside the nested specification, `Source1` represents input events to be tested. The `WorkflowOutput` node always needs to be specified with a `bool` input, the result of whether the input is accepted (`True`) or rejected (`False`). Usually you can use operators such as `Equal`,`NotEqual`,`GreaterThan`, etc for specifying such tests.
+> The [`Condition`] operator allows you to specify arbitrary rules for accepting or rejecting inputs. Only inputs which pass the filter specified inside the [`Condition`] are allowed to proceed. It is often used to represent choice points in the task. Inside the nested specification, `Source1` represents input events to be tested. The [`WorkflowOutput`] node always needs to be specified with a `bool` input, the result of whether the input is accepted (`True`) or rejected (`False`). Usually you can use operators such as [`Equal`], [`NotEqual`], [`GreaterThan`], etc for specifying such tests.
 
 **`Miss`**:
 :::workflow
 ![Stimulus response miss condition](~/workflows/statemachine-stimulus-response-miss-condition.bonsai)
 :::
 
-- Insert a `BitwiseNot` operator after `Source1`.
+- Insert a [`BitwiseNot`] operator after `Source1`.
 
 _Why did we not need to specify anything for the `Success` condition?_
 
-- In the top-level workflow, insert a `SelectMany` operator after the `Success` condition and change its `Name` property to `Reward`.
+- In the top-level workflow, insert a [`SelectMany`] operator after the `Success` condition and change its `Name` property to `Reward`.
 - Inside the `Reward` node you can specify your own logic to signal the trial was successful. For example, you can make the LED blink three times in rapid succession:
 
 **`Reward`**: 
@@ -154,19 +154,19 @@ _Why did we not need to specify anything for the `Success` condition?_
 ![Stimulus response reward outcome](~/workflows/statemachine-stimulus-response-outcomes-reward.bonsai)
 :::
 
-- Insert a `Timer` node and set both the `DueTime` and the `Period` properties to 100ms.
-- Insert a `Mod` operator and set the `Value` property to 2.
-- Insert the `Equal` operator and leave its `Value` property at 0.
+- Insert a [`Timer`] node and set both the `DueTime` and the `Period` properties to 100ms.
+- Insert a [`Mod`] operator and set the `Value` property to 2.
+- Insert the [`Equal`] operator and leave its `Value` property at 0.
 - Find and right-click the `Led` subject in the toolbox and select the option `Multicast`.
-- Insert a `Take` operator and set the `Count` property to 6.
-- Insert the `Last` operator.
+- Insert a [`Take`] operator and set the `Count` property to 6.
+- Insert the [`Last`] operator.
 
 _Try out your state machine and check whether you understand the behavior of the reward signal._
 
 - Copy the `Reward` node, paste it after the `Miss` condition, and change its `Name` property to `Fail`.
 - **Optional**: Modify the `Fail` state in some way to signal a different trial outcome (e.g. make the LED blink more times, or move a motor).
 
-- In the top-level workflow, insert a `Merge` operator and connect to it the outputs of both conditional branches and before the `Repeat` node.
+- In the top-level workflow, insert a [`Merge`] operator and connect to it the outputs of both conditional branches and before the [`Repeat`] node.
 
 _Try out your state machine and introduce variations to the task behavior and conditions._
 
@@ -199,7 +199,7 @@ stateDiagram-v2
 > ![Sampling Values](~/workflows/samplediscreteuniform.bonsai)
 > :::
 
-- Record a timestamped chronological log of trial types and rewards into a CSV file using a `BehaviorSubject`.
+- Record a timestamped chronological log of trial types and rewards into a CSV file using a [`BehaviorSubject`].
 
 ### **Exercise 7:** Conditioned place preference
 
@@ -214,4 +214,31 @@ stateDiagram-v2
 ```
 
 > [!Tip]
-> There are several ways to implement ROI activation, so feel free to explore different ideas. Consider using either `Crop`, `RoiActivity`, or `ContainsPoint` as part of different strategies to implement the `enter` and `leave` events.
+> There are several ways to implement ROI activation, so feel free to explore different ideas. Consider using either [`Crop`], [`RoiActivity`], or [`ContainsPoint`] as part of different strategies to implement the `enter` and `leave` events.
+
+<!-- Reference-style links -->
+[`BehaviorSubject`]: xref:Bonsai.Reactive.BehaviorSubject
+[`BitwiseNot`]: xref:Bonsai.Expressions.BitwiseNotBuilder
+[`Boolean`]: xref:Bonsai.Expressions.BooleanProperty
+[`Condition`]: xref:Bonsai.Reactive.Condition
+[`ContainsPoint`]: xref:Bonsai.Vision.ContainsPoint
+[`Crop`]: xref:Bonsai.Vision.Crop
+[`CsvWriter`]: xref:Bonsai.IO.CsvWriter
+[`Delay`]: xref:Bonsai.Reactive.Delay
+[`DigitalInput`]: xref:Bonsai.Arduino.DigitalInput
+[`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput
+[`Equal`]: xref:Bonsai.Expressions.EqualBuilder
+[`GreaterThan`]: xref:Bonsai.Expressions.GreaterThanBuilder
+[`Last`]: xref:Bonsai.Reactive.Last
+[`Merge`]: xref:Bonsai.Reactive.Merge
+[`Mod`]: xref:Bonsai.Expressions.ModBuilder
+[`NotEqual`]: xref:Bonsai.Expressions.NotEqualBuilder
+[`PublishSubject`]: xref:Bonsai.Reactive.PublishSubject
+[`Repeat`]: xref:Bonsai.Reactive.Repeat
+[`RoiActivity`]: xref:Bonsai.Vision.RoiActivity
+[`SelectMany`]: xref:Bonsai.Reactive.SelectMany
+[`Sink`]: xref:Bonsai.Reactive.Sink
+[`Take`]: xref:Bonsai.Reactive.Take
+[`Timestamp`]: xref:Bonsai.Reactive.Timestamp
+[`Timer`]: xref:Bonsai.Reactive.Timer
+[`WorkflowOutput`]: xref:Bonsai.Expressions.WorkflowOutputBuilder
