@@ -4,6 +4,9 @@ uid: gallery
 
 # Bonsai Gallery
 
+> [!NOTE]
+> Beginning with Bonsai 2.9.0, the Bonsai gallery is undergoing a revamp, and content is temporarily unavailable. Further updates will be shared as they are released.
+
 A good way to get started with Bonsai is to look at some examples. The editor includes a built-in gallery of example workflows for running common tasks you might want to do with Bonsai. You can access the gallery via the `Tools` menu of the workflow editor. 
 
 ![The Bonsai gallery](~/images/editor-gallery.png)
