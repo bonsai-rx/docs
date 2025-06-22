@@ -10,7 +10,7 @@ The general approach when synchronizing two independent data acquisition clocks 
 ### **Exercise 1:** Synchronizing behaviour events with ephys
 
 :::workflow
-![Syncing ephys with behavior](~/workflows/syncing-ephys-behavior.bonsai)
+![Synching ephys with behavior](~/workflows/synching-ephys-behavior.bonsai)
 :::
 
 - Insert a `KeyDown` source.
@@ -27,7 +27,7 @@ The general approach when synchronizing two independent data acquisition clocks 
 ### **Exercise 2:** Synchronizing video with ephys using an LED
 
 :::workflow
-![Syncing ephys with video](~/workflows/syncing-ephys-video.bonsai)
+![Synching ephys with video](~/workflows/synching-ephys-video.bonsai)
 :::
 
 - Using the workflow from the previous exercise, insert a `CameraCapture` source and point the camera such that you can see clearly both the LED and the computer keyboard.
@@ -62,7 +62,7 @@ However, you can take advantage of the fact that all pixels in a frame are prese
 In this exercise you will track the display of a very simple visual stimulus: a transition between black and white.
 
 :::workflow
-![Syncing ephys with visual stimulus](~/workflows/syncing-ephys-visual.bonsai)
+![Synching ephys with visual stimulus](~/workflows/synching-ephys-visual.bonsai)
 :::
 
 - Insert a `SolidColor` source and set its `Size` property to a positive value, e.g. 100,100.
