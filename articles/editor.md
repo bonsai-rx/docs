@@ -142,7 +142,7 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 
 | Action                             | Keyboard Controls |
 | ---------------------------------- | ----------------- | 
-| New workflow                       | <kbd>Ctrl</kbd>+<kbd>N</kbd> |
+| New workflow                       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> |
 | Open workflow                      | <kbd>Ctrl</kbd>+<kbd>O</kbd> |
 | Save workflow                      | <kbd>Ctrl</kbd>+<kbd>S</kbd> |
 | Run workflow                       | <kbd>F5</kbd> |
@@ -152,7 +152,7 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 | Insert operator                    | Insert after selected node: <kbd>Enter</kbd> <br> Insert before selected node: <kbd>Shift</kbd>+<kbd>Enter</kbd> |
 | Remove operator                    | <kbd>Del</kbd> |
 | Move or duplicate operator         | Cut: <kbd>Ctrl</kbd>+<kbd>X</kbd> <br> Copy: <kbd>Ctrl</kbd>+<kbd>C</kbd> <br> Paste after selected node: <kbd>Ctrl</kbd>+<kbd>V</kbd> <br> Paste before selected node: <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>V</kbd> |
-| Create branch                      | <kbd>Alt</kbd> + an existing shortcut for creating a new operator <br> e.g., <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>V</kbd> |
+| Create branch                      | <kbd>Alt</kbd> + an existing shortcut for inserting a new operator <br> e.g., <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>V</kbd> |
 | Connect operators                  | N/A |
 | Disconnect operators               | N/A |
 | Reorder operators                  | N/A |
