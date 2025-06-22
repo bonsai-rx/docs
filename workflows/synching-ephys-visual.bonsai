@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.5"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:eph="clr-namespace:Bonsai.Ephys;assembly=Bonsai.Ephys"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT0S</rx:DueTime>
+          <rx:Period>PT1S</rx:Period>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Mod">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int64">
+          <Value>2</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int64">
+          <Value>255</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="InputMapping">
+        <PropertyMappings>
+          <Property Name="Color" Selector="it,it,it,it" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:SolidColor">
+          <cv:Size>
+            <cv:Width>100</cv:Width>
+            <cv:Height>100</cv:Height>
+          </cv:Size>
+          <cv:Depth>U8</cv:Depth>
+          <cv:Channels>3</cv:Channels>
+          <cv:Color>
+            <cv:Val0>255</cv:Val0>
+            <cv:Val1>255</cv:Val1>
+            <cv:Val2>255</cv:Val2>
+            <cv:Val3>255</cv:Val3>
+          </cv:Color>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="eph:Rhd2000EvalBoard">
+          <eph:BitFileName>main.bit</eph:BitFileName>
+          <eph:SampleRate>SampleRate20000Hz</eph:SampleRate>
+          <eph:ExternalFastSettleEnabled>false</eph:ExternalFastSettleEnabled>
+          <eph:LowerBandwidth>0.1</eph:LowerBandwidth>
+          <eph:UpperBandwidth>7500</eph:UpperBandwidth>
+          <eph:DspCutoffFrequency>1</eph:DspCutoffFrequency>
+          <eph:DspEnabled>true</eph:DspEnabled>
+          <eph:CableDelayA xsi:nil="true" />
+          <eph:CableDelayB xsi:nil="true" />
+          <eph:CableDelayC xsi:nil="true" />
+          <eph:CableDelayD xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>BoardAdcData</Selector>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

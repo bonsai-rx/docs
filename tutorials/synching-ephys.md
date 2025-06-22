@@ -9,6 +9,10 @@ The general approach when synchronizing two independent data acquisition clocks 
 
 ### **Exercise 1:** Synchronizing behaviour events with ephys
 
+:::workflow
+![Synching ephys with behavior](~/workflows/synching-ephys-behavior.bonsai)
+:::
+
 - Insert a `KeyDown` source.
 - Insert an `Equal` transform and set its `Value` to one of the keys. The output of this operator will toggle between `True` and `False` depending on whether the key press matches the specified key.
 - Insert a `DigitalOutput` sink and connect it to Arduino pin 13.
@@ -21,6 +25,10 @@ The general approach when synchronizing two independent data acquisition clocks 
 - Open the binary file in MATLAB/Python/R and plot the raw data. What can you conclude from it?
 
 ### **Exercise 2:** Synchronizing video with ephys using an LED
+
+:::workflow
+![Synching ephys with video](~/workflows/synching-ephys-video.bonsai)
+:::
 
 - Using the workflow from the previous exercise, insert a `CameraCapture` source and point the camera such that you can see clearly both the LED and the computer keyboard.
 - Insert a `VideoWriter` sink and configure the `FileName` with a path ending in `.avi`.
@@ -52,6 +60,10 @@ Displaying visual patterns on a screen or projector can be subject to significan
 However, you can take advantage of the fact that all pixels in a frame are presented synchronously and reserve part of the display area to show a synchronization trigger. A passive photodiode can then be used to transduce this optical trigger into a digital signal that can be transmitted to the ephys auxiliary input channels.
 
 In this exercise you will track the display of a very simple visual stimulus: a transition between black and white.
+
+:::workflow
+![Synching ephys with visual stimulus](~/workflows/synching-ephys-visual.bonsai)
+:::
 
 - Insert a `SolidColor` source and set its `Size` property to a positive value, e.g. 100,100.
 - Insert a `Timer` source and set the `Period` to one second.
