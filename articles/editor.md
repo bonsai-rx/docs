@@ -4,7 +4,7 @@ uid: editor
 
 # Workflow Editor
 
-When Bonsai starts you will be taken directly to the workflow editor. This is where you can create, configure, and run Bonsai workflows. The editor is composed of three main panels: the [`Toolbox`](#toolbox), the [`Workflow`](#workflow), and [`Properties`](#properties). These are described in more detail below.
+When Bonsai starts you will be taken directly to the workflow editor. This is where you can create, configure, and run Bonsai workflows. The editor is composed of four main panels: [`Toolbox`](#toolbox), [`Workflow`](#workflow), [`Explorer`](#explorer) and [`Properties`](#properties). These are described in more detail below.
 
 ![The Bonsai workflow editor](~/images/editor.png)
 
@@ -91,6 +91,14 @@ All included workflow extensions are read-only, meaning that you cannot change t
 
 > [!Warning]
 > When you change the structure of an included workflow and save it over the original file, all references to that workflow extension will be automatically reloaded and updated. This ensures that all references to the same extension remain consistent throughout.
+
+## Explorer
+
+The `Explorer` panel allows you to navigate through complex workflows using a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested workflow, such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder), [higher-order operator](xref:higher-order), or `IncludeWorkflow`. Selecting a level will update the `Workflow` panel view to display the corresponding nested workflow. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
+
+- ✏️ Editable workflow
+- 🔒 Locked workflow (`IncludeWorkflow`)
+- ⛔ Workflow contains errors
 
 ## Properties
 
