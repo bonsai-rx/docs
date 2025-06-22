@@ -126,7 +126,7 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 | Connect operators                  | In the `Workflow` panel, choose any of these options: <li> Right-click the source node, select `Create Connection` and left-click on the target node <li> Drag the source node and drop it on the target node |
 | Disconnect operators               | In the `Workflow` panel, choose any of these options: <li> Right-click the source node, select `Remove Connection` and left-click on the target node <li> Hold down <kbd>Shift</kbd>, drag the source node and drop it on the target node |
 | Reorder operators                  | In the `Workflow` panel: <li> Right-click the source node, select `Reorder Connection` and left-click on the target node |
-| Select multiple nodes              | In the `Workflow` panel: <li> Click on an empty space and drag a box around the nodes to be selected <br><br> Hold <kbd>Ctrl</kbd> while clicking on a node to add/remove it from the current selection. |
+| Select multiple nodes              | In the `Workflow` panel: <li> Click on an empty space and drag a box around the nodes to be selected <br><br> Hold <kbd>Ctrl</kbd> while clicking on a node to add/remove it from the current selection. <br><br> Many operations can be performed on multi-node selections or node groups (e.g., delete, create connections, create a node group, etc.). |
 | Group operators                    | In the `Workflow` panel: <li> Right-click on a multi-node selection and select a group type from the `Group` dropdown <br><br> On an existing node group, you can do the same action to change the group type. |
 | Ungroup node group                 | In the `Workflow` panel: <li> Right-click on the group node and select `Ungroup` |
 | Open operator editor or node group | In the `Workflow` panel, choose any of these options: <li> When workflow is not running: double-click <li> When workflow is running: <kbd>Ctrl</kbd> + double-click |
@@ -175,6 +175,3 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 | Open context menu                  | <kbd>Shift</kbd>+<kbd>F10</kbd> |
 | View help                          | <kbd>F1</kbd> |
 | Go to definition                   | <kbd>F12</kbd> |
-
-> [!Note]
-> Many operations can be performed on multi-node selections or node groups (e.g., delete, create connections, create a node group, etc.).
