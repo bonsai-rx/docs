@@ -32,7 +32,7 @@ Another way to quickly find operators is to use the `Search` textbox. Any text i
 > [!Tip]
 > You can directly type and search for operator names when the `Workflow` panel has the input focus. This allows you to simply start typing an operator name and directly select which operator you want with the up/down arrow keys. Once you have the right operator, press the `Enter` key to place it. You can repeat the process multiple times to very quickly chain a sequence of operators.
 
-Another useful function of the `Search` textbox is to find existing instances of the selected toolbox operator in the workflow. Once you select an operator in the toolbox, you can use the `Find Next` or `Find Previous` commands to jump into the next instance of the operator, subject, or workflow extension, starting from the current cursor position.
+Another useful function of the `Search` textbox is to find existing instances of the selected toolbox operator in the workflow. Once you select an operator in the toolbox, you can use the `Find Next` or `Find Previous` commands to jump into the next instance of the operator, subject, or workflow extension, starting from the current cursor position. You can also right-click on an operator in the toolbox and select `Find All References` to list all instances of the operator in the workflow.
 
 > [!Tip]
 > You can browse through the reference documentation to learn more about each operator in the `Toolbox` by pressing `F1` or selecting `View Help` from the context menu.
@@ -57,7 +57,7 @@ Nodes can be grouped to organize large workflows and to define [higher-order ope
 > [!Note]
 > You can use `GroupWorkflow` nodes to document your workflow by adding names and descriptions inline with operator chains. These can help readability of a workflow and no additional processing cost is incurred by the use of `GroupWorkflow` nodes.
 
-The breadcrumbs at the top of the `Workflow` panel allow navigation between nested levels of complex workflows, and work in tandem with the [`Explorer`](#explorer) panel. Clicking a breadcrumb updates the `Workflow` panel to display the corresponding nested workflow. 
+The breadcrumbs at the top of the `Workflow` panel work in tandem with the [`Explorer`](#explorer) panel to allow navigation between nested levels of complex workflows. Clicking a breadcrumb switches the view to display the corresponding nested workflow. 
 
 ### Type Visualizers
 
