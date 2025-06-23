@@ -94,6 +94,25 @@ All included workflow extensions are read-only, meaning that you cannot change t
 > [!Warning]
 > When you change the structure of an included workflow and save it over the original file, all references to that workflow extension will be automatically reloaded and updated. This ensures that all references to the same extension remain consistent throughout.
 
+### Watch Mode
+
+To assist with debugging workflows, you can enable watch mode on individual nodes by selecting an operator and clicking on `Toggle Watch` in the toolbar. The watch mode provides feedback on whether the operator has an active subscription from a downstream operator, is emitting values, or has completed subscription. Each status is marked with a visual annotation that is positioned adjacent to the operator.
+
+| Status    | Annotation                                                                | Description |
+| --------- | ----------------------------------------------------------------------    | ----------- |
+| Ready     | ![Watch Status Ready](../images/editor-watch-ready.png){width=40}         | No subscriptions have yet been made |
+| Active    | ![Watch Status Active](../images/editor-watch-active.png){width=40}       | At least one active subscription but no values have been emitted yet |
+| Notifying | ![Watch Status Notifying](../images/editor-watch-notifying.png){width=40} | At least one active subscription and emitted at least one value in the last period |
+| Completed | ![Watch Status Completed](../images/editor-watch-completed.png){width=40} | No active subscriptions and at least one subscription terminated successfully |
+| Error     | ![Watch Status Completed](../images/editor-watch-error.png){width=40}     | No active subscriptions and at least one subscription terminated exceptionally |
+| Canceled  | ![Watch Status Canceled](../images/editor-watch-canceled.png){width=40}   | No active subscriptions and at least one subscription was canceled without termination |
+
+> [!WARNING]
+> The watch mode refreshes at a maximum rate of 10 Hz and should not be relied upon to evaluate aspects of workflow behaviour that rely on precise timing.
+
+> [!WARNING]
+> As the watch mode does not currently track individual subscriptions, care must be taken when interpreting multiple parallel subscriptions, as the true state of each one may be obscured.
+
 ## Explorer
 
 The `Explorer` panel allows you to navigate through complex workflows using a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested workflow, such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder), [higher-order operator](xref:higher-order), or `IncludeWorkflow`. Selecting a node label will update the `Workflow` panel view to display the corresponding nested workflow. Right-click on the node label and select one of the options to open the workflow in a new tab or window. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
