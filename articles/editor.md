@@ -140,8 +140,12 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 | New workflow                       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> |
 | Open workflow                      | <kbd>Ctrl</kbd>+<kbd>O</kbd> |
 | Save workflow                      | <kbd>Ctrl</kbd>+<kbd>S</kbd> |
-| Run workflow                       | <kbd>F5</kbd> |
+| Save workflow extension            | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> |
+| Start workflow                     | <kbd>F5</kbd> |
+| Start workflow without debugging   | <kbd>Ctrl</kbd>+<kbd>F5</kbd> |
 | Stop workflow                      | <kbd>Shift</kbd>+<kbd>F5</kbd> |
+| Export Image                       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> |
+| Copy Image                         | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> |
 | Undo action                        | <kbd>Ctrl</kbd>+<kbd>Z</kbd> |
 | Redo action                        | <kbd>Ctrl</kbd>+<kbd>Y</kbd> |
 | Insert operator                    | Insert after selected node: <kbd>Enter</kbd> <br> Insert before selected node: <kbd>Shift</kbd>+<kbd>Enter</kbd> |
