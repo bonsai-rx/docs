@@ -105,6 +105,9 @@ Most properties can be configured simply by changing the text value in the corre
 
 ## Actions and Shortcuts
 
+> [!TIP]
+> As previously mentioned, right-clicking to bring up the context menu is the most useful action to discover a list of available commands, which will vary depending on the  editor panel you right-click in and the current selection.
+
 Below is a summary of the most used actions and shortcuts in the workflow editor:
 
 # [Mouse Controls](#tab/mouse-controls)
@@ -129,7 +132,6 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 | Toggle watch                       | In the `Workflow` panel, choose any of these options: <li> Select the node, click on the `Toggle Watch` button in the toolbar <li> Right-click the node and select `Toggle Watch` from the context menu |
 | New tab or window                  | In the `Workflow` panel, choose any of these options: <li> Right-click the tab/window bar, select either of the `Open` options <li> Right-click the node, select either of the `Open` options <br><br> In the `Explorer` panel: <li> Right-click the nested node label, select either of the `Open` options |
 | Find node                          | In the `Toolbox` panel: <li> Search for the operator, right-click on it and choose any of the `Find` options <br><br> In the `Workflow Panel`, choose any of these options: <li> Select the node and click on the `Find Next` and `Find Previous` buttons in the `Toolbar` <li> Right-click the node and select `Find All References` |
-| Open context menu                  | In the `Workflow` panel: <li> Right-click any node, multi-node selection or empty space <br><br> Depending on what is currently selected, the context menu may show different available actions. |
 | View help                          | In the `Workflow` panel: <li> Right-click on the operator and select `View Help` |
 | Go to definition                   | In the `Workflow` panel: <li> Right-click on the operator and select `Go To Definition` |
 
