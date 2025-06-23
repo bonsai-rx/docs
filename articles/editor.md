@@ -73,7 +73,7 @@ For example, image streams can be displayed on the screen using the default imag
 
 #### Visualizer layout settings
 
-If you leave one or more visualizers open when you stop the workflow, the editor will memorize the position and size of each active window. When you run the workflow again, the same visualizer windows will be opened following the memorized layout. These settings are stored in a `.layout` file which is saved side by side with the workflow so they will persist between editor sessions.
+If you leave one or more visualizers open when you stop the workflow, the editor will memorize the position and size of each active window. When you run the workflow again, the same visualizer windows will be opened following the memorized layout. These settings are stored in a `.layout` file within the `.bonsai` settings folder, allowing them to persist between editor sessions.
 
 > [!Tip]
 > Many visualizers allow you to access more detailed information or advanced configuration parameters by right-clicking on the visualizer window.
