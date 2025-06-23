@@ -96,7 +96,7 @@ All included workflow extensions are read-only, meaning that you cannot change t
 
 ### Watch Mode
 
-To assist with debugging workflows, you can enable watch mode on individual nodes by selecting an operator and clicking on `Toggle Watch` in the toolbar. The watch mode provides feedback on whether the operator has an active subscription from a downstream operator, is emitting values, or has completed subscription. Each status is marked with a visual annotation that is positioned adjacent to the operator.
+To assist with debugging workflows, you can enable watch mode on individual nodes by selecting an operator and clicking on `Toggle Watch` in the toolbar. The watch mode provides runtime feedback on whether the operator has an active subscription from a downstream operator, is emitting values, or whether its subscriptions have terminated. Each status is visually annotated with a symbol displayed adjacent to the operator.
 
 | Status    | Annotation                                                                | Description |
 | --------- | ----------------------------------------------------------------------    | ----------- |
