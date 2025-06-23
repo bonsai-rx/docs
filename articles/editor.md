@@ -94,7 +94,7 @@ All included workflow extensions are read-only, meaning that you cannot change t
 
 ## Explorer
 
-The `Explorer` panel allows you to navigate through complex workflows using a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested workflow, such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder), [higher-order operator](xref:higher-order), or `IncludeWorkflow`. Selecting a level will update the `Workflow` panel view to display the corresponding nested workflow. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
+The `Explorer` panel allows you to navigate through complex workflows using a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested workflow, such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder), [higher-order operator](xref:higher-order), or `IncludeWorkflow`. Selecting a node label will update the `Workflow` panel view to display the corresponding nested workflow. Right-click on the node label and select one of the options to open the workflow in a new tab or window. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
 
 - ✏️ Editable workflow
 - 🔒 Locked workflow (`IncludeWorkflow`)
