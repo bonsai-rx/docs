@@ -52,12 +52,10 @@ If only one node is selected, the `Output` menu item will display the type of th
 
 The context menu also allows you to externalize public properties of the operator as explicit nodes in the workflow using the `Externalize Property` drop-down menu. Once a property is externalized, you can connect other nodes in the workflow to it so you can change the value of the property dynamically (see the [Property Mapping](xref:property-mapping) section for more information).
 
-Nodes can be grouped to organize large workflows and to define [higher-order operators](xref:higher-order). The most basic grouping is the [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) which allows you to encapsulate a workflow fragment inside a single node. Any group can be assigned a `Name` for ease of reference and a `Description` for documentation. Any named properties which are externalized from nodes inside the group will be shown as properties of the group node itself on the top-level workflow.
+Finally, it is possible to group nodes, both for organizing large workflows, and to define [higher-order operators](xref:higher-order). The most basic grouping is the [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) which allows you to encapsulate a workflow fragment inside a single node. Any group can be assigned a `Name` for ease of reference and a `Description` for documentation. Any named properties which are externalized from nodes inside the group will be shown as properties of the group node itself on the top-level workflow.
 
 > [!Note]
 > You can use `GroupWorkflow` nodes to document your workflow by adding names and descriptions inline with operator chains. These can help readability of a workflow and no additional processing cost is incurred by the use of `GroupWorkflow` nodes.
-
-The breadcrumbs at the top of the `Workflow` panel work in tandem with the [`Explorer`](#explorer) panel to allow navigation between nested levels of complex workflows. Clicking a breadcrumb switches the view to display the corresponding nested workflow. 
 
 ### Type Visualizers
 
@@ -113,9 +111,19 @@ To assist with debugging workflows, you can enable watch mode on individual node
 > [!WARNING]
 > As the watch mode does not currently track individual subscriptions, care must be taken when interpreting multiple parallel subscriptions, as the true state of each one may be obscured.
 
+### Navigation and Layout
+
+You can take advantage of tabs, windows, breadcrumbs and docked panels to navigate complex nested workflows and organize your workspace.
+
+Right-clicking on a nested node such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) will bring up the context menu, where you can select the `Open in New Tab` or `Open in New Window` commands. You can also access these commands by right-clicking on the tab header or window title bar.
+
+Each tab or window displays a breadcrumb trail at the top, indicating the location of the current view within the nested workflows. Clicking a breadcrumb switches the view to the corresponding workflow, allowing you to navigate between levels.
+
+You can further organize tabs and windows by rearranging them into docked panels. To do this, click and drag a tab header or window title bar towards the center of the screen. A docking guide overlay will appear, allowing you to position the panel in different regions of the workspace. Once the panel has been placed, you can reposition the borders of the panel, as well as create new tabs.
+
 ## Explorer
 
-The `Explorer` panel allows you to navigate through complex workflows using a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested workflow, such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder), [higher-order operator](xref:higher-order), or `IncludeWorkflow`. Selecting a node label will update the `Workflow` panel view to display the corresponding nested workflow. Right-click on the node label and select one of the options to open the workflow in a new tab or window. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
+The `Explorer` panel also supports workflow navigation by providing a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested node. Selecting a node will update the `Workflow` panel view to display the corresponding nested workflow. You can also navigate the tree by using the keyboard arrow keys and pressing <kbd>Enter</kbd> to update the view. To open the node in a new tab or window, right-click on the node label and select one of the options. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
 
 - ✏️ Editable workflow
 - 🔒 Locked workflow (`IncludeWorkflow`)
