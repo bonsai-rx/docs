@@ -115,6 +115,8 @@ To assist with debugging workflows, you can enable watch mode on individual node
 
 You can take advantage of tabs, windows, breadcrumbs and docked panels to navigate complex nested workflows and organize your workspace.
 
+![Editor Dock Panel](../images/editor-dockpanel.png)
+
 Right-clicking on a nested node such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) will bring up the context menu, where you can select the `Open in New Tab` or `Open in New Window` commands. You can also access these commands by right-clicking on the tab header or window title bar.
 
 Each tab or window displays a breadcrumb trail at the top, indicating the location of the current view within the nested workflows. Clicking a breadcrumb switches the view to the corresponding workflow, allowing you to navigate between levels.
@@ -123,6 +125,8 @@ You can further organize tabs and windows by rearranging them into docked panels
 
 ## Explorer
 
+![Editor Explorer Panel](../images/editor-explorer.png){width=300} 
+
 The `Explorer` panel also supports workflow navigation by providing a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested node. Selecting a node will update the `Workflow` panel view to display the corresponding nested workflow. You can also navigate the tree by using the keyboard arrow keys and pressing <kbd>Enter</kbd> to update the view. To open the node in a new tab or window, right-click on the node label and select one of the options. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
 
 - ✏️ Editable workflow
@@ -130,6 +134,8 @@ The `Explorer` panel also supports workflow navigation by providing a hierarchic
 - ⛔ Workflow contains errors
 
 ## Properties
+
+![Editor Properties Panel](../images/editor-properties.png){width=300} 
 
 Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the [`Timer`](xref:Bonsai.Reactive.Timer) operator exposes the period between generated values, whereas an image [`Threshold`](xref:Bonsai.Vision.Threshold) exposes the brightness cutoff value applied to individual pixels).
 
