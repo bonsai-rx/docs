@@ -30,6 +30,9 @@ Use `CombineLatest` to combine multiple sources (e.g. frames from different came
 ![CombineLatest Application Synchronize Video](../workflows/reactive-combinelatest-application-synchronizevideo.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Dsp`, `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
+
 ### Alternative
 
 Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) if you only need to combine two sources and want to discard redundant values.

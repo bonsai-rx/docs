@@ -25,6 +25,9 @@ Use `Merge` to combine responses generated from processing different inputs (e.g
 ![Merge Application Inputs](../workflows/reactive-merge-application-inputs.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Windows.Input` package to be installed.
+
 ### Alternative
 
 Use [`Zip`](xref:Bonsai.Reactive.Zip), [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) or [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) if you want to combine sequences but keep the output separate.

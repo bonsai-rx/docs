@@ -25,6 +25,9 @@ Use `Concat` to create a stimulus sequence by combining multiple preloaded or de
 ![Concat Application Stimuli](../workflows/reactive-concat-application-stimuli.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed. Load separate images into each [`LoadImage`](xref:Bonsai.Vision.LoadImage) operator.
+
 ### Alternative
 
 Use [`Merge`](xref:Bonsai.Reactive.Merge) if you want to combine sequences in parallel online.

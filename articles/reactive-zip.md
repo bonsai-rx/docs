@@ -34,6 +34,9 @@ Use `Zip` to pair events which are logically related even though they might arri
 ![Zip Application CameraTTL](../workflows/reactive-zip-application-cameraTTL.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Arduino`, `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
+
 #### Sample Preloaded Sequences
 
 Use `Zip` to "sample" from a source sequence where all elements are available up front, using a time- or event-based trigger sequence.

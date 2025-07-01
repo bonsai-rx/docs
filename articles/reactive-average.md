@@ -27,4 +27,4 @@ Use `Average` to smooth a noisy signal by grouping elements with [`WindowCount`]
 > This operation is equivalent to [downsampling](https://en.wikipedia.org/wiki/Downsampling_(signal_processing)) and reduces the number of elements in the sequence. To implement a [moving average](https://en.wikipedia.org/wiki/Moving_average) that preserves the number of elements, you can adjust the `Skip` property in [`WindowCount`](xref:Bonsai.Reactive.WindowCount) to create sliding windows.
 
 > [!NOTE]
-> This example requires the `Bonsai.Design.Visualizers` package to be installed for time series visualization.
+> This example requires the `Bonsai.Design.Visualizers` package to be installed.

@@ -23,6 +23,9 @@ Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine two sourc
 ![WithLatestFrom Application SynchronizeVideo](../workflows/reactive-withlatestfrom-application-synchronizevideo.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
+
 #### Background Subtraction
 
 Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine a source with a reference value for post-processing (e.g. background subtraction).
@@ -31,9 +34,12 @@ Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine a source 
 ![WithLatestFrom Application BackgroundSubtraction](../workflows/reactive-withlatestfrom-application-backgroundsubtraction.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
+
 ### Alternative
 
 Use [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) to combine sequences if:
 - You have more than two sources
-- Need a [higher-order](http://localhost:8080/articles/higher-order.html) operator
+- Need a [higher-order](../articles/higher-order.md) operator
 - Need to keep all the values from all the sources
