@@ -25,5 +25,8 @@ Use `TakeUntil` to stop video recording when a trigger is sent (e.g. key press).
 ![TakeUntil Application Stop Video Recording](../workflows/reactive-takeuntil-application-videostop.bonsai)
 :::
 
-> [!Note]
+> [!NOTE]
+> This example requires the `Bonsai.Vision`, `Bonsai.Vision.Design`, and `Bonsai.Windows.Input` packages to be installed. 
+
+> [!NOTE]
 > Use [`SkipUntil`](xref:Bonsai.Reactive.SkipUntil) to control the start of video recording.

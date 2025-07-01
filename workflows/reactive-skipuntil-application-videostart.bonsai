@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.5"
+<WorkflowBuilder Version="2.9.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xmlns:vid="clr-namespace:Bonsai.Video;assembly=Bonsai.Video"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
-                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:ui="clr-namespace:Bonsai.Design;assembly=Bonsai.Design"
+                 xmlns:p1="clr-namespace:Bonsai.Vision.Design;assembly=Bonsai.Vision.Design"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="vid:VideoCaptureDevice">
-          <vid:Index>0</vid:Index>
-          <vid:CaptureProperties />
+        <Combinator xsi:type="cv:CameraCapture">
+          <cv:Index>0</cv:Index>
+          <cv:CaptureProperties />
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -21,10 +22,14 @@
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:First" />
-      </Expression>
-      <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:SkipUntil" />
+      </Expression>
+      <Expression xsi:type="ui:VisualizerWindow">
+        <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="p1:IplImageVisualizer" />
+        <ui:Visible>true</ui:Visible>
+        <ui:Location xsi:nil="true" />
+        <ui:Size xsi:nil="true" />
+        <ui:WindowState xsi:nil="true" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
@@ -43,9 +48,9 @@
       </Expression>
     </Nodes>
     <Edges>
-      <Edge From="0" To="3" Label="Source1" />
-      <Edge From="1" To="2" Label="Source1" />
-      <Edge From="2" To="3" Label="Source2" />
+      <Edge From="0" To="2" Label="Source1" />
+      <Edge From="1" To="2" Label="Source2" />
+      <Edge From="2" To="3" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
     </Edges>
   </Workflow>
