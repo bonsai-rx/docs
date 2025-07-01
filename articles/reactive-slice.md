@@ -26,6 +26,9 @@ Use `Slice` to separate elements from an interleaved sequence (e.g. frames from 
 ![Slice Application DeinterleaveVideo](../workflows/reactive-slice-application-deinterleavevideo.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
+
 ### Alternative
 
 Use [`GateInterval`](xref:Bonsai.Reactive.GateInterval) to extract elements based on time.

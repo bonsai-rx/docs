@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.5"
+<WorkflowBuilder Version="2.9.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:ui="clr-namespace:Bonsai.Design;assembly=Bonsai.Design"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT1S</rx:DueTime>
+        </Combinator>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Range">
           <rx:Start>1</rx:Start>
@@ -14,10 +20,12 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Last" />
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Delay">
-          <rx:DueTime>PT1S</rx:DueTime>
-        </Combinator>
+      <Expression xsi:type="ui:VisualizerWindow">
+        <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
+        <ui:Visible>true</ui:Visible>
+        <ui:Location xsi:nil="true" />
+        <ui:Size xsi:nil="true" />
+        <ui:WindowState xsi:nil="true" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Repeat" />
@@ -27,6 +35,7 @@
       <Edge From="0" To="1" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

@@ -23,6 +23,9 @@ Use `Skip` to ignore frames from the start of a camera capture sequence (e.g. un
 ![Skip Application SkipVideo](../workflows/reactive-skip-application-skipvideo.bonsai)
 :::
 
+> [!NOTE]
+> This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
+
 ### Alternative
 
 Use [`Slice`](xref:Bonsai.Reactive.Slice) to ignore n-th elements from a sequence.
