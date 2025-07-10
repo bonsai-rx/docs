@@ -13,14 +13,14 @@ The general approach when synchronizing two independent data acquisition clocks 
 ![Synching ephys with behavior](~/workflows/synching-ephys-behavior.bonsai)
 :::
 
-- Insert a `KeyDown` source.
-- Insert an `Equal` transform and set its `Value` to one of the keys. The output of this operator will toggle between `True` and `False` depending on whether the key press matches the specified key.
-- Insert a `DigitalOutput` sink and connect it to Arduino pin 13.
+- Insert a [`KeyDown`] source.
+- Insert an [`Equal`] transform and set its `Value` to one of the keys. The output of this operator will toggle between `True` and `False` depending on whether the key press matches the specified key.
+- Insert a [`DigitalOutput`] sink and connect it to Arduino pin 13.
 - Connect the Arduino pin 13 to OpenEphys analog input 1.
-- Insert an `Rhd2000EvalBoard` source.
+- Insert an [`Rhd2000EvalBoard`] source.
 - Select the `Rhd2000DataFrame` > `BoardAdcData` field from the source output using the context menu.
-- Insert a `SelectChannels` transform and set the `Channels` property to 0. This will select only the first analog input channel.
-- Insert a `MatrixWriter` sink and configure its `Path` property with a file name ending in `.bin`.
+- Insert a [`SelectChannels`] transform and set the `Channels` property to 0. This will select only the first analog input channel.
+- Insert a [`MatrixWriter`] sink and configure its `Path` property with a file name ending in `.bin`.
 - Run the workflow and alternate pressing the selected key and some other key. Repeat this a couple of times to make the LED change state.
 - Open the binary file in MATLAB/Python/R and plot the raw data. What can you conclude from it?
 
@@ -30,15 +30,15 @@ The general approach when synchronizing two independent data acquisition clocks 
 ![Synching ephys with video](~/workflows/synching-ephys-video.bonsai)
 :::
 
-- Using the workflow from the previous exercise, insert a `CameraCapture` source and point the camera such that you can see clearly both the LED and the computer keyboard.
-- Insert a `VideoWriter` sink and configure the `FileName` with a path ending in `.avi`.
-- Insert a `Crop` transform and set the `RegionOfInterest` property to a small area around the LED.
-- Insert a `Grayscale` transform.
-- Insert a `Sum (Dsp)` transform. This operator will sum the brightness values of all the pixels in the input image.
+- Using the workflow from the previous exercise, insert a [`CameraCapture`] source and point the camera such that you can see clearly both the LED and the computer keyboard.
+- Insert a [`VideoWriter`] sink and configure the `FileName` with a path ending in `.avi`.
+- Insert a [`Crop`] transform and set the `RegionOfInterest` property to a small area around the LED.
+- Insert a [`Grayscale`] transform.
+- Insert a [`Sum (Dsp)`] transform. This operator will sum the brightness values of all the pixels in the input image.
 - Select the `Scalar` > `Val0` field from the right-click context menu.
-- Record the output in a text file using a `CsvWriter` sink.
+- Record the output in a text file using a [`CsvWriter`] sink.
 - Open both the text file and the binary file in MATLAB/Python/R and check that you have detected an equal number of key presses in both files. What can you conclude from these two pieces of data?
-- **Optional:** Repeat the exercise, replacing the `KeyDown` source with a periodic `Timer`. Can you point out some of the limitations of synchronizing a video stream with ephys using this method?
+- **Optional:** Repeat the exercise, replacing the [`KeyDown`] source with a periodic [`Timer`]. Can you point out some of the limitations of synchronizing a video stream with ephys using this method?
 
 ### **Exercise 3:** Synchronizing video with ephys using GPIO
 
@@ -49,7 +49,7 @@ By connecting this strobe signal to the ephys system and counting the number of 
 - Connect one of the output GPIO camera pins to the OpenEphys analog input 1.
 - Configure the camera output as _strobe_.
 - Insert a `FlyCapture` source or other industrial grade camera capture source.
-- Record the embedded hardware frame counter into a text file using `CsvWriter`.
+- Record the embedded hardware frame counter into a text file using [`CsvWriter`].
 - Record the OpenEphys analog input and verify that you can recover individual camera pulses.
 - Point out some of the remaining difficulties of this approach and how you would adress them.
 
@@ -65,18 +65,18 @@ In this exercise you will track the display of a very simple visual stimulus: a 
 ![Synching ephys with visual stimulus](~/workflows/synching-ephys-visual.bonsai)
 :::
 
-- Insert a `SolidColor` source and set its `Size` property to a positive value, e.g. 100,100.
-- Insert a `Timer` source and set the `Period` to one second.
-- Insert a `Mod` transform and set its `Value` property to 2.
-- Insert a `Multiply` transform and set its `Value` property to 255.
+- Insert a [`SolidColor`] source and set its `Size` property to a positive value, e.g. 100,100.
+- Insert a [`Timer`] source and set the `Period` to one second.
+- Insert a [`Mod`] transform and set its `Value` property to 2.
+- Insert a [`Multiply`] transform and set its `Value` property to 255.
 
 > [!Note]
-> The output of `Timer` is a growing count of the number of ticks. The `Mod` operator computes the remainder of the integer division of a number by another. Because every integer number in the sequence is alternately even or odd, the remainder of the division of the clock ticks by two will constantly oscillate between 0 and 1. Together with the `Multiply` operator, this is an easy way to make a periodic toggle between 0 and some value.
+> The output of [`Timer`] is a growing count of the number of ticks. The [`Mod`] operator computes the remainder of the integer division of a number by another. Because every integer number in the sequence is alternately even or odd, the remainder of the division of the clock ticks by two will constantly oscillate between 0 and 1. Together with the [`Multiply`] operator, this is an easy way to make a periodic toggle between 0 and some value.
 
-- Insert an `InputMapping` operator and connect it to the `SolidColor` source.
+- Insert an [`InputMapping`] operator and connect it to the [`SolidColor`] source.
 - Edit the `PropertyMappings` and add a mapping to the `Color` property. You will have to select four times the input to fill all the components of the `Color` scalar.
-- Run the workflow and verify that the output of `SolidColor` oscillates between black and white.
-- Insert an `Rhd2000EvalBoard` source.
+- Run the workflow and verify that the output of [`SolidColor`] oscillates between black and white.
+- Insert an [`Rhd2000EvalBoard`] source.
 - Select the `Rhd2000DataFrame` > `BoardAdcData` and either save or visualize its output.
 - Connect a photodiode, or a photoresistor, to the ephys analog input and hold it flat against the screen, on top of the visualizer window.
 - Verify that you can capture the transitions between black and white in the ephys data using the photodiode.
@@ -91,3 +91,22 @@ To do this, you can use the photodiode technique described in the previous exerc
 
 - Assuming a DLP projector, how would you design the optical trigger for a camera system that ensures a single pulse is generated for each projected frame (hint: In a DLP projector, each colour of a BGR frame is projected sequentially: first the Blue channel, then the Green, and finally the Red channel, in quick succession)?
 - **Optional:** Synchronize a camera with a projector using the GPIO trigger system outlined above.
+
+<!-- Reference-style links -->
+[`CameraCapture`]: xref: Bonsai.Vision.CameraCapture
+[`Crop`]: xref:Bonsai.Vision.Crop
+[`CsvWriter`]: xref:Bonsai.IO.CsvWriter
+[`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput
+[`Equal`]: xref:Bonsai.Expressions.EqualBuilder
+[`Grayscale`]: xref:Bonsai.Vision.Grayscale
+[`InputMapping`]: xref:Bonsai.Expressions.InputMappingBuilder
+[`KeyDown`]: xref:Bonsai.Windows.Input.KeyDown
+[`MatrixWriter`]: xref:Bonsai.Dsp.MatrixWriter
+[`Mod`]: xref:Bonsai.Expressions.ModBuilder
+[`Multiply`]: xref:Bonsai.Expressions.MultiplyBuilder
+[`Rhd2000EvalBoard`]: xref:Bonsai.Ephys.Rhd2000EvalBoard
+[`SelectChannels`]: xref:Bonsai.Dsp.SelectChannels
+[`SolidColor`]: xref:Bonsai.Vision.SolidColor
+[`Sum (Dsp)`]: xref:Bonsai.Dsp.Sum
+[`Timer`]: xref:Bonsai.Reactive.Timer
+[`VideoWriter`]: xref:Bonsai.Vision.VideoWriter
