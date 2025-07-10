@@ -4,7 +4,7 @@ uid: editor
 
 # Workflow Editor
 
-When Bonsai starts you will be taken directly to the workflow editor. This is where you can create, configure, and run Bonsai workflows. The editor is composed of three main panels: the [`Toolbox`](#toolbox), the [`Workflow`](#workflow), and [`Properties`](#properties). These are described in more detail below.
+When Bonsai starts you will be taken directly to the workflow editor. This is where you can create, configure, and run Bonsai workflows. The editor is composed of four main panels: [`Toolbox`](#toolbox), [`Workflow`](#workflow), [`Explorer`](#explorer) and [`Properties`](#properties). These are described in more detail below.
 
 ![The Bonsai workflow editor](~/images/editor.png)
 
@@ -32,7 +32,7 @@ Another way to quickly find operators is to use the `Search` textbox. Any text i
 > [!Tip]
 > You can directly type and search for operator names when the `Workflow` panel has the input focus. This allows you to simply start typing an operator name and directly select which operator you want with the up/down arrow keys. Once you have the right operator, press the <kbd>Enter</kbd> key to place it. You can repeat the process multiple times to very quickly chain a sequence of operators.
 
-Another useful function of the `Search` textbox is to find existing instances of the selected toolbox operator in the workflow. Once you select an operator in the toolbox, you can use the `Find Next` or `Find Previous` commands to jump into the next instance of the operator, subject, or workflow extension, starting from the current cursor position.
+Another useful function of the `Search` textbox is to find existing instances of the selected toolbox operator in the workflow. Once you select an operator in the toolbox, you can use the `Find Next` or `Find Previous` commands to jump into the next instance of the operator, subject, or workflow extension, starting from the current cursor position. You can also right-click on an operator in the toolbox and select `Find All References` to list all instances of the operator in the workflow.
 
 > [!Tip]
 > You can browse through the reference documentation to learn more about each operator in the `Toolbox` by pressing <kbd>F1</kbd> or selecting `View Help` from the context menu.
@@ -73,7 +73,7 @@ For example, image streams can be displayed on the screen using the default imag
 
 #### Visualizer layout settings
 
-If you leave one or more visualizers open when you stop the workflow, the editor will memorize the position and size of each active window. When you run the workflow again, the same visualizer windows will be opened following the memorized layout. These settings are stored in a `.layout` file which is saved side by side with the workflow so they will persist between editor sessions.
+If you leave one or more visualizers open when you stop the workflow, the editor will memorize the position and size of each active window. When you run the workflow again, the same visualizer windows will be opened following the memorized layout. These settings are stored in a `.layout` file within the `.bonsai` settings folder, allowing them to persist between editor sessions.
 
 > [!Tip]
 > Many visualizers allow you to access more detailed information or advanced configuration parameters by right-clicking on the visualizer window.
@@ -92,7 +92,50 @@ All included workflow extensions are read-only, meaning that you cannot change t
 > [!Warning]
 > When you change the structure of an included workflow and save it over the original file, all references to that workflow extension will be automatically reloaded and updated. This ensures that all references to the same extension remain consistent throughout.
 
+### Watch Mode
+
+To assist with debugging workflows, you can enable watch mode on individual nodes by selecting an operator and clicking on `Toggle Watch` in the toolbar. The watch mode provides runtime feedback on whether the operator has an active subscription from a downstream operator, is emitting values, or whether its subscriptions have terminated. Each status is visually annotated with a symbol displayed adjacent to the operator.
+
+| Status    | Annotation                                                                | Description |
+| --------- | ----------------------------------------------------------------------    | ----------- |
+| Ready     | ![Watch Status Ready](../images/editor-watch-ready.png){width=40}         | No subscriptions have yet been made |
+| Active    | ![Watch Status Active](../images/editor-watch-active.png){width=40}       | At least one active subscription but no values have been emitted yet |
+| Notifying | ![Watch Status Notifying](../images/editor-watch-notifying.png){width=40} | At least one active subscription and emitted at least one value in the last period |
+| Completed | ![Watch Status Completed](../images/editor-watch-completed.png){width=40} | No active subscriptions and at least one subscription terminated successfully |
+| Error     | ![Watch Status Completed](../images/editor-watch-error.png){width=40}     | No active subscriptions and at least one subscription terminated exceptionally |
+| Canceled  | ![Watch Status Canceled](../images/editor-watch-canceled.png){width=40}   | No active subscriptions and at least one subscription was canceled without termination |
+
+> [!WARNING]
+> The watch mode refreshes at a maximum rate of 10 Hz and should not be relied upon to evaluate aspects of workflow behaviour that rely on precise timing.
+
+> [!WARNING]
+> As the watch mode does not currently track individual subscriptions, care must be taken when interpreting multiple parallel subscriptions, as the true state of each one may be obscured.
+
+### Navigation and Layout
+
+You can take advantage of tabs, windows, breadcrumbs and docked panels to navigate complex nested workflows and organize your workspace.
+
+![Editor Dock Panel](../images/editor-dockpanel.png)
+
+Right-clicking on a nested node such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) will bring up the context menu, where you can select the `Open in New Tab` or `Open in New Window` commands. You can also access these commands by right-clicking on the tab header or window title bar.
+
+Each tab or window displays a breadcrumb trail at the top, indicating the location of the current view within the nested workflows. Clicking a breadcrumb switches the view to the corresponding workflow, allowing you to navigate between levels.
+
+You can further organize tabs and windows by rearranging them into docked panels. To do this, click and drag a tab header or window title bar towards the center of the screen. A docking guide overlay will appear, allowing you to position the panel in different regions of the workspace. Once the panel has been placed, you can reposition the borders of the panel, as well as create new tabs.
+
+## Explorer
+
+![Editor Explorer Panel](../images/editor-explorer.png){width=300} 
+
+The `Explorer` panel also supports workflow navigation by providing a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested node. Selecting a node will update the `Workflow` panel view to display the corresponding nested workflow. You can also navigate the tree by using the keyboard arrow keys and pressing <kbd>Enter</kbd> to update the view. To open the node in a new tab or window, right-click on the node label and select one of the options. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
+
+- ✏️ Editable workflow
+- 🔒 Locked workflow (`IncludeWorkflow`)
+- ⛔ Workflow contains errors
+
 ## Properties
+
+![Editor Properties Panel](../images/editor-properties.png){width=300} 
 
 Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the [`Timer`](xref:Bonsai.Reactive.Timer) operator exposes the period between generated values, whereas an image [`Threshold`](xref:Bonsai.Vision.Threshold) exposes the brightness cutoff value applied to individual pixels).
 
