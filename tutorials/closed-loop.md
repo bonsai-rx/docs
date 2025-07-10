@@ -271,6 +271,7 @@ def process(value):
 [`InputMapping`]: xref:Bonsai.Expressions.InputMappingBuilder
 [`LessThan`]: xref:Bonsai.Expressions.LessThanBuilder
 [`Negate`]: xref:Bonsai.Expressions.NegateBuilder
+[`PythonTransform`]: xref:Bonsai.Scripting.IronPython.PythonTransform
 [`Rescale`]: xref:Bonsai.Dsp.Rescale
 [`ServoOutput`]: xref:Bonsai.Arduino.ServoOutput
 [`SortBinaryRegions`]: xref:Bonsai.Vision.SortBinaryRegions
@@ -279,5 +280,3 @@ def process(value):
 [`Threshold`]: xref:Bonsai.Vision.Threshold
 [`TimeInterval`]: xref:Bonsai.Reactive.TimeInterval
 [`WarpAffine`]: xref:Bonsai.Vision.WarpAffine
-
-[`PythonTransform`]: https://www.nuget.org/packages/Bonsai.Scripting.IronPython

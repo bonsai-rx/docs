@@ -190,6 +190,8 @@ What is the minimal discrimination threshold for humans in this task? How would 
 [`AsyncSubject`]: xref:Bonsai.Reactive.AsyncSubject
 [`Boolean`]: xref:Bonsai.Expressions.BooleanProperty
 [`CreateWindow`]: xref:Bonsai.Shaders.CreateWindow
+[`CreateContinuousUniform`]: xref:Bonsai.Numerics.Distributions.CreateContinuousUniform
+[`CreateRandom`]: xref:Bonsai.Numerics.CreateRandom
 [`Delay (Shaders)`]: xref:Bonsai.Shaders.Delay
 [`Delay (Reactive)`]: xref:Bonsai.Reactive.Delay
 [`DelaySubscription (Shaders)`]: xref:Bonsai.Shaders.DelaySubscription
@@ -205,6 +207,7 @@ What is the minimal discrimination threshold for humans in this task? How would 
 [`PublishSubject`]: xref:Bonsai.Reactive.PublishSubject
 [`RenderFrame`]: xref:Bonsai.Shaders.RenderFrame
 [`Repeat`]: xref:Bonsai.Reactive.Repeat
+[`Sample (Numerics)`]: xref:Bonsai.Numerics.Distributions.Sample
 [`SelectMany`]: xref:Bonsai.Reactive.SelectMany
 [`Last`]: xref:Bonsai.Reactive.Last
 [`Sample`]: xref:Bonsai.Reactive.Sample
@@ -220,7 +223,3 @@ What is the minimal discrimination threshold for humans in this task? How would 
 [`DrawQuad`]: https://bonvision.github.io/docs/DrawQuad/
 [`DrawText`]: https://bonvision.github.io/docs/DrawText/
 [`NormalizedView`]: https://bonvision.github.io/docs/NormalizedViewport/
-
-[`CreateContinuousUniform`]: https://www.nuget.org/packages/Bonsai.Numerics
-[`CreateRandom`]: https://www.nuget.org/packages/Bonsai.Numerics
-[`Sample (Numerics)`]: https://www.nuget.org/packages/Bonsai.Numerics

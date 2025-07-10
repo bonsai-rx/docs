@@ -71,7 +71,7 @@ It is also possible to change the temperature of observable sequences using reac
 
 <img alt="Replay operator" src="~/images/reactive-replay.svg" style="max-height:250px;padding:1em 0" />
 
-Conversely, the [`Publish`](xref:Bonsai.Reactive.Publish) operator can be used to share a single subscription to a video file when sending images to downstream observers. In this case, instead of requesting a new subscription to the video for each new observer, the publish behaviour will always share only the images coming from the original subscription, no matter at what point the video is in. The original sequence has been turned from *cold* to *hot*.
+Conversely, the [`Publish`] operator can be used to share a single subscription to a video file when sending images to downstream observers. In this case, instead of requesting a new subscription to the video for each new observer, the publish behaviour will always share only the images coming from the original subscription, no matter at what point the video is in. The original sequence has been turned from *cold* to *hot*.
 
 <img alt="Publish operator" src="~/images/reactive-publish.svg" style="max-height:250px;padding:1em 0" />
 
@@ -81,5 +81,6 @@ In the Bonsai visual language, whenever two operators receive data from the same
 [`Condition`]: xref:Bonsai.Reactive.Condition
 [`Grayscale`]: xref:Bonsai.Vision.Grayscale
 [`KeyDown`]: xref:Bonsai.Windows.Input.KeyDown
+[`Publish`]: xref:Bonsai.Reactive.Publish
 [`Replay`]: xref:Bonsai.Reactive.Replay
 [`Sample`]: xref:Bonsai.Reactive.Sample

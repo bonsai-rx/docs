@@ -30,7 +30,7 @@ The general approach when synchronizing two independent data acquisition clocks 
 ![Synching ephys with video](~/workflows/synching-ephys-video.bonsai)
 :::
 
-- Using the workflow from the previous exercise, insert a `CameraCapture` source and point the camera such that you can see clearly both the LED and the computer keyboard.
+- Using the workflow from the previous exercise, insert a [`CameraCapture`] source and point the camera such that you can see clearly both the LED and the computer keyboard.
 - Insert a [`VideoWriter`] sink and configure the `FileName` with a path ending in `.avi`.
 - Insert a [`Crop`] transform and set the `RegionOfInterest` property to a small area around the LED.
 - Insert a [`Grayscale`] transform.
@@ -93,6 +93,7 @@ To do this, you can use the photodiode technique described in the previous exerc
 - **Optional:** Synchronize a camera with a projector using the GPIO trigger system outlined above.
 
 <!-- Reference-style links -->
+[`CameraCapture`]: xref: Bonsai.Vision.CameraCapture
 [`Crop`]: xref:Bonsai.Vision.Crop
 [`CsvWriter`]: xref:Bonsai.IO.CsvWriter
 [`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput
@@ -103,10 +104,9 @@ To do this, you can use the photodiode technique described in the previous exerc
 [`MatrixWriter`]: xref:Bonsai.Dsp.MatrixWriter
 [`Mod`]: xref:Bonsai.Expressions.ModBuilder
 [`Multiply`]: xref:Bonsai.Expressions.MultiplyBuilder
+[`Rhd2000EvalBoard`]: xref:Bonsai.Ephys.Rhd2000EvalBoard
 [`SelectChannels`]: xref:Bonsai.Dsp.SelectChannels
 [`SolidColor`]: xref:Bonsai.Vision.SolidColor
 [`Sum (Dsp)`]: xref:Bonsai.Dsp.Sum
 [`Timer`]: xref:Bonsai.Reactive.Timer
 [`VideoWriter`]: xref:Bonsai.Vision.VideoWriter
-
-[`Rhd2000EvalBoard`]: https://www.nuget.org/packages/Bonsai.Ephys/
