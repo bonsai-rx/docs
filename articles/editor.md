@@ -89,6 +89,9 @@ To use annotations, search for the [`Annotation`](xref:Bonsai.Expressions.Annota
 > [!Warning]
 > Images are not saved in the `.bonsai` file. To ensure accessibility when linking images, consider keeping them in the same folder as the workflow.
 
+> [!Tip]
+> In contrast to other operators, the [`Annotation`] operator will occupy a full row in the `Workflow` panel when placed on its own. This makes it useful as a section divider in complex workflows.
+
 ### Workflow Extensions
 
 You can create and save workflow extensions by selecting one or more nodes and clicking the `Save Workflow As...` button in the context menu.
