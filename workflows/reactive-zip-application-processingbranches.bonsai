@@ -25,8 +25,14 @@
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
         <ui:Visible>true</ui:Visible>
-        <ui:Location xsi:nil="true" />
-        <ui:Size xsi:nil="true" />
+        <ui:Location>
+          <ui:X>200</ui:X>
+          <ui:Y>300</ui:Y>
+        </ui:Location>
+        <ui:Size>
+          <ui:Width>300</ui:Width>
+          <ui:Height>300</ui:Height>
+        </ui:Size>
         <ui:WindowState xsi:nil="true" />
       </Expression>
     </Nodes>

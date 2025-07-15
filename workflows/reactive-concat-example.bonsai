@@ -35,8 +35,8 @@
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
         <ui:Visible>true</ui:Visible>
         <ui:Location>
-          <ui:X>300</ui:X>
-          <ui:Y>400</ui:Y>
+          <ui:X>200</ui:X>
+          <ui:Y>300</ui:Y>
         </ui:Location>
         <ui:Size>
           <ui:Width>300</ui:Width>
