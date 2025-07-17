@@ -11,7 +11,7 @@ In other words, after each element is emitted by the result sequence, subsequent
 
 ### Example
 
-Use `DistinctUntilChanged` to filter only elements which are distinct from the previous element.
+Use `DistinctUntilChanged` to filter out elements which are identical to the previous one.
 
 :::workflow
 ![DistinctUntilChanged Example](../workflows/reactive-distinctuntilchanged-example.bonsai)
@@ -19,7 +19,7 @@ Use `DistinctUntilChanged` to filter only elements which are distinct from the p
 
 #### Signal State Transitions
 
-Use `DistinctUntilChanged` to signal changes in state, such as when an object enters or leaves a region of interest.
+Use `DistinctUntilChanged` to signal changes in [state](../tutorials/state-machines.md), such as when an object enters or leaves a region of interest.
 
 :::workflow
 ![DistinctUntilChanged Application StateTransitions](../workflows/reactive-distinctuntilchanged-application-statetransitions.bonsai)
