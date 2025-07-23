@@ -8,9 +8,16 @@ The Bonsai language can be extended with custom packages, which are installed an
 
 ## Pre-requisites
 
-1. [Visual Studio](https://www.visualstudio.com/). You can install the Community edition for free.
+1. Install [Visual Studio](https://www.visualstudio.com/). You can install the Community edition for free, the version 2022 works.
 
-2. Bonsai VS Extensions. From the Windows Start Menu, search for the "**Install Bonsai VS Extensions**" shortcut and run it.
+2. Install [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download)
+
+3. In a command-line terminal, run:
+   
+```dotnet new install Bonsai.Templates::2.9.0```
+
+The templates can now be found in visual studio (you can use Visual Studio Community 2022) and it should look like this:
+<img width="2013" height="990" alt="469548332-668dd4a3-aa0f-4bff-972d-218654bdb312" src="https://github.com/user-attachments/assets/bb36869e-b0a8-4d80-87a8-c94bcf1926ef" />
 
 ## Creating a package project
 
