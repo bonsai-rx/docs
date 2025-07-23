@@ -4,21 +4,28 @@ uid: create-package
 
 # Create a Package
 
-The Bonsai language can be extended with custom packages, which are installed and shared using [NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget). Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment. The Bonsai installer includes project templates that make it easier to create your own package project. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.
+The Bonsai language can be extended with custom packages, which are installed and shared using [NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget). Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.
 
 ## Pre-requisites
 
 1. [Visual Studio](https://www.visualstudio.com/). You can install the Community edition for free.
+2. [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download).
+3. Open a command prompt or system terminal and install `Bonsai.Templates`:
 
-2. Bonsai VS Extensions. From the Windows Start Menu, search for the "**Install Bonsai VS Extensions**" shortcut and run it.
+```cmd
+dotnet new install Bonsai.Templates
+```
 
 ## Creating a package project
 
 1. Start **Visual Studio**.
 
-2. Select the **Create a new project** option. In the **Create a new project** dialog, type `bonsai` in the search toolbox. The project template for creating a Bonsai package should now be displayed.
+2. Select the **Create a new project** option. In the **Create a new project** dialog, type `bonsai` in the search toolbox. Select the **Bonsai Package** template to create a new Bonsai package.
 
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
+
+> [!WARNING]
+> If you see multiple duplicate entries, you may have leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To uninstall them, go to **Extensions** > **Manage Extensions** in Visual Studio.
 
 3. Give the project a name and a location, and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
