@@ -4,7 +4,7 @@ uid: create-package
 
 # Create a Package
 
-The Bonsai language can be extended with custom packages, which are installed and shared using [NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget). Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment. We have developed a set of .NET templates that make it easier to create your own package project. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.
+The Bonsai language can be extended with custom packages, which are installed and shared using [NuGet](https://learn.microsoft.com/en-us/nuget/what-is-nuget). Packages are typically written in the C# programming language, using the [Visual Studio](https://www.visualstudio.com/) development environment. We have developed a set of .NET templates that make it easier to create your own package. Once you have developed and refined your custom extensions you can package the code for installing in the Bonsai editor, or sharing with the community.
 
 ## Pre-requisites
 
@@ -12,22 +12,22 @@ The Bonsai language can be extended with custom packages, which are installed an
 2. [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download).
 3. Open a command prompt or system terminal and install `Bonsai.Templates`:
 
-```cmd
-dotnet new install Bonsai.Templates
-```
+    ```cmd
+    dotnet new install Bonsai.Templates
+    ```
 
 ## Creating a package project
 
 1. Start **Visual Studio**.
 
-2. Select the **Create a new project** option. In the **Create a new project** dialog, type `bonsai` in the search toolbox. Select the **Bonsai Package** template to create a new Bonsai package.
+2. Select the **Create a new project** option. In the **Create a new project** dialog, type `bonsai` in the search toolbox. Select the **Bonsai Package** template to create a new Bonsai package solution containing a single project.
 
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
 
 > [!WARNING]
 > If you see multiple duplicate entries, you may have leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To uninstall them, go to **Extensions** > **Manage Extensions** in Visual Studio.
 
-3. Give the project a name and a location, and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
+3. Give a name and a location for the project and solution and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
     ![Bonsai source template](~/images/extensions-sourcetemplate.png)
 
@@ -58,9 +58,9 @@ dotnet new install Bonsai.Templates
 
 5. In order to test our operator, first set up a local bonsai [environment](./environments.md) for the project. Open the Visual Studio terminal from **View** > **Terminal**, navigate to the project folder and run:
 
-```
-dotnet new bonsaienv
-```
+    ```cmd
+    dotnet new bonsaienv
+    ```
 
 6. Run the project with <kbd>F5</kbd>. This will automatically launch the Bonsai editor from the local environment with our package preloaded in the **Toolbox**. Add the new `Source1` node and run the workflow.
 
@@ -89,13 +89,15 @@ dotnet new bonsaienv
     }
     ```
 
-8. It is also possible to debug our code while it is running by setting breakpoints, either by clicking on the left of the line we want to debug or by hitting **F9** over the target code. After this, you can run the code step by step and inspect the runtime value of variables.
+8. It is also possible to debug our code while it is running by setting breakpoints, either by clicking on the left of the line we want to debug or by hitting <kbd>F9</kbd> over the target code. After this, you can run the code step by step and inspect the runtime value of variables.
 
     ![Debugging the sine source](~/images/extensions-debugging.png)
 
-9. Finally, we can add new operators by right-clicking the project name in the solution explorer and selecting `Add` > `New Item`. Templates for creating the most common operator types are available under the **Bonsai** category.
+9. `BonsaiTemplates` also provides additional templates for creating other common Bonsai operator types. For instance, to add a `Transform`, navigate to the project folder and run:
 
-    ![Creating a new Bonsai transform](~/images/extensions-itemtemplate.png)
+    ```cmd
+    dotnet new bonsaitransform
+    ```
 
     For example, we can create a simple transform that tests whether each of the values emitted by the sinewave generator is positive:
 
@@ -112,7 +114,29 @@ dotnet new bonsaienv
     }
     ```
 
-## Publishing a package project
+## Adding projects to the package
+
+As packages become more complex, it can be helpful to organize functionality across multiple projects. To add a new project within Visual Studio, right-click the solution name in **Solution Explorer**, chooses **Add** > **New Project**, and select the **Bonsai Library** template.
+
+Alternatively, you can do this from the terminal by navigating to the `src` folder and running:
+
+```cmd
+dotnet new bonsailib -n ProjectName
+```
+
+Add the project to the solution by navigating to the solution folder and running:
+
+```cmd
+dotnet sln add src/ProjectName
+```
+
+## Adding package documentation
+
+```cmd
+dotnet new bonsaidocs
+```
+
+## Publishing a package
 
 1. Double-click the name of the project in the Visual Studio Solution Explorer to open up the package metadata.
 
