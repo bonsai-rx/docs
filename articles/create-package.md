@@ -23,17 +23,20 @@ The Bonsai language can be extended with custom packages, which are installed an
 2. Select the **Create a new project** option. In the **Create a new project** dialog, type `bonsai` in the search toolbox. Select the **Bonsai Package** template to create a new Bonsai package solution containing a single project.
 
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
-
-> [!WARNING]
-> If you see multiple duplicate entries, you may have leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To uninstall them, go to **Extensions** > **Manage Extensions** in Visual Studio.
+    
+    > [!WARNING]
+    > If you see multiple duplicate entries, you may have leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To uninstall them, go to **Extensions** > **Manage Extensions** in Visual Studio.
 
 3. Give a name and a location for the project and solution and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
     ![Bonsai source template](~/images/extensions-sourcetemplate.png)
 
-> [!TIP]
-> The example code includes [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags), which can be processed by [docfx](https://dotnet.github.io/docfx/index.html) to automatically generate documentation pages for your package.
-> For more information, check out the [Documentation with docfx](./documentation-docfx.md) article.
+    > [!TIP]
+    > To prevent unnecessary nested folders, enable the checkbox that places the project and solution in the same directory. The **Bonsai Package** template automatically creates a separate project directory inside the `src` folder.
+
+    > [!TIP]
+    > The example code includes [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags), which can be processed by [docfx](https://dotnet.github.io/docfx/index.html) to automatically generate documentation pages for your package.
+    > For more information, check out the [Documentation with docfx](./documentation-docfx.md) article.
 
 4. Every Bonsai operator specifies an observable sequence using the <xref href="System.IObservable`1"/> interface. The [System.Reactive](http://reactivex.io/) package provides a comprehensive library of methods used to generate and manipulate observable sequences in C#. The simplest way to implement a source is by using the methods in the <xref href="System.Reactive.Linq.Observable"/> class.
 
@@ -56,11 +59,13 @@ The Bonsai language can be extended with custom packages, which are installed an
     }
     ```
 
-5. In order to test our operator, first set up a local bonsai [environment](./environments.md) for the project. Open the Visual Studio terminal from **View** > **Terminal**, navigate to the project folder and run:
+5. In order to test our operator, first set up a local bonsai [environment](./environments.md) for the project. Open the Visual Studio terminal from **View** > **Terminal**, navigate to the solution folder and run:
 
     ```cmd
     dotnet new bonsaienv
     ```
+
+    Press <kbd>Y</kbd> to run the powershell script.
 
 6. Run the project with <kbd>F5</kbd>. This will automatically launch the Bonsai editor from the local environment with our package preloaded in the **Toolbox**. Add the new `Source1` node and run the workflow.
 
@@ -93,7 +98,7 @@ The Bonsai language can be extended with custom packages, which are installed an
 
     ![Debugging the sine source](~/images/extensions-debugging.png)
 
-9. `BonsaiTemplates` also provides additional templates for creating other common Bonsai operator types. For instance, to add a `Transform`, navigate to the project folder and run:
+9. `Bonsai.Templates` also provides additional templates for creating other common Bonsai operator types. For instance, to add a `Transform`, navigate to the project folder in the terminal and run:
 
     ```cmd
     dotnet new bonsaitransform
@@ -114,9 +119,17 @@ The Bonsai language can be extended with custom packages, which are installed an
     }
     ```
 
+    > [!NOTE]
+    > To include .bonsai workflow files in your package, tag them as embedded resources by including this snippet in your project `.csproj` file. 
+    > ```c#
+    > <ItemGroup>
+    >   <EmbeddedResource Include="**\*.bonsai" />
+    > </ItemGroup>
+    > ```
+
 ## Adding projects to the package
 
-As packages become more complex, it can be helpful to organize functionality across multiple projects. To add a new project within Visual Studio, right-click the solution name in **Solution Explorer**, chooses **Add** > **New Project**, and select the **Bonsai Library** template.
+As packages become more complex, it can be helpful to organize functionality across multiple projects. To add a new project within Visual Studio, right-click the solution name in **Solution Explorer**, choose **Add** > **New Project**, and select the **Bonsai Library** template.
 
 Alternatively, you can do this from the terminal by navigating to the `src` folder and running:
 
