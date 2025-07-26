@@ -142,10 +142,23 @@ dotnet sln add src/ProjectName --in-root
 
 ## Adding package documentation
 
-Including [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in your code allows for the generation of online documentation using [docfx](https://dotnet.github.io/docfx/index.html). `Bonsai.Templates` provides a `docfx` template for Bonsai packages. To set it up, navigate to the solution folder and run:
+Including [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in your code allows for the generation of online documentation using [docfx](https://dotnet.github.io/docfx/index.html). `Bonsai.Templates` provides a `docfx` template for Bonsai packages. To set it up, navigate to the solution folder and install `docfx` as a local tool:
+
+```cmd
+dotnet new tool-manifest
+dotnet tool install --local docfx
+```
+
+Initialize the Bonsai `docfx` template by running:
 
 ```cmd
 dotnet new bonsaidocs
+```
+
+Navigate to the `docs` folder and run this command to generate an online preview of the website:
+
+```cmd
+dotnet docfx --serve
 ```
 
 ## Publishing a package
