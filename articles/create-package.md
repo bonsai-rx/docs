@@ -25,18 +25,14 @@ The Bonsai language can be extended with custom packages, which are installed an
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
     
     > [!WARNING]
-    > If you see multiple duplicate entries, you may have leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To uninstall them, go to **Extensions** > **Manage Extensions** in Visual Studio.
+    > If you see only one entry or multiple duplicate entries, it may indicate leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To maintain a clean development environment, go to **Extensions** > **Manage Extensions** in Visual Studio to uninstall them.
 
-3. Give a name and a location for the project and solution and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
+3. Give a name and a location for the package project and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
     ![Bonsai source template](~/images/extensions-sourcetemplate.png)
 
     > [!TIP]
     > To prevent unnecessary nested folders, enable the checkbox that places the project and solution in the same directory. The **Bonsai Package** template automatically creates a separate project directory inside the `src` folder.
-
-    > [!TIP]
-    > The example code includes [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags), which can be processed by [docfx](https://dotnet.github.io/docfx/index.html) to automatically generate documentation pages for your package.
-    > For more information, check out the [Documentation with docfx](./documentation-docfx.md) article.
 
 4. Every Bonsai operator specifies an observable sequence using the <xref href="System.IObservable`1"/> interface. The [System.Reactive](http://reactivex.io/) package provides a comprehensive library of methods used to generate and manipulate observable sequences in C#. The simplest way to implement a source is by using the methods in the <xref href="System.Reactive.Linq.Observable"/> class.
 
@@ -120,7 +116,8 @@ The Bonsai language can be extended with custom packages, which are installed an
     ```
 
     > [!NOTE]
-    > To include .bonsai workflow files in your package, tag them as embedded resources by including this snippet in your project `.csproj` file. 
+    > To include Bonsai workflow operators in your package, tag them as embedded resources by including this snippet in your project `.csproj` file. 
+    >
     > ```c#
     > <ItemGroup>
     >   <EmbeddedResource Include="**\*.bonsai" />
@@ -129,7 +126,7 @@ The Bonsai language can be extended with custom packages, which are installed an
 
 ## Adding projects to the package
 
-As packages become more complex, it can be helpful to organize functionality across multiple projects. To add a new project within Visual Studio, right-click the solution name in **Solution Explorer**, choose **Add** > **New Project**, and select the **Bonsai Library** template.
+As packages become more complex, it can be helpful to organize functionality across multiple projects. To add a new project within Visual Studio, right-click the solution name in **Solution Explorer**, choose **Add** > **New Project**, and select the **Bonsai Library** template. Select the `src` folder as the location for the project.
 
 Alternatively, you can do this from the terminal by navigating to the `src` folder and running:
 
@@ -140,10 +137,12 @@ dotnet new bonsailib -n ProjectName
 Add the project to the solution by navigating to the solution folder and running:
 
 ```cmd
-dotnet sln add src/ProjectName
+dotnet sln add src/ProjectName --in-root
 ```
 
 ## Adding package documentation
+
+Including [XML documentation comments](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags) in your code allows for the generation of online documentation using [docfx](https://dotnet.github.io/docfx/index.html). `Bonsai.Templates` provides a `docfx` template for Bonsai packages. To set it up, navigate to the solution folder and run:
 
 ```cmd
 dotnet new bonsaidocs
@@ -155,14 +154,16 @@ dotnet new bonsaidocs
 
     ![Inspecting the package metadata](~/images/extensions-packagemetadata.png)
 
-2. Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to `Title`, `Description`, `Authors`, `Copyright`, `PackageProjectUrl`, `PackageLicenseExpression`, `PackageIcon` and `PackageTags` to make sure that they correctly describe your project. Make sure that `Version` is correctly assigned in every new release to avoid problems during package updates. In order to make your project discoverable through the Bonsai package manager, make sure to include the `PackageType` field and specify both `Dependency` and `BonsaiLibrary` as package types.
+2. Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to `Description` to make sure that it correctly describes your project. In order to make your project discoverable through the Bonsai package manager, make sure to include the `PackageType` field and specify `BonsaiLibrary` as package types.
 
-    > [!Tip]
+3. Additional package properties can be defined in `Package.props` and `Version.props` files located in the `build` folder. For instance, add a `PackageProjectUrl` and make sure that `Version` is correctly assigned in every new release to avoid problems during package updates.     
+
+> [!Tip]
     > Use version suffixes for sharing prerelease versions for testing, e.g. `0.1.0-alpha`. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox "Include prerelease" is checked.
 
-3. Build the project in **Release** mode. If all metadata is correctly specified, the build process should generate a `.nupkg` file as part of the output. By default, it will be placed in the same `bin\Release` folder where the project assembly (.dll) is generated.
+4. Build the project in **Release** mode. If all metadata is correctly specified, the build process should generate a `.nupkg` file as part of the output. By default, it will be placed in the same `bin\Release` folder where the project assembly (.dll) is generated.
 
-4. To install the package in the editor, [configure a new package source](./packages.md#configure-package-sources) pointing to a folder containing your generated `.nupkg` file, or simply copy the `.nupkg` file to the `Gallery` folder of your local Bonsai installation. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).
+5. To install the package in the editor, [configure a new package source](./packages.md#configure-package-sources) pointing to a folder containing your generated `.nupkg` file, or simply copy the `.nupkg` file to the `Gallery` folder of your local Bonsai installation. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).
 
     > [!Warning]
     > If you have your custom package installed in the same editor used to debug the source code, Bonsai will prefer the installed package over the compiled source code library. In this case, either uninstall the package, or use a local Bonsai installation.
