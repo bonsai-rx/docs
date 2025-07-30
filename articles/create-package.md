@@ -25,7 +25,7 @@ The Bonsai language can be extended with custom packages, which are installed an
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
     
     > [!WARNING]
-    > If you see only one entry or multiple duplicate entries, it may indicate leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To maintain a clean development environment, go to **Extensions** > **Manage Extensions** in Visual Studio to uninstall them.
+    > If you see multiple duplicate entries, it may indicate leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To maintain a clean development environment, go to **Extensions** > **Manage Extensions** in Visual Studio to uninstall them.
 
 3. Give a name and a location for the package project and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
@@ -155,11 +155,19 @@ Initialize the Bonsai `docfx` template by running:
 dotnet new bonsaidocs
 ```
 
+This template requires specific submodules and therefore must be deployed inside a Git repository. To complete initialization of the template, clone the tools repository as a submodule:
+
+```cmd
+git submodule add https://github.com/bonsai-rx/docfx-tools bonsai-docfx
+```
+
 Navigate to the `docs` folder and run this command to generate an online preview of the website:
 
 ```cmd
 dotnet docfx --serve
 ```
+
+For more information on using `docfx` as well as content formatting tips, see the [Documentation With Docfx](./documentation-docfx.md) article and [Documentation Style Guide](./documentation-style-guide.md).
 
 ## Publishing a package
 
@@ -171,7 +179,7 @@ dotnet docfx --serve
 
 3. Additional package properties can be defined in `Package.props` and `Version.props` files located in the `build` folder. For instance, add a `PackageProjectUrl` and make sure that `Version` is correctly assigned in every new release to avoid problems during package updates.     
 
-> [!Tip]
+    > [!Tip]
     > Use version suffixes for sharing prerelease versions for testing, e.g. `0.1.0-alpha`. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox "Include prerelease" is checked.
 
 4. Build the project in **Release** mode. If all metadata is correctly specified, the build process should generate a `.nupkg` file as part of the output. By default, it will be placed in the same `bin\Release` folder where the project assembly (.dll) is generated.
