@@ -103,7 +103,7 @@ The Bonsai language can be extended with custom packages, which are installed an
 9. `Bonsai.Templates` also provides additional templates for creating other common Bonsai operator types (`Sink`/`Source`/`Transform`/`Visualizer`/`Workflow`). For instance, to add a `Transform`, navigate to the project folder in the terminal and run:
 
     ```cmd
-    dotnet new bonsaitransform
+    dotnet new bonsaitransform -n OperatorName
     ```
 
     For example, we can create a simple transform that tests whether each of the values emitted by the sinewave generator is positive:
