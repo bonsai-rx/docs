@@ -25,7 +25,7 @@ The Bonsai language can be extended with custom packages, which are installed an
     ![Creating a new Bonsai package project](~/images/extensions-packageproject.png)
     
     > [!WARNING]
-    > If you see multiple duplicate entries, it may indicate leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To maintain a clean development environment, go to **Extensions** > **Manage Extensions** in Visual Studio to uninstall them.
+    > If you see multiple duplicate entries, this indicates leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To maintain a clean development environment, go to **Extensions** > **Manage Extensions** in Visual Studio to uninstall them.
 
 3. Give a name and a location for the package project and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
@@ -175,19 +175,29 @@ For more information on using `docfx` as well as content formatting tips, see th
 
     ![Inspecting the package metadata](~/images/extensions-packagemetadata.png)
 
-2. Fill in or edit all the relevant metadata fields. These are critical to correctly communicate the provenance of your project to other users. Please pay special attention to `Description` to make sure that it correctly describes your project. In order to make your project discoverable through the Bonsai package manager, make sure to include the `PackageType` field and specify `BonsaiLibrary` as package types.
+2. Fill in or edit all the relevant metadata fields. Pay special attention to `Description` to make sure that it correctly describes your project. 
 
-3. Additional package properties can be defined in `Package.props` and `Version.props` files located in the `build` folder. For instance, add a `PackageProjectUrl` and make sure that `Version` is correctly assigned in every new release to avoid problems during package updates.     
+3. Additional package properties can be defined in the `Package.props` file, which is located in the `build` folder. For instance, modify `PackageProjectUrl` to specify the URL for the project's source repository.
+
+4. Open the `AssemblyInfo.cs` file located in the `Properties` folder in Solution Explorer and assign a namespace prefix for the package. For instance:
+
+    ```c#
+    [assembly: XmlNamespacePrefix("clr-namespace:BonsaiPackage", "bpkg")]
+    ```
+
+5. Navigate to the solution folder and run the following command to pack the project in **Release** mode. If all metadata is correctly specified, the build process should generate a `.nupkg` file as part of the output. By default, it will be placed in the `artifacts\package\release` folder. Ensure that `Version` is correctly assigned in every new release to avoid problems during package updates.
+
+    ```cmd
+    dotnet pack -c Release -p:Version=0.1.0
+    ```
 
     > [!Tip]
-    > Use version suffixes for sharing prerelease versions for testing, e.g. `0.1.0-alpha`. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox "Include prerelease" is checked.
+    > Use version suffixes for sharing prerelease versions for testing, e.g. `0.1.0-dev0`. If a package version has a prerelease suffix, it will only be listed by the package manager if the checkbox "Include prerelease" is checked.
 
-4. Build the project in **Release** mode. If all metadata is correctly specified, the build process should generate a `.nupkg` file as part of the output. By default, it will be placed in the same `bin\Release` folder where the project assembly (.dll) is generated.
-
-5. To install the package in the editor, [configure a new package source](./packages.md#configure-package-sources) pointing to a folder containing your generated `.nupkg` file, or simply copy the `.nupkg` file to the `Gallery` folder of your local Bonsai installation. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).
+6. To install the package in the editor, [configure a new package source](./packages.md#configure-package-sources) pointing to a folder containing your generated `.nupkg` file. The package should then be listed in the package manager (make sure to select the package source where the package is located if you cannot find it in the list).
 
     > [!Warning]
     > If you have your custom package installed in the same editor used to debug the source code, Bonsai will prefer the installed package over the compiled source code library. In this case, either uninstall the package, or use a local Bonsai installation.
 
     > [!Note]
-    > If you would like to share the package with the broader Bonsai community, consider publishing it to [NuGet](https://www.nuget.org/packages/manage/upload) by creating a NuGet account and uploading the `.nupkg` file. Ensure the `PackageType` field is properly defined before submission.
+    > If you would like to share the package with the broader Bonsai community, consider publishing it to [NuGet](https://www.nuget.org/packages/manage/upload) by creating a NuGet account and uploading the `.nupkg` file.
