@@ -27,6 +27,12 @@ The Bonsai language can be extended with custom packages, which are installed an
     > [!WARNING]
     > If you see multiple duplicate entries, this indicates leftover deprecated `Bonsai VS extensions` from a previous Bonsai installation. To maintain a clean development environment, go to **Extensions** > **Manage Extensions** in Visual Studio to uninstall them.
 
+    > [!TIP]
+    > You can also perform this action from a terminal by running:
+    > ```c#
+    > dotnet new bonsaipackage -n PackageName -au "Author Name"
+    > ```
+
 3. Give a name and a location for the package project and press the `Create` button. After the project is created, you should see that a file "**Source1.cs**" has been added to the solution explorer. This file contains an example implementation of a custom source.
 
     ![Bonsai source template](~/images/extensions-sourcetemplate.png)
