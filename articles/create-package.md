@@ -100,7 +100,7 @@ The Bonsai language can be extended with custom packages, which are installed an
 
     ![Debugging the sine source](~/images/extensions-debugging.png)
 
-9. `Bonsai.Templates` also provides additional templates for creating other common Bonsai operator types. For instance, to add a `Transform`, navigate to the project folder in the terminal and run:
+9. `Bonsai.Templates` also provides additional templates for creating other common Bonsai operator types (`Sink`/`Source`/`Transform`/`Visualizer`/`Workflow`). For instance, to add a `Transform`, navigate to the project folder in the terminal and run:
 
     ```cmd
     dotnet new bonsaitransform
@@ -122,7 +122,7 @@ The Bonsai language can be extended with custom packages, which are installed an
     ```
 
     > [!NOTE]
-    > To include Bonsai workflow operators in your package, tag them as embedded resources by including this snippet in your project `.csproj` file. 
+    > To include Bonsai `Workflow` operators in your package, tag them as embedded resources by including this snippet in your project `.csproj` file. 
     >
     > ```c#
     > <ItemGroup>
