@@ -11,3 +11,17 @@ If no `TimeShift` is provided, the windows will be strictly non-overlapping, wit
 
 > [!Note]
 > You can manipulate and schedule each of the windows downstream using other higher-order operators such as [`Merge`](xref:Bonsai.Reactive.Merge), [`Concat`](xref:Bonsai.Reactive.Concat) or [`Switch`](xref:Bonsai.Reactive.Switch).
+
+### Example
+
+Use `WindowTime` to group elements into zero or more observable sequences based on timing information.
+
+:::workflow
+![WindowTime Example](../workflows/reactive-windowtime-example.bonsai)
+:::
+
+### Alternatives
+
+Use [`WindowCount`](xref:Bonsai.Reactive.WindowCount) instead to create new observable sequences based on element count.
+
+Use [`BufferTime`](xref:Bonsai.Reactive.BufferTime) instead to group elements into zero or more buffers based on timing information.
