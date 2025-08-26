@@ -10,3 +10,15 @@ title: Switch
 The resulting sequence will terminate successfully when the outer sequence has terminated successfully, and the currently active sequence (if any) also terminates successfully. It will terminate exceptionally if any of the sequences produces an error.
 
 `Switch` is useful to model interruptible states, for example when transitioning between different modes of a state-machine, or switching between different video channels on demand.
+
+### Example
+
+Use `Switch` to switch to the latest observable sequence that emits notifications.
+
+:::workflow
+![Switch Example](../workflows/reactive-switch-example.bonsai)
+:::
+
+### Alternative
+
+Use [`Amb`](xref:Bonsai.Reactive.Amb) instead to propagate the first observable sequence that emits notifications.
