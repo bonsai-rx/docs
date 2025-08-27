@@ -26,4 +26,4 @@ Use `WindowTrigger` to group elements into zero or more observable sequences bas
 
 Use [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) instead to group elements into zero or more buffers based on notifications from a second sequence.
 
-Use [`Window`](xref:Bonsai.Reactive.Window) instead if you want to specify a second dynamic close condition.
+Use [`Window`](xref:Bonsai.Reactive.Window) instead if you want to specify a dynamic close condition.
