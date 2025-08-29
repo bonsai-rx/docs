@@ -11,3 +11,15 @@ The input to the nested workflow represents the element passed as an argument to
 
 > [!Tip]
 > `SelectMany` is one of the most versatile reactive operators and can be used as a primitive building block on which to build a large number of more complex reactive operators, including reactive state machines. See the [State Machines tutorial](xref:state-machines-tutorial) for examples.
+
+### Example
+
+Use `SelectMany` to create higher-order observable sequences and merge them into a single sequence.
+
+:::workflow
+![SelectMany Example](../workflows/reactive-selectmany-example.bonsai)
+:::
+
+### Alternatives
+
+Use [`CreateObservable`](xref:Bonsai.Reactive.CreateObservable) instead to create separate higher-order observable sequences.

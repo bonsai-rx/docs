@@ -11,3 +11,15 @@ When a new element is received from the source sequence, it is paired with the c
 
 > [!Warning]
 > The nested sequence may be synchronous or asynchronous with respect to notifications from the source sequence. However, it is strongly recommended that computation of the accumulation function is performed synchronously to ensure a correspondence between the notifications received from the source sequence and the cumulative values emitted by the result sequence.
+
+### Example
+
+Use `Scan` to define an accumulation function using the encapsulated workflow.
+
+:::workflow
+![Scan Example](../workflows/reactive-scan-example.bonsai)
+:::
+
+### Alternatives
+
+Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to yield a linear accumulation of values.
