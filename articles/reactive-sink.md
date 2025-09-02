@@ -12,3 +12,11 @@ The `Sink` operator uses the nested workflow to specify a reactive operation ove
 
 > [!Warning]
 > If the source sequence terminates, the subscription to the nested sequence will be cancelled. If the reactive operation needs to be fully asynchronous and decoupled from the main sequence, consider using @subjects to process items in a separate branch of the workflow.
+
+### Example
+
+Use `Sink` to add side effects specified by the encapsulated workflow.
+
+:::workflow
+![Sink Example](../workflows/reactive-sink-example.bonsai)
+:::

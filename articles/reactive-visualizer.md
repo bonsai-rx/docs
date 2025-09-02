@@ -9,3 +9,11 @@ The `Visualizer` operator is a [Sink](xref:Bonsai.Reactive.Sink) which uses the 
 
 > [!Note]
 > All notifications emitted by the inner [`WorkflowOutput`](xref:Bonsai.Expressions.WorkflowOutputBuilder) node are ignored. However, the type visualizer assigned to the nested workflow output will be considered as the default visualizer of the outer node.
+
+### Example
+
+Use `Visualizer` to use the encapsulated workflow as a visualizer.
+
+:::workflow
+![Visualizer Example](../workflows/reactive-visualizer-example.bonsai)
+:::
