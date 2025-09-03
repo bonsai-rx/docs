@@ -23,6 +23,7 @@
       </Expression>
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="p1:IplImageVisualizer" />
+        <ui:Text>VisualizerWindow 1</ui:Text>
         <ui:Visible>true</ui:Visible>
         <ui:Location>
           <ui:X>200</ui:X>
@@ -40,9 +41,10 @@
       </Expression>
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="p1:IplImageVisualizer" />
+        <ui:Text>VisualizerWindow 2</ui:Text>
         <ui:Visible>true</ui:Visible>
         <ui:Location>
-          <ui:X>550</ui:X>
+          <ui:X>500</ui:X>
           <ui:Y>300</ui:Y>
         </ui:Location>
         <ui:Size xsi:nil="true" />

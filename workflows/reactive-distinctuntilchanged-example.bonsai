@@ -8,7 +8,8 @@
     <Nodes>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT1S</rx:DueTime>
+          <rx:DueTime>PT0S</rx:DueTime>
+          <rx:Period>PT2S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -16,24 +17,23 @@
           <Value>true</Value>
         </Combinator>
       </Expression>
-      <Expression xsi:type="rx:Append">
-        <Operand xsi:type="BooleanProperty">
-          <Value>true</Value>
-        </Operand>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT1S</rx:DueTime>
+          <rx:Period>PT4S</rx:Period>
+        </Combinator>
       </Expression>
-      <Expression xsi:type="rx:Append">
-        <Operand xsi:type="BooleanProperty">
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="BooleanProperty">
           <Value>false</Value>
-        </Operand>
+        </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:DistinctUntilChanged" />
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Repeat" />
+        <Combinator xsi:type="rx:Merge" />
       </Expression>
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
+        <ui:Text>VisualizerWindow 1</ui:Text>
         <ui:Visible>true</ui:Visible>
         <ui:Location>
           <ui:X>200</ui:X>
@@ -45,14 +45,32 @@
         </ui:Size>
         <ui:WindowState xsi:nil="true" />
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:DistinctUntilChanged" />
+      </Expression>
+      <Expression xsi:type="ui:VisualizerWindow">
+        <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
+        <ui:Text>VisualizerWindow 2</ui:Text>
+        <ui:Visible>true</ui:Visible>
+        <ui:Location>
+          <ui:X>500</ui:X>
+          <ui:Y>300</ui:Y>
+        </ui:Location>
+        <ui:Size>
+          <ui:Width>300</ui:Width>
+          <ui:Height>300</ui:Height>
+        </ui:Size>
+        <ui:WindowState xsi:nil="true" />
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
-      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="4" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
-      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="3" To="4" Label="Source2" />
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
