@@ -28,7 +28,7 @@
         <ui:Visible>true</ui:Visible>
         <ui:Location>
           <ui:X>200</ui:X>
-          <ui:Y>300</ui:Y>
+          <ui:Y>200</ui:Y>
         </ui:Location>
         <ui:Size>
           <ui:Width>300</ui:Width>

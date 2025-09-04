@@ -14,7 +14,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT10S</rx:DueTime>
+          <rx:DueTime>PT5S</rx:DueTime>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">

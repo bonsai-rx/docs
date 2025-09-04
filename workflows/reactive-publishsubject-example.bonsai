@@ -19,19 +19,16 @@
         <Name>TimerSubject</Name>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
+        <Combinator xsi:type="rx:DelaySubscription">
           <rx:DueTime>PT3S</rx:DueTime>
         </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:SubscribeWhen" />
       </Expression>
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
         <ui:Visible>true</ui:Visible>
         <ui:Location>
           <ui:X>200</ui:X>
-          <ui:Y>350</ui:Y>
+          <ui:Y>300</ui:Y>
         </ui:Location>
         <ui:Size>
           <ui:Width>300</ui:Width>
@@ -42,9 +39,8 @@
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
-      <Edge From="2" To="4" Label="Source1" />
-      <Edge From="3" To="4" Label="Source2" />
-      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
