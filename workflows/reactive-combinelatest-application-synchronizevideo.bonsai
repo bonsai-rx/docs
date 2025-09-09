@@ -38,16 +38,6 @@
           <dsp:Axis>0</dsp:Axis>
         </Combinator>
       </Expression>
-      <Expression xsi:type="ui:VisualizerWindow">
-        <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="p1:IplImageVisualizer" />
-        <ui:Visible>true</ui:Visible>
-        <ui:Location>
-          <ui:X>200</ui:X>
-          <ui:Y>350</ui:Y>
-        </ui:Location>
-        <ui:Size xsi:nil="true" />
-        <ui:WindowState xsi:nil="true" />
-      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
           <cv:Suffix>None</cv:Suffix>
@@ -61,6 +51,16 @@
           </cv:FrameSize>
           <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
         </Combinator>
+      </Expression>
+      <Expression xsi:type="ui:VisualizerWindow">
+        <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="p1:IplImageVisualizer" />
+        <ui:Visible>true</ui:Visible>
+        <ui:Location>
+          <ui:X>200</ui:X>
+          <ui:Y>350</ui:Y>
+        </ui:Location>
+        <ui:Size xsi:nil="true" />
+        <ui:WindowState xsi:nil="true" />
       </Expression>
     </Nodes>
     <Edges>

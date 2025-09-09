@@ -28,36 +28,8 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT0S</rx:DueTime>
-                <rx:Period>PT0.05S</rx:Period>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="BooleanProperty">
-                <Value>true</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="ard:DigitalOutput">
-                <ard:PortName>Arduino</ard:PortName>
-                <ard:Pin>1</ard:Pin>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Delay">
-                <rx:DueTime>PT0.02S</rx:DueTime>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="BooleanProperty">
-                <Value>false</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="ard:DigitalOutput">
-                <ard:PortName>Arduino</ard:PortName>
-                <ard:Pin>1</ard:Pin>
+              <Combinator xsi:type="ard:DigitalInput">
+                <ard:Pin>0</ard:Pin>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -68,11 +40,6 @@
           <Edges>
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -84,6 +51,7 @@
       </Expression>
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="p1:IplImageVisualizer" />
+        <ui:Text>VisualizerWindow 1</ui:Text>
         <ui:Visible>true</ui:Visible>
         <ui:Location>
           <ui:X>200</ui:X>
@@ -97,6 +65,7 @@
       </Expression>
       <Expression xsi:type="ui:VisualizerWindow">
         <ui:VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
+        <ui:Text>VisualizerWindow 2</ui:Text>
         <ui:Visible>true</ui:Visible>
         <ui:Location>
           <ui:X>550</ui:X>
