@@ -8,3 +8,9 @@
 /**/obj/
 _exported_templates
 _site
+
+# Bonsai
+bin/
+obj/
+**/.bonsai/*
+!**/.bonsai/Bonsai.config
