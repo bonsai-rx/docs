@@ -20,6 +20,6 @@ Use `ToLookup` to create a lookup from an observable sequence according to the s
 ![ToLookup Example](../workflows/reactive-tolookup-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`ToDictionary`](xref:Bonsai.Reactive.ToDictionary) to link single elements to keys.

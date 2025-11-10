@@ -19,6 +19,6 @@ Use `RetryCount` to repeat subscription to an observable sequence a specified nu
 ![RetryCount Example](../workflows/reactive-retrycount-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Retry`](xref:Bonsai.Reactive.RetryCount) instead to repeat subscription to an observable sequence until it terminates successfully, without limit on retries.

@@ -18,7 +18,7 @@ Use `Sample` to extract elements from a source sequence based on triggers from a
 ![Sample Example](../workflows/reactive-sample-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`SampleInterval`](xref:Bonsai.Reactive.SampleInterval) to extract elements based on time.
 

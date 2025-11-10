@@ -22,7 +22,7 @@ Use `WindowTrigger` to group elements into zero or more observable sequences bas
 ![WindowTrigger Example](../workflows/reactive-windowtrigger-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) instead to group elements into zero or more buffers based on notifications from a second sequence.
 

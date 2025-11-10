@@ -17,7 +17,7 @@ Use `TakeWhile` to return elements in an observable sequence as long as the cond
 ![TakeWhile Example](../workflows/reactive-takewhile-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`TakeUntil`](xref:Bonsai.Reactive.TakeUntil) instead to return elements only after a second sequence emits a notification.
 

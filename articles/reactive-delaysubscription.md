@@ -17,6 +17,6 @@ Use `DelaySubscription` to delay initialization of an observable sequence.
 ![DelaySubscription Example](../workflows/reactive-delaysubscription-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Delay`](xref:Bonsai.Reactive.Delay) to access past data from [*hot*](xref:observables#temperature) sequences or delay notifications of an observable sequence.

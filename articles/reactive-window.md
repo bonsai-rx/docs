@@ -20,6 +20,6 @@ Use `Window` to group elements into zero or more observable sequences based on n
 ![Window Example](../workflows/reactive-window-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) instead to group elements into zero or more observable sequences based solely on notifications from a second sequence.

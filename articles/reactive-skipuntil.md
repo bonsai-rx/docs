@@ -31,7 +31,7 @@ Use `SkipUntil` to start video recording when a trigger is sent (e.g. key press)
 > [!NOTE]
 > Use [`TakeUntil`](xref:Bonsai.Reactive.TakeUntil) to control the termination of video recording.
 
-### Alternative
+### Related Operators
 
 Use [`SubscribeWhen`](xref:Bonsai.Reactive.SubscribeWhen) to control the start of subscription.
 

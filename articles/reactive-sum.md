@@ -15,6 +15,6 @@ Use `Sum` to report the total value at the end of a sequence.
 ![Sum Example](../workflows/reactive-sum-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to continuously track the value in the sequence.

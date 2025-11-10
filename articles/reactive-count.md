@@ -15,6 +15,6 @@ Use `Count` to report the total count of elements at the end of a sequence.
 ![Count Example](../workflows/reactive-count-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`ElementIndex`](xref:Bonsai.Reactive.ElementIndex) instead to continuously track the number of elements in the sequence.

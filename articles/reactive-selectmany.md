@@ -20,6 +20,6 @@ Use `SelectMany` to create higher-order observable sequences and merge them into
 ![SelectMany Example](../workflows/reactive-selectmany-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`CreateObservable`](xref:Bonsai.Reactive.CreateObservable) instead to create separate higher-order observable sequences.

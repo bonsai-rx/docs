@@ -17,6 +17,6 @@ Use `ToList` to create a list with every element in the sequence.
 ![ToList Example](../workflows/reactive-tolist-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`ToArray`](xref:Bonsai.Reactive.ToArray) if you do not need to manipulate elements in the collection.

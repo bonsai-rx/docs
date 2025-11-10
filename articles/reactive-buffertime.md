@@ -17,7 +17,7 @@ Use `BufferTime` to group elements into zero or more buffers based on timing inf
 ![BufferTime Example](../workflows/reactive-buffertime-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`BufferCount`](xref:Bonsai.Reactive.BufferCount) instead to group elements into zero or more buffers based on element count.
 

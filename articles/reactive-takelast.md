@@ -17,7 +17,7 @@ Use `TakeLast` to retrieve one or more elements from the end of a sequence.
 ![TakeLast Example](../workflows/reactive-takelast-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Last`](xref:Bonsai.Reactive.Last) to retrieve the last element from the end of the sequence.
 

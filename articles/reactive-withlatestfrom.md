@@ -37,7 +37,7 @@ Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) to combine a source 
 > [!NOTE]
 > This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
 
-### Alternative
+### Related Operators
 
 Use [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) to combine sequences if:
 - You have more than two sources

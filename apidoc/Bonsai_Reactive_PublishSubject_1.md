@@ -12,4 +12,4 @@ Use `PublishSubject` to broadcast values to any subscriber.
 ![PublishSubject Example](../workflows/reactive-publishsubject-example.bonsai)
 :::
 
-[!include[SubjectAlternatives](../articles/reactive-subjectalternatives.md)]
+[!include[RelatedOperators](../articles/reactive-subjectrelated.md)]

@@ -12,4 +12,4 @@ Use `ReplaySubject` to broadcast all past and future values to any subscriber.
 ![ReplaySubject Example](../workflows/reactive-replaysubject-example.bonsai)
 :::
 
-[!include[SubjectAlternatives](../articles/reactive-subjectalternatives.md)]
+[!include[RelatedOperators](../articles/reactive-subjectrelated.md)]

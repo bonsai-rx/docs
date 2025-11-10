@@ -22,7 +22,7 @@ Use `Gate` to allow a single element from the source sequence to pass through ea
 ![Gate Example](../workflows/reactive-gate-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`GateInterval`](xref:Bonsai.Reactive.GateInterval) to gate elements based on time.
 

@@ -17,7 +17,7 @@ Use `OnErrorResumeNext` to concatenate multiple observable sequences, even if on
 ![OnErrorResumeNext Example](../workflows/reactive-onerrorresumenext-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Concat`](xref:Bonsai.Reactive.Concat) instead to concatenate multiple observable sequences that terminate successfully.
 

@@ -11,6 +11,6 @@ Use `Prepend` to add an element to the beginning of a sequence.
 ![Prepend Example](../workflows/reactive-prepend-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Append`](xref:Bonsai.Reactive.Append) instead to add an element to the end of a sequence.

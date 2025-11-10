@@ -15,6 +15,6 @@ Use `Amb` to propagate the first observable sequence that emits notifications.
 ![Amb Example](../workflows/reactive-amb-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Switch`](xref:Bonsai.Reactive.Switch) instead to propagate the latest observable sequence that emits notifications from a sequence of observable sequences.

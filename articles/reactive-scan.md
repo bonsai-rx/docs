@@ -20,6 +20,6 @@ Use `Scan` to define an accumulation function using the encapsulated workflow.
 ![Scan Example](../workflows/reactive-scan-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to yield a linear accumulation of values.

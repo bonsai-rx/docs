@@ -20,6 +20,6 @@ Use `ToDictionary` to create a dictionary from an observable sequence according 
 ![ToDictionary Example](../workflows/reactive-todictionary-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`ToLookup`](xref:Bonsai.Reactive.ToLookup) if you need to group multiple elements under the same key.

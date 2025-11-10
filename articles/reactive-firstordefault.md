@@ -18,7 +18,7 @@ Use `FirstOrDefault` to retrieve the first element of a sequence or a default va
 ![FirstOrDefault Example](../workflows/reactive-firstordefault-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Take`](xref:Bonsai.Reactive.Take) to retrieve one or more elements from the start of the sequence.
 

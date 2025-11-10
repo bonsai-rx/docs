@@ -19,7 +19,7 @@ Use `SkipWhile` to bypass elements in an observable sequence as long as the cond
 ![SkipWhile Example](../workflows/reactive-skipwhile-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`SkipUntil`](xref:Bonsai.Reactive.SkipUntil) instead to return elements only after a second sequence emits a notification.
 

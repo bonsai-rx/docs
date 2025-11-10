@@ -19,6 +19,6 @@ Use `RepeatCount` to repeat an observable sequence a specified number of times.
 ![RepeatCount Example](../workflows/reactive-repeatcount-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Repeat`](xref:Bonsai.Reactive.Repeat) to repeat an observable sequence indefinitely.

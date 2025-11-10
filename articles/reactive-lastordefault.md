@@ -18,7 +18,7 @@ Use `LastOrDefault` to retrieve the last element of a sequence or a default valu
 ![LastOrDefault Example](../workflows/reactive-lastordefault-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`TakeLast`](xref:Bonsai.Reactive.TakeLast) to retrieve one or more elements from the end of the sequence.
 

@@ -20,7 +20,7 @@ Use `WindowTime` to group elements into zero or more observable sequences based 
 ![WindowTime Example](../workflows/reactive-windowtime-example.bonsai)
 :::
 
-### Alternatives
+### Related Operators
 
 Use [`WindowCount`](xref:Bonsai.Reactive.WindowCount) instead to create new observable sequences based on element count.
 

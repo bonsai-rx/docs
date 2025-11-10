@@ -31,6 +31,6 @@ Use `ToArray` to collect a sequence of individual elements produced by file read
 > [!NOTE]
 > This example requires the `Bonsai.IO` package to be installed.
 
-### Alternative
+### Related Operators
 
 Use [`ToList`](xref:Bonsai.Reactive.ToList) if you need to manipulate elements in the collection.

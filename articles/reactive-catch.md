@@ -17,7 +17,7 @@ Use `Catch` to continue an observable sequence that terminated with an exception
 ![Catch Example](../workflows/reactive-catch-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Retry`](xref:Bonsai.Reactive.Retry) instead to repeat subscription to the observable sequence if it terminates with an exception.
 

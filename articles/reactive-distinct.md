@@ -15,6 +15,6 @@ Use `Distinct` to extract unique elements from a sequence.
 ![Distinct Example](../workflows/reactive-distinct-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`DistinctUntilChanged`](xref:Bonsai.Reactive.DistinctUntilChanged) to extract elements that are distinct from the previous element.

@@ -19,6 +19,6 @@ Use `Retry` to repeat subscription to an observable sequence if it terminates wi
 ![Retry Example](../workflows/reactive-retry-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`RetryCount`](xref:Bonsai.Reactive.RetryCount) to repeat subscription to an observable sequence a specified number of times.

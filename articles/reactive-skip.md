@@ -26,6 +26,6 @@ Use `Skip` to ignore frames from the start of a camera capture sequence (e.g. un
 > [!NOTE]
 > This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
 
-### Alternative
+### Related Operators
 
 Use [`Slice`](xref:Bonsai.Reactive.Slice) to ignore n-th elements from a sequence.

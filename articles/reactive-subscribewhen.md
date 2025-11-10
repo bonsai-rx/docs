@@ -17,7 +17,7 @@ Use `SubscribeWhen` to start subscription to a sequence.
 ![SubscribeWhen Example](../workflows/reactive-subscribewhen-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`SkipUntil`](xref:Bonsai.Reactive.SkipUntil) to skip elements from an active subscription.
 

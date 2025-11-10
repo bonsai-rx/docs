@@ -17,7 +17,7 @@ Use `GateInterval` to extract the first element from a source sequence that is e
 ![GateInterval Example](../workflows/reactive-gateinterval-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`SampleInterval`](xref:Bonsai.Reactive.SampleInterval) to extract the latest element from a source sequence that is emitted within the time interval.
 

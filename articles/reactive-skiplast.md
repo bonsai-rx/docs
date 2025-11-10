@@ -18,6 +18,6 @@ Use `SkipLast` to remove the specified number of elements from the end of the se
 ![SkipLast Example](../workflows/reactive-skiplast-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Delay`](xref:Bonsai.Reactive.Delay) to impose a delay in the source sequence using a time interval.

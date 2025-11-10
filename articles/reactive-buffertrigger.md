@@ -19,6 +19,6 @@ Use `BufferTrigger` to group elements into zero or more buffers based on notific
 ![BufferTrigger Example](../workflows/reactive-buffertrigger-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) instead to group elements into zero or more observable sequences based on notifications from a second sequence.

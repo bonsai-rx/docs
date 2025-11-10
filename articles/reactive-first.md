@@ -18,7 +18,7 @@ Use `First` to retrieve the first element of a sequence.
 ![First Example](../workflows/reactive-first-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Take`](xref:Bonsai.Reactive.Take) to retrieve one or more elements from the start of the sequence.
 

@@ -12,4 +12,4 @@ Use `AsyncSubject` to broadcast the last value to any subscriber.
 ![AsyncSubject Example](../workflows/reactive-asyncsubject-example.bonsai)
 :::
 
-[!include[SubjectAlternatives](../articles/reactive-subjectalternatives.md)]
+[!include[RelatedOperators](../articles/reactive-subjectrelated.md)]

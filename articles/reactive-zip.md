@@ -48,7 +48,7 @@ Use `Zip` to "sample" from a source sequence where all elements are available up
 > [!Warning]
 > This approach is best suited for text- or numeric-based sequences as `Zip` will buffer all available elements with no limit to buffer size.
 
-### Alternative
+### Related Operators
 
 Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) or [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) to combine sequences when their relationship is not well defined.
 

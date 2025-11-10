@@ -19,6 +19,6 @@ Use `Switch` to switch to the latest observable sequence that emits notification
 ![Switch Example](../workflows/reactive-switch-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Amb`](xref:Bonsai.Reactive.Amb) instead to propagate the first observable sequence that emits notifications.

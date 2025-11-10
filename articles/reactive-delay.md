@@ -17,6 +17,6 @@ Use `Delay` to delay emission of elements from an observable sequence.
 ![Delay Example](../workflows/reactive-delay-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`DelaySubscription`](xref:Bonsai.Reactive.DelaySubscription) to delay initialization of an observable sequence.

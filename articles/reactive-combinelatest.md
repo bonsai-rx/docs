@@ -33,7 +33,7 @@ Use `CombineLatest` to combine multiple sources (e.g. frames from different came
 > [!NOTE]
 > This example requires the `Bonsai.Dsp`, `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed.
 
-### Alternative
+### Related Operators
 
 Use [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) if you only need to combine two sources and want to discard redundant values.
 

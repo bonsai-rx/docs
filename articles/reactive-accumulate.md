@@ -15,6 +15,6 @@ Use `Accumulate` to continuously update a value by adding up the changes over ti
 ![Accumulate Example](../workflows/reactive-accumulate-example.bonsai)
 :::
 
-### Alternative
+### Related Operators
 
 Use [`Sum`](xref:Bonsai.Reactive.Sum) instead to yield a single accumulated value at the end of a sequence.
