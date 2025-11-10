@@ -9,7 +9,7 @@ The `Amb` operator sets up a winner-take-all race condition between all source s
 
 ### Examples
 
-Use `Amb` to propagate the first observable sequence that emits notifications.
+Use `Amb` to propagate the first observable sequence to emit a notification.
 
 :::workflow
 ![Amb Example](../workflows/reactive-amb-example.bonsai)

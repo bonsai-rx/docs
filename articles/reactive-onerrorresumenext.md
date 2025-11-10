@@ -11,7 +11,7 @@ The resulting sequence will always terminate successfully when the last source s
 
 ### Examples
 
-Use `OnErrorResumeNext` to concatenate multiple observable sequences, even if one or more terminate with an error.
+Use `OnErrorResumeNext` to concatenate multiple observable sequences, even if one or more of the intermediate sequences terminate with an error.
 
 :::workflow
 ![OnErrorResumeNext Example](../workflows/reactive-onerrorresumenext-example.bonsai)

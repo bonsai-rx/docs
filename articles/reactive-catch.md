@@ -11,7 +11,7 @@ The resulting sequence will terminate successfully when any of the source sequen
 
 ### Examples
 
-Use `Catch` to continue an observable sequence that terminated with an exception with the next observable sequence.
+Use `Catch` to continue an observable sequence that terminated with an exception.
 
 :::workflow
 ![Catch Example](../workflows/reactive-catch-example.bonsai)

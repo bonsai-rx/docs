@@ -11,7 +11,7 @@ title: ToArray
 
 ### Examples
 
-Use `ToArray` to create an array with every element in the sequence.
+Use `ToArray` to create an array with every element in an observable sequence.
 
 :::workflow
 ![ToArray Example](../workflows/reactive-toarray-example.bonsai)
@@ -33,4 +33,4 @@ Use `ToArray` to collect a sequence of individual elements produced by file read
 
 ### Related Operators
 
-Use [`ToList`](xref:Bonsai.Reactive.ToList) if you need to manipulate elements in the collection.
+Use [`ToList`](xref:Bonsai.Reactive.ToList) if you need to add or remove elements from the collection.

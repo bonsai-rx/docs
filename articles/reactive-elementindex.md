@@ -9,7 +9,7 @@ title: ElementIndex
 
 ### Examples
 
-Use `ElementIndex` to incorporate a tally of the number of elements.
+Use `ElementIndex` to incorporate a running tally of the number of elements in the sequence.
 
 :::workflow
 ![ElementIndex Example](../workflows/reactive-elementindex-example.bonsai)

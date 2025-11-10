@@ -26,4 +26,4 @@ Use `DistinctUntilChanged` to signal changes in [state](../tutorials/state-machi
 :::
 
 > [!NOTE]
-> This example requires the `Bonsai.WindowsInput` package to be installed.
+> This example requires the `Bonsai.Windows.Input` package to be installed.

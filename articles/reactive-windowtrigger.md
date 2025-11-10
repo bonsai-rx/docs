@@ -16,7 +16,7 @@ If the `Count` property or the `TimeSpan` property is specified, then a new wind
 
 ### Examples
 
-Use `WindowTrigger` to group elements into zero or more observable sequences based on notifications from a second sequence.
+Use `WindowTrigger` to group elements into zero or more observable sequences using notifications from the second sequence.
 
 :::workflow
 ![WindowTrigger Example](../workflows/reactive-windowtrigger-example.bonsai)
@@ -24,6 +24,6 @@ Use `WindowTrigger` to group elements into zero or more observable sequences bas
 
 ### Related Operators
 
-Use [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) instead to group elements into zero or more buffers based on notifications from a second sequence.
+Use [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) instead to group elements into zero or more buffers using notifications from the second sequence.
 
 Use [`Window`](xref:Bonsai.Reactive.Window) instead if you want to specify a dynamic close condition.

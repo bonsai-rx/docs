@@ -11,7 +11,7 @@ title: ThenBy
 
 ### Examples
 
-Use `ThenBy` to perform a ascending sort on ordered collections according to the specified key.
+Use `ThenBy` to perform an ascending sort on ordered collections according to the specified key.
 
 :::workflow
 ![ThenBy Example](../workflows/reactive-thenby-example.bonsai)

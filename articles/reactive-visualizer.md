@@ -12,7 +12,7 @@ The `Visualizer` operator is a [Sink](xref:Bonsai.Reactive.Sink) which uses the 
 
 ### Examples
 
-Use `Visualizer` to use the encapsulated workflow as a visualizer.
+Use `Visualizer` to use the encapsulated workflow as a visualizer without changing the elements in the original sequence.
 
 :::workflow
 ![Visualizer Example](../workflows/reactive-visualizer-example.bonsai)

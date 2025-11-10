@@ -15,7 +15,7 @@ Timestamps are specified relative to Coordinated Universal Time (UTC) using <xre
 
 ### Examples
 
-Use `Timestamp` to timestamp elements that are produced by the source sequence.
+Use `Timestamp` to capture a timestamp for elements produced by the source sequence as soon as they are received.
 
 :::workflow
 ![Timestamp Example](../workflows/reactive-timestamp-example.bonsai)

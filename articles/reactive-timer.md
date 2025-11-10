@@ -12,7 +12,7 @@ title: Timer
 
 ### Examples
 
-Use `Timer` to generate periodic elements.
+Use `Timer` to generate a sequence of elements emitted periodically.
 
 :::workflow
 ![Timer Example](../workflows/reactive-timer-example.bonsai)

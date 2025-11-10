@@ -14,7 +14,7 @@ If a new window is created before the previous window is closed, then window wil
 
 ### Examples
 
-Use `Window` to group elements into zero or more observable sequences based on notifications from a second sequence as well as the encapsulated workflow.
+Use `Window` to group elements into zero or more observable sequences using notifications from both the second sequence and the nested workflow.
 
 :::workflow
 ![Window Example](../workflows/reactive-window-example.bonsai)

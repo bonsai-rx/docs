@@ -14,7 +14,7 @@ When a new element is received from the source sequence, it is paired with the c
 
 ### Examples
 
-Use `Scan` to define an accumulation function using the encapsulated workflow.
+Use `Scan` to define a custom accumulation function using the encapsulated workflow.
 
 :::workflow
 ![Scan Example](../workflows/reactive-scan-example.bonsai)
@@ -22,4 +22,4 @@ Use `Scan` to define an accumulation function using the encapsulated workflow.
 
 ### Related Operators
 
-Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to yield a linear accumulation of values.
+Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to compute the running sum of consecutive values.

@@ -9,7 +9,7 @@ The `Sum` operator collects all the numbers from the source sequence and emits a
 
 ### Examples
 
-Use `Sum` to report the total value at the end of a sequence.
+Use `Sum` to report the sum of all elements at the end of a sequence.
 
 :::workflow
 ![Sum Example](../workflows/reactive-sum-example.bonsai)
@@ -17,4 +17,4 @@ Use `Sum` to report the total value at the end of a sequence.
 
 ### Related Operators
 
-Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to continuously track the value in the sequence.
+Use [`Accumulate`](xref:Bonsai.Reactive.Accumulate) instead to continuously track the running sum of values in the sequence.

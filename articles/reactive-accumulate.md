@@ -9,7 +9,7 @@ The `Accumulate` operator returns the current value of the cumulative sum each t
 
 ### Examples
 
-Use `Accumulate` to continuously update a value by adding up the changes over time.
+Use `Accumulate` to continuously count the number of notifications in a sequence.
 
 :::workflow
 ![Accumulate Example](../workflows/reactive-accumulate-example.bonsai)

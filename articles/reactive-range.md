@@ -9,7 +9,7 @@ The entire sequence of numbers in the range is emitted immediately upon subscrip
 
 ### Examples
 
-Use `Range` to generate a range of numbers.
+Use `Range` to generate a sequence of consecutive numbers.
 
 :::workflow
 ![Range Example](../workflows/reactive-range-example.bonsai)

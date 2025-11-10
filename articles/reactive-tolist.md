@@ -11,7 +11,7 @@ title: ToList
 
 ### Examples
 
-Use `ToList` to create a list with every element in the sequence.
+Use `ToList` to create a list with every element in an observable sequence.
 
 :::workflow
 ![ToList Example](../workflows/reactive-tolist-example.bonsai)
@@ -19,4 +19,4 @@ Use `ToList` to create a list with every element in the sequence.
 
 ### Related Operators
 
-Use [`ToArray`](xref:Bonsai.Reactive.ToArray) if you do not need to manipulate elements in the collection.
+Use [`ToArray`](xref:Bonsai.Reactive.ToArray) if you do not need to add or remove elements from the collection.

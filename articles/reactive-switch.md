@@ -13,7 +13,7 @@ The resulting sequence will terminate successfully when the outer sequence has t
 
 ### Examples
 
-Use `Switch` to switch to the latest observable sequence that emits notifications.
+Use `Switch` to switch to a new observable sequence as soon as it is created.
 
 :::workflow
 ![Switch Example](../workflows/reactive-switch-example.bonsai)
@@ -21,4 +21,4 @@ Use `Switch` to switch to the latest observable sequence that emits notification
 
 ### Related Operators
 
-Use [`Amb`](xref:Bonsai.Reactive.Amb) instead to propagate the first observable sequence that emits notifications.
+Use [`Amb`](xref:Bonsai.Reactive.Amb) instead to propagate the first observable sequence to emit a notification.

@@ -9,7 +9,7 @@ If multiple elements are received during each sampling period, `SampleInterval` 
 
 ### Examples
 
-Use `SampleInterval` to extract the latest element from a source sequence that is emitted within within the time interval.
+Use `SampleInterval` to extract the latest element from a source sequence that is emitted within the specified time interval.
 
 :::workflow
 ![SampleInterval Example](../workflows/reactive-sampleinterval-example.bonsai)
@@ -17,7 +17,7 @@ Use `SampleInterval` to extract the latest element from a source sequence that i
 
 ### Related Operators
 
-Use [`GateInterval`](xref:Bonsai.Reactive.GateInterval) to extract the first element from a source sequence that is emitted within the time interval.
+Use [`GateInterval`](xref:Bonsai.Reactive.GateInterval) to extract the first element from a source sequence that is emitted within the specified time interval.
 
 Use [`Slice`](xref:Bonsai.Reactive.Slice) to extract elements based on element count instead of time.
 

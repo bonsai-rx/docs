@@ -22,4 +22,4 @@ Use `SelectMany` to create higher-order observable sequences and merge them into
 
 ### Related Operators
 
-Use [`CreateObservable`](xref:Bonsai.Reactive.CreateObservable) instead to create separate higher-order observable sequences.
+Use [`CreateObservable`](xref:Bonsai.Reactive.CreateObservable) instead to create higher-order observable sequences without merging or subscribing to them.

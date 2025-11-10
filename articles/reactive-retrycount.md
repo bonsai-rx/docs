@@ -13,7 +13,7 @@ After the source sequence terminates exceptionally the specified maximum number 
 
 ### Examples
 
-Use `RetryCount` to repeat subscription to an observable sequence a specified number of times.
+Use `RetryCount` to resubscribe to a failing observable sequence a specified number of times.
 
 :::workflow
 ![RetryCount Example](../workflows/reactive-retrycount-example.bonsai)
@@ -21,4 +21,4 @@ Use `RetryCount` to repeat subscription to an observable sequence a specified nu
 
 ### Related Operators
 
-Use [`Retry`](xref:Bonsai.Reactive.RetryCount) instead to repeat subscription to an observable sequence until it terminates successfully, without limit on retries.
+Use [`Retry`](xref:Bonsai.Reactive.RetryCount) instead to resubscribe to an observable sequence until it terminates successfully, without limit on retries.

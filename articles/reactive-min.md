@@ -9,7 +9,7 @@ The `Min` operator collects all the values from the source sequence and emits a 
 
 ### Examples
 
-Use `Min` to report the minimum value at the end of the sequence.
+Use `Min` to report the smallest value at the end of the sequence.
 
 :::workflow
 ![Min Example](../workflows/reactive-min-example.bonsai)

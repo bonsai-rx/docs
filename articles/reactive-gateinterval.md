@@ -11,7 +11,7 @@ It is possible to specify how long the gate stays open by using the <xref href="
 
 ### Examples
 
-Use `GateInterval` to extract the first element from a source sequence that is emitted within the time interval.
+Use `GateInterval` to extract the first element from a source sequence that is emitted within the specified time interval.
 
 :::workflow
 ![GateInterval Example](../workflows/reactive-gateinterval-example.bonsai)
@@ -19,7 +19,7 @@ Use `GateInterval` to extract the first element from a source sequence that is e
 
 ### Related Operators
 
-Use [`SampleInterval`](xref:Bonsai.Reactive.SampleInterval) to extract the latest element from a source sequence that is emitted within the time interval.
+Use [`SampleInterval`](xref:Bonsai.Reactive.SampleInterval) to extract the latest element from a source sequence that is emitted within the specified time interval.
 
 Use [`Slice`](xref:Bonsai.Reactive.Slice) to extract elements based on element count instead of time.
 

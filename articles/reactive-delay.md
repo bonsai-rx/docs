@@ -11,7 +11,7 @@ The `Delay` operator modifies the source sequence by pausing for the specified d
 
 ### Examples
 
-Use `Delay` to delay emission of elements from an observable sequence.
+Use `Delay` to postpone emission of elements from an observable sequence.
 
 :::workflow
 ![Delay Example](../workflows/reactive-delay-example.bonsai)

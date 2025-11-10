@@ -13,7 +13,7 @@ If the `Count` property or the `TimeSpan` property is specified, then a new chun
 
 ### Examples
 
-Use `BufferTrigger` to group elements into zero or more buffers based on notifications from a second sequence.
+Use `BufferTrigger` to group elements into zero or more buffers using notifications from the second sequence.
 
 :::workflow
 ![BufferTrigger Example](../workflows/reactive-buffertrigger-example.bonsai)
@@ -21,4 +21,4 @@ Use `BufferTrigger` to group elements into zero or more buffers based on notific
 
 ### Related Operators
 
-Use [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) instead to group elements into zero or more observable sequences based on notifications from a second sequence.
+Use [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) instead to group elements into zero or more observable sequences using notifications from the second sequence.

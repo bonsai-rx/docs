@@ -9,6 +9,14 @@ The `Concat` operator allows you to combine the output of multiple sequences of 
 
 The resulting sequence will terminate successfully when the last source sequence has terminated successfully, or exceptionally as soon as any sequence produces an error.
 
+### Higher-order operator
+
+`Concat` also works as a higher-order operator, so it can take as input a sequence of observable sequences. In this case, it will subscribe to the first source sequence and start passing along all emitted values. As soon as that sequence terminates, it will subscribe to the next received sequence, either immediately if it arrived before termination of the first sequence, or as soon as a new observable sequence is emitted.
+
+![Higher order](~/images/reactive-concatwindow.svg)
+
+The higher-order variant is useful to queue execution of long-running operations, for example to sequence logic states in a task, or merging video files in a folder sequentially into a single frame sequence.
+
 ### Examples
 
 Use `Concat` to sequentially combine the outputs of multiple sequences.
@@ -33,11 +41,3 @@ Use `Concat` to create a stimulus sequence by combining multiple preloaded or de
 Use [`Merge`](xref:Bonsai.Reactive.Merge) instead if you want to combine sequences in parallel online.
 
 Use [`OnErrorResumeNext`](xref:Bonsai.Reactive.OnErrorResumeNext) instead to concatenate multiple observable sequences, even if one or more terminate with an error.
-
-### Higher-order operator
-
-`Concat` also works as a higher-order operator, so it can take as input a sequence of observable sequences. In this case, it will subscribe to the first source sequence and start passing along all emitted values. As soon as that sequence terminates, it will subscribe to the next received sequence, either immediately if it arrived before termination of the first sequence, or as soon as a new observable sequence is emitted.
-
-![Higher order](~/images/reactive-concatwindow.svg)
-
-The higher-order variant is useful to queue execution of long-running operations, for example to sequence logic states in a task, or merging video files in a folder sequentially into a single frame sequence.

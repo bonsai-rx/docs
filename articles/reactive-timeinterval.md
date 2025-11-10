@@ -17,7 +17,7 @@ Use `TimeInterval` to measure the time elapsed between consecutive elements.
 
 #### Measure Camera Frame Rate
 
-Use `TimeInterval` to calculate the rate of camera frame acquisition.
+When working with image sequences, `TimeInterval` can be used to calculate and display the camera frame rate directly. Right-clicking the visualizer window will display the FPS in the bottom status bar. Make sure to expand the window size so it is visible.
 
 :::workflow
 ![TimeInterval Application MeasureFrameRate](../workflows/reactive-timeinterval-application-measureframerate.bonsai)

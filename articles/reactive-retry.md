@@ -13,7 +13,7 @@ If any of the subscriptions completes successfully, the result sequence will als
 
 ### Examples
 
-Use `Retry` to repeat subscription to an observable sequence if it terminates with an exception.
+Use `Retry` to resubscribe to an observable sequence if it terminates with an exception.
 
 :::workflow
 ![Retry Example](../workflows/reactive-retry-example.bonsai)
@@ -21,4 +21,4 @@ Use `Retry` to repeat subscription to an observable sequence if it terminates wi
 
 ### Related Operators
 
-Use [`RetryCount`](xref:Bonsai.Reactive.RetryCount) to repeat subscription to an observable sequence a specified number of times.
+Use [`RetryCount`](xref:Bonsai.Reactive.RetryCount) to resubscribe to a failing observable sequence a specified number of times.

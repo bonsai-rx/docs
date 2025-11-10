@@ -11,7 +11,7 @@ The `DelaySubscription` operator modifies the source sequence by pausing for the
 
 ### Examples
 
-Use `DelaySubscription` to delay initialization of an observable sequence.
+Use `DelaySubscription` to postpone initialization of an observable sequence.
 
 :::workflow
 ![DelaySubscription Example](../workflows/reactive-delaysubscription-example.bonsai)
