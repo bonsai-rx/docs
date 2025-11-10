@@ -11,7 +11,7 @@ The resulting sequence will terminate successfully when the outer sequence has t
 
 `Switch` is useful to model interruptible states, for example when transitioning between different modes of a state-machine, or switching between different video channels on demand.
 
-### Example
+### Examples
 
 Use `Switch` to switch to the latest observable sequence that emits notifications.
 

@@ -9,7 +9,7 @@ The `SubscribeWhen` operator modifies the source sequence by waiting for the fir
 
 `SubscribeWhen` can be used to control the timing of initialization. Note that if a source is [*hot*](xref:observables#temperature), delaying the start of the sequence will not preserve past data.
 
-### Example
+### Examples
 
 Use `SubscribeWhen` to start subscription to a sequence.
 

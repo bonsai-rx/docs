@@ -7,7 +7,7 @@ title: Accumulate
 
 The `Accumulate` operator returns the current value of the cumulative sum each time the source sequence emits a notification. The result sequence terminates successfully when the source sequence terminates successfully.
 
-### Example
+### Examples
 
 Use `Accumulate` to continuously update a value by adding up the changes over time.
 

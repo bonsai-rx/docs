@@ -11,7 +11,7 @@ After each element is emitted by the source sequence, the latest value from the 
 
 If the source sequence terminates before the nested workflow returns `false`, `SkipWhile` will terminate without emitting any values.
 
-### Example
+### Examples
 
 Use `SkipWhile` to bypass elements in an observable sequence as long as the condition specified in the encapsulated workflow is true.
 

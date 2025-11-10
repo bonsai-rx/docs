@@ -10,7 +10,7 @@ If the sequence has no elements, `FirstOrDefault` will emit a [default](https://
 > [!Tip]
 > If you are interested in finding the first element that meets some criteria, consider using the [`Condition`](xref:Bonsai.Reactive.Condition) operator before `FirstOrDefault`.
 
-### Example
+### Examples
 
 Use `FirstOrDefault` to retrieve the first element of a sequence or a default value if the sequence is empty.
 

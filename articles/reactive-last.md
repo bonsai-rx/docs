@@ -7,7 +7,7 @@ title: Last
 
 If the sequence has no elements, `Last` will terminate with an error. 
 
-### Example
+### Examples
 
 Use `Last` to retrieve the last element of a sequence.
 

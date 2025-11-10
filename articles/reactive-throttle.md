@@ -10,7 +10,7 @@ The `Throttle` operator provides a mechanism to control backpressure in reactive
 > [!Warning]
 > Any elements emitted by `Throttle` will necessarily be delayed by <xref href="Bonsai.Reactive.Throttle.DueTime"/>, since the only way to test that an element is followed by a period of silence is to wait out the period.
 
-### Example
+### Examples
 
 Use `Throttle` to emit only elements that are followed by a silent period.
 

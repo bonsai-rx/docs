@@ -9,7 +9,7 @@ The `DistinctUntilChanged` operator removes all contiguous elements in the seque
 
 In other words, after each element is emitted by the result sequence, subsequent elements will be dropped until the value changes.
 
-### Example
+### Examples
 
 Use `DistinctUntilChanged` to filter out elements which are identical to the previous one.
 

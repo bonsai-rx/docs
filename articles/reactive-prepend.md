@@ -3,7 +3,7 @@ uid: reactive-prepend
 title: Prepend
 ---
 
-### Example
+### Examples
 
 Use `Prepend` to add an element to the beginning of a sequence.
 

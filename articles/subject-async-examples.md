@@ -1,4 +1,4 @@
-### Example
+### Examples
 
 Use `AsyncSubject` to broadcast the last value to any subscriber.
 

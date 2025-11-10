@@ -9,7 +9,7 @@ The gate starts in the open state, and a single element is allowed to pass throu
 
 It is possible to specify how long the gate stays open by using the <xref href="Bonsai.Reactive.GateInterval.DueTime"/> property. If no value is specified, the gate stays open indefinitely until an element arrives. If a maximum due time is specified, then no elements from the source sequence arriving after the due time elapses will be allowed through until the gate reopens.
 
-### Example
+### Examples
 
 Use `GateInterval` to extract the first element from a source sequence that is emitted within the time interval.
 

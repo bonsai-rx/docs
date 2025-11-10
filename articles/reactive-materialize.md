@@ -9,7 +9,7 @@ title: Materialize
 
 The application of `Materialize` can be reversed by applying <xref href="Bonsai.Reactive.Dematerialize"/> to the result sequence.
 
-### Example
+### Examples
 
 Use `Materialize` to surface implicit notifications as explicit notifications.
 

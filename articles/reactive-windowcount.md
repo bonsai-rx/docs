@@ -12,7 +12,7 @@ If no skip value is provided, the windows will be strictly non-overlapping, with
 > [!Note]
 > You can manipulate and schedule each of the windows downstream using other higher-order operators such as [`Merge`](xref:Bonsai.Reactive.Merge), [`Concat`](xref:Bonsai.Reactive.Concat) or [`Switch`](xref:Bonsai.Reactive.Switch).
 
-### Example
+### Examples
 
 Use `WindowCount` to group elements into zero or more observable sequences based on element count.
 

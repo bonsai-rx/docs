@@ -7,7 +7,7 @@ title: ElementIndex
 
 `ElementIndex` can be used to incrementally keep a tally of the number of elements in a sequence. It is also often used as the first step in custom index-dependent computations.
 
-### Example
+### Examples
 
 Use `ElementIndex` to incorporate a tally of the number of elements.
 

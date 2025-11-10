@@ -9,7 +9,7 @@ The `Catch` operator allows you to handle error notifications from a sequence by
 
 The resulting sequence will terminate successfully when any of the source sequences has terminated successfully, or exceptionally when all sequences have terminated with an error.
 
-### Example
+### Examples
 
 Use `Catch` to continue an observable sequence that terminated with an exception with the next observable sequence.
 

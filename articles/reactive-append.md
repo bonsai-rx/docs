@@ -3,7 +3,7 @@ uid: reactive-append
 title: Append
 ---
 
-### Example
+### Examples
 
 Use `Append` to add an element to the end of a sequence.
 

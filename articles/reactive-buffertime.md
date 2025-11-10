@@ -9,7 +9,7 @@ The `BufferTime` operator groups the notifications of the source sequence into c
 
 If no `TimeShift` is provided, the chunks will be strictly non-overlapping, with a new chunk beginning when the previous chunk ends. If `TimeShift` is smaller than `TimeSpan`, chunks will be overlapping, with a new buffer created every `TimeShift` interval. Finally, if `TimeShift` is larger than `TimeSpan`, there will be a time gap between each chunk where elements from the source sequence may be dropped.
 
-### Example
+### Examples
 
 Use `BufferTime` to group elements into zero or more buffers based on timing information.
 

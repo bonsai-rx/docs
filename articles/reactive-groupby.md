@@ -13,7 +13,7 @@ The `GroupBy` operator can be used to separate, or demultiplex, the elements fro
 
 The members used to generate the elements in each group sequence can be optionally specified using the <xref href="Bonsai.Reactive.GroupBy.ElementSelector"/> property. If no element selector is specified, the original values from the source sequence will be used.
 
-### Example
+### Examples
 
 Use `GroupBy` to separate out elements from a multiplexed sequence.
 

@@ -12,7 +12,7 @@ For each notification in the source sequence, `CreateObservable` constructs a ne
 
 The input to the nested workflow represents the element passed as an argument to the asynchronous operation. If the input is itself an observable sequence, the [WorkflowInput](xref:Bonsai.Expressions.WorkflowInputBuilder) node will subscribe to all the values in the sequence when the asynchronous operation is finally launched. Otherwise, the input will emit a single value containing the stored argument value.
 
-### Example
+### Examples
 
 Use `CreateObservable` to create higher-order observable sequences.
 

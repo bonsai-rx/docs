@@ -11,7 +11,7 @@ After the source sequence terminates exceptionally the specified maximum number 
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
 
-### Example
+### Examples
 
 Use `RetryCount` to repeat subscription to an observable sequence a specified number of times.
 

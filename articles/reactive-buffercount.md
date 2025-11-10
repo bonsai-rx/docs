@@ -9,7 +9,7 @@ title: Buffer
 
 If no skip value is provided, the chunks will be strictly non-overlapping, with a new chunk beginning when the previous chunk ends. If the skip value is less than the specified number of elements, chunks will be overlapping, with a new buffer created every `Skip` notifications. Finally, if the skip value is greater than the specified number of elements, there will be a gap between each chunk where elements from the source sequence will be dropped.
 
-### Example
+### Examples
 
 Use `BufferCount` to group elements into zero or more buffers based on element count.
 

@@ -11,7 +11,7 @@ If neither buffer count nor buffer time span are specified, chunks will be stric
 
 If the `Count` property or the `TimeSpan` property is specified, then a new chunk is created when the second sequence emits a notification, and it is automatically closed after either the specified number of elements is collected or the specified time span elapses. If a new chunk is created before the previous chunk is closed, then chunks will overlap, and any elements emitted during this period will be included in both buffers. If at any moment there is no open buffer, elements emitted from the source sequence will be dropped.
 
-### Example
+### Examples
 
 Use `BufferTrigger` to group elements into zero or more buffers based on notifications from a second sequence.
 

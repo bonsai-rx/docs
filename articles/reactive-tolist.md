@@ -9,7 +9,7 @@ title: ToList
 
 [!include[ToCollection](~/articles/reactive-tocollection.md)]
 
-### Example
+### Examples
 
 Use `ToList` to create a list with every element in the sequence.
 

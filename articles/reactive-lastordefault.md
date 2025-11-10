@@ -10,7 +10,7 @@ If the sequence has no elements, `LastOrDefault` will emit a [default](https://l
 > [!Tip]
 > `LastOrDefault` is one of the simplest and most efficient ways of capturing the end of an observable sequence explicitly as a notification in the workflow. You can use it to react to the termination of a sequence regardless of whether that sequence produces values.
 
-### Example
+### Examples
 
 Use `LastOrDefault` to retrieve the last element of a sequence or a default value if the sequence is empty.
 

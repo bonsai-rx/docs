@@ -7,7 +7,7 @@ title: IsEmpty
 
 If the source sequence completes before returning any elements, the `IsEmpty` operator will emit a single value `true` before terminating successfully. If the source sequence emits any element, `IsEmpty` will immediately emit a single value `false`, terminate successfully, and cancel the subscription to the source sequence.
 
-### Example
+### Examples
 
 Use `IsEmpty` to check if a sequence is empty.
 

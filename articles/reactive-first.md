@@ -10,7 +10,7 @@ If the sequence has no elements, `First` will terminate with an error.
 > [!Tip]
 > If you are interested in finding the first element that meets some criteria, consider using the [`Condition`](xref:Bonsai.Reactive.Condition) operator before `First`.
 
-### Example
+### Examples
 
 Use `First` to retrieve the first element of a sequence.
 

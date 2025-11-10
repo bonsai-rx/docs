@@ -9,7 +9,7 @@ The `OrderByDescending` operator requires the elements in the source sequence to
 
 [!include[LazyOrdering](~/articles/reactive-lazyordering.md)]
 
-### Example
+### Examples
 
 Use `OrderByDescending` to sort elements in descending order according to the specified key.
 

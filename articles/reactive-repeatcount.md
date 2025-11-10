@@ -11,7 +11,7 @@ After the source sequence completes successfully the specified number of times, 
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
 
-### Example
+### Examples
 
 Use `RepeatCount` to repeat an observable sequence a specified number of times.
 

@@ -9,7 +9,7 @@ The `OnErrorResumeNext` operator allows you to combine the output of multiple se
 
 The resulting sequence will always terminate successfully when the last source sequence has terminated.
 
-### Example
+### Examples
 
 Use `OnErrorResumeNext` to concatenate multiple observable sequences, even if one or more terminate with an error.
 

@@ -9,7 +9,7 @@ The `DelaySubscription` operator modifies the source sequence by pausing for the
 
 `DelaySubscription` can be used to control the timing of initialization. Note that if a source is [*hot*](xref:observables#temperature), delaying the start of the sequence will not preserve past data, since unlike [`Delay`](xref:Bonsai.Reactive.Delay) the `DelaySubscription` operator does not store or have access to any historical data.
 
-### Example
+### Examples
 
 Use `DelaySubscription` to delay initialization of an observable sequence.
 

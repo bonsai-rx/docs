@@ -9,7 +9,7 @@ title: ThenByDescending
 
 [!include[LazyOrdering](~/articles/reactive-lazyordering.md)]
 
-### Example
+### Examples
 
 Use `ThenByDescending` to perform a descending sort on ordered collections according to the specified key.
 

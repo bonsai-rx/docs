@@ -9,7 +9,7 @@ The nested workflow specifying the condition must return a sequence of type <xre
 
 After each element is emitted by the source sequence, the latest value from the nested sequence is checked. While the value is `true`, `TakeWhile` will continue to emit all elements from the source sequence. When the value changes to `false`, `TakeWhile` will terminate successfully.
 
-### Example
+### Examples
 
 Use `TakeWhile` to return elements in an observable sequence as long as the condition specified in the encapsulated workflow is true.
 

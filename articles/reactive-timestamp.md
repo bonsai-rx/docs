@@ -13,7 +13,7 @@ Timestamps are specified relative to Coordinated Universal Time (UTC) using <xre
 > [!Caution]
 > Time recorded using the `Timestamp` operator does not take into account any hardware or communication latency associated with data acquisition processes. If your application requires high-precision timing of data acquisition events, consider logging any available hardware timestamps included in the data, if available.
 
-### Example
+### Examples
 
 Use `Timestamp` to timestamp elements that are produced by the source sequence.
 

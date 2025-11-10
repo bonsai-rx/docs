@@ -9,7 +9,7 @@ The `DistinctUntilChangedBy` operator removes all contiguous elements in the seq
 
 In other words, after each element is emitted by the result sequence, subsequent elements will be dropped until the value of the key changes.
 
-### Example
+### Examples
 
 Use `DistinctUntilChangedBy` to return non-contiguous distinct elements as determined by the specified key.
 

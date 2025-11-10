@@ -1,4 +1,4 @@
-### Example
+### Examples
 
 Use `PublishSubject` to broadcast values to any subscriber.
 

@@ -11,7 +11,7 @@ If any of the subscriptions completes successfully, the result sequence will als
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
 
-### Example
+### Examples
 
 Use `Retry` to repeat subscription to an observable sequence if it terminates with an exception.
 

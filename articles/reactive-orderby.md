@@ -9,7 +9,7 @@ The `OrderBy` operator requires the elements in the source sequence to be collec
 
 [!include[LazyOrdering](~/articles/reactive-lazyordering.md)]
 
-### Example
+### Examples
 
 Use `OrderBy` to sort elements in ascending order according to the specified key.
 

@@ -1,4 +1,4 @@
-### Example
+### Examples
 
 Use `ReplaySubject` to broadcast all past and future values to any subscriber.
 

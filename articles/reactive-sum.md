@@ -7,7 +7,7 @@ title: Sum
 
 The `Sum` operator collects all the numbers from the source sequence and emits a single value representing the sum of all numbers. The single result value is emitted only when the source sequence terminates successfully.
 
-### Example
+### Examples
 
 Use `Sum` to report the total value at the end of a sequence.
 

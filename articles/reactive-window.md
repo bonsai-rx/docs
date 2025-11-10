@@ -12,7 +12,7 @@ If a new window is created before the previous window is closed, then window wil
 > [!Note]
 > You can manipulate and schedule each of the windows downstream using other higher-order operators such as [`Merge`](xref:Bonsai.Reactive.Merge), [`Concat`](xref:Bonsai.Reactive.Concat) or [`Switch`](xref:Bonsai.Reactive.Switch).
 
-### Example
+### Examples
 
 Use `Window` to group elements into zero or more observable sequences based on notifications from a second sequence as well as the encapsulated workflow.
 

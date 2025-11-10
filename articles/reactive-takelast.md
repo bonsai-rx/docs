@@ -9,7 +9,7 @@ The `TakeLast` operator modifies the source sequence to emit only a specified ma
 
 Because of this buffering behavior, `TakeLast` will always modify the behavior of the original sequence, regardless of how many values it contains.
 
-### Example
+### Examples
 
 Use `TakeLast` to retrieve one or more elements from the end of a sequence.
 

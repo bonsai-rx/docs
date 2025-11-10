@@ -7,7 +7,7 @@ title: SampleInterval
 
 If multiple elements are received during each sampling period, `SampleInterval` will emit only the latest value. However, elements are never repeated: if no new elements are received between two sampling events, no notification will be emitted when the sampling period elapses.
 
-### Example
+### Examples
 
 Use `SampleInterval` to extract the latest element from a source sequence that is emitted within within the time interval.
 

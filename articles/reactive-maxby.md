@@ -7,7 +7,7 @@ title: MaxBy
 
 The `MaxBy` operator collects all the specified keys from values in the source sequence and emits a single value representing the value with the largest key. The single result value is emitted only when the source sequence terminates successfully.
 
-### Example
+### Examples
 
 Use `MaxBy` to return the list of values with the largest key.
 

@@ -9,7 +9,7 @@ title: ThenBy
 
 [!include[LazyOrdering](~/articles/reactive-lazyordering.md)]
 
-### Example
+### Examples
 
 Use `ThenBy` to perform a ascending sort on ordered collections according to the specified key.
 

@@ -9,7 +9,7 @@ The `Delay` operator modifies the source sequence by pausing for the specified d
 
 `Delay` is useful to model delayed responses to events in a control task, but also to access past data from a continuous stream in the future. In other words, if the stream timing is delayed, then any downstream observers grabbing data in the present moment will be receiving notifications from the past. For example, if you are recording data aligned on a temporal trigger detected in real-time, you can record data before the trigger simply by triggering the delayed sequence.
 
-### Example
+### Examples
 
 Use `Delay` to delay emission of elements from an observable sequence.
 

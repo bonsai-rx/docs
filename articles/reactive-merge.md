@@ -9,7 +9,7 @@ The `Merge` operator allows you to combine the output of multiple sequences of t
 
 The resulting sequence will terminate successfully only when all source sequences have terminated successfully, or exceptionally as soon as any sequence produces an error.
 
-### Example
+### Examples
 
 Use `Merge` to combine the output of two or more sequences together into a single sequence.
 

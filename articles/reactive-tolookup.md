@@ -12,7 +12,7 @@ title: ToLookup
 
 [!include[ToCollection](~/articles/reactive-tocollection.md)]
 
-### Example
+### Examples
 
 Use `ToLookup` to create a lookup from an observable sequence according to the specified key and element selector.
 

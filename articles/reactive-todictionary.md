@@ -12,7 +12,7 @@ title: ToDictionary
 
 [!include[ToCollection](~/articles/reactive-tocollection.md)]
 
-### Example
+### Examples
 
 Use `ToDictionary` to create a dictionary from an observable sequence according to the specified key and element selector.
 

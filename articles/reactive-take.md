@@ -9,7 +9,7 @@ The `Take` operator modifies the source sequence to emit only the specified maxi
 
 `Take` only specifies a maximum upper bound on the number of elements. If the source sequence terminates before that maximum number of values is reached, the behavior of the sequence will not be modified.
 
-### Example
+### Examples
 
 Use `Take` to retrieve one or more elements from the start of a sequence.
 

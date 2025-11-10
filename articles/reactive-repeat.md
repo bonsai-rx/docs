@@ -11,7 +11,7 @@ If any of the subscriptions terminates exceptionally, the result sequence will a
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
 
-### Example
+### Examples
 
 Use `Repeat` to repeat an observable sequence indefinitely.
 
