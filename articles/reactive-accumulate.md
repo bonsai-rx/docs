@@ -9,7 +9,7 @@ The `Accumulate` operator returns the current value of the cumulative sum each t
 
 ### Examples
 
-Use `Accumulate` to continuously count the number of notifications in a sequence.
+Use `Accumulate` to compute the running sum of a sequence of periodic values.
 
 :::workflow
 ![Accumulate Example](../workflows/reactive-accumulate-example.bonsai)
