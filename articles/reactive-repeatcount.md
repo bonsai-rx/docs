@@ -10,3 +10,15 @@ title: RepeatCount
 After the source sequence completes successfully the specified number of times, the result sequence will also terminate successfully. If any of the subscriptions terminates exceptionally, the result sequence will also terminate exceptionally, and no further resubscriptions will be made.
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
+
+### Examples
+
+Use `RepeatCount` to repeat an observable sequence a specified number of times.
+
+:::workflow
+![RepeatCount Example](../workflows/reactive-repeatcount-example.bonsai)
+:::
+
+### Related Operators
+
+Use [`Repeat`](xref:Bonsai.Reactive.Repeat) to repeat an observable sequence indefinitely.

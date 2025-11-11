@@ -12,3 +12,11 @@ The `GroupBy` operator can be used to separate, or demultiplex, the elements fro
 > You can manipulate and schedule each of the group sequences downstream using other higher-order operators such as [`Merge`](xref:Bonsai.Reactive.Merge), [`Concat`](xref:Bonsai.Reactive.Concat) or [`Switch`](xref:Bonsai.Reactive.Switch).
 
 The members used to generate the elements in each group sequence can be optionally specified using the <xref href="Bonsai.Reactive.GroupBy.ElementSelector"/> property. If no element selector is specified, the original values from the source sequence will be used.
+
+### Examples
+
+Use `GroupBy` to separate out elements from a multiplexed sequence.
+
+:::workflow
+![GroupBy Example](../workflows/reactive-groupby-example.bonsai)
+:::

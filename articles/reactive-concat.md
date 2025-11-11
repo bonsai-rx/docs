@@ -16,3 +16,28 @@ The resulting sequence will terminate successfully when the last source sequence
 ![Higher order](~/images/reactive-concatwindow.svg)
 
 The higher-order variant is useful to queue execution of long-running operations, for example to sequence logic states in a task, or merging video files in a folder sequentially into a single frame sequence.
+
+### Examples
+
+Use `Concat` to sequentially combine the outputs of multiple sequences.
+
+:::workflow
+![Concat Example](../workflows/reactive-concat-example.bonsai)
+:::
+
+#### Stimulus Composition
+
+Use `Concat` to create a stimulus sequence by combining multiple preloaded or defined sequences.
+
+:::workflow
+![Concat Application Stimuli](../workflows/reactive-concat-application-stimuli.bonsai)
+:::
+
+> [!NOTE]
+> This example requires the `Bonsai.Vision` and `Bonsai.Vision.Design` packages to be installed. Load separate images into each [`LoadImage`](xref:Bonsai.Vision.LoadImage) operator.
+
+### Related Operators
+
+Use [`Merge`](xref:Bonsai.Reactive.Merge) instead if you want to combine sequences in parallel online.
+
+Use [`OnErrorResumeNext`](xref:Bonsai.Reactive.OnErrorResumeNext) instead to concatenate multiple observable sequences, even if one or more terminate with an error.

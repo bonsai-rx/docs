@@ -13,3 +13,17 @@ If the `Count` property or the `TimeSpan` property is specified, then a new wind
 
 > [!Note]
 > You can manipulate and schedule each of the windows downstream using other higher-order operators such as [**Merge**](xref:Bonsai.Reactive.Merge), [**Concat**](xref:Bonsai.Reactive.Concat) or [**Switch**](xref:Bonsai.Reactive.Switch).
+
+### Examples
+
+Use `WindowTrigger` to group elements into zero or more observable sequences using notifications from the second sequence.
+
+:::workflow
+![WindowTrigger Example](../workflows/reactive-windowtrigger-example.bonsai)
+:::
+
+### Related Operators
+
+Use [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) instead to group elements into zero or more buffers using notifications from the second sequence.
+
+Use [`Window`](xref:Bonsai.Reactive.Window) instead if you want to specify a dynamic close condition.

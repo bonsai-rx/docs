@@ -13,3 +13,17 @@ If a maximum due time is specified, no elements from the source sequence arrivin
 
 > [!Warning]
 > If the second sequence emits notifications before the gate is closed, the gate will remain open. If there is a maximum specified due time, the timer will be reset upon arrival of the new notification. Even if there are multiple opening notifications, only a single element can make it through the gate.
+
+### Examples
+
+Use `Gate` to allow a single element from the source sequence to pass through each time a second sequence sends a trigger.
+
+:::workflow
+![Gate Example](../workflows/reactive-gate-example.bonsai)
+:::
+
+### Related Operators
+
+Use [`GateInterval`](xref:Bonsai.Reactive.GateInterval) to gate elements based on time.
+
+Use [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) or [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) to allow more than one element to pass through.

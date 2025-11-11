@@ -6,3 +6,11 @@ title: IsEmpty
 ![Marble diagram](~/images/reactive-isempty.svg)
 
 If the source sequence completes before returning any elements, the `IsEmpty` operator will emit a single value `true` before terminating successfully. If the source sequence emits any element, `IsEmpty` will immediately emit a single value `false`, terminate successfully, and cancel the subscription to the source sequence.
+
+### Examples
+
+Use `IsEmpty` to check if a sequence is empty.
+
+:::workflow
+![IsEmpty Example](../workflows/reactive-isempty-example.bonsai)
+:::

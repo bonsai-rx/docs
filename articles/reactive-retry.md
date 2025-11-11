@@ -10,3 +10,15 @@ title: Retry
 If any of the subscriptions completes successfully, the result sequence will also complete, and no further resubscriptions will be made.
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
+
+### Examples
+
+Use `Retry` to resubscribe to an observable sequence if it terminates with an exception.
+
+:::workflow
+![Retry Example](../workflows/reactive-retry-example.bonsai)
+:::
+
+### Related Operators
+
+Use [`RetryCount`](xref:Bonsai.Reactive.RetryCount) to resubscribe to a failing observable sequence a specified number of times.

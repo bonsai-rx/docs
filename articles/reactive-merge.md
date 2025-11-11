@@ -16,3 +16,28 @@ The resulting sequence will terminate successfully only when all source sequence
 ![Higher order](~/images/reactive-mergewindow.svg)
 
 The higher-order variant is useful to combine notifications from multiple event sources running in parallel, for example when waiting for the first event from multiple input conditionals, or when logging data from multiple sources to the same file.
+
+### Examples
+
+Use `Merge` to combine the output of two or more sequences together into a single sequence.
+
+:::workflow
+![Merge Example](../workflows/reactive-merge-example.bonsai)
+:::
+
+#### Input Aggregation
+
+Use `Merge` to combine responses generated from processing different inputs (e.g. button presses).
+
+:::workflow
+![Merge Application Inputs](../workflows/reactive-merge-application-inputs.bonsai)
+:::
+
+> [!NOTE]
+> This example requires the `Bonsai.Windows.Input` package to be installed.
+
+### Related Operators
+
+Use [`Zip`](xref:Bonsai.Reactive.Zip), [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) or [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) if you want to combine sequences but keep the output separate.
+
+Use [`Concat`](xref:Bonsai.Reactive.Concat) if you want to combine sequences sequentially.

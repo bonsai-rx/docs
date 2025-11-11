@@ -10,3 +10,15 @@ title: Repeat
 If any of the subscriptions terminates exceptionally, the result sequence will also terminate exceptionally, and no further resubscriptions will be made.
 
 [!include[Resubscription](~/articles/reactive-resubscription.md)]
+
+### Examples
+
+Use `Repeat` to repeat an observable sequence indefinitely.
+
+:::workflow
+![Repeat Example](../workflows/reactive-repeat-example.bonsai)
+:::
+
+### Related Operators
+
+Use [`RepeatCount`](xref:Bonsai.Reactive.RepeatCount) to repeat an observable sequence a specified number of times.
