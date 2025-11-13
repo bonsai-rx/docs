@@ -63,7 +63,7 @@ Although a lot can be done with the right sequence of sources, transforms and si
 
 Combinators can be used to merge data from multiple sources; control when observable sequences start and stop; or even to create entirely new sequences dynamically. Together, they provide an incredibly flexible toolkit to manipulate asynchronous data streams.
 
-## Core Reactive Operators
+## Core Operators
 
 Bonsai includes a set of core reactive operators that are commonly used across workflows. To locate them, search for `Reactive` in the [`Toolbox Panel`](./editor.md#toolbox). The tables below categorize these operators and provide brief descriptions of their functionality.
 
@@ -87,7 +87,7 @@ Operators that generate or extract numerical values from a sequence.
 | [`Sum`](xref:Bonsai.Reactive.Sum) | Computes the sum of a sequence |
 
 > [!NOTE]
-> Some of these operators have package-specific variants especially designed to handle unique data types (for instance, [`Dsp.Average`](xref:Bonsai.Dsp.Average)). 
+> Some of these operators have package-specific variants especially designed to handle unique data types (for instance, [`Dsp.Average`](xref:Bonsai.Dsp.Average)).
 
 > [!NOTE]
 > More quantitative operators are available in the `Numerics` package.
@@ -98,7 +98,7 @@ Operators that use timing information to generate, manipulate, and sample sequen
 
 | Name | Description | 
 | ---- | ----------- |
-| [`CombineTimestamp`](xref:Bonsai.Reactive.CombineTimestamp) | Converts element-timestamp pairs of a sequence into proper timestamped elements |
+| [`CreateTimestamped`](xref:Bonsai.Reactive.CreateTimestamped) | Converts element-timestamp pairs of a sequence into proper timestamped elements |
 | [`Delay`](xref:Bonsai.Reactive.Delay) | Delays the notifications of a sequence by the specified time interval |
 | [`DelaySubscription`](xref:Bonsai.Reactive.DelaySubscription) | Time-shifts the sequence by delaying the subscription by the specified time interval |
 | [`GateInterval`](xref:Bonsai.Reactive.GateInterval) | Allows a single element from the first sequence to pass through every time the specified time interval elapses |
@@ -225,7 +225,7 @@ Operators that use notifications from one sequence to select elements from anoth
 | Name | Description | 
 | ---- | ----------- |
 | [`Gate`](xref:Bonsai.Reactive.Gate) | Allows a single element from the first sequence to pass through every time a second sequence emits a notification |
-| [`Sample`](xref:Bonsai.Reactive.Sample) | Samples elements from the first sequence whenever the second sequence emits a notification. |
+| [`Sample`](xref:Bonsai.Reactive.Sample) | Samples elements from the first sequence whenever the second sequence emits a notification |
 | [`SkipUntil`](xref:Bonsai.Reactive.SkipUntil) | Returns the elements from the first sequence only after the second sequence emits a notification |
 | [`SubscribeWhen`](xref:Bonsai.Reactive.SubscribeWhen) | Subscribes to the first sequence only after the second sequence emits a notification |
 | [`TakeUntil`](xref:Bonsai.Reactive.TakeUntil) | Returns elements from the first sequence only until the second sequence emits a notification |
@@ -236,9 +236,9 @@ Operators that use notifications from one sequence to group elements from anothe
 
 | Name | Description | 
 | ---- | ----------- |
-| [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) | Projects elements of the first sequence into zero or more buffers created when the second sequence emits a notification |
+| [`BufferTrigger`](xref:Bonsai.Reactive.BufferTrigger) | Projects elements of the first sequence into zero or more buffers created by the second sequence |
 | [`Window`](xref:Bonsai.Reactive.Window) | Projects the first sequence into zero or more windows with boundaries defined by the second sequence |
-| [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) | Projects elements of the first sequence into zero or more windows created when the second sequence emits a notification |
+| [`WindowTrigger`](xref:Bonsai.Reactive.WindowTrigger) | Projects elements of the first sequence into zero or more windows created by the second sequence |
 
 # [Select](#tab/multi-select-operators)
 
