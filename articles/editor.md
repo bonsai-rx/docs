@@ -48,14 +48,14 @@ The most useful action to learn your way around the `Workflow` panel is right-cl
 If only one node is selected, the `Output` menu item will display the type of the elements emitted by that operator sequence.
 
 > [!Tip]
-> If the output of an operator is a complex type, you can inspect its public data members. Clicking on any of the sub-items will automatically place a new [`MemberSelector`](xref:Bonsai.Expressions.MemberSelectorBuilder) operator to pick the specified data member from the output of the node.
+> If the output of an operator is a complex type, you can inspect its public data members. Clicking on any of the sub-items will automatically place a new [`MemberSelector`] operator to pick the specified data member from the output of the node.
 
 The context menu also allows you to externalize public properties of the operator as explicit nodes in the workflow using the `Externalize Property` drop-down menu. Once a property is externalized, you can connect other nodes in the workflow to it so you can change the value of the property dynamically (see the [Property Mapping](xref:property-mapping) section for more information).
 
-Finally, it is possible to group nodes, both for organizing large workflows, and to define [higher-order operators](xref:higher-order). The most basic grouping is the [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) which allows you to encapsulate a workflow fragment inside a single node. Any group can be assigned a `Name` for ease of reference and a `Description` for documentation. Any named properties which are externalized from nodes inside the group will be shown as properties of the group node itself on the top-level workflow.
+Finally, it is possible to group nodes, both for organizing large workflows, and to define [higher-order operators](xref:higher-order). The most basic grouping is the [`GroupWorkflow`] which allows you to encapsulate a workflow fragment inside a single node. Any group can be assigned a `Name` for ease of reference and a `Description` for documentation. Any named properties which are externalized from nodes inside the group will be shown as properties of the group node itself on the top-level workflow.
 
 > [!Note]
-> You can use `GroupWorkflow` nodes to document your workflow by adding names and descriptions inline with operator chains. These can help readability of a workflow and no additional processing cost is incurred by the use of `GroupWorkflow` nodes.
+> You can use [`GroupWorkflow`] nodes to document your workflow by adding names and descriptions inline with operator chains. These can help readability of a workflow and no additional processing cost is incurred by the use of [`GroupWorkflow`] nodes.
 
 ### Type Visualizers
 
@@ -82,12 +82,12 @@ If you leave one or more visualizers open when you stop the workflow, the editor
 
 You can create and save workflow extensions by selecting one or more nodes and clicking the `Save Workflow As...` button in the context menu.
 
-Workflow extensions are a powerful way to reuse common workflow patterns across a large project. When you save a new extension it will immediately show up in the `Toolbox` panel for placement. Placing a workflow extension will create a new [`IncludeWorkflow`](xref:Bonsai.Expressions.IncludeWorkflowBuilder) operator pointing to the saved workflow. You can place an extension multiple times in the same workflow.
+Workflow extensions are a powerful way to reuse common workflow patterns across a large project. When you save a new extension it will immediately show up in the `Toolbox` panel for placement. Placing a workflow extension will create a new [`IncludeWorkflow`] operator pointing to the saved workflow. You can place an extension multiple times in the same workflow.
 
 > [!Tip]
-> Like other groups, any named properties which are externalized from nodes inside the `IncludeWorkflow` will be shown as properties of the include node itself. These properties can have different values across different instances of the same workflow extension, and will be saved as part of the top-level workflow.
+> Like other groups, any named properties which are externalized from nodes inside the [`IncludeWorkflow`] will be shown as properties of the include node itself. These properties can have different values across different instances of the same workflow extension, and will be saved as part of the top-level workflow.
 
-All included workflow extensions are read-only, meaning that you cannot change the internal structure of the extension once it is loaded into the workflow, only its properties. If you want to change the implementation of the extension you need to first `Ungroup` the `IncludeWorkflow` operator. This will make a copy of the included workflow and place it inside a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder). From there you will be able to modify the internal implementation at will. After you have changed the structure, you can save the extension again using `Save Workflow As...`.
+All included workflow extensions are read-only, meaning that you cannot change the internal structure of the extension once it is loaded into the workflow, only its properties. If you want to change the implementation of the extension you need to first `Ungroup` the [`IncludeWorkflow`] operator. This will make a copy of the included workflow and place it inside a [`GroupWorkflow`]. From there you will be able to modify the internal implementation at will. After you have changed the structure, you can save the extension again using `Save Workflow As...`.
 
 > [!Warning]
 > When you change the structure of an included workflow and save it over the original file, all references to that workflow extension will be automatically reloaded and updated. This ensures that all references to the same extension remain consistent throughout.
@@ -117,7 +117,7 @@ You can take advantage of tabs, windows, breadcrumbs and docked panels to naviga
 
 ![Editor Dock Panel](../images/editor-dockpanel.png)
 
-Right-clicking on a nested node such as a [`GroupWorkflow`](xref:Bonsai.Expressions.GroupWorkflowBuilder) will bring up the context menu, where you can select the `Open in New Tab` or `Open in New Window` commands. You can also access these commands by right-clicking on the tab header or window title bar.
+Right-clicking on a nested node such as a [`GroupWorkflow`] will bring up the context menu, where you can select the `Open in New Tab` or `Open in New Window` commands. You can also access these commands by right-clicking on the tab header or window title bar.
 
 Each tab or window displays a breadcrumb trail at the top, indicating the location of the current view within the nested workflows. Clicking a breadcrumb switches the view to the corresponding workflow, allowing you to navigate between levels.
 
@@ -130,14 +130,14 @@ You can further organize tabs and windows by rearranging them into docked panels
 The `Explorer` panel also supports workflow navigation by providing a hierarchical tree view, similar to a file browser. Each level in the tree corresponds to a nested node. Selecting a node will update the `Workflow` panel view to display the corresponding nested workflow. You can also navigate the tree by using the keyboard arrow keys and pressing <kbd>Enter</kbd> to update the view. To open the node in a new tab or window, right-click on the node label and select one of the options. To expand or collapse the tree view at any level, click on the `+` or `-` icon to the left of the node label, or double-click the label itself. Icons adjacent to each label indicate the status of the corresponding workflow:
 
 - ✏️ Editable workflow
-- 🔒 Locked workflow (`IncludeWorkflow`)
+- 🔒 Locked workflow ([`IncludeWorkflow`])
 - ⛔ Workflow contains errors
 
 ## Properties
 
 ![Editor Properties Panel](../images/editor-properties.png){width=300} 
 
-Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the [`Timer`](xref:Bonsai.Reactive.Timer) operator exposes the period between generated values, whereas an image [`Threshold`](xref:Bonsai.Vision.Threshold) exposes the brightness cutoff value applied to individual pixels).
+Each operator exposes a set of configuration properties that parameterize the operator's behaviour (e.g., the [`Timer`] operator exposes the period between generated values, whereas an image [`Threshold`] exposes the brightness cutoff value applied to individual pixels).
 
 The `Properties` panel will display all the configuration properties which are available for the currently selected operator. A summary description of the currently selected property can be found in the textbox at the bottom of the panel. Similarly, a description of the behaviour of the currently selected operator itself is shown at the top of the panel.
 
@@ -215,3 +215,10 @@ Below is a summary of the most used actions and shortcuts in the workflow editor
 | Open context menu                  | <kbd>Shift</kbd>+<kbd>F10</kbd> |
 | View help                          | <kbd>F1</kbd> |
 | Go to definition                   | <kbd>F12</kbd> |
+
+<!-- Reference-style links -->
+[`GroupWorkflow`]: xref:Bonsai.Expressions.GroupWorkflowBuilder
+[`IncludeWorkflow`]: xref:Bonsai.Expressions.IncludeWorkflowBuilder
+[`MemberSelector`]: xref:Bonsai.Expressions.MemberSelectorBuilder
+[`Threshold`]: xref:Bonsai.Vision.Threshold
+[`Timer`]: xref:Bonsai.Reactive.Timer

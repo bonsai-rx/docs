@@ -13,9 +13,9 @@ Bonsai can be used to acquire and record data from many different devices. The e
 ![Saving a video](~/workflows/acquisition-video.bonsai)
 :::
 
-- Insert a [`CameraCapture`](xref:Bonsai.Vision.CameraCapture) source.
-- Insert a [`VideoWriter`](xref:Bonsai.Vision.VideoWriter) sink.
-- Configure the `FileName` property of the `VideoWriter` operator with a file name ending in `.avi`.
+- Insert a [`CameraCapture`] source.
+- Insert a [`VideoWriter`] sink.
+- Configure the `FileName` property of the [`VideoWriter`] operator with a file name ending in `.avi`.
 - Run the workflow and check that it generates a valid video file.
 
 ### **Exercise 2:** Saving a grayscale video
@@ -24,7 +24,7 @@ Bonsai can be used to acquire and record data from many different devices. The e
 ![Saving a grayscale video](~/workflows/acquisition-grayvideo.bonsai)
 :::
 
-- Insert a [`Grayscale`](xref:Bonsai.Vision.Grayscale) transform between `CameraCapture` and `VideoWriter`.
+- Insert a [`Grayscale`] transform between [`CameraCapture`] and [`VideoWriter`].
 - Run the workflow. The output should now be a grayscale movie.
 - How would you modify the workflow to record **both** a colour and a grayscale movie?
 
@@ -38,10 +38,10 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 ![Saving a WAV file](~/workflows/acquisition-audio.bonsai)
 :::
 
-- Insert an [`AudioCapture`](xref:Bonsai.Audio.AudioCapture) source.
-- Insert an [`AudioWriter`](xref:Bonsai.Audio.AudioWriter) sink.
-- Configure the `FileName` property of the `AudioWriter` operator with a file name ending in `.wav`.
-- Make sure that the [`SampleRate`](xref:Bonsai.Audio.AudioWriter.SampleRate) property of the `AudioWriter` matches the frequency of audio capture.
+- Insert an [`AudioCapture`] source.
+- Insert an [`AudioWriter`] sink.
+- Configure the `FileName` property of the [`AudioWriter`] operator with a file name ending in `.wav`.
+- Make sure that the `SampleRate` property of the [`AudioWriter`] matches the frequency of audio capture.
 - Run the workflow for some seconds. Playback the file in your favorite media player to check that it is a valid audio file.
 
 ### **Exercise 4:** Saving raw binary waveform data
@@ -50,8 +50,8 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 ![Saving raw binary waveform data](~/workflows/acquisition-audiobinary.bonsai)
 :::
 
-- Replace the `AudioWriter` operator with a [`MatrixWriter`](xref:Bonsai.Dsp.MatrixWriter) sink.
-- Configure the `Path` property of the `MatrixWriter` operator with a file name ending in `.bin`.
+- Replace the [`AudioWriter`] operator with a [`MatrixWriter`] sink.
+- Configure the `Path` property of the [`MatrixWriter`] operator with a file name ending in `.bin`.
 - Run the workflow for some seconds.
 - Open the resulting binary file in MATLAB/Python/R and make a time series plot of the raw waveform samples.
   - **MATLAB:** Use the [`fread`](https://www.mathworks.com/help/matlab/ref/fread.html) function to read the binary file. The source data must be set to `int16`.
@@ -63,20 +63,20 @@ Audio data is captured at much higher temporal sampling frequencies than video. 
 ![Playback an audio file](~/workflows/acquisition-audioplayback.bonsai)
 :::
 
-- Insert an [`AudioReader`](xref:Bonsai.Audio.AudioReader) source.
-- Configure the [`FileName`](xref:Bonsai.Audio.AudioReader.FileName) property to point to the audio file you recorded in _Exercise 3_.
-- Insert an [`AudioPlayback`](xref:Bonsai.Audio.AudioPlayback) sink.
+- Insert an [`AudioReader`] source.
+- Configure the `FileName` property to point to the audio file you recorded in _Exercise 3_.
+- Insert an [`AudioPlayback`] sink.
 - Run the workflow and check the sound is played correctly.
 
 :::workflow
 ![Trigger an auditory stimulus](~/workflows/acquisition-audiotrigger.bonsai)
 :::
 
-- Insert a [`KeyDown`](xref:Bonsai.Windows.Input.KeyDown) source.
-- Set the [`BufferLength`](xref:Bonsai.Audio.AudioReader.BufferLength) property of the `AudioReader` to zero, so that all audio data is read into a single buffer.
-- Combine the key press with the audio data using the [`WithLatestFrom`](xref:Bonsai.Reactive.WithLatestFrom) combinator.
-- Right-click the `WithLatestFrom` operator. Select the `Tuple` > `Item2` member from the context menu.
-- Move the `AudioPlayback` sink so that it follows the selected `Item2` member.
+- Insert a [`KeyDown`] source.
+- Set the `BufferLength` property of the [`AudioReader`] to zero, so that all audio data is read into a single buffer.
+- Combine the key press with the audio data using the [`WithLatestFrom`] combinator.
+- Right-click the [`WithLatestFrom`] operator. Select the `Tuple` > `Item2` member from the context menu.
+- Move the [`AudioPlayback`] sink so that it follows the selected `Item2` member.
 - Run the workflow and press a key. What happens if you press the key several times?
 
 ## Arduino Acquisition
@@ -94,12 +94,12 @@ In order to communicate and interact with an Arduino using Bonsai, you must prog
 ![Saving analog data](~/workflows/acquisition-analog.bonsai)
 :::
 
-- Insert an [`AnalogInput`](xref:Bonsai.Arduino.AnalogInput) source.
-- Configure the [`PortName`](xref:Bonsai.Arduino.AnalogInput.PortName) property to point to the correct serial port where the Arduino is connected.
+- Insert an [`AnalogInput`] source.
+- Configure the `PortName` property to point to the correct serial port where the Arduino is connected.
 - Run the workflow and visualize the output of the analog source. What do you see?
 - **Optional:** Connect a sensor to the analog input pin, e.g. a potentiometer or a button.
-- Insert a [`CsvWriter`](xref:Bonsai.IO.CsvWriter) sink. This operator records input data into a text file.
-- Configure the [`FileName`](xref:Bonsai.IO.CsvWriter.FileName) property of the `CsvWriter` operator with a file name ending in `.csv`.
+- Insert a [`CsvWriter`] sink. This operator records input data into a text file.
+- Configure the `FileName` property of the [`CsvWriter`] operator with a file name ending in `.csv`.
 - Run the workflow, record some interesting signal, and then open the result text data file.
 
 ### **Exercise 7:** Control an LED
@@ -108,12 +108,12 @@ In order to communicate and interact with an Arduino using Bonsai, you must prog
 ![Control an LED](~/workflows/acquisition-led.bonsai)
 :::
 
-- Insert a [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) source.
-- Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
-- Set the [`Pin`](xref:Bonsai.Arduino.DigitalOutput.Pin) property of the `DigitalOutput` operator to 13.
-- Configure the [`PortName`](xref:Bonsai.Arduino.DigitalOutput.PortName) property.
-- Run the workflow and change the `Value` property of the `Boolean` operator.
-- **Optional:** Use your mouse to control the LED! Replace the `Boolean` operator by a [`MouseMove`](xref:Bonsai.Windows.Input.MouseMove) source (hint: use [`GreaterThan`](xref:Bonsai.Expressions.GreaterThanBuilder), [`LessThan`](xref:Bonsai.Expressions.LessThanBuilder), or equivalent operators to connect one of the mouse axis to `DigitalOutput`).
+- Insert a [`Boolean`] source.
+- Insert a [`DigitalOutput`] sink.
+- Set the `Pin` property of the [`DigitalOutput`] operator to 13.
+- Configure the `PortName` property.
+- Run the workflow and change the `Value` property of the [`Boolean`] operator.
+- **Optional:** Use your mouse to control the LED! Replace the [`Boolean`] operator by a [`MouseMove`] source (hint: use [`GreaterThan`], [`LessThan`], or equivalent operators to connect one of the mouse axis to [`DigitalOutput`]).
 
 ### **Exercise 8:** Control a servo motor
 
@@ -121,13 +121,13 @@ In order to communicate and interact with an Arduino using Bonsai, you must prog
 ![Control a servo motor](~/workflows/acquisition-servo.bonsai)
 :::
 
-- Insert a [`Timer`](xref:Bonsai.Reactive.Timer) source. Set its [`Period`](xref:Bonsai.Reactive.Timer.Period) property to 500 ms.
-- Insert a [`Take`](xref:Bonsai.Reactive.Take) operator. Set its [`Count`](xref:Bonsai.Reactive.Take.Count) property to 10.
-- Insert a [`Rescale`](xref:Bonsai.Dsp.Rescale) operator. Set its [`Max`](xref:Bonsai.Dsp.Rescale.Max) property to 10, and its [`RangeMax`](xref:Bonsai.Dsp.Rescale.RangeMax) property to 180.
-- Insert a [`Repeat`](xref:Bonsai.Reactive.Repeat) operator.
-- Insert a [`ServoOutput`](xref:Bonsai.Arduino.ServoOutput) sink.
-- Set the [`Pin`](xref:Bonsai.Arduino.ServoOutput.Pin) property of the `ServoOutput` operator to 9.
-- Configure the [`PortName`](xref:Bonsai.Arduino.ServoOutput.PortName) property.
+- Insert a [`Timer`] source. Set its `Period` property to 500 ms.
+- Insert a [`Take`] operator. Set its `Count` property to 10.
+- Insert a [`Rescale`] operator. Set its `Max` property to 10, and its `RangeMax` property to 180.
+- Insert a [`Repeat`] operator.
+- Insert a [`ServoOutput`] sink.
+- Set the `Pin` property of the [`ServoOutput`] operator to 9.
+- Configure the `PortName` property.
 - Connect a servo motor to the Arduino pin 9 and run the workflow. Can you explain the behaviour of the servo?
 - **Optional:** Make the servo sweep back and forth.
 
@@ -141,10 +141,10 @@ Bonsai allows processing captured raw video data to extract real-time measures o
 ![Segmentation of a coloured object](~/workflows/acquisition-segmentation1.bonsai)
 :::
 
-- Insert a [`CameraCapture`](xref:Bonsai.Vision.CameraCapture) source.
-- Insert a [`RangeThreshold`](xref:Bonsai.Vision.RangeThreshold) transform.
-- Open the visualizer for the `RangeThreshold` operator.
-- Configure the [`Lower`](xref:Bonsai.Vision.RangeThreshold.Lower) and [`Upper`](xref:Bonsai.Vision.RangeThreshold.Upper) properties of the `RangeThreshold` to isolate your coloured object (hint: click the small arrow to the left of each property to expand their individual values).
+- Insert a [`CameraCapture`] source.
+- Insert a [`RangeThreshold`] transform.
+- Open the visualizer for the [`RangeThreshold`] operator.
+- Configure the `Lower` and `Upper` properties of the [`RangeThreshold`] to isolate your coloured object (hint: click the small arrow to the left of each property to expand their individual values).
 
 This method segments coloured objects by setting boundaries directly on the BGR colour space. This colour space is considered a poor choice for colour segmentation. Can you see why?
 
@@ -152,9 +152,9 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 ![Segmentation of a coloured object](~/workflows/acquisition-segmentation2.bonsai)
 :::
 
-- Replace the `RangeThreshold` operator by a [`ConvertColor`](xref:Bonsai.Vision.ConvertColor) transform. This node converts the image from the BGR colour space to the [Hue-Saturation-Value (HSV) colour space](https://en.wikipedia.org/wiki/HSL_and_HSV).
-- Insert an [`HsvThreshold`](xref:Bonsai.Vision.HsvThreshold) transform.
-- Configure the [`Lower`](xref:Bonsai.Vision.HsvThreshold.Lower) and [`Upper`](xref:Bonsai.Vision.HsvThreshold.Upper) properties of the `HsvThreshold` to isolate the object.
+- Replace the [`RangeThreshold`] operator by a [`ConvertColor`] transform. This node converts the image from the BGR colour space to the [Hue-Saturation-Value (HSV) colour space](https://en.wikipedia.org/wiki/HSL_and_HSV).
+- Insert an [`HsvThreshold`] transform.
+- Configure the `Lower` and `Upper` properties of the [`HsvThreshold`] to isolate the object.
 - Test the resulting tracking under different illumination conditions.
 
 ### **Exercise 10:** Real-time position tracking
@@ -163,11 +163,11 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 ![Real-time position tracking](~/workflows/acquisition-tracking.bonsai)
 :::
 
-- Starting with the workflow from the previous exercise, insert a [`FindContours`](xref:Bonsai.Vision.FindContours) transform. This operator traces the contours of all the objects in a black-and-white image. An _object_ is defined as a region of connected white pixels.
-- Insert a [`BinaryRegionAnalysis`](xref:Bonsai.Vision.BinaryRegionAnalysis) transform. This node calculates the area, center of mass, and orientation for all the detected contours.
-- Insert a [`LargestBinaryRegion`](xref:Bonsai.Vision.LargestBinaryRegion) transform to extract the largest detected object in the image.
+- Starting with the workflow from the previous exercise, insert a [`FindContours`] transform. This operator traces the contours of all the objects in a black-and-white image. An _object_ is defined as a region of connected white pixels.
+- Insert a [`BinaryRegionAnalysis`] transform. This node calculates the area, center of mass, and orientation for all the detected contours.
+- Insert a [`LargestBinaryRegion`] transform to extract the largest detected object in the image.
 - Select the `ConnectedComponent` > `Centroid` field of the largest binary region using the context menu.
-- Record the position of the centroid using a [`CsvWriter`](xref:Bonsai.IO.CsvWriter) sink.
+- Record the position of the centroid using a [`CsvWriter`] sink.
 - **Optional:** Open the CSV file in Excel/Python/MATLAB/R and plot the trajectory of the object.
 
 ### **Exercise 11:** Background subtraction and motion segmentation
@@ -177,11 +177,11 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 :::
 
 - Create a grayscale video workflow similar to _Exercise 2_.
-- Insert a [`Skip`](xref:Bonsai.Reactive.Skip) operator. Set its `Count` property to 1.
-- In a new branch, insert a [`Take`](xref:Bonsai.Reactive.Take) operator. Set its `Count` property to 1.
-- Combine the images from both branches using the [`CombineLatest`](xref:Bonsai.Reactive.CombineLatest) combinator.
-- Insert the [`AbsoluteDifference`](xref:Bonsai.Dsp.AbsoluteDifference) transform after `CombineLatest`.
-- Insert a [`Threshold`](xref:Bonsai.Vision.Threshold) transform. Visualize the node output and adjust the [`ThresholdValue`](xref:Bonsai.Vision.Threshold.ThresholdValue) property.
+- Insert a [`Skip`] operator. Set its `Count` property to 1.
+- In a new branch, insert a [`Take`] operator. Set its `Count` property to 1.
+- Combine the images from both branches using the [`CombineLatest`] combinator.
+- Insert the [`AbsoluteDifference`] transform after [`CombineLatest`].
+- Insert a [`Threshold`] transform. Visualize the node output and adjust the `ThresholdValue` property.
 
 _Describe in your own words what the above workflow is doing._
 
@@ -189,8 +189,8 @@ _Describe in your own words what the above workflow is doing._
 ![Motion segmentation](~/workflows/acquisition-motionsegmentation.bonsai)
 :::
 
-- Replace the `CombineLatest` operator with the [`Zip`](xref:Bonsai.Reactive.Zip) combinator.
-- Delete the `Take` operator.
+- Replace the [`CombineLatest`] operator with the [`Zip`] combinator.
+- Delete the [`Take`] operator.
 
 _Describe in your own words what the above modified workflow is doing._
 
@@ -201,12 +201,49 @@ _Describe in your own words what the above modified workflow is doing._
 :::
 
 - Create a grayscale video stream similar to _Exercise 2_.
-- Insert a [`BackgroundSubtraction`](xref:Bonsai.Vision.BackgroundSubtraction) transform. Set its `AdaptationRate` property to 1.
-- Insert a [`Sum`](xref:Bonsai.Dsp.Sum) operator. This operator will sum the values of all the pixels in the image.
-- Run the workflow, point the camera at a moving object and visualize the output of the `Sum` operator. Compare small movements to big movements. What happens to the signal when the object holds perfectly still?
-- Right-click the `Sum` operator. Select the `Scalar` > `Val0` member from the context menu.
+- Insert a [`BackgroundSubtraction`] transform. Set its `AdaptationRate` property to 1.
+- Insert a [`Sum`] operator. This operator will sum the values of all the pixels in the image.
+- Run the workflow, point the camera at a moving object and visualize the output of the [`Sum`] operator. Compare small movements to big movements. What happens to the signal when the object holds perfectly still?
+- Right-click the [`Sum`] operator. Select the `Scalar` > `Val0` member from the context menu.
 
 > [!Note]
-> The `Sum` operator sums the pixel values across all image colour channels. However, in the case of grayscale binary images, there is only one active channel and its sum is stored in the [`Val0`](xref:OpenCV.Net.Scalar.Val0) field.
+> The [`Sum`] operator sums the pixel values across all image colour channels. However, in the case of grayscale binary images, there is only one active channel and its sum is stored in the [`Val0`](xref:OpenCV.Net.Scalar.Val0) field.
 
-- Record the motion of an object using a [`CsvWriter`](xref:Bonsai.IO.CsvWriter) sink.
+- Record the motion of an object using a [`CsvWriter`] sink.
+
+<!-- Reference-style links -->
+[`AbsoluteDifference`]: xref:Bonsai.Dsp.AbsoluteDifference
+[`AnalogInput`]: xref:Bonsai.Arduino.AnalogInput
+[`AudioCapture`]: xref:Bonsai.Audio.AudioCapture
+[`AudioPlayback`]: xref:Bonsai.Audio.AudioPlayback
+[`AudioReader`]: xref:Bonsai.Audio.AudioReader
+[`AudioWriter`]: xref:Bonsai.Audio.AudioWriter
+[`BackgroundSubtraction`]: xref:Bonsai.Vision.BackgroundSubtraction
+[`BinaryRegionAnalysis`]: xref:Bonsai.Vision.BinaryRegionAnalysis
+[`Boolean`]: xref:Bonsai.Expressions.BooleanProperty
+[`CameraCapture`]: xref:Bonsai.Vision.CameraCapture
+[`CombineLatest`]: xref:Bonsai.Reactive.CombineLatest
+[`ConvertColor`]: xref:Bonsai.Vision.ConvertColor
+[`CsvWriter`]: xref:Bonsai.IO.CsvWriter
+[`DigitalOutput`]: xref:Bonsai.Arduino.DigitalOutput
+[`FindContours`]: xref:Bonsai.Vision.FindContours
+[`Grayscale`]: xref:Bonsai.Vision.Grayscale
+[`GreaterThan`]: xref:Bonsai.Expressions.GreaterThanBuilder
+[`HsvThreshold`]: xref:Bonsai.Vision.HsvThreshold
+[`KeyDown`]: xref:Bonsai.Windows.Input.KeyDown
+[`LargestBinaryRegion`]: xref:Bonsai.Vision.LargestBinaryRegion
+[`LessThan`]: xref:Bonsai.Expressions.LessThanBuilder
+[`MatrixWriter`]: xref:Bonsai.Dsp.MatrixWriter
+[`MouseMove`]: xref:Bonsai.Windows.Input.MouseMove
+[`RangeThreshold`]: xref:Bonsai.Vision.RangeThreshold
+[`Repeat`]: xref:Bonsai.Reactive.Repeat
+[`Rescale`]: xref:Bonsai.Dsp.Rescale
+[`ServoOutput`]: xref:Bonsai.Arduino.ServoOutput
+[`Skip`]: xref:Bonsai.Reactive.Skip
+[`Sum`]: xref:Bonsai.Dsp.Sum
+[`Take`]: xref:Bonsai.Reactive.Take
+[`Threshold`]: xref:Bonsai.Vision.Threshold
+[`Timer`]: xref:Bonsai.Reactive.Timer
+[`VideoWriter`]: xref:Bonsai.Vision.VideoWriter
+[`WithLatestFrom`]: xref:Bonsai.Reactive.WithLatestFrom
+[`Zip`]: xref:Bonsai.Reactive.Zip
