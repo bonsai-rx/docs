@@ -16,3 +16,9 @@ The latest stable release is: **2.9.0**
 [Release Notes](https://github.com/bonsai-rx/bonsai/releases?q=prerelease%3Afalse)
 
 The installer will make sure that .NET and any other required system dependencies for running Bonsai are correctly setup in your computer.
+
+> [!TIP]
+> On Windows 10 (1809+) and above, Bonsai can be installed from the command line using the Windows Package Manager [WinGet](https://github.com/microsoft/winget-cli):
+> ```cmd
+> winget install bonsai-rx
+> ```
