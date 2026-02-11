@@ -8,6 +8,7 @@ The following article will go into detail on how to create a `docfx` website for
 > We recommend using a code editor with an integrated terminal like [Visual Studio Code](https://code.visualstudio.com/) to follow along with these instructions.
 
 ## Repository organization
+
 To help long term maintenance of documentation, we recommend package repositories to be organized according to the following standard folder structure before setting up `docfx`:
 
 ```
@@ -74,18 +75,18 @@ The documentation guides assume the `docs` folder is organized according to the 
 ├── bonsai/                  # Docfx-tools submodule (see note below)
 ├── images/                  # Place images like screenshots here
 ├── template/                # Custom CSS template (see note below)
-│   └── public/
-│       ├── main.css
-│       └── main.js
+│   ├── public/
+│   │   ├── main.css
+│   │   └── main.js
+│   ├── logo.svg             # Optional - Custom website logo
+│   └── favicon.ico          # Optional - Custom website bookmark logo
 ├── tutorials/               # Place "Tutorials" section articles here (see style guide)
 ├── workflows/               # Place .bonsai workflow files here for image export
-├── build.ps1                # Bonsai workflow image export script (see note below)
-├── logo.svg                 # Website logo
-└── favicon.ico              # Website bookmark logo
+└── build.ps1                # Bonsai workflow image export script (see note below)
 ...
 ```
 
-- `bonsai/` - this folder is where we initialize the submodule referencing [docfx-tools](https://github.com/bonsai-rx/docfx-tools). This submodule contains scripts for automating image export from `Bonsai` workflows (if you want to include them in your article) and also common infrastructure for [workflow containers](#creating-example-workflows). To create this submodule, run this command in the `docs` folder:
+- `bonsai/` - This folder is where we initialize the submodule referencing [docfx-tools](https://github.com/bonsai-rx/docfx-tools). This submodule contains scripts for automating image export from `Bonsai` workflows (if you want to include them in your article) and also common infrastructure for [workflow containers](#creating-example-workflows). To create this submodule, run this command in the `docs` folder:
 
 ```powershell
 git submodule add https://github.com/bonsai-rx/docfx-tools bonsai
@@ -101,14 +102,16 @@ To update the submodule to the latest commit:
 git submodule update --remote
 ```
 
-- `template/` - the files in this `docfx` template extend the base template in `docfx-tools`. Below are templates for `main.css` and `main.js` which add a GitHub link to the top right of the navigation bar and include all styles for workflow containers.
+- `template/` - The files in this `docfx` template extend the base template in `docfx-tools`. Below are templates for `main.css` and `main.js` which add a GitHub link to the top right of the navigation bar and include all styles for workflow containers.
 
 ###### main.css
+
 ```css
 @import "workflow.css";
 ```
 
 ###### main.js
+
 ```js
 import WorkflowContainer from "./workflow.js"
 
@@ -125,22 +128,22 @@ export default {
 }
 ```
 
-- `build.ps1` - this custom script exports Bonsai workflow images using `docfx-tools` and then calls the `docfx` build process. Make sure to change the line to point to your package output location:
+- `logo.svg` and `favicon.ico` - For Bonsai Foundation packages, these files are already included in the base template in `docfx-tools`. Third-party developers can add their own assets to the `template` folder to override the default logos.
+
+- `build.ps1` - This custom script exports Bonsai workflow images using `docfx-tools` and then calls the `docfx` build process. Make sure to change the line to point to your package output location:
 
 ```powershell
 .\bonsai\modules\Export-Image.ps1 "..\src\Bonsai.PackageName\bin\Release\net462"
 dotnet docfx @args
 ```
 
-- `logo.svg` and `favicon.ico` - for official Bonsai packages these can be downloaded from the [docfx-assets](https://github.com/bonsai-rx/docfx-assets) repository.
-
-
 ### Configuring docfx
 
 The `docfx.json` file in the `docs` folder specifies the configuration options for the website and needs to be modified to make use of all available features. If in doubt, refer to a Bonsai package repository that has been recently updated, e.g. [bonsai-rx/machinelearning](https://bonsai-rx.org/machinelearning/), or the [docfx documentation](https://dotnet.github.io/docfx/) for more information. These steps are listed in order of appearance in `docfx.json`.
 
 #### Hide obsolete operators
-Add a [`filter`](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) attribute to hide obsolete operators from the package docs. In the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
+
+Add a [`filter`](https://dotnet.github.io/docfx/docs/dotnet-api-docs.html#filter-apis) property to hide obsolete operators from the package docs. In the process of upgrading packages we want to avoid documenting operators that are no longer supported (but are still included for compatibility purposes for old workflows). You can also hide private classes that are not supposed to be shown to the end user. 
 
 ```yml
 "metadata": [
@@ -159,22 +162,22 @@ apiRules:
       uid: System.ObsoleteAttribute
 ```
 
-Exclude these files from content to avoid duplicate errors.
+#### Enable separate member pages and declaration order for enums
+
+The `separatePages` property enhances the readability of technical reference pages by removing unnecessary code snippets and restructuring the table of contents. The `declaringOrder` property ensures that `enums` are listed in the order they are declared in the source code, matching the order of operator property fields in the Bonsai editor.
 
 ```json
-"build": {
-    "content": [
-        "exclude": [
-            "_site/**",
-            "filter.yml",
-            "apidoc/**"
-        ]
-    ]
-}
+"metadata": [
+    {
+      "enumSortOrder": "declaringOrder",
+      "memberLayout": "separatePages"
+    }  
+]
 ```
 
 #### Enable operator articles
-Add the `overwrite` attribute to ensure [individual operator articles](./documentation-style-guide.md) stored in the `apidoc` folder are included in both articles and API docs.
+
+Add the `overwrite` property to ensure [individual operator articles](./documentation-style-guide.md) stored in the `apidoc` folder are included in both articles and API docs.
 
 ```json
 "build": {
@@ -192,45 +195,69 @@ Add the `overwrite` attribute to ensure [individual operator articles](./documen
 }
 ```
 
-#### Add resource files
-Modify the `resource` attribute to include files that need to be imported.
+#### Exclude files from website content
+
+Exclude these files from the `content` config to avoid duplicate errors.
 
 ```json
-"resource": {
-    "files": [
-        "logo.svg",
-        "favicon.ico",
-        "images/**",
-        "workflows/**"
+"build": {
+    "content": [
+        "exclude": [
+             "_site/**",
+             "filter.yml",
+             "apidoc/**"
+        ]
     ]
 }
 ```
 
-#### Apply modern template
-Modify the `template` attribute to use the modern template and apply the `docfx-tools` custom templates to enable workflow containers.
+#### Add resource files
+
+Modify the `resource` config to include files that need to be imported.
 
 ```json
-"template": [
-    "default",
-    "modern",
-    "bonsai/template",
-    "template"
-]
+"build": {
+    "resource": {
+        "files": [
+            "images/**",
+            "workflows/**"
+        ]
+    }
+}
+```
+
+#### Apply modern template
+
+Modify the `template` config to use the modern template and apply the `docfx-tools` custom templates to enable workflow containers.
+
+```json
+"build": {
+    "template": [
+        "default",
+        "modern",
+        "bonsai/template",
+        "template"
+    ]
+}
 ```
 
 #### Update global metadata
-Modify the `globalMetadata` attribute to change package name and add the `_appFooter` attribute and description.
+
+Modify the `globalMetadata` config to change package name and add the `_appFooter` property and description.
 
 ```json
-"globalMetadata": {
-    "_appName": "Bonsai - PackageName",
-    "_appTitle": "Bonsai.PackageName",
-    "_appFooter": "&copy; 2024 Bonsai Foundation CIC and Contributors. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a>"
+"build": {
+    "globalMetadata": {
+        "_appName": "Bonsai - PackageName",
+        "_appTitle": "Bonsai.PackageName",
+        "_appFooter": "&copy; 2024 Bonsai Foundation CIC and Contributors. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a>"
+    }
 }
 ```
 
 #### Enable custom extensions and xref
-Add the `markdownEngineProperties` attribute to enable [markdig](https://github.com/xoofx/markdig)(docfx markdown processor) extensions for additional markdown functionality. 
+
+Add the `markdownEngineProperties` config to enable [markdig](https://github.com/xoofx/markdig)(docfx markdown processor) extensions for additional markdown functionality. 
 
 ```json
 "build": {
@@ -243,7 +270,7 @@ Add the `markdownEngineProperties` attribute to enable [markdig](https://github.
 }
 ```
 
-Add the `xref` attribute to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with `docfx` documentation, add their `xrefmap.yml` here as well.
+Add the `xref` config to cross reference classes from the Bonsai library (if you use them to build your package). If you have used other libraries with `docfx` documentation, add their `xrefmap.yml` here as well.
 
 ```json
 "build": {
@@ -268,6 +295,7 @@ Once you are satisfied with the website, publish to [GitHub Pages](https://docs.
 > To ensure that the Bonsai Editor can link to the reference documentation for package operators, make sure that the `PackageProjectUrl` in either the `.csproj` file or the `Directory.Build.props` file points to the URL for the documentation website.
 
 ## Version control cleanup
+
 To keep your online GitHub repository clean, you can use `.gitignore` files to ignore files or documentation which are automatically generated and do not need to be version controlled. Add each item as a separate line to the appropriate `.gitignore` file in each location.
 
 ```
@@ -300,11 +328,23 @@ Workflow images are automatically exported as SVG files by the [docfx-tools](htt
 To generate the images locally for the `docfx` preview, navigate to the `docs` folder and run this command (make sure `build.ps1` has been modified to point to the correct package folder in `src`):
 
 ```powershell
+powershell -ExecutionPolicy Bypass -File .\build.ps1
+```
+
+> [!TIP]
+> If you frequently run this script and want to avoid specifying the execution policy each time, you can change the execution policy for your user account by running:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+After doing this, you can run:
+
+```powershell
 ./build.ps1
 ```
 
 If any of the nodes are greyed out in the generated SVG, then additional packages need to be installed in the local bonsai environment by using the package manager.
-
 
 ## Troubleshooting
 
@@ -318,7 +358,13 @@ If you are running the local preview `dotnet docfx --serve` and not seeing chang
 
 1. Make sure that any changes you have made in your code editor are saved.
 2. Hard refresh pages in the browser using either `Ctrl`+`Shift`+`R` and `Ctrl`+`F5` or clear the cache to avoid cache issues.
-3. As a last resort - check that the content updates online by [publishing your website](#publishing-to-github-pages).
+3. Serve the website from a different port: 
+
+```powershell
+dotnet docfx --serve -p 8090
+```
+
+4. As a last resort - check that the content updates online by [publishing your website](#publishing-to-github-pages).
 
 #### Differences between local and online builds
 
