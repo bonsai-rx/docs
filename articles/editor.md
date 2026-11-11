@@ -80,17 +80,16 @@ If you leave one or more visualizers open when you stop the workflow, the editor
 
 ### Annotations
 
-As workflows become more complex, it can be helpful to add labels, comments, or detailed instructions. Bonsai provides a unique [`Annotation`](xref:Bonsai.Expressions.AnnotationBuilder) operator that can be placed on its own or attached to individual nodes and workflow sections. Annotations can be written in plain text or in [Markdown](https://www.markdownguide.org/), a simple formatting language that makes it easy to add rich content such as [headings, lists, links and images](https://www.markdownguide.org/basic-syntax/). 
+As workflows become more complex, it can be helpful to add labels, comments, or detailed instructions. The [`Annotation`](xref:Bonsai.Expressions.AnnotationBuilder) operator adds text to the workflow, and can be placed on its own or connected to a node to document it. Annotations can be written in plain text or in [Markdown](https://www.markdownguide.org/), a simple formatting language for adding rich content such as [headings, lists, links and images](https://www.markdownguide.org/basic-syntax/).
 
-![Annotations](../images/editor-annotation.png)
+![Editor Annotation Panel](../images/editor-annotation.png)
 
-To use annotations, search for the [`Annotation`](xref:Bonsai.Expressions.AnnotationBuilder) operator in the toolbox and add it to the workflow. You can rename the annotation in the property grid. To open the text editor, right-click the operator and select `Show Default Editor`. Double-click the operator to view the formatted annotation. Like other operators, annotations are part of the workflow and are saved in the `.bonsai` file.
+To add an annotation, search for the [`Annotation`](xref:Bonsai.Expressions.AnnotationBuilder) operator in the toolbox and add it to the workflow. You can rename the annotation by setting its `Name` property in the `Properties` panel. To edit the text, right-click the operator and select `Show Default Editor...`. Double-click the operator to view the formatted annotation.
 
-> [!Warning]
-> Images are not saved in the `.bonsai` file. To ensure accessibility when linking images, consider keeping them in the same folder as the workflow.
+Like other operators, annotations are part of the workflow and their text is saved in the `.bonsai` file. Linked images are not saved with it, so keep image files in the same folder as the workflow and refer to them by a relative path.
 
 > [!Tip]
-> In contrast to other operators, the [`Annotation`] operator will occupy a full row in the `Workflow` panel when placed on its own. This makes it useful as a section divider in complex workflows.
+> Unconnected operators are normally laid out together in a single row of the `Workflow` panel. An annotation placed on its own occupies a full row instead, which makes it useful as a section divider in complex workflows.
 
 ### Workflow Extensions
 
